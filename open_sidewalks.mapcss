@@ -1,0 +1,69 @@
+meta {
+    title: "OpenSidewalks";   /* title shown in the menu */
+    icon: "https://github.com/species/josm-preset-wheelchair/raw/master/footway-wheelchair.png"; /* small icon shown in the menu next to the title */
+    version: "0.1.0";           
+    description: "Styles to elevate pedestrian sidewalk, crossing, and curb data edited for the OpenSidewalks schema: https://www.opensidewalks.com/  and also to visualize some common semantic erros when mapping pedestrian data";      
+    author: "Lane Felker ";
+    /* link: "http://...";       URL to the web page of the style */
+    link: "https://import.opensidewalks.com/seattle/opensidewalks.mapcss";
+    min-josm-version: 8000;   /* Dont acually know, the minimum JOSM version where this style works */
+}
+
+way[footway=crossing] {
+    width: 5;
+    color: blue;
+}
+
+way[footway=sidewalk] {
+    width: 5;
+    color: green;
+}
+
+node[kerb=lowered] {
+	symbol-shape: square; 
+    symbol-size: 8; 
+    symbol-fill-color: #f47d42; 
+}
+
+node[kerb=flush] {
+    symbol-shape: square; 
+    symbol-size: 8; 
+    symbol-fill-color: #f47d42; 
+}
+
+node[tactile_paving=yes] {
+    symbol-shape: square; 
+    symbol-size: 8; 
+    symbol-fill-color: #f4eb41;
+}
+
+way[crossing=zebra] {
+	color: blue;
+	dashes: 15,9;
+    dashes-background-color: #41f1f4;
+}
+
+way[crossing=marked] {
+    color: blue;
+    dashes: 15,9;
+    dashes-background-color: #41f1f4;
+}
+
+node[highway=crossing] {
+	symbol-shape: circle; 
+    symbol-size: 8; 
+    symbol-fill-color: #f44141; 
+}
+
+way[highway=footway][footway=sidewalk][sidewalk=link] {
+    width: 5;
+    color: #f4a442;
+}
+
+way[highway=footway][footway=crossing] > node {set node_on_crossing}
+way[highway!=footway] > node {set node_on_highway}
+node[crossing!=highway].node_on_crossing.node_on_highway {
+    symbol-shape: circle; 
+    symbol-size: 20; 
+    symbol-fill-color: #ef0017; 
+}
