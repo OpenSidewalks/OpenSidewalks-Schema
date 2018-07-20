@@ -36,9 +36,12 @@ node[tactile_paving=yes] {
     symbol-fill-color: #f4eb41;
 }
 
+/* TODO: use a regex to find semicolon-delimited options? */
 way[crossing=zebra],
 way[crossing=marked],
-way[crossing=uncontrolled] {
+way[crossing=uncontrolled],
+way[crossing="uncontrolled;zebra"],
+way[crossing="zebra;uncontrolled"] {
     color: blue;
     dashes: 15,9;
     dashes-background-color: #41f1f4;
