@@ -3,7 +3,7 @@ meta {
     icon: "https://github.com/species/josm-preset-wheelchair/raw/master/footway-wheelchair.png";
     version: "0.1.0";
     description: "Styles to elevate pedestrian sidewalk, crossing, and curb data edited for the OpenSidewalks schema: https://www.opensidewalks.com and also to visualize some common semantic erros when mapping pedestrian data";
-    author: "Lane Felker";
+    author: "Lane Felker and Nick Bolten";
     link: "https://github.com/OpenSidewalks/open_sidewalks.mapcss";
     min-josm-version: 8000;
 }
@@ -36,13 +36,9 @@ node[tactile_paving=yes] {
     symbol-fill-color: #f4eb41;
 }
 
-way[crossing=zebra] {
-    color: blue;
-    dashes: 15,9;
-    dashes-background-color: #41f1f4;
-}
-
-way[crossing=marked] {
+way[crossing=zebra],
+way[crossing=marked],
+way[crossing=uncontrolled] {
     color: blue;
     dashes: 15,9;
     dashes-background-color: #41f1f4;
