@@ -19,20 +19,30 @@ way[footway=sidewalk] {
 }
 
 node[kerb=lowered] {
-    symbol-shape: square;
-    symbol-size: 8;
-    symbol-fill-color: #f47d42;
+    symbol-shape: triangle;
+    symbol-size: 16;
+    symbol-fill-color: #11ff00;
+    symbol-stroke-color: #000000;
+    symbol-stroke-width: 1;
 }
 
 node[kerb=flush] {
+    symbol-shape: circle;
+    symbol-size: 14;
+    symbol-fill-color: #11ff00;
+    symbol-stroke-color: #000000;
+    symbol-stroke-width: 1;
+}
+
+node[kerb=raised] {
     symbol-shape: square;
-    symbol-size: 8;
-    symbol-fill-color: #f47d42;
+    symbol-size: 10;
+    symbol-fill-color: #f44e42;
+    symbol-stroke-color: #000000;
+    symbol-stroke-width: 1;
 }
 
 node[tactile_paving=yes] {
-    symbol-shape: square;
-    symbol-size: 8;
     symbol-fill-color: #f4eb41;
 }
 
