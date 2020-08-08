@@ -38,17 +38,17 @@ uses identical conventions for describing its data: nodes, ways, and tags.
 ### tags
 
 Tags are key-value pairs used to annotate metadata about the other data primitives.
-Both keys and values are typically textual, such as "highway" and "footway" in the
-`key=value` pair of `highway=footway`. By convention, tags are referred to by their
+Both keys and values are typically textual, such as "subclass" and "footway" in the
+`key=value` pair of `subclass=footway`. By convention, tags are referred to by their
 parent `key=value` pairs, so to discuss footways one might start a topic on
-`highway=footway`.
+`subclass=footway`.
 
 Keys are an enum: they are pre-specified and only predefined keys should be used unless
 the schema is being extended for local or research purposes. The vast majority of
 values are also enums: prescribed categories of textual values. Some values may be
 numeric, such as the width of a sidewalk.
 
-Tags may follow nesting structures by conventions. For example, `highway=footway`
+Tags may follow nesting structures by conventions. For example, `subclass=footway`
 defines a footway and `footway=sidewalk` designates that the type of footway is a
 sidewalk. The strategy of reusing values as keys to further specify the category of
 the primary tag is known as subtagging. Another nesting strategy is to use namespaces,
@@ -88,22 +88,22 @@ paths. Ways represent their geographical structures (lines, polygons) through
 reference to an ordered set of `nodes` and tagging conventions.
 
 Ways take on semantics for mapping through the addition of tags: all ways should have
-at least one primary `highway` tag.
+at least one primary `subclass` tag.
 
 Ways must have these properties:
 
 - A way identifier (ID).
 - An ordered set of node references (node IDs).
-- A `highway` tag of an allowed `subclass`.
+- A `subclass` tag.
 
 ## Data definitions
 
-### highways
+### subclasses / highways
 
 This category derives from the OpenStreetMap "highway" convention and is the primary
 signifier of all traversible paths. `highway` types are referred to using the
-`subclass` layer. Pedestrians can use a wide range of `highways`, even if they are not
-the primary intended traffic, so several `highway` classes are defined for
+`subclass` layer. Pedestrians can use a wide range of `highways`, even if they are  not
+the primary intended traffic, so several `subclasses` classes are defined for
 OpenSidewalks:
 
 - Streets for vehicles: streets where the primary traffic is vehicles like cars or
@@ -115,218 +115,72 @@ trucks.
 
 - Designated footways: foot paths and sidewalks.
 
-The full set of tags that can be applied to designate `highways` is described in the
-`subclass` layer.
+The full set of tags that can be applied to designate `subclasses` is described in the
+`subclass` field of the transportation layer.
 
-#### highways as linear features
+#### subclasses as linear features
 
-`highways` are usually linear features, similar to `LineStrings` in a GIS context or
+`subclasses` are usually linear features, similar to `LineStrings` in a GIS context or
 `ways` in OpenStreetMap: their geometric or geographic representation refers to an
 ordered set of coordinates, so they have both a shape and a direction along which they
 are drawn: a start coordinate, an end coordinate, and intervening coordinates to
 connect them.
 
-#### Special case: highways as areas
+#### Special case: subclasses as areas
 
 Representing pedestrian spaces with polygonal data is less common, but still useful
 data. Examples where this is currently widely appropriate are plazas and large
 pedestrian streets. There is no standard approach by which these data are turned into
 routable structures, however, so for mapping useful information we recommend
-"double tagging": map areas and some canonical linear highways through them.
+"double tagging": map areas and some canonical linear subclasses through them.
 
 ## Data interactions
 
-### highways as routable (graph) features
+### subclasses as routable (graph) features
 
-When treated as a graphical representations, a linear `highway` can be thought of as
+When treated as a graphical representations, a linear `subclass` can be thought of as
 its own small graph: the coordinates are nodes and connections between them are edges.
 `nodes` will be referred to frequently in the OpenSidewalks schema, referring to unique
-coordinates that may be part of a linear `highway` and have unique properties (tags) of their own.
+coordinates that may be part of a linear `subclass` and have unique properties (tags)
+of their own.
 
-To be meaningful for routing purposes, `highways` should be connected. When represented
-by a graph data structure (as in OpenStreetmap), this means that every `highway` should
-share at least one coordinate pair (node) with another `highway`, ideally with
-coordinate pairs receiving a unique identifier (node reference). In a routing context,
-`highway` data structures will be split whenever an internal coordinate is shared by
-another `highway`.
+To be meaningful for routing purposes, `subclasses` should be connected. When
+represented by a graph data structure (as in OpenStreetmap), this means that every
+`subclass` should share at least one coordinate pair (node) with another `subclass`,
+ideally with coordinate pairs receiving a unique identifier (node reference). In a
+routing context, `subclass` data structures will be split whenever an internal
+coordinate is shared by another `highway`.
 
 ### Mapping pedestrian paths
 
-### connecting highways with different intended forms of traffic
+### connecting sbuclasses with different intended forms of traffic
 
-Pedestrians interface with `highways` that serve a variety of transportation options
+Pedestrians interface with `subclasses` that serve a variety of transportation options
 as their primary traffic: pedestrians, cars, trucks, trains, and other large vehicles.
-When pedestrian `highways` cross other `highways` on the same z-level, as in they
+When pedestrian `subclasses` cross other `subclasses` on the same z-level, as in they
 physically intersect one another, they should share a node.
 
 ## Schema Layers
 
 ### `transportation`
 
-This is the only way/linestring-based layer currently used by AccessMap, and it is a
-direct extension of the OpenMapTiles schema.
+The transportation layer includes the entire pedestrian transportation network,
+including primary pedestrian paths, mixed-use paths, and street paths as backup
+infrastructure. All transportation layer elements are ways (LineStrings).
+
+This layer extends the layer of the same name in the OpenMapTiles schema to include
+more pedestrian-specific information.
 
 #### Fields
 
-##### `description`
-
-*Unique to OpenSidewalks*
-
-This is *not* from the original OpenStreetMap data, but is a free-form text field
-derived from spatial and other metadata, e.g. using street data one might have a
-description of "NE of Main St".
-
-##### `footway`
-
-*Unique to OpenSidewalks*
-
-The original value for `footway` on OpenStreetMap. This allows differentiation between
-different classes of footway. Possible values:
-
-- `crossing`
-- `sidewalk`
-
-##### `crossing`
-
-*Unique to OpenSidewalks*
-
-Values for the `crossing` key in OpenStreetMap as applied to ways. This is not the
-original value, as there is fragmentation in tagging standards regarding marked
-crossings and they all roughly mean the same thing. Therefore, `uncontrolled` and `
-zebra` are all converted to `marked`. Possible values:
-
-- `marked`
-- `unmarked`
-
-##### `kerb_raised`
-
-*Unique to OpenSidewalks*
-
-This is an inferred quantity based on either network analysis or spatial proximity of
-a crossing to lowered curbs, and should be interpreted as indicating that using this
-path requires crossing over a raised curb interface. This quantity is useful for
-visualization - which paths required traversing a curb? Possible values:
-
-- 1
-- 0
-
-##### `incline`
-
-*Unique to OpenSidewalks*
-
-This is *not* the original OpenStreetMap tag for incline, which would indicate the
-maximum incline over a path, but is instead an estimated minimum incline based on DEM
-data over the length of the path. The original OpenStreetMap `incline` tag is fairly
-rare on footways to begin with. The value represents a "rise over run" estimate, i.e.
-a fraction of elevation gain/loss versus distance, and is directional: a negative value
-indicates downhill in the direction of the way whereas a positive value indicates
-uphill.
-
-##### `surface`
-
-*Unique to OpenSidewalks*
-
-This is the original `surface` key in the OpenStreetMap data. It indicates the surface
-of the way being traversed, such as concrete vs. grass. Possible values:
-
-- `asphalt`
-- `concrete`
-- `gravel`
-- `grass`
-- `paved`
-- `paving_stones`
-- `unpaved`
-
-##### `length`
-
-*Unique to OpenSidewalks*
-
-This is the calculated length of the way, in meters, according to the Haversine
-formula (Great-Circle Distance). This calculation is typically left up to consumers of
-geometry data, as the geometry is, itself, furnished for geometrical analysis. This
-is likely how AccessMap should also handle these data, but for now `length` is
-precalculated.
-
-##### `foot`
-
-*Unique to OpenSidewalks*
-
-Original value of the `foot` key if it is set to yes or no. Possible values:
-
-- 1
-- 0
-
-##### `opening_hours`
-
-*Unique to OpenSidewalks*
-
-Original value of the `opening_hours` tag.
-
-##### `elevator`
-
-*Unique to OpenSidewalks*
-
-Whether the path uses an elevator for vertical movement, e.g. building paths. Possible values:
-
-- 1
-- 0
-
-##### `width`
-
-*Unique to OpenSidewalks*
-
-Original value of the `width` tag if it has no units (unit conversion not yet
-supported) - implied unit is meters.
-
-##### `layer`
-
-The original layer tag on OpenStreetMap, this refers to the relative z-order of map
-elements. This is an integer that can be negative, so e.g. layer=0 is above layer=-1.
-
-##### `service`
-
-The original value of the service tag on OpenStreetMap, this refers to service ways,
-which includes driveways, parking lots, and alleys. Possible values:
-
-- `alley`
-- `crossover`
-- `driveway`
-- `parking_aisle`
-- `siding`
-- `spur`
-- `yard`
-
-##### `level` (not used)
-
-This is not yet used, but should be in future specs. It is an integer indicating the
-associated building level of a feature, including footways - e.g. a pathway around part
-of a building.
-
-##### `brunnel`
-
-This contains information on the bridge/tunnel/ford tags. Possible values:
-
-- `bridge`
-- `ford`
-- `tunnel`
-
-##### `indoor`
-
-Whether the pathways is indoor or not (this is not yet implemented). Possible values
-are stated to be '1' in the OpenMapTiles spec - presumably the key doesn't exist at all
-if indoor=no. Possible values:
-
-- `1`
-
-##### `ramp` (not used)
-
-This is an ambiguous / undefined tag for pedestrian ways and is *not* currently used by
-Accessmap. We do not use this OpenMapTiles field.
-
 ##### `subclass`
 
-The `highway=*` subclass of the displayed way. Many values are accepted, enumerated
-below by primary intended use case:
+*From OpenStreetMap*
+
+The OpenStreetMap `highway=*` subclass of the displayed way. Many values are accepted,
+enumerated below by primary intended use case.
+
+###### *Enumerated values*:
 
 ###### `cyclists`:
 
@@ -351,20 +205,297 @@ below by primary intended use case:
 
 There are plans to add `corridor` for indoor routing.
 
-### `barriers`
+##### `footway`
+
+*From OpenStreetMap*
+
+The original value for `footway` on OpenStreetMap. This allows differentiation between
+different classes of footway.
+
+###### *Value type*: `enum`
+
+###### *Enumerated values*:
+
+- `crossing`: A street crossing
+- `sidewalk`: A sidewalk
+- `link` (experimental) A path linking primary ways, e.g. a sidewalk to a street
+crossing.
+
+##### `crossing`
+
+*From OpenStreetMap*
+
+Type of street crossing - marked or unmarked. When derived from OpenStreetMap data,
+the `crossing` key undergoes various conversions due to fragmentation. Both the
+`uncontrolled` and `zebra` values are converted into `marked` and the `traffic_signals`
+value is ignored.
+
+###### *Value type*: `enum`
+
+###### *Enumerated values*:
+
+- `marked`: a marked crossing
+- `unmarked`: an unmarked crossing
+
+##### `description`
 
 *Unique to OpenSidewalks*
 
-This is a layer not found in the OpenMapTiles spec that should, ideally, be contributed
-back into separate appropriate layers. It is focused on pedestrian features that pose
-potential barriers (though depending on the values, some are helpful infrastructure).
-Note that all features in the `barriers` layer are points.
+This may be a field inferred from other data.
+
+A free form text field for describing a path. May be pre-encoded in relevant pedestrian
+paths to assist with routing instructing or investigation of map features. For
+example, a description of the sidewalk in relation to a nearby street may be a useful
+textual description, such as "NE of Main St." Can also be considered a flexible
+location to embed arbitrary information for specific usecases.
+
+###### *Value type*: `text`
+
+##### `name`
+
+*From OpenStreetMap*
+
+The (semi-)official name of a pathway. *Not* a description of the path. For example,
+this would be the street name for a street path or a specially-designated name for a
+famous footpath.
+
+###### *Value type*: `text`
+
+##### `kerb_raised`
+
+*Unique to OpenSidewalks*
+
+This is an inferred quantity based on either network analysis or spatial proximity of
+a crossing to lowered curbs, and should be interpreted as indicating that using this
+path requires crossing over a raised curb interface. This quantity is useful for
+visualization - which paths required traversing a curb?
+
+###### *Value type*: `enum`
+
+###### *Enumerated values*:
+
+- `1`
+- `0`
+
+##### `incline`
+
+*From OpenStreetMap*
+
+The estimated incline over a particular path, i.e. slope, i.e. grade, i.e. rise over
+run. If derived from OpenStreetMap data, this is the maximum incline over the path. If
+derived from DEM data, it is more likely to be an underestimation. Positive values
+indicate an uphill climb while negative are downhill. For example, a 45 degree
+downhill value for `incline` would be -1.0.
+
+###### *Value type*: `numeric`
+
+##### `surface`
+
+*From OpenStreetMap*
+
+The surface material of the path. Derived directly from the `surface` tag from
+OpenStreetMap.
+
+###### *Value type*: `enum`
+
+###### *Enumerated values*:
+
+- `asphalt`
+- `concrete`
+- `gravel`
+- `grass`
+- `paved`
+- `paving_stones`
+- `unpaved`
+
+##### `length`
+
+*From OpenStreetMap*
+
+This is the calculated length of the way, in meters, according to the Haversine
+formula (Great-Circle Distance). This calculation is typically left up to consumers of
+geometry data, as the geometry is, itself, furnished for geometrical analysis. This
+is likely how AccessMap should also handle these data, but for now `length` is
+precalculated.
+
+###### *Value type*: `numeric`
+
+##### `foot`
+
+*From OpenStreetMap*
+
+Original value of the `foot` key if it is set to yes or no.
+
+###### *Value type*: `enum`
+
+###### *Enumerated values*:
+
+- `1`
+- `0`
+
+##### `opening_hours`
+
+*From OpenStreetMap*
+
+The opening hours of the network element. This may apply to, for example, a path that
+is inside a building. The value is in OpenStreetMap syntax for the `opening_hours` tag.
+
+###### *Value type*: `opening_hours`
+
+##### `elevator`
+
+*Unique to OpenSidewalks*
+
+Whether the path uses an elevator for vertical movement, e.g. building paths.
+
+###### *Value type*: `boolean`
+
+###### *Enumerated values*:
+
+- `1`
+- `0`
+
+##### `width`
+
+*From OpenStreetMap*
+
+The with of the path in meters.
+
+###### *Value type*: `numeric`
+
+##### `layer`
+
+*From OpenStreetMap*
+
+The relative z-order of map elements. Useful for both rendering and detecting
+spatial intersections - paths of different `layer` values can intersect without
+sharing a node. Values are integers that can be negative (for underground), with the
+implied default being `layer=0`.
+
+###### *Value type*: `integer`
+
+##### `service`
+
+*From OpenStreetMap*
+
+Service ways, usually for mixed traffic. This includes driveways, parking lots, and
+alleys.
+
+###### *Value type*: `enum`
+
+###### *Enumerated values*:
+
+- `alley`
+- `driveway`
+- `parking_aisle`
+
+##### `brunnel`
+
+*From OpenStreetMap*
+
+A tag indicating that a path is part of a bridge, tunnel, or ford.
+
+###### *Value type*: `enum`
+
+###### *Enumerated values*:
+
+- `bridge`
+- `ford`
+- `tunnel`
+
+##### `indoor`
+
+*From OpenStreetMap*
+
+Whether the pathway is indoor or not.
+
+###### *Value type*: `boolean`
+
+###### *Enumerated values*:
+
+- `1`
+
+#### Experimental Fields
+
+##### `smoothness` (experimental)
+
+*From OpenStreetMap*
+
+A (currently subjective) classification scheme regarding the smoothness of a path for
+use by wheeled devices.
+
+###### *Value type*: `enum`
+
+###### *Enumerated values*:
+
+- `excellent`
+- `good`
+- `intermediate`
+- `bad`
+
+##### `ramp` (experimental)
+
+A dedicated pedestrian ramp feature, such as a wheelchair ramp. The schema for this
+tag is highly experimental and subject to change.
+
+###### *Value type*: `enum`
+
+###### *Enumerated values*:
+
+- `1`: indicates the presene of a ramp.
+- `0`: not a ramp. Only for use when a ramp might be implied by other tags.
+- `wheelchair`: a designated wheelchair ramp.
+
+##### `level` (experimental)
+
+*From OpenStreetMap*
+
+The building level with which a path is associated. For example, a path on a large
+patio of a building. Can be any integer value that exists for an associated building.
+
+###### *Value type*: `integer`
+
+##### `intersection_type` (experimental)
+
+*Unique to OpenSidewalks*
+
+This is intended to be an inferred property, not directly mapped.
+
+The type of intersection with which a network element is associated.
+
+###### *Value type*: `enum`
+
+###### *Enumerated values*:
+
+- `roundabout`: this path is associated with a roundabout-style intersection
+
+### `barrier`
+
+This layer contains potential barriers along the pedestrian transportation network.
+They should share a node with at least one pathway in the `transportation` layer. All
+`barrier` layer features are node (Point) data.
 
 #### Fields
 
+##### `barrier`
+
+A physical structure which blocks or impedes movement.
+
+###### *Value type*: `enum`
+
+###### *Enumerated values*:
+
+- `kerb`
+
 ##### `kerb`
 
-The value of the original kerb tag. Possible values:
+*From OpenStreetMap*
+
+The value of the original kerb tag.
+
+###### *Value type*: `enum`
+
+###### *Enumerated values*:
 
 - `flush`
 - `lowered`
@@ -373,7 +504,111 @@ The value of the original kerb tag. Possible values:
 
 ##### `tactile_paving`
 
-The value of the original `tactile_paving` tag. Possible values:
+*From OpenStreetMap*
+
+The value of the original `tactile_paving` tag.
+
+###### *Value type*: `boolean`
+
+###### *Enumerated values*:
 
 - 1
 - 0
+
+### `buildings`
+
+This layer contains building polygons and related metadata.
+
+#### Fields
+
+##### `building`
+
+*From OpenStreetMap*
+
+The particular type of building. If no particular type is specified, any polygon in
+this layer is implied to be a building, i.e. `building=yes` in OpenStreetMap.
+
+###### *Value type*: `enum`
+
+###### *Enumerated values*:
+
+- `apartments`
+- `commercial
+- `hotel`
+- `house`
+- `residential`
+
+- `church`
+- `mosque`
+- `synagogue`
+- `temple`
+
+##### `opening_hours`
+
+*From OpenStreetMap*
+
+The opening hours of the building. The value is in OpenStreetMap syntax for the
+`opening_hours` tag.
+
+###### *Value type*: `opening_hours`
+
+
+### `points` (experimental)
+
+This layer is an experimental dumping ground for currently uncategorized point data.
+Features and tags defined in this layer will be placed in new, semantically-consistent
+layers are the schema is further developed.
+
+#### Fields
+
+##### `amenity`
+
+*From OpenStreetMap*
+
+Point features serving particular functional purposes.
+
+###### *Value type*: `enum`
+
+###### *Enumerated values*:
+
+- `bench`
+- `drinking_water`
+- `fountain`
+- `telephone`
+- `waste_basket`
+
+##### `power`
+
+*From OpenStreetMap*
+
+A power pole.
+
+###### *Value type*: `enum`
+
+###### *Enumerated values*:
+
+- `pole`
+
+##### `public_transport`
+
+*From OpenStreetMap*
+
+A public transit pole, such as a bus stop sign.
+
+###### *Value type*: `enum`
+
+###### *Enumerated values*:
+
+- `pole`
+
+##### `emergency`
+
+*From OpenStreetMap*
+
+A fire hydrant.
+
+###### *Value type*: `enum`
+
+###### *Enumerated values*:
+
+- `fire_hydrant`
