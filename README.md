@@ -153,7 +153,7 @@ coordinate is shared by another `highway`.
 
 ### Mapping pedestrian paths
 
-### connecting sbuclasses with different intended forms of traffic
+### connecting subclasses with different intended forms of traffic
 
 Pedestrians interface with `subclasses` that serve a variety of transportation options
 as their primary traffic: pedestrians, cars, trucks, trains, and other large vehicles.
@@ -276,6 +276,18 @@ visualization - which paths required traversing a curb?
 
 - `1`
 - `0`
+
+##### `car_speed`
+
+*Unique to OpenSidewalks*
+
+This is an inferred quantity based on either network analysis or spatial proximity of
+a sidewalk to a nearby road, and should be interpreted as indicating that using this
+path a pedestrian may be adjacent to vehicles traveling at the speed indicated. 
+This quantity is useful for visualization or in the scoring of Level of Traffic Stress 
+experienced by pedestrians or bicyclists traveling along this sidewalk.
+
+###### *Value type*: `numeric`
 
 ##### `incline`
 
