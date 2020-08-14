@@ -413,7 +413,9 @@ Whether the pathway is indoor or not.
 
 ###### *Enumerated values*:
 
+
 - `1`
+- `0`
 
 #### Experimental Fields
 
@@ -512,8 +514,8 @@ The value of the original `tactile_paving` tag.
 
 ###### *Enumerated values*:
 
-- 1
-- 0
+- `1`
+- `0`
 
 ### `buildings`
 
