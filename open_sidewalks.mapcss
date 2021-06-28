@@ -66,8 +66,13 @@ way[highway=footway][footway=sidewalk][sidewalk=link] {
     color: #f4a442;
 }
 
+/* set nodes on any crossing way as road crossing candidate */
 way[highway=footway][footway=crossing] > node {set node_on_crossing}
-way[highway!=footway] > node {set node_on_highway}
+/* set nodes on any non-footway non-cycleway as road crossing candidate */
+way[highway!=footway][highway!=cycleway] > node {set node_on_highway}
+/* set nodes on any cycleway without foot or foot set to no as road crossing candidate */
+way[highway=cycleway][!foot] > node {set node_on_highway}
+/* flag error on any road and crossing intersection nodes without highway=crossing on the node */
 node[crossing!=highway].node_on_crossing.node_on_highway {
     symbol-shape: circle;
     symbol-size: 20;
