@@ -1,0 +1,13 @@
+{
+  "devDependencies": {
+    "prettier": "^2.5.1",
+    "typescript": "^4.5.5"
+  },
+  "scripts": {
+    "build-schema": "typescript-json-schema --required --noExtraProps ./tsconfig.json \"OpenSidewalksFeatureCollection\" > ../opensidewalks.schema.json"
+  },
+  "dependencies": {
+    "@types/geojson": "^7946.0.8",
+    "typescript-json-schema": "^0.53.0"
+  }
+}

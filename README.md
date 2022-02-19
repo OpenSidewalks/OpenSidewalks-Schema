@@ -133,7 +133,7 @@ a plain [Footway](#pathway-footway).
 #### Curb interfaces and curb ramps are mapped at Pathway endpoints
 
 Curb interface Points should be mapped directly at the endpoint(s) of
-one or more Pathway(s): they are features encountered along a path and
+one or more Pathway(s): they are features encountered along a pathway and
 should be considered important information when simulating a pedestrian
 moving from one Pathway to another. A curb or curb ramp Point
 
@@ -144,9 +144,9 @@ topological data along with metadata that defines the entity type and
 optional metadata fields that are mappable to non-nested key-value
 pairs. As such, OpenSidewalks Schema data can be (de)serialized into a
 number of tabular and non-tabular GIS and graph formats. There exists
-both a [reference GeoJSON
-serialization](https://github.com/AccessMap/accessmap-incremental/tree/main/osm_opensidewalks/osm_osw)
-codebase for the OpenSidewalks Schema as well as a PostgreSQL schema.
+both a [reference JSON Schema for a GeoJSON
+serialization](./opensidewalks.schema.json) codebase for the OpenSidewalks
+Schema as well as a PostgreSQL schema.
 
 # <a name="list-of-entities"></a> List of Entities
 
@@ -244,10 +244,10 @@ its associated street. Example: "NW side of 5th Ave".
 
 #### Description
 
-The centerline of a pedestrian street crossing. This path exists only on
+The centerline of a pedestrian street crossing. This pathway exists only on
 the road surface itself, i.e. "from curb to curb". Crossings should not
 be connected directly to sidewalk centerlines - instead, a short
-footpath (this schema calls them "links") should connect the two
+footway (this schema calls them "links") should connect the two
 together.
 
 #### Subtype of
@@ -272,11 +272,11 @@ All [optional fields of footway](#pathway-footway-optional-fields)
 
 #### Description
 
-The centerline of a footpath traversing a traffic island. Some complex,
+The centerline of a footway traversing a traffic island. Some complex,
 long, or busy pedestrian crossings have a built-up "island" to protect
 pedestrians, splitting up the crossing of the street into two or more
 crossings. As a pedestrian uses this crossing, they will transition
-across these path elements: sidewalk → footway → crossing → traffic
+across these pathway elements: sidewalk → footway → crossing → traffic
 island → crossing → footway → sidewalk.
 
 #### Subtype of
@@ -400,7 +400,7 @@ street](#pathway-primary_street-optional-fields).
 
 #### Description
 
-A road linking small settlements, or the local centres of a large town
+A road linking small settlements, or the local centers of a large town
 or city.
 
 #### Subtype of
@@ -649,7 +649,7 @@ Point
 
 An indicator that there is no raised curb interface where two paths meet
 - i.e. where someone might expect a curb interface, such as where a
-crossing and footpath meet.
+crossing and footway meet.
 
 #### Subtype of
 
@@ -722,7 +722,7 @@ Point
 OpenSidewalks Schema fields are typed key-value pairs. Keys are always strings
 (or symbols) and values can be any of a specific set. Value types include:
 
-- `boolean`: 1 or 0
+- `boolean`: `true` or `false`
 
 - `text`: unlimited length string
 
@@ -757,7 +757,7 @@ location to embed arbitrary information for specific use cases.
 *From OpenStreetMap*
 
 The (semi-)official name of a pathway. *Not* a description of the path.
-For example, this would be the street name for a street path or a
+For example, this would be the street name for a street pathway or a
 specially-designated name for a famous footpath. name="The \[X\] trail",
 for example.
 
@@ -832,8 +832,10 @@ Original value of the foot key if it is set to yes or no.
 *From OpenStreetMap*
 
 The opening hours of the network element. This may apply to, for
-example, a path that is inside a building. The value is in OpenStreetMap
-syntax for the opening\_hours tag.
+example, a pathway that is inside a building. The value is in OpenStreetMap
+syntax for the opening\_hours tag. See [OpenStreetMap
+specification](https://wiki.openstreetmap.org/wiki/Key:opening_hours/specification)
+on the formatting for this field.
 
 ###### *Value type*: opening\_hours
 
@@ -841,24 +843,16 @@ syntax for the opening\_hours tag.
 
 *Unique to OpenSidewalks*
 
-Whether the path uses an elevator for vertical movement, e.g. building
-paths. See [OpenStreetMap
-specification](https://wiki.openstreetmap.org/wiki/Key:opening_hours/specification)
-on the formatting for this field.
+Whether the pathway uses an elevator for vertical movement, e.g. building
+paths.
 
 ###### *Value type*: boolean
-
-###### *Enumerated values*:
-
--   1
-
--   0
 
 ##### <a name="field-width"></a> width
 
 *From OpenStreetMap*
 
-The width of the path in meters.
+The width of a pathway in meters.
 
 ###### *Value type*: numeric
 
@@ -877,7 +871,7 @@ negative (for underground), with the implied default being layer=0.
 
 *From OpenStreetMap*
 
-A tag indicating that a path is part of a bridge, tunnel, or ford.
+A field indicating that an entity is part of a bridge, tunnel, or ford.
 
 ###### *Value type*: enum
 
@@ -893,29 +887,17 @@ A tag indicating that a path is part of a bridge, tunnel, or ford.
 
 *From OpenStreetMap*
 
-Whether the pathway is indoor or not.
+Whether an entity is indoors or not.
 
 ###### *Value type*: boolean
-
-###### *Enumerated values*:
-
--   1
-
--   0
 
 ##### <a name="field-tactile_paving"></a> tactile\_paving
 
 *From OpenStreetMap*
 
-The value of the original tactile\_paving tag.
+Whether a curb ramp or pathway has a tactile (textured) surface.
 
 ###### *Value type*: boolean
-
-###### *Enumerated values*:
-
--   1
-
--   0
 
 ##### <a name="field-crossing"></a> crossing
 

@@ -1,0 +1,2424 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "additionalProperties": false,
+    "definitions": {
+        "Crossing": {
+            "additionalProperties": false,
+            "description": "The centerline of a pedestrian street crossing. This path exists only on the road surface itself, i.e. \"from curb to curb\". Crossings should not be connected directly to sidewalk centerlines - instead, a short footpath (this schema calls them \"links\") should connect the two together.",
+            "properties": {
+                "bbox": {
+                    "anyOf": [
+                        {
+                            "items": [
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                }
+                            ],
+                            "maxItems": 4,
+                            "minItems": 4,
+                            "type": "array"
+                        },
+                        {
+                            "items": [
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                }
+                            ],
+                            "maxItems": 6,
+                            "minItems": 6,
+                            "type": "array"
+                        }
+                    ],
+                    "description": "Bounding box of the coordinate range of the object's Geometries, Features, or Feature Collections.\nThe value of the bbox member is an array of length 2*n where n is the number of dimensions\nrepresented in the contained geometries, with all axes of the most southwesterly point\nfollowed by all axes of the more northeasterly point.\nThe axes order of a bbox follows the axes order of geometries.\nhttps://tools.ietf.org/html/rfc7946#section-5"
+                },
+                "geometry": {
+                    "$ref": "#/definitions/GeoJSON.LineString",
+                    "description": "The feature's geometry"
+                },
+                "id": {
+                    "description": "A value that uniquely identifies this feature in a\nhttps://tools.ietf.org/html/rfc7946#section-3.2.",
+                    "type": [
+                        "string",
+                        "number"
+                    ]
+                },
+                "properties": {
+                    "additionalProperties": false,
+                    "description": "Properties associated with this feature.",
+                    "properties": {
+                        "footway": {
+                            "enum": [
+                                "crossing"
+                            ],
+                            "type": "string"
+                        },
+                        "highway": {
+                            "enum": [
+                                "footway"
+                            ],
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "footway",
+                        "highway"
+                    ]
+                },
+                "type": {
+                    "description": "Specifies the type of GeoJSON object.",
+                    "enum": [
+                        "Feature"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "geometry",
+                "properties",
+                "type"
+            ],
+            "type": "object"
+        },
+        "CurbRamp": {
+            "additionalProperties": false,
+            "description": "A curb ramp (curb cut) mapped as a curb interface. Mapped at the location where the two pathways that it connects meet one another.",
+            "properties": {
+                "bbox": {
+                    "anyOf": [
+                        {
+                            "items": [
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                }
+                            ],
+                            "maxItems": 4,
+                            "minItems": 4,
+                            "type": "array"
+                        },
+                        {
+                            "items": [
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                }
+                            ],
+                            "maxItems": 6,
+                            "minItems": 6,
+                            "type": "array"
+                        }
+                    ],
+                    "description": "Bounding box of the coordinate range of the object's Geometries, Features, or Feature Collections.\nThe value of the bbox member is an array of length 2*n where n is the number of dimensions\nrepresented in the contained geometries, with all axes of the most southwesterly point\nfollowed by all axes of the more northeasterly point.\nThe axes order of a bbox follows the axes order of geometries.\nhttps://tools.ietf.org/html/rfc7946#section-5"
+                },
+                "geometry": {
+                    "$ref": "#/definitions/GeoJSON.Point",
+                    "description": "The feature's geometry"
+                },
+                "id": {
+                    "description": "A value that uniquely identifies this feature in a\nhttps://tools.ietf.org/html/rfc7946#section-3.2.",
+                    "type": [
+                        "string",
+                        "number"
+                    ]
+                },
+                "properties": {
+                    "$ref": "#/definitions/CurbRampFields",
+                    "description": "Properties associated with this feature."
+                },
+                "type": {
+                    "description": "Specifies the type of GeoJSON object.",
+                    "enum": [
+                        "Feature"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "geometry",
+                "properties",
+                "type"
+            ],
+            "type": "object"
+        },
+        "CurbRampFields": {
+            "additionalProperties": false,
+            "description": "Fields that apply to a curb ramp.",
+            "properties": {
+                "brunnel": {
+                    "description": "A field that indicates whether an entity is on a bridge, tunnel, or ford.",
+                    "enum": [
+                        "bridge",
+                        "ford",
+                        "tunnel"
+                    ],
+                    "type": "string"
+                },
+                "kerb": {
+                    "enum": [
+                        "lowered"
+                    ],
+                    "type": "string"
+                },
+                "layer": {
+                    "description": "A field that indicates the z-layer (integer) on which a pathway lies. If unset, a value of 0 is implied. Negative values are allowed.",
+                    "maximum": 10,
+                    "minimum": -10,
+                    "type": "integer"
+                },
+                "surface": {
+                    "description": "A field for the surface material of the path.",
+                    "enum": [
+                        "asphalt",
+                        "concrete",
+                        "grass",
+                        "gravel",
+                        "paved",
+                        "paving_stones",
+                        "unpaved"
+                    ],
+                    "type": "string"
+                },
+                "tactile_paving": {
+                    "description": "A field for whether a curb ramp or pathway has a tactile (textured) surface.",
+                    "type": "boolean"
+                }
+            },
+            "required": [
+                "kerb"
+            ],
+            "type": "object"
+        },
+        "Cycleway": {
+            "additionalProperties": false,
+            "description": "The centerline of a designated cycling pathway. This pathway may or may not permit pedestrian use.",
+            "properties": {
+                "bbox": {
+                    "anyOf": [
+                        {
+                            "items": [
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                }
+                            ],
+                            "maxItems": 4,
+                            "minItems": 4,
+                            "type": "array"
+                        },
+                        {
+                            "items": [
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                }
+                            ],
+                            "maxItems": 6,
+                            "minItems": 6,
+                            "type": "array"
+                        }
+                    ],
+                    "description": "Bounding box of the coordinate range of the object's Geometries, Features, or Feature Collections.\nThe value of the bbox member is an array of length 2*n where n is the number of dimensions\nrepresented in the contained geometries, with all axes of the most southwesterly point\nfollowed by all axes of the more northeasterly point.\nThe axes order of a bbox follows the axes order of geometries.\nhttps://tools.ietf.org/html/rfc7946#section-5"
+                },
+                "geometry": {
+                    "$ref": "#/definitions/GeoJSON.LineString",
+                    "description": "The feature's geometry"
+                },
+                "id": {
+                    "description": "A value that uniquely identifies this feature in a\nhttps://tools.ietf.org/html/rfc7946#section-3.2.",
+                    "type": [
+                        "string",
+                        "number"
+                    ]
+                },
+                "properties": {
+                    "$ref": "#/definitions/CyclewayFields",
+                    "description": "Properties associated with this feature."
+                },
+                "type": {
+                    "description": "Specifies the type of GeoJSON object.",
+                    "enum": [
+                        "Feature"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "geometry",
+                "properties",
+                "type"
+            ],
+            "type": "object"
+        },
+        "CyclewayFields": {
+            "additionalProperties": false,
+            "properties": {
+                "brunnel": {
+                    "description": "Fields that apply to a cycleway.",
+                    "enum": [
+                        "bridge",
+                        "ford",
+                        "tunnel"
+                    ],
+                    "type": "string"
+                },
+                "description": {
+                    "description": "A free form text field for describing a pathway or point. May be pre-encoded in relevant pedestrian paths to assist with routing instructing or investigation of map features. For example, a description of the sidewalk in relation to a nearby street may be a useful textual description, such as \"NE of Main St.\" Can also be considered a flexible location to embed arbitrary information for specific use cases.",
+                    "type": "string"
+                },
+                "foot": {
+                    "description": "A field that indicates whether a pathway can be used by pedestrians. Is implied for a Footway entity and its subtypes.",
+                    "type": "boolean"
+                },
+                "highway": {
+                    "enum": [
+                        "cycleway"
+                    ],
+                    "type": "string"
+                },
+                "incline": {
+                    "description": "A field for the estimated incline over a particular path, i.e. slope, i.e. grade, i.e. rise over run. If derived from OpenStreetMap data, this is the maximum incline over the path. If derived from DEM data, it is more likely to be an underestimation. Positive values indicate an uphill climb while negative are downhill. For example, a 45 degree downhill value for incline would be -1.0.",
+                    "maximum": 1,
+                    "minimum": -1,
+                    "type": "number"
+                },
+                "layer": {
+                    "description": "A field that indicates the z-layer (integer) on which a pathway lies. If unset, a value of 0 is implied. Negative values are allowed.",
+                    "maximum": 10,
+                    "minimum": -10,
+                    "type": "integer"
+                },
+                "length": {
+                    "description": "A field for the length of a pathway in meters. This field is always inferred from the geometry.",
+                    "maximum": 5000,
+                    "minimum": 0,
+                    "type": "number"
+                },
+                "name": {
+                    "description": "A field for a designated name for a pathway. Example: an official name for a trail.",
+                    "type": "string"
+                },
+                "surface": {
+                    "description": "A field for the surface material of the path.",
+                    "enum": [
+                        "asphalt",
+                        "concrete",
+                        "grass",
+                        "gravel",
+                        "paved",
+                        "paving_stones",
+                        "unpaved"
+                    ],
+                    "type": "string"
+                },
+                "width": {
+                    "description": "A field for width of a pathway in meters.",
+                    "maximum": 500,
+                    "minimum": 0,
+                    "type": "number"
+                }
+            },
+            "required": [
+                "highway"
+            ],
+            "type": "object"
+        },
+        "Driveway": {
+            "additionalProperties": false,
+            "description": "The centerline of a driveway. Typically connects a residence or business\nto another road.",
+            "properties": {
+                "bbox": {
+                    "anyOf": [
+                        {
+                            "items": [
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                }
+                            ],
+                            "maxItems": 4,
+                            "minItems": 4,
+                            "type": "array"
+                        },
+                        {
+                            "items": [
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                }
+                            ],
+                            "maxItems": 6,
+                            "minItems": 6,
+                            "type": "array"
+                        }
+                    ],
+                    "description": "Bounding box of the coordinate range of the object's Geometries, Features, or Feature Collections.\nThe value of the bbox member is an array of length 2*n where n is the number of dimensions\nrepresented in the contained geometries, with all axes of the most southwesterly point\nfollowed by all axes of the more northeasterly point.\nThe axes order of a bbox follows the axes order of geometries.\nhttps://tools.ietf.org/html/rfc7946#section-5"
+                },
+                "geometry": {
+                    "$ref": "#/definitions/GeoJSON.LineString",
+                    "description": "The feature's geometry"
+                },
+                "id": {
+                    "description": "A value that uniquely identifies this feature in a\nhttps://tools.ietf.org/html/rfc7946#section-3.2.",
+                    "type": [
+                        "string",
+                        "number"
+                    ]
+                },
+                "properties": {
+                    "additionalProperties": false,
+                    "description": "Properties associated with this feature.",
+                    "properties": {
+                        "highway": {
+                            "enum": [
+                                "service"
+                            ],
+                            "type": "string"
+                        },
+                        "service": {
+                            "enum": [
+                                "driveway"
+                            ],
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "highway",
+                        "service"
+                    ]
+                },
+                "type": {
+                    "description": "Specifies the type of GeoJSON object.",
+                    "enum": [
+                        "Feature"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "geometry",
+                "properties",
+                "type"
+            ],
+            "type": "object"
+        },
+        "FireHydrant": {
+            "additionalProperties": false,
+            "description": "A fire hydrant - where fire response teams connect high-pressure hoses.",
+            "properties": {
+                "bbox": {
+                    "anyOf": [
+                        {
+                            "items": [
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                }
+                            ],
+                            "maxItems": 4,
+                            "minItems": 4,
+                            "type": "array"
+                        },
+                        {
+                            "items": [
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                }
+                            ],
+                            "maxItems": 6,
+                            "minItems": 6,
+                            "type": "array"
+                        }
+                    ],
+                    "description": "Bounding box of the coordinate range of the object's Geometries, Features, or Feature Collections.\nThe value of the bbox member is an array of length 2*n where n is the number of dimensions\nrepresented in the contained geometries, with all axes of the most southwesterly point\nfollowed by all axes of the more northeasterly point.\nThe axes order of a bbox follows the axes order of geometries.\nhttps://tools.ietf.org/html/rfc7946#section-5"
+                },
+                "geometry": {
+                    "$ref": "#/definitions/GeoJSON.Point",
+                    "description": "The feature's geometry"
+                },
+                "id": {
+                    "description": "A value that uniquely identifies this feature in a\nhttps://tools.ietf.org/html/rfc7946#section-3.2.",
+                    "type": [
+                        "string",
+                        "number"
+                    ]
+                },
+                "properties": {
+                    "$ref": "#/definitions/FireHydrantFields",
+                    "description": "Properties associated with this feature."
+                },
+                "type": {
+                    "description": "Specifies the type of GeoJSON object.",
+                    "enum": [
+                        "Feature"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "geometry",
+                "properties",
+                "type"
+            ],
+            "type": "object"
+        },
+        "FireHydrantFields": {
+            "additionalProperties": false,
+            "description": "Fields that apply to a fire hydrant.",
+            "properties": {
+                "brunnel": {
+                    "description": "A field that indicates whether an entity is on a bridge, tunnel, or ford.",
+                    "enum": [
+                        "bridge",
+                        "ford",
+                        "tunnel"
+                    ],
+                    "type": "string"
+                },
+                "emergency": {
+                    "enum": [
+                        "fire_hydrant"
+                    ],
+                    "type": "string"
+                },
+                "layer": {
+                    "description": "A field that indicates the z-layer (integer) on which a pathway lies. If unset, a value of 0 is implied. Negative values are allowed.",
+                    "maximum": 10,
+                    "minimum": -10,
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "emergency"
+            ],
+            "type": "object"
+        },
+        "FlushCurb": {
+            "additionalProperties": false,
+            "description": "An indicator that there is no raised curb interface where two paths meet - i.e. where someone might expect a curb interface, such as where a crossing and footpath meet.",
+            "properties": {
+                "bbox": {
+                    "anyOf": [
+                        {
+                            "items": [
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                }
+                            ],
+                            "maxItems": 4,
+                            "minItems": 4,
+                            "type": "array"
+                        },
+                        {
+                            "items": [
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                }
+                            ],
+                            "maxItems": 6,
+                            "minItems": 6,
+                            "type": "array"
+                        }
+                    ],
+                    "description": "Bounding box of the coordinate range of the object's Geometries, Features, or Feature Collections.\nThe value of the bbox member is an array of length 2*n where n is the number of dimensions\nrepresented in the contained geometries, with all axes of the most southwesterly point\nfollowed by all axes of the more northeasterly point.\nThe axes order of a bbox follows the axes order of geometries.\nhttps://tools.ietf.org/html/rfc7946#section-5"
+                },
+                "geometry": {
+                    "$ref": "#/definitions/GeoJSON.Point",
+                    "description": "The feature's geometry"
+                },
+                "id": {
+                    "description": "A value that uniquely identifies this feature in a\nhttps://tools.ietf.org/html/rfc7946#section-3.2.",
+                    "type": [
+                        "string",
+                        "number"
+                    ]
+                },
+                "properties": {
+                    "$ref": "#/definitions/FlushCurbFields",
+                    "description": "Properties associated with this feature."
+                },
+                "type": {
+                    "description": "Specifies the type of GeoJSON object.",
+                    "enum": [
+                        "Feature"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "geometry",
+                "properties",
+                "type"
+            ],
+            "type": "object"
+        },
+        "FlushCurbFields": {
+            "additionalProperties": false,
+            "description": "Fields that apply to a flush curb.",
+            "properties": {
+                "brunnel": {
+                    "description": "A field that indicates whether an entity is on a bridge, tunnel, or ford.",
+                    "enum": [
+                        "bridge",
+                        "ford",
+                        "tunnel"
+                    ],
+                    "type": "string"
+                },
+                "kerb": {
+                    "enum": [
+                        "flush"
+                    ],
+                    "type": "string"
+                },
+                "layer": {
+                    "description": "A field that indicates the z-layer (integer) on which a pathway lies. If unset, a value of 0 is implied. Negative values are allowed.",
+                    "maximum": 10,
+                    "minimum": -10,
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "kerb"
+            ],
+            "type": "object"
+        },
+        "Footway": {
+            "additionalProperties": false,
+            "description": "The centerline of a dedicated pedestrian pathway that does not fall into any other subcategories.",
+            "properties": {
+                "bbox": {
+                    "anyOf": [
+                        {
+                            "items": [
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                }
+                            ],
+                            "maxItems": 4,
+                            "minItems": 4,
+                            "type": "array"
+                        },
+                        {
+                            "items": [
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                }
+                            ],
+                            "maxItems": 6,
+                            "minItems": 6,
+                            "type": "array"
+                        }
+                    ],
+                    "description": "Bounding box of the coordinate range of the object's Geometries, Features, or Feature Collections.\nThe value of the bbox member is an array of length 2*n where n is the number of dimensions\nrepresented in the contained geometries, with all axes of the most southwesterly point\nfollowed by all axes of the more northeasterly point.\nThe axes order of a bbox follows the axes order of geometries.\nhttps://tools.ietf.org/html/rfc7946#section-5"
+                },
+                "geometry": {
+                    "$ref": "#/definitions/GeoJSON.LineString",
+                    "description": "The feature's geometry"
+                },
+                "id": {
+                    "description": "A value that uniquely identifies this feature in a\nhttps://tools.ietf.org/html/rfc7946#section-3.2.",
+                    "type": [
+                        "string",
+                        "number"
+                    ]
+                },
+                "properties": {
+                    "$ref": "#/definitions/FootwayFields",
+                    "description": "Properties associated with this feature."
+                },
+                "type": {
+                    "description": "Specifies the type of GeoJSON object.",
+                    "enum": [
+                        "Feature"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "geometry",
+                "properties",
+                "type"
+            ],
+            "type": "object"
+        },
+        "FootwayFields": {
+            "additionalProperties": false,
+            "description": "Fields that apply to a footway.",
+            "properties": {
+                "brunnel": {
+                    "description": "A field that indicates whether an entity is on a bridge, tunnel, or ford.",
+                    "enum": [
+                        "bridge",
+                        "ford",
+                        "tunnel"
+                    ],
+                    "type": "string"
+                },
+                "description": {
+                    "description": "A free form text field for describing a pathway or point. May be pre-encoded in relevant pedestrian paths to assist with routing instructing or investigation of map features. For example, a description of the sidewalk in relation to a nearby street may be a useful textual description, such as \"NE of Main St.\" Can also be considered a flexible location to embed arbitrary information for specific use cases.",
+                    "type": "string"
+                },
+                "highway": {
+                    "enum": [
+                        "footway"
+                    ],
+                    "type": "string"
+                },
+                "incline": {
+                    "description": "A field for the estimated incline over a particular path, i.e. slope, i.e. grade, i.e. rise over run. If derived from OpenStreetMap data, this is the maximum incline over the path. If derived from DEM data, it is more likely to be an underestimation. Positive values indicate an uphill climb while negative are downhill. For example, a 45 degree downhill value for incline would be -1.0.",
+                    "maximum": 1,
+                    "minimum": -1,
+                    "type": "number"
+                },
+                "layer": {
+                    "description": "A field that indicates the z-layer (integer) on which a pathway lies. If unset, a value of 0 is implied. Negative values are allowed.",
+                    "maximum": 10,
+                    "minimum": -10,
+                    "type": "integer"
+                },
+                "length": {
+                    "description": "A field for the length of a pathway in meters. This field is always inferred from the geometry.",
+                    "maximum": 5000,
+                    "minimum": 0,
+                    "type": "number"
+                },
+                "name": {
+                    "description": "A field for a designated name for a pathway. Example: an official name for a trail.",
+                    "type": "string"
+                },
+                "surface": {
+                    "description": "A field for the surface material of the path.",
+                    "enum": [
+                        "asphalt",
+                        "concrete",
+                        "grass",
+                        "gravel",
+                        "paved",
+                        "paving_stones",
+                        "unpaved"
+                    ],
+                    "type": "string"
+                },
+                "width": {
+                    "description": "A field for width of a pathway in meters.",
+                    "maximum": 500,
+                    "minimum": 0,
+                    "type": "number"
+                }
+            },
+            "required": [
+                "highway"
+            ],
+            "type": "object"
+        },
+        "GeoJSON.LineString": {
+            "additionalProperties": false,
+            "description": "LineString geometry object.\nhttps://tools.ietf.org/html/rfc7946#section-3.1.4",
+            "properties": {
+                "bbox": {
+                    "anyOf": [
+                        {
+                            "items": [
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                }
+                            ],
+                            "maxItems": 4,
+                            "minItems": 4,
+                            "type": "array"
+                        },
+                        {
+                            "items": [
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                }
+                            ],
+                            "maxItems": 6,
+                            "minItems": 6,
+                            "type": "array"
+                        }
+                    ],
+                    "description": "Bounding box of the coordinate range of the object's Geometries, Features, or Feature Collections.\nThe value of the bbox member is an array of length 2*n where n is the number of dimensions\nrepresented in the contained geometries, with all axes of the most southwesterly point\nfollowed by all axes of the more northeasterly point.\nThe axes order of a bbox follows the axes order of geometries.\nhttps://tools.ietf.org/html/rfc7946#section-5"
+                },
+                "coordinates": {
+                    "items": {
+                        "description": "A Position is an array of coordinates.\nhttps://tools.ietf.org/html/rfc7946#section-3.1.1\nArray should contain between two and three elements.\nThe previous GeoJSON specification allowed more elements (e.g., which could be used to represent M values),\nbut the current specification only allows X, Y, and (optionally) Z to be defined.",
+                        "items": {
+                            "type": "number"
+                        },
+                        "type": "array"
+                    },
+                    "type": "array"
+                },
+                "type": {
+                    "description": "Specifies the type of GeoJSON object.",
+                    "enum": [
+                        "LineString"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "coordinates",
+                "type"
+            ],
+            "type": "object"
+        },
+        "GeoJSON.Point": {
+            "additionalProperties": false,
+            "description": "Point geometry object.\nhttps://tools.ietf.org/html/rfc7946#section-3.1.2",
+            "properties": {
+                "bbox": {
+                    "anyOf": [
+                        {
+                            "items": [
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                }
+                            ],
+                            "maxItems": 4,
+                            "minItems": 4,
+                            "type": "array"
+                        },
+                        {
+                            "items": [
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                }
+                            ],
+                            "maxItems": 6,
+                            "minItems": 6,
+                            "type": "array"
+                        }
+                    ],
+                    "description": "Bounding box of the coordinate range of the object's Geometries, Features, or Feature Collections.\nThe value of the bbox member is an array of length 2*n where n is the number of dimensions\nrepresented in the contained geometries, with all axes of the most southwesterly point\nfollowed by all axes of the more northeasterly point.\nThe axes order of a bbox follows the axes order of geometries.\nhttps://tools.ietf.org/html/rfc7946#section-5"
+                },
+                "coordinates": {
+                    "description": "A Position is an array of coordinates.\nhttps://tools.ietf.org/html/rfc7946#section-3.1.1\nArray should contain between two and three elements.\nThe previous GeoJSON specification allowed more elements (e.g., which could be used to represent M values),\nbut the current specification only allows X, Y, and (optionally) Z to be defined.",
+                    "items": {
+                        "type": "number"
+                    },
+                    "type": "array"
+                },
+                "type": {
+                    "description": "Specifies the type of GeoJSON object.",
+                    "enum": [
+                        "Point"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "coordinates",
+                "type"
+            ],
+            "type": "object"
+        },
+        "PowerPole": {
+            "additionalProperties": false,
+            "description": "A power pole. Often made of wood or metal, they hold power lines.",
+            "properties": {
+                "bbox": {
+                    "anyOf": [
+                        {
+                            "items": [
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                }
+                            ],
+                            "maxItems": 4,
+                            "minItems": 4,
+                            "type": "array"
+                        },
+                        {
+                            "items": [
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                }
+                            ],
+                            "maxItems": 6,
+                            "minItems": 6,
+                            "type": "array"
+                        }
+                    ],
+                    "description": "Bounding box of the coordinate range of the object's Geometries, Features, or Feature Collections.\nThe value of the bbox member is an array of length 2*n where n is the number of dimensions\nrepresented in the contained geometries, with all axes of the most southwesterly point\nfollowed by all axes of the more northeasterly point.\nThe axes order of a bbox follows the axes order of geometries.\nhttps://tools.ietf.org/html/rfc7946#section-5"
+                },
+                "geometry": {
+                    "$ref": "#/definitions/GeoJSON.Point",
+                    "description": "The feature's geometry"
+                },
+                "id": {
+                    "description": "A value that uniquely identifies this feature in a\nhttps://tools.ietf.org/html/rfc7946#section-3.2.",
+                    "type": [
+                        "string",
+                        "number"
+                    ]
+                },
+                "properties": {
+                    "$ref": "#/definitions/PowerPoleFields",
+                    "description": "Properties associated with this feature."
+                },
+                "type": {
+                    "description": "Specifies the type of GeoJSON object.",
+                    "enum": [
+                        "Feature"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "geometry",
+                "properties",
+                "type"
+            ],
+            "type": "object"
+        },
+        "PowerPoleFields": {
+            "additionalProperties": false,
+            "description": "Fields that apply to a power pole.",
+            "properties": {
+                "brunnel": {
+                    "description": "A field that indicates whether an entity is on a bridge, tunnel, or ford.",
+                    "enum": [
+                        "bridge",
+                        "ford",
+                        "tunnel"
+                    ],
+                    "type": "string"
+                },
+                "layer": {
+                    "description": "A field that indicates the z-layer (integer) on which a pathway lies. If unset, a value of 0 is implied. Negative values are allowed.",
+                    "maximum": 10,
+                    "minimum": -10,
+                    "type": "integer"
+                },
+                "power": {
+                    "enum": [
+                        "pole"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "power"
+            ],
+            "type": "object"
+        },
+        "PrimaryStreet": {
+            "additionalProperties": false,
+            "description": "The centerline of a major highway.",
+            "properties": {
+                "bbox": {
+                    "anyOf": [
+                        {
+                            "items": [
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                }
+                            ],
+                            "maxItems": 4,
+                            "minItems": 4,
+                            "type": "array"
+                        },
+                        {
+                            "items": [
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                }
+                            ],
+                            "maxItems": 6,
+                            "minItems": 6,
+                            "type": "array"
+                        }
+                    ],
+                    "description": "Bounding box of the coordinate range of the object's Geometries, Features, or Feature Collections.\nThe value of the bbox member is an array of length 2*n where n is the number of dimensions\nrepresented in the contained geometries, with all axes of the most southwesterly point\nfollowed by all axes of the more northeasterly point.\nThe axes order of a bbox follows the axes order of geometries.\nhttps://tools.ietf.org/html/rfc7946#section-5"
+                },
+                "geometry": {
+                    "$ref": "#/definitions/GeoJSON.LineString",
+                    "description": "The feature's geometry"
+                },
+                "id": {
+                    "description": "A value that uniquely identifies this feature in a\nhttps://tools.ietf.org/html/rfc7946#section-3.2.",
+                    "type": [
+                        "string",
+                        "number"
+                    ]
+                },
+                "properties": {
+                    "$ref": "#/definitions/PrimaryStreetFields",
+                    "description": "Properties associated with this feature."
+                },
+                "type": {
+                    "description": "Specifies the type of GeoJSON object.",
+                    "enum": [
+                        "Feature"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "geometry",
+                "properties",
+                "type"
+            ],
+            "type": "object"
+        },
+        "PrimaryStreetFields": {
+            "additionalProperties": false,
+            "description": "Fields that apply to a primary street.",
+            "properties": {
+                "brunnel": {
+                    "description": "A field that indicates whether an entity is on a bridge, tunnel, or ford.",
+                    "enum": [
+                        "bridge",
+                        "ford",
+                        "tunnel"
+                    ],
+                    "type": "string"
+                },
+                "description": {
+                    "description": "A free form text field for describing a pathway or point. May be pre-encoded in relevant pedestrian paths to assist with routing instructing or investigation of map features. For example, a description of the sidewalk in relation to a nearby street may be a useful textual description, such as \"NE of Main St.\" Can also be considered a flexible location to embed arbitrary information for specific use cases.",
+                    "type": "string"
+                },
+                "foot": {
+                    "description": "A field that indicates whether a pathway can be used by pedestrians. Is implied for a Footway entity and its subtypes.",
+                    "type": "boolean"
+                },
+                "highway": {
+                    "enum": [
+                        "primary"
+                    ],
+                    "type": "string"
+                },
+                "incline": {
+                    "description": "A field for the estimated incline over a particular path, i.e. slope, i.e. grade, i.e. rise over run. If derived from OpenStreetMap data, this is the maximum incline over the path. If derived from DEM data, it is more likely to be an underestimation. Positive values indicate an uphill climb while negative are downhill. For example, a 45 degree downhill value for incline would be -1.0.",
+                    "maximum": 1,
+                    "minimum": -1,
+                    "type": "number"
+                },
+                "layer": {
+                    "description": "A field that indicates the z-layer (integer) on which a pathway lies. If unset, a value of 0 is implied. Negative values are allowed.",
+                    "maximum": 10,
+                    "minimum": -10,
+                    "type": "integer"
+                },
+                "length": {
+                    "description": "A field for the length of a pathway in meters. This field is always inferred from the geometry.",
+                    "maximum": 5000,
+                    "minimum": 0,
+                    "type": "number"
+                },
+                "name": {
+                    "description": "A field for a designated name for a pathway. Example: an official name for a trail.",
+                    "type": "string"
+                },
+                "surface": {
+                    "description": "A field for the surface material of the path.",
+                    "enum": [
+                        "asphalt",
+                        "concrete",
+                        "grass",
+                        "gravel",
+                        "paved",
+                        "paving_stones",
+                        "unpaved"
+                    ],
+                    "type": "string"
+                },
+                "width": {
+                    "description": "A field for width of a pathway in meters.",
+                    "maximum": 500,
+                    "minimum": 0,
+                    "type": "number"
+                }
+            },
+            "required": [
+                "highway"
+            ],
+            "type": "object"
+        },
+        "RaisedCurb": {
+            "additionalProperties": false,
+            "description": "A single, designed vertical displacement that separates two pathways. A common example is the curb that separates a street crossing from a sidewalk. This is mapped at the point where the two paths meet - on top of the curb is physically located.",
+            "properties": {
+                "bbox": {
+                    "anyOf": [
+                        {
+                            "items": [
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                }
+                            ],
+                            "maxItems": 4,
+                            "minItems": 4,
+                            "type": "array"
+                        },
+                        {
+                            "items": [
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                }
+                            ],
+                            "maxItems": 6,
+                            "minItems": 6,
+                            "type": "array"
+                        }
+                    ],
+                    "description": "Bounding box of the coordinate range of the object's Geometries, Features, or Feature Collections.\nThe value of the bbox member is an array of length 2*n where n is the number of dimensions\nrepresented in the contained geometries, with all axes of the most southwesterly point\nfollowed by all axes of the more northeasterly point.\nThe axes order of a bbox follows the axes order of geometries.\nhttps://tools.ietf.org/html/rfc7946#section-5"
+                },
+                "geometry": {
+                    "$ref": "#/definitions/GeoJSON.Point",
+                    "description": "The feature's geometry"
+                },
+                "id": {
+                    "description": "A value that uniquely identifies this feature in a\nhttps://tools.ietf.org/html/rfc7946#section-3.2.",
+                    "type": [
+                        "string",
+                        "number"
+                    ]
+                },
+                "properties": {
+                    "$ref": "#/definitions/RaisedCurbFields",
+                    "description": "Properties associated with this feature."
+                },
+                "type": {
+                    "description": "Specifies the type of GeoJSON object.",
+                    "enum": [
+                        "Feature"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "geometry",
+                "properties",
+                "type"
+            ],
+            "type": "object"
+        },
+        "RaisedCurbFields": {
+            "additionalProperties": false,
+            "description": "Fields that apply to a raised curb.",
+            "properties": {
+                "brunnel": {
+                    "description": "A field that indicates whether an entity is on a bridge, tunnel, or ford.",
+                    "enum": [
+                        "bridge",
+                        "ford",
+                        "tunnel"
+                    ],
+                    "type": "string"
+                },
+                "kerb": {
+                    "enum": [
+                        "rolled"
+                    ],
+                    "type": "string"
+                },
+                "layer": {
+                    "description": "A field that indicates the z-layer (integer) on which a pathway lies. If unset, a value of 0 is implied. Negative values are allowed.",
+                    "maximum": 10,
+                    "minimum": -10,
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "kerb"
+            ],
+            "type": "object"
+        },
+        "ResidentialStreet": {
+            "additionalProperties": false,
+            "description": "A residential street.",
+            "properties": {
+                "bbox": {
+                    "anyOf": [
+                        {
+                            "items": [
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                }
+                            ],
+                            "maxItems": 4,
+                            "minItems": 4,
+                            "type": "array"
+                        },
+                        {
+                            "items": [
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                }
+                            ],
+                            "maxItems": 6,
+                            "minItems": 6,
+                            "type": "array"
+                        }
+                    ],
+                    "description": "Bounding box of the coordinate range of the object's Geometries, Features, or Feature Collections.\nThe value of the bbox member is an array of length 2*n where n is the number of dimensions\nrepresented in the contained geometries, with all axes of the most southwesterly point\nfollowed by all axes of the more northeasterly point.\nThe axes order of a bbox follows the axes order of geometries.\nhttps://tools.ietf.org/html/rfc7946#section-5"
+                },
+                "geometry": {
+                    "$ref": "#/definitions/GeoJSON.LineString",
+                    "description": "The feature's geometry"
+                },
+                "id": {
+                    "description": "A value that uniquely identifies this feature in a\nhttps://tools.ietf.org/html/rfc7946#section-3.2.",
+                    "type": [
+                        "string",
+                        "number"
+                    ]
+                },
+                "properties": {
+                    "$ref": "#/definitions/ResidentialStreetFields",
+                    "description": "Properties associated with this feature."
+                },
+                "type": {
+                    "description": "Specifies the type of GeoJSON object.",
+                    "enum": [
+                        "Feature"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "geometry",
+                "properties",
+                "type"
+            ],
+            "type": "object"
+        },
+        "ResidentialStreetFields": {
+            "additionalProperties": false,
+            "description": "Fields that apply to a residential street.",
+            "properties": {
+                "brunnel": {
+                    "description": "A field that indicates whether an entity is on a bridge, tunnel, or ford.",
+                    "enum": [
+                        "bridge",
+                        "ford",
+                        "tunnel"
+                    ],
+                    "type": "string"
+                },
+                "description": {
+                    "description": "A free form text field for describing a pathway or point. May be pre-encoded in relevant pedestrian paths to assist with routing instructing or investigation of map features. For example, a description of the sidewalk in relation to a nearby street may be a useful textual description, such as \"NE of Main St.\" Can also be considered a flexible location to embed arbitrary information for specific use cases.",
+                    "type": "string"
+                },
+                "foot": {
+                    "description": "A field that indicates whether a pathway can be used by pedestrians. Is implied for a Footway entity and its subtypes.",
+                    "type": "boolean"
+                },
+                "highway": {
+                    "enum": [
+                        "residential"
+                    ],
+                    "type": "string"
+                },
+                "incline": {
+                    "description": "A field for the estimated incline over a particular path, i.e. slope, i.e. grade, i.e. rise over run. If derived from OpenStreetMap data, this is the maximum incline over the path. If derived from DEM data, it is more likely to be an underestimation. Positive values indicate an uphill climb while negative are downhill. For example, a 45 degree downhill value for incline would be -1.0.",
+                    "maximum": 1,
+                    "minimum": -1,
+                    "type": "number"
+                },
+                "layer": {
+                    "description": "A field that indicates the z-layer (integer) on which a pathway lies. If unset, a value of 0 is implied. Negative values are allowed.",
+                    "maximum": 10,
+                    "minimum": -10,
+                    "type": "integer"
+                },
+                "length": {
+                    "description": "A field for the length of a pathway in meters. This field is always inferred from the geometry.",
+                    "maximum": 5000,
+                    "minimum": 0,
+                    "type": "number"
+                },
+                "name": {
+                    "description": "A field for a designated name for a pathway. Example: an official name for a trail.",
+                    "type": "string"
+                },
+                "surface": {
+                    "description": "A field for the surface material of the path.",
+                    "enum": [
+                        "asphalt",
+                        "concrete",
+                        "grass",
+                        "gravel",
+                        "paved",
+                        "paving_stones",
+                        "unpaved"
+                    ],
+                    "type": "string"
+                },
+                "width": {
+                    "description": "A field for width of a pathway in meters.",
+                    "maximum": 500,
+                    "minimum": 0,
+                    "type": "number"
+                }
+            },
+            "required": [
+                "highway"
+            ],
+            "type": "object"
+        },
+        "RolledCurb": {
+            "additionalProperties": false,
+            "description": "A curb interface with a quarter-circle profile: traversing this curb is like going over half of a bump. Located where two pathways meet, physically at the location of the curb itself.",
+            "properties": {
+                "bbox": {
+                    "anyOf": [
+                        {
+                            "items": [
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                }
+                            ],
+                            "maxItems": 4,
+                            "minItems": 4,
+                            "type": "array"
+                        },
+                        {
+                            "items": [
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                }
+                            ],
+                            "maxItems": 6,
+                            "minItems": 6,
+                            "type": "array"
+                        }
+                    ],
+                    "description": "Bounding box of the coordinate range of the object's Geometries, Features, or Feature Collections.\nThe value of the bbox member is an array of length 2*n where n is the number of dimensions\nrepresented in the contained geometries, with all axes of the most southwesterly point\nfollowed by all axes of the more northeasterly point.\nThe axes order of a bbox follows the axes order of geometries.\nhttps://tools.ietf.org/html/rfc7946#section-5"
+                },
+                "geometry": {
+                    "$ref": "#/definitions/GeoJSON.Point",
+                    "description": "The feature's geometry"
+                },
+                "id": {
+                    "description": "A value that uniquely identifies this feature in a\nhttps://tools.ietf.org/html/rfc7946#section-3.2.",
+                    "type": [
+                        "string",
+                        "number"
+                    ]
+                },
+                "properties": {
+                    "$ref": "#/definitions/RolledCurbFields",
+                    "description": "Properties associated with this feature."
+                },
+                "type": {
+                    "description": "Specifies the type of GeoJSON object.",
+                    "enum": [
+                        "Feature"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "geometry",
+                "properties",
+                "type"
+            ],
+            "type": "object"
+        },
+        "RolledCurbFields": {
+            "additionalProperties": false,
+            "description": "Fields that apply to a rolled curb.",
+            "properties": {
+                "brunnel": {
+                    "description": "A field that indicates whether an entity is on a bridge, tunnel, or ford.",
+                    "enum": [
+                        "bridge",
+                        "ford",
+                        "tunnel"
+                    ],
+                    "type": "string"
+                },
+                "kerb": {
+                    "enum": [
+                        "rolled"
+                    ],
+                    "type": "string"
+                },
+                "layer": {
+                    "description": "A field that indicates the z-layer (integer) on which a pathway lies. If unset, a value of 0 is implied. Negative values are allowed.",
+                    "maximum": 10,
+                    "minimum": -10,
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "kerb"
+            ],
+            "type": "object"
+        },
+        "SecondaryStreet": {
+            "additionalProperties": false,
+            "description": "The centerline of a secondary highway: not a major highway, but forms a major link in the national route network.",
+            "properties": {
+                "bbox": {
+                    "anyOf": [
+                        {
+                            "items": [
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                }
+                            ],
+                            "maxItems": 4,
+                            "minItems": 4,
+                            "type": "array"
+                        },
+                        {
+                            "items": [
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                }
+                            ],
+                            "maxItems": 6,
+                            "minItems": 6,
+                            "type": "array"
+                        }
+                    ],
+                    "description": "Bounding box of the coordinate range of the object's Geometries, Features, or Feature Collections.\nThe value of the bbox member is an array of length 2*n where n is the number of dimensions\nrepresented in the contained geometries, with all axes of the most southwesterly point\nfollowed by all axes of the more northeasterly point.\nThe axes order of a bbox follows the axes order of geometries.\nhttps://tools.ietf.org/html/rfc7946#section-5"
+                },
+                "geometry": {
+                    "$ref": "#/definitions/GeoJSON.LineString",
+                    "description": "The feature's geometry"
+                },
+                "id": {
+                    "description": "A value that uniquely identifies this feature in a\nhttps://tools.ietf.org/html/rfc7946#section-3.2.",
+                    "type": [
+                        "string",
+                        "number"
+                    ]
+                },
+                "properties": {
+                    "$ref": "#/definitions/SecondaryStreetFields",
+                    "description": "Properties associated with this feature."
+                },
+                "type": {
+                    "description": "Specifies the type of GeoJSON object.",
+                    "enum": [
+                        "Feature"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "geometry",
+                "properties",
+                "type"
+            ],
+            "type": "object"
+        },
+        "SecondaryStreetFields": {
+            "additionalProperties": false,
+            "description": "Fields that apply to a secondary street.",
+            "properties": {
+                "brunnel": {
+                    "description": "A field that indicates whether an entity is on a bridge, tunnel, or ford.",
+                    "enum": [
+                        "bridge",
+                        "ford",
+                        "tunnel"
+                    ],
+                    "type": "string"
+                },
+                "description": {
+                    "description": "A free form text field for describing a pathway or point. May be pre-encoded in relevant pedestrian paths to assist with routing instructing or investigation of map features. For example, a description of the sidewalk in relation to a nearby street may be a useful textual description, such as \"NE of Main St.\" Can also be considered a flexible location to embed arbitrary information for specific use cases.",
+                    "type": "string"
+                },
+                "foot": {
+                    "description": "A field that indicates whether a pathway can be used by pedestrians. Is implied for a Footway entity and its subtypes.",
+                    "type": "boolean"
+                },
+                "highway": {
+                    "enum": [
+                        "secondary"
+                    ],
+                    "type": "string"
+                },
+                "incline": {
+                    "description": "A field for the estimated incline over a particular path, i.e. slope, i.e. grade, i.e. rise over run. If derived from OpenStreetMap data, this is the maximum incline over the path. If derived from DEM data, it is more likely to be an underestimation. Positive values indicate an uphill climb while negative are downhill. For example, a 45 degree downhill value for incline would be -1.0.",
+                    "maximum": 1,
+                    "minimum": -1,
+                    "type": "number"
+                },
+                "layer": {
+                    "description": "A field that indicates the z-layer (integer) on which a pathway lies. If unset, a value of 0 is implied. Negative values are allowed.",
+                    "maximum": 10,
+                    "minimum": -10,
+                    "type": "integer"
+                },
+                "length": {
+                    "description": "A field for the length of a pathway in meters. This field is always inferred from the geometry.",
+                    "maximum": 5000,
+                    "minimum": 0,
+                    "type": "number"
+                },
+                "name": {
+                    "description": "A field for a designated name for a pathway. Example: an official name for a trail.",
+                    "type": "string"
+                },
+                "surface": {
+                    "description": "A field for the surface material of the path.",
+                    "enum": [
+                        "asphalt",
+                        "concrete",
+                        "grass",
+                        "gravel",
+                        "paved",
+                        "paving_stones",
+                        "unpaved"
+                    ],
+                    "type": "string"
+                },
+                "width": {
+                    "description": "A field for width of a pathway in meters.",
+                    "maximum": 500,
+                    "minimum": 0,
+                    "type": "number"
+                }
+            },
+            "required": [
+                "highway"
+            ],
+            "type": "object"
+        },
+        "ServiceRoad": {
+            "additionalProperties": false,
+            "description": "A road intended for service use.",
+            "properties": {
+                "bbox": {
+                    "anyOf": [
+                        {
+                            "items": [
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                }
+                            ],
+                            "maxItems": 4,
+                            "minItems": 4,
+                            "type": "array"
+                        },
+                        {
+                            "items": [
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                }
+                            ],
+                            "maxItems": 6,
+                            "minItems": 6,
+                            "type": "array"
+                        }
+                    ],
+                    "description": "Bounding box of the coordinate range of the object's Geometries, Features, or Feature Collections.\nThe value of the bbox member is an array of length 2*n where n is the number of dimensions\nrepresented in the contained geometries, with all axes of the most southwesterly point\nfollowed by all axes of the more northeasterly point.\nThe axes order of a bbox follows the axes order of geometries.\nhttps://tools.ietf.org/html/rfc7946#section-5"
+                },
+                "geometry": {
+                    "$ref": "#/definitions/GeoJSON.LineString",
+                    "description": "The feature's geometry"
+                },
+                "id": {
+                    "description": "A value that uniquely identifies this feature in a\nhttps://tools.ietf.org/html/rfc7946#section-3.2.",
+                    "type": [
+                        "string",
+                        "number"
+                    ]
+                },
+                "properties": {
+                    "$ref": "#/definitions/ServiceRoadFields",
+                    "description": "Properties associated with this feature."
+                },
+                "type": {
+                    "description": "Specifies the type of GeoJSON object.",
+                    "enum": [
+                        "Feature"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "geometry",
+                "properties",
+                "type"
+            ],
+            "type": "object"
+        },
+        "ServiceRoadFields": {
+            "additionalProperties": false,
+            "description": "Fields that apply to a service road.\nprimary street.",
+            "properties": {
+                "brunnel": {
+                    "description": "A field that indicates whether an entity is on a bridge, tunnel, or ford.",
+                    "enum": [
+                        "bridge",
+                        "ford",
+                        "tunnel"
+                    ],
+                    "type": "string"
+                },
+                "description": {
+                    "description": "A free form text field for describing a pathway or point. May be pre-encoded in relevant pedestrian paths to assist with routing instructing or investigation of map features. For example, a description of the sidewalk in relation to a nearby street may be a useful textual description, such as \"NE of Main St.\" Can also be considered a flexible location to embed arbitrary information for specific use cases.",
+                    "type": "string"
+                },
+                "foot": {
+                    "description": "A field that indicates whether a pathway can be used by pedestrians. Is implied for a Footway entity and its subtypes.",
+                    "type": "boolean"
+                },
+                "highway": {
+                    "enum": [
+                        "service"
+                    ],
+                    "type": "string"
+                },
+                "incline": {
+                    "description": "A field for the estimated incline over a particular path, i.e. slope, i.e. grade, i.e. rise over run. If derived from OpenStreetMap data, this is the maximum incline over the path. If derived from DEM data, it is more likely to be an underestimation. Positive values indicate an uphill climb while negative are downhill. For example, a 45 degree downhill value for incline would be -1.0.",
+                    "maximum": 1,
+                    "minimum": -1,
+                    "type": "number"
+                },
+                "layer": {
+                    "description": "A field that indicates the z-layer (integer) on which a pathway lies. If unset, a value of 0 is implied. Negative values are allowed.",
+                    "maximum": 10,
+                    "minimum": -10,
+                    "type": "integer"
+                },
+                "length": {
+                    "description": "A field for the length of a pathway in meters. This field is always inferred from the geometry.",
+                    "maximum": 5000,
+                    "minimum": 0,
+                    "type": "number"
+                },
+                "surface": {
+                    "description": "A field for the surface material of the path.",
+                    "enum": [
+                        "asphalt",
+                        "concrete",
+                        "grass",
+                        "gravel",
+                        "paved",
+                        "paving_stones",
+                        "unpaved"
+                    ],
+                    "type": "string"
+                },
+                "width": {
+                    "description": "A field for width of a pathway in meters.",
+                    "maximum": 500,
+                    "minimum": 0,
+                    "type": "number"
+                }
+            },
+            "required": [
+                "highway"
+            ],
+            "type": "object"
+        },
+        "Sidewalk": {
+            "additionalProperties": false,
+            "description": "The centerline of a sidewalk, a designated pedestrian pathway to the side of a street.",
+            "properties": {
+                "bbox": {
+                    "anyOf": [
+                        {
+                            "items": [
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                }
+                            ],
+                            "maxItems": 4,
+                            "minItems": 4,
+                            "type": "array"
+                        },
+                        {
+                            "items": [
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                }
+                            ],
+                            "maxItems": 6,
+                            "minItems": 6,
+                            "type": "array"
+                        }
+                    ],
+                    "description": "Bounding box of the coordinate range of the object's Geometries, Features, or Feature Collections.\nThe value of the bbox member is an array of length 2*n where n is the number of dimensions\nrepresented in the contained geometries, with all axes of the most southwesterly point\nfollowed by all axes of the more northeasterly point.\nThe axes order of a bbox follows the axes order of geometries.\nhttps://tools.ietf.org/html/rfc7946#section-5"
+                },
+                "geometry": {
+                    "$ref": "#/definitions/GeoJSON.LineString",
+                    "description": "The feature's geometry"
+                },
+                "id": {
+                    "description": "A value that uniquely identifies this feature in a\nhttps://tools.ietf.org/html/rfc7946#section-3.2.",
+                    "type": [
+                        "string",
+                        "number"
+                    ]
+                },
+                "properties": {
+                    "additionalProperties": false,
+                    "description": "Properties associated with this feature.",
+                    "properties": {
+                        "footway": {
+                            "enum": [
+                                "sidewalk"
+                            ],
+                            "type": "string"
+                        },
+                        "highway": {
+                            "enum": [
+                                "footway"
+                            ],
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "footway",
+                        "highway"
+                    ]
+                },
+                "type": {
+                    "description": "Specifies the type of GeoJSON object.",
+                    "enum": [
+                        "Feature"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "geometry",
+                "properties",
+                "type"
+            ],
+            "type": "object"
+        },
+        "TertiaryStreet": {
+            "additionalProperties": false,
+            "description": "A road linking small settlements, or the local centers of a large town or city.",
+            "properties": {
+                "bbox": {
+                    "anyOf": [
+                        {
+                            "items": [
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                }
+                            ],
+                            "maxItems": 4,
+                            "minItems": 4,
+                            "type": "array"
+                        },
+                        {
+                            "items": [
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                }
+                            ],
+                            "maxItems": 6,
+                            "minItems": 6,
+                            "type": "array"
+                        }
+                    ],
+                    "description": "Bounding box of the coordinate range of the object's Geometries, Features, or Feature Collections.\nThe value of the bbox member is an array of length 2*n where n is the number of dimensions\nrepresented in the contained geometries, with all axes of the most southwesterly point\nfollowed by all axes of the more northeasterly point.\nThe axes order of a bbox follows the axes order of geometries.\nhttps://tools.ietf.org/html/rfc7946#section-5"
+                },
+                "geometry": {
+                    "$ref": "#/definitions/GeoJSON.LineString",
+                    "description": "The feature's geometry"
+                },
+                "id": {
+                    "description": "A value that uniquely identifies this feature in a\nhttps://tools.ietf.org/html/rfc7946#section-3.2.",
+                    "type": [
+                        "string",
+                        "number"
+                    ]
+                },
+                "properties": {
+                    "$ref": "#/definitions/TertiaryStreetFields",
+                    "description": "Properties associated with this feature."
+                },
+                "type": {
+                    "description": "Specifies the type of GeoJSON object.",
+                    "enum": [
+                        "Feature"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "geometry",
+                "properties",
+                "type"
+            ],
+            "type": "object"
+        },
+        "TertiaryStreetFields": {
+            "additionalProperties": false,
+            "description": "Fields that apply to a tertiary street.",
+            "properties": {
+                "brunnel": {
+                    "description": "A field that indicates whether an entity is on a bridge, tunnel, or ford.",
+                    "enum": [
+                        "bridge",
+                        "ford",
+                        "tunnel"
+                    ],
+                    "type": "string"
+                },
+                "description": {
+                    "description": "A free form text field for describing a pathway or point. May be pre-encoded in relevant pedestrian paths to assist with routing instructing or investigation of map features. For example, a description of the sidewalk in relation to a nearby street may be a useful textual description, such as \"NE of Main St.\" Can also be considered a flexible location to embed arbitrary information for specific use cases.",
+                    "type": "string"
+                },
+                "foot": {
+                    "description": "A field that indicates whether a pathway can be used by pedestrians. Is implied for a Footway entity and its subtypes.",
+                    "type": "boolean"
+                },
+                "highway": {
+                    "enum": [
+                        "tertiary"
+                    ],
+                    "type": "string"
+                },
+                "incline": {
+                    "description": "A field for the estimated incline over a particular path, i.e. slope, i.e. grade, i.e. rise over run. If derived from OpenStreetMap data, this is the maximum incline over the path. If derived from DEM data, it is more likely to be an underestimation. Positive values indicate an uphill climb while negative are downhill. For example, a 45 degree downhill value for incline would be -1.0.",
+                    "maximum": 1,
+                    "minimum": -1,
+                    "type": "number"
+                },
+                "layer": {
+                    "description": "A field that indicates the z-layer (integer) on which a pathway lies. If unset, a value of 0 is implied. Negative values are allowed.",
+                    "maximum": 10,
+                    "minimum": -10,
+                    "type": "integer"
+                },
+                "length": {
+                    "description": "A field for the length of a pathway in meters. This field is always inferred from the geometry.",
+                    "maximum": 5000,
+                    "minimum": 0,
+                    "type": "number"
+                },
+                "name": {
+                    "description": "A field for a designated name for a pathway. Example: an official name for a trail.",
+                    "type": "string"
+                },
+                "surface": {
+                    "description": "A field for the surface material of the path.",
+                    "enum": [
+                        "asphalt",
+                        "concrete",
+                        "grass",
+                        "gravel",
+                        "paved",
+                        "paving_stones",
+                        "unpaved"
+                    ],
+                    "type": "string"
+                },
+                "width": {
+                    "description": "A field for width of a pathway in meters.",
+                    "maximum": 500,
+                    "minimum": 0,
+                    "type": "number"
+                }
+            },
+            "required": [
+                "highway"
+            ],
+            "type": "object"
+        },
+        "TrafficIsland": {
+            "additionalProperties": false,
+            "description": "The centerline of a footpath traversing a traffic island. Some complex, long, or busy pedestrian crossings have a built-up \"island\" to protect pedestrians, splitting up the crossing of the street into two or more crossings. As a pedestrian uses this crossing, they will transition across these path elements: sidewalk → footway → crossing → traffic island → crossing → footway → sidewalk.",
+            "properties": {
+                "bbox": {
+                    "anyOf": [
+                        {
+                            "items": [
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                }
+                            ],
+                            "maxItems": 4,
+                            "minItems": 4,
+                            "type": "array"
+                        },
+                        {
+                            "items": [
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                }
+                            ],
+                            "maxItems": 6,
+                            "minItems": 6,
+                            "type": "array"
+                        }
+                    ],
+                    "description": "Bounding box of the coordinate range of the object's Geometries, Features, or Feature Collections.\nThe value of the bbox member is an array of length 2*n where n is the number of dimensions\nrepresented in the contained geometries, with all axes of the most southwesterly point\nfollowed by all axes of the more northeasterly point.\nThe axes order of a bbox follows the axes order of geometries.\nhttps://tools.ietf.org/html/rfc7946#section-5"
+                },
+                "geometry": {
+                    "$ref": "#/definitions/GeoJSON.LineString",
+                    "description": "The feature's geometry"
+                },
+                "id": {
+                    "description": "A value that uniquely identifies this feature in a\nhttps://tools.ietf.org/html/rfc7946#section-3.2.",
+                    "type": [
+                        "string",
+                        "number"
+                    ]
+                },
+                "properties": {
+                    "additionalProperties": false,
+                    "description": "Properties associated with this feature.",
+                    "properties": {
+                        "footway": {
+                            "enum": [
+                                "traffic_island"
+                            ],
+                            "type": "string"
+                        },
+                        "highway": {
+                            "enum": [
+                                "footway"
+                            ],
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "footway",
+                        "highway"
+                    ]
+                },
+                "type": {
+                    "description": "Specifies the type of GeoJSON object.",
+                    "enum": [
+                        "Feature"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "geometry",
+                "properties",
+                "type"
+            ],
+            "type": "object"
+        }
+    },
+    "properties": {
+        "features": {
+            "items": {
+                "anyOf": [
+                    {
+                        "$ref": "#/definitions/CurbRamp"
+                    },
+                    {
+                        "$ref": "#/definitions/FireHydrant"
+                    },
+                    {
+                        "$ref": "#/definitions/FlushCurb"
+                    },
+                    {
+                        "$ref": "#/definitions/PowerPole"
+                    },
+                    {
+                        "$ref": "#/definitions/RaisedCurb"
+                    },
+                    {
+                        "$ref": "#/definitions/RolledCurb"
+                    },
+                    {
+                        "$ref": "#/definitions/Footway"
+                    },
+                    {
+                        "$ref": "#/definitions/Crossing"
+                    },
+                    {
+                        "$ref": "#/definitions/Sidewalk"
+                    },
+                    {
+                        "$ref": "#/definitions/TrafficIsland"
+                    },
+                    {
+                        "$ref": "#/definitions/Cycleway"
+                    },
+                    {
+                        "$ref": "#/definitions/PrimaryStreet"
+                    },
+                    {
+                        "$ref": "#/definitions/SecondaryStreet"
+                    },
+                    {
+                        "$ref": "#/definitions/TertiaryStreet"
+                    },
+                    {
+                        "$ref": "#/definitions/ResidentialStreet"
+                    },
+                    {
+                        "$ref": "#/definitions/ServiceRoad"
+                    },
+                    {
+                        "$ref": "#/definitions/Driveway"
+                    }
+                ]
+            },
+            "type": "array"
+        },
+        "type": {
+            "enum": [
+                "FeatureCollection"
+            ],
+            "type": "string"
+        }
+    },
+    "required": [
+        "features",
+        "type"
+    ],
+    "type": "object"
+}
+
