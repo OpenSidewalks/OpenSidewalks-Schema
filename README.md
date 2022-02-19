@@ -917,26 +917,6 @@ The value of the original tactile\_paving tag.
 
 -   0
 
-##### <a name="field-amenity"></a> amenity
-
-*From OpenStreetMap*
-
-Point features serving particular functional purposes.
-
-###### *Value type*: enum
-
-###### *Enumerated values*:
-
--   bench
-
--   drinking\_water
-
--   fountain
-
--   telephone
-
--   waste\_basket
-
 ##### <a name="field-crossing"></a> crossing
 
 From OpenStreetMap
