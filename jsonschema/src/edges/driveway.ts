@@ -1,11 +1,12 @@
 import { Feature, LineString } from "geojson";
 
+import { BaseEdgeFields } from "./base-edge-fields";
 import { ServiceRoadFields } from "./service-road";
 
 /**
  * Fields that identify a driveway.
  */
-interface DrivewayIdentifyingFields {
+interface DrivewayIdentifyingFields extends BaseEdgeFields {
   highway: "service";
   service: "driveway";
 }

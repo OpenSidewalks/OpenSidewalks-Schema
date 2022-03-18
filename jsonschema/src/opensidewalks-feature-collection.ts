@@ -1,7 +1,7 @@
-import { Point } from "./points";
-import { Pathway } from "./pathways";
+import { Node } from "./nodes";
+import { Edge } from "./edges";
 
 export interface OpenSidewalksFeatureCollection {
   type: "FeatureCollection";
-  features: (Point | Pathway)[];
+  features: (Node | Edge)[];
 }

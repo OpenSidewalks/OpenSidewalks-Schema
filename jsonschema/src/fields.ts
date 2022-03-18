@@ -7,16 +7,16 @@ export type Brunnel = "bridge" | "ford" | "tunnel";
  */
 export type Crossing = "marked" | "unmarked";
 /**
- * A free form text field for describing a pathway or point. May be pre-encoded in relevant pedestrian paths to assist with routing instructing or investigation of map features. For example, a description of the sidewalk in relation to a nearby street may be a useful textual description, such as "NE of Main St." Can also be considered a flexible location to embed arbitrary information for specific use cases.
+ * A free form text field for describing an edge of node. May be pre-encoded in relevant pedestrian paths to assist with routing instructing or investigation of map features. For example, a description of the sidewalk in relation to a nearby street may be a useful textual description, such as "NE of Main St." Can also be considered a flexible location to embed arbitrary information for specific use cases.
  */
 export type Description = string;
 /**
- * A field for whether a pathway uses an elevator for vertical movement, e.g. building
+ * A field for whether an edge uses an elevator for vertical movement, e.g. building
 paths.
  */
 export type Elevator = boolean;
 /**
- * A field that indicates whether a pathway can be used by pedestrians. Is implied for a Footway entity and its subtypes.
+ * A field that indicates whether an edge can be used by pedestrians. Is implied for a Footway entity and its subtypes.
  */
 export type Foot = boolean;
 /**
@@ -26,28 +26,28 @@ export type Foot = boolean;
  */
 export type Incline = number;
 /**
- * A field that indicates whether a pathway is indoors.
+ * A field that indicates whether an edge is indoors.
  */
 export type Indoor = boolean;
 /**
- * A field that indicates the z-layer (integer) on which a pathway lies. If unset, a value of 0 is implied. Negative values are allowed.
+ * A field that indicates the z-layer (integer) on which an edge lies. If unset, a value of 0 is implied. Negative values are allowed.
  * @TJS-type integer
  * @minimum -10
  * @maximum 10
  */
 export type Layer = number;
 /**
- * A field for the length of a pathway in meters. This field is always inferred from the geometry.
+ * A field for the length of an edge in meters. This field is always inferred from the geometry.
  * @minimum 0
  * @maximum 5000
  */
 export type Length = number;
 /**
- * A field for a designated name for a pathway. Example: an official name for a trail.
+ * A field for a designated name for an edge. Example: an official name for a trail.
  */
 export type Name = string;
 /**
- * A field for the opening hours of an entity: whether it is available at a given time. A pathway through a building that closes at night, for example, may have this field. The value is in OpenStreetMap syntax for the opening\_hours tag. See [OpenStreetMap specification](https://wiki.openstreetmap.org/wiki/Key:opening_hours/specification) on the formatting for this field.
+ * A field for the opening hours of an entity: whether it is available at a given time. An edge through a building that closes at night, for example, may have this field. The value is in OpenStreetMap syntax for the opening\_hours tag. See [OpenStreetMap specification](https://wiki.openstreetmap.org/wiki/Key:opening_hours/specification) on the formatting for this field.
  */
 export type OpeningHours = string;
 /**
@@ -62,11 +62,11 @@ export type Surface =
   | "paving_stones"
   | "unpaved";
 /**
- * A field for whether a curb ramp or pathway has a tactile (textured) surface.
+ * A field for whether a curb ramp or edge has a tactile (textured) surface.
  */
 export type TactilePaving = boolean;
 /**
- * A field for width of a pathway in meters.
+ * A field for width of an edge in meters.
  * @minimum 0
  * @maximum 500
  */

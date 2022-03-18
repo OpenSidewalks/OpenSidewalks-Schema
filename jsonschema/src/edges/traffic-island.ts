@@ -1,11 +1,12 @@
 import { Feature, LineString } from "geojson";
 
+import { BaseEdgeFields } from "./base-edge-fields";
 import { FootwayFields } from "./footway";
 
 /**
  * Fields that identify a traffic island.
  */
-interface TrafficIslandIdentifyingFields {
+interface TrafficIslandIdentifyingFields extends BaseEdgeFields {
   highway: "footway";
   footway: "traffic_island";
 }

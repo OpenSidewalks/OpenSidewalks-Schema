@@ -2,6 +2,102 @@
     "$schema": "http://json-schema.org/draft-07/schema#",
     "additionalProperties": false,
     "definitions": {
+        "BareNode": {
+            "additionalProperties": false,
+            "description": "A node that is merely part of the graph structure but has no metadata or meaning of its own. For example, a sidewalk may be split into two edges because they have differing widths, so they must be joined by a node - but there is no data to place on the node itself beyond basic spatial and graph primitives.",
+            "properties": {
+                "bbox": {
+                    "anyOf": [
+                        {
+                            "items": [
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                }
+                            ],
+                            "maxItems": 4,
+                            "minItems": 4,
+                            "type": "array"
+                        },
+                        {
+                            "items": [
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                }
+                            ],
+                            "maxItems": 6,
+                            "minItems": 6,
+                            "type": "array"
+                        }
+                    ],
+                    "description": "Bounding box of the coordinate range of the object's Geometries, Features, or Feature Collections.\nThe value of the bbox member is an array of length 2*n where n is the number of dimensions\nrepresented in the contained geometries, with all axes of the most southwesterly point\nfollowed by all axes of the more northeasterly point.\nThe axes order of a bbox follows the axes order of geometries.\nhttps://tools.ietf.org/html/rfc7946#section-5"
+                },
+                "geometry": {
+                    "$ref": "#/definitions/GeoJSON.Point",
+                    "description": "The feature's geometry"
+                },
+                "id": {
+                    "description": "A value that uniquely identifies this feature in a\nhttps://tools.ietf.org/html/rfc7946#section-3.2.",
+                    "type": [
+                        "string",
+                        "number"
+                    ]
+                },
+                "properties": {
+                    "$ref": "#/definitions/BareNodeFields",
+                    "description": "Properties associated with this feature."
+                },
+                "type": {
+                    "description": "Specifies the type of GeoJSON object.",
+                    "enum": [
+                        "Feature"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "geometry",
+                "properties",
+                "type"
+            ],
+            "type": "object"
+        },
+        "BareNodeFields": {
+            "additionalProperties": false,
+            "description": "Fields that apply to a bare node (none beyond _id).",
+            "properties": {
+                "_id": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "_id"
+            ],
+            "type": "object"
+        },
         "Crossing": {
             "additionalProperties": false,
             "description": "The centerline of a pedestrian street crossing. This path exists only on the road surface itself, i.e. \"from curb to curb\". Crossings should not be connected directly to sidewalk centerlines - instead, a short footpath (this schema calls them \"links\") should connect the two together.",
@@ -89,6 +185,12 @@
             "additionalProperties": false,
             "description": "Fields that apply to a crossing.",
             "properties": {
+                "_u_id": {
+                    "type": "string"
+                },
+                "_v_id": {
+                    "type": "string"
+                },
                 "brunnel": {
                     "description": "A field that indicates whether an entity is on a bridge, tunnel, or ford.",
                     "enum": [
@@ -106,7 +208,7 @@
                     "type": "string"
                 },
                 "description": {
-                    "description": "A free form text field for describing a pathway or point. May be pre-encoded in relevant pedestrian paths to assist with routing instructing or investigation of map features. For example, a description of the sidewalk in relation to a nearby street may be a useful textual description, such as \"NE of Main St.\" Can also be considered a flexible location to embed arbitrary information for specific use cases.",
+                    "description": "A free form text field for describing an edge of node. May be pre-encoded in relevant pedestrian paths to assist with routing instructing or investigation of map features. For example, a description of the sidewalk in relation to a nearby street may be a useful textual description, such as \"NE of Main St.\" Can also be considered a flexible location to embed arbitrary information for specific use cases.",
                     "type": "string"
                 },
                 "footway": {
@@ -128,19 +230,19 @@
                     "type": "number"
                 },
                 "layer": {
-                    "description": "A field that indicates the z-layer (integer) on which a pathway lies. If unset, a value of 0 is implied. Negative values are allowed.",
+                    "description": "A field that indicates the z-layer (integer) on which an edge lies. If unset, a value of 0 is implied. Negative values are allowed.",
                     "maximum": 10,
                     "minimum": -10,
                     "type": "integer"
                 },
                 "length": {
-                    "description": "A field for the length of a pathway in meters. This field is always inferred from the geometry.",
+                    "description": "A field for the length of an edge in meters. This field is always inferred from the geometry.",
                     "maximum": 5000,
                     "minimum": 0,
                     "type": "number"
                 },
                 "name": {
-                    "description": "A field for a designated name for a pathway. Example: an official name for a trail.",
+                    "description": "A field for a designated name for an edge. Example: an official name for a trail.",
                     "type": "string"
                 },
                 "surface": {
@@ -157,13 +259,15 @@
                     "type": "string"
                 },
                 "width": {
-                    "description": "A field for width of a pathway in meters.",
+                    "description": "A field for width of an edge in meters.",
                     "maximum": 500,
                     "minimum": 0,
                     "type": "number"
                 }
             },
             "required": [
+                "_u_id",
+                "_v_id",
                 "footway",
                 "highway"
             ],
@@ -171,7 +275,7 @@
         },
         "CurbRamp": {
             "additionalProperties": false,
-            "description": "A curb ramp (curb cut) mapped as a curb interface. Mapped at the location where the two pathways that it connects meet one another.",
+            "description": "A curb ramp (curb cut) mapped as a curb interface. Mapped at the location where the two edges that it connects meet one another.",
             "properties": {
                 "bbox": {
                     "anyOf": [
@@ -256,6 +360,9 @@
             "additionalProperties": false,
             "description": "Fields that apply to a curb ramp.",
             "properties": {
+                "_id": {
+                    "type": "string"
+                },
                 "brunnel": {
                     "description": "A field that indicates whether an entity is on a bridge, tunnel, or ford.",
                     "enum": [
@@ -272,7 +379,7 @@
                     "type": "string"
                 },
                 "layer": {
-                    "description": "A field that indicates the z-layer (integer) on which a pathway lies. If unset, a value of 0 is implied. Negative values are allowed.",
+                    "description": "A field that indicates the z-layer (integer) on which an edge lies. If unset, a value of 0 is implied. Negative values are allowed.",
                     "maximum": 10,
                     "minimum": -10,
                     "type": "integer"
@@ -291,11 +398,12 @@
                     "type": "string"
                 },
                 "tactile_paving": {
-                    "description": "A field for whether a curb ramp or pathway has a tactile (textured) surface.",
+                    "description": "A field for whether a curb ramp or edge has a tactile (textured) surface.",
                     "type": "boolean"
                 }
             },
             "required": [
+                "_id",
                 "kerb"
             ],
             "type": "object"
@@ -386,6 +494,12 @@
         "CyclewayFields": {
             "additionalProperties": false,
             "properties": {
+                "_u_id": {
+                    "type": "string"
+                },
+                "_v_id": {
+                    "type": "string"
+                },
                 "brunnel": {
                     "description": "Fields that apply to a cycleway.",
                     "enum": [
@@ -396,11 +510,11 @@
                     "type": "string"
                 },
                 "description": {
-                    "description": "A free form text field for describing a pathway or point. May be pre-encoded in relevant pedestrian paths to assist with routing instructing or investigation of map features. For example, a description of the sidewalk in relation to a nearby street may be a useful textual description, such as \"NE of Main St.\" Can also be considered a flexible location to embed arbitrary information for specific use cases.",
+                    "description": "A free form text field for describing an edge of node. May be pre-encoded in relevant pedestrian paths to assist with routing instructing or investigation of map features. For example, a description of the sidewalk in relation to a nearby street may be a useful textual description, such as \"NE of Main St.\" Can also be considered a flexible location to embed arbitrary information for specific use cases.",
                     "type": "string"
                 },
                 "foot": {
-                    "description": "A field that indicates whether a pathway can be used by pedestrians. Is implied for a Footway entity and its subtypes.",
+                    "description": "A field that indicates whether an edge can be used by pedestrians. Is implied for a Footway entity and its subtypes.",
                     "type": "boolean"
                 },
                 "highway": {
@@ -416,19 +530,19 @@
                     "type": "number"
                 },
                 "layer": {
-                    "description": "A field that indicates the z-layer (integer) on which a pathway lies. If unset, a value of 0 is implied. Negative values are allowed.",
+                    "description": "A field that indicates the z-layer (integer) on which an edge lies. If unset, a value of 0 is implied. Negative values are allowed.",
                     "maximum": 10,
                     "minimum": -10,
                     "type": "integer"
                 },
                 "length": {
-                    "description": "A field for the length of a pathway in meters. This field is always inferred from the geometry.",
+                    "description": "A field for the length of an edge in meters. This field is always inferred from the geometry.",
                     "maximum": 5000,
                     "minimum": 0,
                     "type": "number"
                 },
                 "name": {
-                    "description": "A field for a designated name for a pathway. Example: an official name for a trail.",
+                    "description": "A field for a designated name for an edge. Example: an official name for a trail.",
                     "type": "string"
                 },
                 "surface": {
@@ -445,13 +559,15 @@
                     "type": "string"
                 },
                 "width": {
-                    "description": "A field for width of a pathway in meters.",
+                    "description": "A field for width of an edge in meters.",
                     "maximum": 500,
                     "minimum": 0,
                     "type": "number"
                 }
             },
             "required": [
+                "_u_id",
+                "_v_id",
                 "highway"
             ],
             "type": "object"
@@ -524,6 +640,12 @@
                     "additionalProperties": false,
                     "description": "Properties associated with this feature.",
                     "properties": {
+                        "_u_id": {
+                            "type": "string"
+                        },
+                        "_v_id": {
+                            "type": "string"
+                        },
                         "highway": {
                             "enum": [
                                 "service"
@@ -538,6 +660,8 @@
                         }
                     },
                     "required": [
+                        "_u_id",
+                        "_v_id",
                         "highway",
                         "service"
                     ]
@@ -554,120 +678,6 @@
                 "geometry",
                 "properties",
                 "type"
-            ],
-            "type": "object"
-        },
-        "FireHydrant": {
-            "additionalProperties": false,
-            "description": "A fire hydrant - where fire response teams connect high-pressure hoses.",
-            "properties": {
-                "bbox": {
-                    "anyOf": [
-                        {
-                            "items": [
-                                {
-                                    "type": "number"
-                                },
-                                {
-                                    "type": "number"
-                                },
-                                {
-                                    "type": "number"
-                                },
-                                {
-                                    "type": "number"
-                                }
-                            ],
-                            "maxItems": 4,
-                            "minItems": 4,
-                            "type": "array"
-                        },
-                        {
-                            "items": [
-                                {
-                                    "type": "number"
-                                },
-                                {
-                                    "type": "number"
-                                },
-                                {
-                                    "type": "number"
-                                },
-                                {
-                                    "type": "number"
-                                },
-                                {
-                                    "type": "number"
-                                },
-                                {
-                                    "type": "number"
-                                }
-                            ],
-                            "maxItems": 6,
-                            "minItems": 6,
-                            "type": "array"
-                        }
-                    ],
-                    "description": "Bounding box of the coordinate range of the object's Geometries, Features, or Feature Collections.\nThe value of the bbox member is an array of length 2*n where n is the number of dimensions\nrepresented in the contained geometries, with all axes of the most southwesterly point\nfollowed by all axes of the more northeasterly point.\nThe axes order of a bbox follows the axes order of geometries.\nhttps://tools.ietf.org/html/rfc7946#section-5"
-                },
-                "geometry": {
-                    "$ref": "#/definitions/GeoJSON.Point",
-                    "description": "The feature's geometry"
-                },
-                "id": {
-                    "description": "A value that uniquely identifies this feature in a\nhttps://tools.ietf.org/html/rfc7946#section-3.2.",
-                    "type": [
-                        "string",
-                        "number"
-                    ]
-                },
-                "properties": {
-                    "$ref": "#/definitions/FireHydrantFields",
-                    "description": "Properties associated with this feature."
-                },
-                "type": {
-                    "description": "Specifies the type of GeoJSON object.",
-                    "enum": [
-                        "Feature"
-                    ],
-                    "type": "string"
-                }
-            },
-            "required": [
-                "geometry",
-                "properties",
-                "type"
-            ],
-            "type": "object"
-        },
-        "FireHydrantFields": {
-            "additionalProperties": false,
-            "description": "Fields that apply to a fire hydrant.",
-            "properties": {
-                "brunnel": {
-                    "description": "A field that indicates whether an entity is on a bridge, tunnel, or ford.",
-                    "enum": [
-                        "bridge",
-                        "ford",
-                        "tunnel"
-                    ],
-                    "type": "string"
-                },
-                "emergency": {
-                    "enum": [
-                        "fire_hydrant"
-                    ],
-                    "type": "string"
-                },
-                "layer": {
-                    "description": "A field that indicates the z-layer (integer) on which a pathway lies. If unset, a value of 0 is implied. Negative values are allowed.",
-                    "maximum": 10,
-                    "minimum": -10,
-                    "type": "integer"
-                }
-            },
-            "required": [
-                "emergency"
             ],
             "type": "object"
         },
@@ -758,6 +768,9 @@
             "additionalProperties": false,
             "description": "Fields that apply to a flush curb.",
             "properties": {
+                "_id": {
+                    "type": "string"
+                },
                 "brunnel": {
                     "description": "A field that indicates whether an entity is on a bridge, tunnel, or ford.",
                     "enum": [
@@ -774,13 +787,14 @@
                     "type": "string"
                 },
                 "layer": {
-                    "description": "A field that indicates the z-layer (integer) on which a pathway lies. If unset, a value of 0 is implied. Negative values are allowed.",
+                    "description": "A field that indicates the z-layer (integer) on which an edge lies. If unset, a value of 0 is implied. Negative values are allowed.",
                     "maximum": 10,
                     "minimum": -10,
                     "type": "integer"
                 }
             },
             "required": [
+                "_id",
                 "kerb"
             ],
             "type": "object"
@@ -872,6 +886,12 @@
             "additionalProperties": false,
             "description": "Fields that apply to a footway.",
             "properties": {
+                "_u_id": {
+                    "type": "string"
+                },
+                "_v_id": {
+                    "type": "string"
+                },
                 "brunnel": {
                     "description": "A field that indicates whether an entity is on a bridge, tunnel, or ford.",
                     "enum": [
@@ -882,7 +902,7 @@
                     "type": "string"
                 },
                 "description": {
-                    "description": "A free form text field for describing a pathway or point. May be pre-encoded in relevant pedestrian paths to assist with routing instructing or investigation of map features. For example, a description of the sidewalk in relation to a nearby street may be a useful textual description, such as \"NE of Main St.\" Can also be considered a flexible location to embed arbitrary information for specific use cases.",
+                    "description": "A free form text field for describing an edge of node. May be pre-encoded in relevant pedestrian paths to assist with routing instructing or investigation of map features. For example, a description of the sidewalk in relation to a nearby street may be a useful textual description, such as \"NE of Main St.\" Can also be considered a flexible location to embed arbitrary information for specific use cases.",
                     "type": "string"
                 },
                 "highway": {
@@ -898,19 +918,19 @@
                     "type": "number"
                 },
                 "layer": {
-                    "description": "A field that indicates the z-layer (integer) on which a pathway lies. If unset, a value of 0 is implied. Negative values are allowed.",
+                    "description": "A field that indicates the z-layer (integer) on which an edge lies. If unset, a value of 0 is implied. Negative values are allowed.",
                     "maximum": 10,
                     "minimum": -10,
                     "type": "integer"
                 },
                 "length": {
-                    "description": "A field for the length of a pathway in meters. This field is always inferred from the geometry.",
+                    "description": "A field for the length of an edge in meters. This field is always inferred from the geometry.",
                     "maximum": 5000,
                     "minimum": 0,
                     "type": "number"
                 },
                 "name": {
-                    "description": "A field for a designated name for a pathway. Example: an official name for a trail.",
+                    "description": "A field for a designated name for an edge. Example: an official name for a trail.",
                     "type": "string"
                 },
                 "surface": {
@@ -927,13 +947,15 @@
                     "type": "string"
                 },
                 "width": {
-                    "description": "A field for width of a pathway in meters.",
+                    "description": "A field for width of an edge in meters.",
                     "maximum": 500,
                     "minimum": 0,
                     "type": "number"
                 }
             },
             "required": [
+                "_u_id",
+                "_v_id",
                 "highway"
             ],
             "type": "object"
@@ -1089,120 +1111,6 @@
             ],
             "type": "object"
         },
-        "PowerPole": {
-            "additionalProperties": false,
-            "description": "A power pole. Often made of wood or metal, they hold power lines.",
-            "properties": {
-                "bbox": {
-                    "anyOf": [
-                        {
-                            "items": [
-                                {
-                                    "type": "number"
-                                },
-                                {
-                                    "type": "number"
-                                },
-                                {
-                                    "type": "number"
-                                },
-                                {
-                                    "type": "number"
-                                }
-                            ],
-                            "maxItems": 4,
-                            "minItems": 4,
-                            "type": "array"
-                        },
-                        {
-                            "items": [
-                                {
-                                    "type": "number"
-                                },
-                                {
-                                    "type": "number"
-                                },
-                                {
-                                    "type": "number"
-                                },
-                                {
-                                    "type": "number"
-                                },
-                                {
-                                    "type": "number"
-                                },
-                                {
-                                    "type": "number"
-                                }
-                            ],
-                            "maxItems": 6,
-                            "minItems": 6,
-                            "type": "array"
-                        }
-                    ],
-                    "description": "Bounding box of the coordinate range of the object's Geometries, Features, or Feature Collections.\nThe value of the bbox member is an array of length 2*n where n is the number of dimensions\nrepresented in the contained geometries, with all axes of the most southwesterly point\nfollowed by all axes of the more northeasterly point.\nThe axes order of a bbox follows the axes order of geometries.\nhttps://tools.ietf.org/html/rfc7946#section-5"
-                },
-                "geometry": {
-                    "$ref": "#/definitions/GeoJSON.Point",
-                    "description": "The feature's geometry"
-                },
-                "id": {
-                    "description": "A value that uniquely identifies this feature in a\nhttps://tools.ietf.org/html/rfc7946#section-3.2.",
-                    "type": [
-                        "string",
-                        "number"
-                    ]
-                },
-                "properties": {
-                    "$ref": "#/definitions/PowerPoleFields",
-                    "description": "Properties associated with this feature."
-                },
-                "type": {
-                    "description": "Specifies the type of GeoJSON object.",
-                    "enum": [
-                        "Feature"
-                    ],
-                    "type": "string"
-                }
-            },
-            "required": [
-                "geometry",
-                "properties",
-                "type"
-            ],
-            "type": "object"
-        },
-        "PowerPoleFields": {
-            "additionalProperties": false,
-            "description": "Fields that apply to a power pole.",
-            "properties": {
-                "brunnel": {
-                    "description": "A field that indicates whether an entity is on a bridge, tunnel, or ford.",
-                    "enum": [
-                        "bridge",
-                        "ford",
-                        "tunnel"
-                    ],
-                    "type": "string"
-                },
-                "layer": {
-                    "description": "A field that indicates the z-layer (integer) on which a pathway lies. If unset, a value of 0 is implied. Negative values are allowed.",
-                    "maximum": 10,
-                    "minimum": -10,
-                    "type": "integer"
-                },
-                "power": {
-                    "enum": [
-                        "pole"
-                    ],
-                    "type": "string"
-                }
-            },
-            "required": [
-                "power"
-            ],
-            "type": "object"
-        },
         "PrimaryStreet": {
             "additionalProperties": false,
             "description": "The centerline of a major highway.",
@@ -1290,6 +1198,12 @@
             "additionalProperties": false,
             "description": "Fields that apply to a primary street.",
             "properties": {
+                "_u_id": {
+                    "type": "string"
+                },
+                "_v_id": {
+                    "type": "string"
+                },
                 "brunnel": {
                     "description": "A field that indicates whether an entity is on a bridge, tunnel, or ford.",
                     "enum": [
@@ -1300,11 +1214,11 @@
                     "type": "string"
                 },
                 "description": {
-                    "description": "A free form text field for describing a pathway or point. May be pre-encoded in relevant pedestrian paths to assist with routing instructing or investigation of map features. For example, a description of the sidewalk in relation to a nearby street may be a useful textual description, such as \"NE of Main St.\" Can also be considered a flexible location to embed arbitrary information for specific use cases.",
+                    "description": "A free form text field for describing an edge of node. May be pre-encoded in relevant pedestrian paths to assist with routing instructing or investigation of map features. For example, a description of the sidewalk in relation to a nearby street may be a useful textual description, such as \"NE of Main St.\" Can also be considered a flexible location to embed arbitrary information for specific use cases.",
                     "type": "string"
                 },
                 "foot": {
-                    "description": "A field that indicates whether a pathway can be used by pedestrians. Is implied for a Footway entity and its subtypes.",
+                    "description": "A field that indicates whether an edge can be used by pedestrians. Is implied for a Footway entity and its subtypes.",
                     "type": "boolean"
                 },
                 "highway": {
@@ -1320,19 +1234,19 @@
                     "type": "number"
                 },
                 "layer": {
-                    "description": "A field that indicates the z-layer (integer) on which a pathway lies. If unset, a value of 0 is implied. Negative values are allowed.",
+                    "description": "A field that indicates the z-layer (integer) on which an edge lies. If unset, a value of 0 is implied. Negative values are allowed.",
                     "maximum": 10,
                     "minimum": -10,
                     "type": "integer"
                 },
                 "length": {
-                    "description": "A field for the length of a pathway in meters. This field is always inferred from the geometry.",
+                    "description": "A field for the length of an edge in meters. This field is always inferred from the geometry.",
                     "maximum": 5000,
                     "minimum": 0,
                     "type": "number"
                 },
                 "name": {
-                    "description": "A field for a designated name for a pathway. Example: an official name for a trail.",
+                    "description": "A field for a designated name for an edge. Example: an official name for a trail.",
                     "type": "string"
                 },
                 "surface": {
@@ -1349,20 +1263,22 @@
                     "type": "string"
                 },
                 "width": {
-                    "description": "A field for width of a pathway in meters.",
+                    "description": "A field for width of an edge in meters.",
                     "maximum": 500,
                     "minimum": 0,
                     "type": "number"
                 }
             },
             "required": [
+                "_u_id",
+                "_v_id",
                 "highway"
             ],
             "type": "object"
         },
         "RaisedCurb": {
             "additionalProperties": false,
-            "description": "A single, designed vertical displacement that separates two pathways. A common example is the curb that separates a street crossing from a sidewalk. This is mapped at the point where the two paths meet - on top of the curb is physically located.",
+            "description": "A single, designed vertical displacement that separates two edges. A common example is the curb that separates a street crossing from a sidewalk. This is mapped at the point where the two edges meet - on top of the curb is physically located.",
             "properties": {
                 "bbox": {
                     "anyOf": [
@@ -1447,6 +1363,9 @@
             "additionalProperties": false,
             "description": "Fields that apply to a raised curb.",
             "properties": {
+                "_id": {
+                    "type": "string"
+                },
                 "brunnel": {
                     "description": "A field that indicates whether an entity is on a bridge, tunnel, or ford.",
                     "enum": [
@@ -1463,13 +1382,14 @@
                     "type": "string"
                 },
                 "layer": {
-                    "description": "A field that indicates the z-layer (integer) on which a pathway lies. If unset, a value of 0 is implied. Negative values are allowed.",
+                    "description": "A field that indicates the z-layer (integer) on which an edge lies. If unset, a value of 0 is implied. Negative values are allowed.",
                     "maximum": 10,
                     "minimum": -10,
                     "type": "integer"
                 }
             },
             "required": [
+                "_id",
                 "kerb"
             ],
             "type": "object"
@@ -1561,6 +1481,12 @@
             "additionalProperties": false,
             "description": "Fields that apply to a residential street.",
             "properties": {
+                "_u_id": {
+                    "type": "string"
+                },
+                "_v_id": {
+                    "type": "string"
+                },
                 "brunnel": {
                     "description": "A field that indicates whether an entity is on a bridge, tunnel, or ford.",
                     "enum": [
@@ -1571,11 +1497,11 @@
                     "type": "string"
                 },
                 "description": {
-                    "description": "A free form text field for describing a pathway or point. May be pre-encoded in relevant pedestrian paths to assist with routing instructing or investigation of map features. For example, a description of the sidewalk in relation to a nearby street may be a useful textual description, such as \"NE of Main St.\" Can also be considered a flexible location to embed arbitrary information for specific use cases.",
+                    "description": "A free form text field for describing an edge of node. May be pre-encoded in relevant pedestrian paths to assist with routing instructing or investigation of map features. For example, a description of the sidewalk in relation to a nearby street may be a useful textual description, such as \"NE of Main St.\" Can also be considered a flexible location to embed arbitrary information for specific use cases.",
                     "type": "string"
                 },
                 "foot": {
-                    "description": "A field that indicates whether a pathway can be used by pedestrians. Is implied for a Footway entity and its subtypes.",
+                    "description": "A field that indicates whether an edge can be used by pedestrians. Is implied for a Footway entity and its subtypes.",
                     "type": "boolean"
                 },
                 "highway": {
@@ -1591,19 +1517,19 @@
                     "type": "number"
                 },
                 "layer": {
-                    "description": "A field that indicates the z-layer (integer) on which a pathway lies. If unset, a value of 0 is implied. Negative values are allowed.",
+                    "description": "A field that indicates the z-layer (integer) on which an edge lies. If unset, a value of 0 is implied. Negative values are allowed.",
                     "maximum": 10,
                     "minimum": -10,
                     "type": "integer"
                 },
                 "length": {
-                    "description": "A field for the length of a pathway in meters. This field is always inferred from the geometry.",
+                    "description": "A field for the length of an edge in meters. This field is always inferred from the geometry.",
                     "maximum": 5000,
                     "minimum": 0,
                     "type": "number"
                 },
                 "name": {
-                    "description": "A field for a designated name for a pathway. Example: an official name for a trail.",
+                    "description": "A field for a designated name for an edge. Example: an official name for a trail.",
                     "type": "string"
                 },
                 "surface": {
@@ -1620,20 +1546,22 @@
                     "type": "string"
                 },
                 "width": {
-                    "description": "A field for width of a pathway in meters.",
+                    "description": "A field for width of an edge in meters.",
                     "maximum": 500,
                     "minimum": 0,
                     "type": "number"
                 }
             },
             "required": [
+                "_u_id",
+                "_v_id",
                 "highway"
             ],
             "type": "object"
         },
         "RolledCurb": {
             "additionalProperties": false,
-            "description": "A curb interface with a quarter-circle profile: traversing this curb is like going over half of a bump. Located where two pathways meet, physically at the location of the curb itself.",
+            "description": "A curb interface with a quarter-circle profile: traversing this curb is like going over half of a bump. Located where two edges meet, physically at the location of the curb itself.",
             "properties": {
                 "bbox": {
                     "anyOf": [
@@ -1718,6 +1646,9 @@
             "additionalProperties": false,
             "description": "Fields that apply to a rolled curb.",
             "properties": {
+                "_id": {
+                    "type": "string"
+                },
                 "brunnel": {
                     "description": "A field that indicates whether an entity is on a bridge, tunnel, or ford.",
                     "enum": [
@@ -1734,13 +1665,14 @@
                     "type": "string"
                 },
                 "layer": {
-                    "description": "A field that indicates the z-layer (integer) on which a pathway lies. If unset, a value of 0 is implied. Negative values are allowed.",
+                    "description": "A field that indicates the z-layer (integer) on which an edge lies. If unset, a value of 0 is implied. Negative values are allowed.",
                     "maximum": 10,
                     "minimum": -10,
                     "type": "integer"
                 }
             },
             "required": [
+                "_id",
                 "kerb"
             ],
             "type": "object"
@@ -1832,6 +1764,12 @@
             "additionalProperties": false,
             "description": "Fields that apply to a secondary street.",
             "properties": {
+                "_u_id": {
+                    "type": "string"
+                },
+                "_v_id": {
+                    "type": "string"
+                },
                 "brunnel": {
                     "description": "A field that indicates whether an entity is on a bridge, tunnel, or ford.",
                     "enum": [
@@ -1842,11 +1780,11 @@
                     "type": "string"
                 },
                 "description": {
-                    "description": "A free form text field for describing a pathway or point. May be pre-encoded in relevant pedestrian paths to assist with routing instructing or investigation of map features. For example, a description of the sidewalk in relation to a nearby street may be a useful textual description, such as \"NE of Main St.\" Can also be considered a flexible location to embed arbitrary information for specific use cases.",
+                    "description": "A free form text field for describing an edge of node. May be pre-encoded in relevant pedestrian paths to assist with routing instructing or investigation of map features. For example, a description of the sidewalk in relation to a nearby street may be a useful textual description, such as \"NE of Main St.\" Can also be considered a flexible location to embed arbitrary information for specific use cases.",
                     "type": "string"
                 },
                 "foot": {
-                    "description": "A field that indicates whether a pathway can be used by pedestrians. Is implied for a Footway entity and its subtypes.",
+                    "description": "A field that indicates whether an edge can be used by pedestrians. Is implied for a Footway entity and its subtypes.",
                     "type": "boolean"
                 },
                 "highway": {
@@ -1862,19 +1800,19 @@
                     "type": "number"
                 },
                 "layer": {
-                    "description": "A field that indicates the z-layer (integer) on which a pathway lies. If unset, a value of 0 is implied. Negative values are allowed.",
+                    "description": "A field that indicates the z-layer (integer) on which an edge lies. If unset, a value of 0 is implied. Negative values are allowed.",
                     "maximum": 10,
                     "minimum": -10,
                     "type": "integer"
                 },
                 "length": {
-                    "description": "A field for the length of a pathway in meters. This field is always inferred from the geometry.",
+                    "description": "A field for the length of an edge in meters. This field is always inferred from the geometry.",
                     "maximum": 5000,
                     "minimum": 0,
                     "type": "number"
                 },
                 "name": {
-                    "description": "A field for a designated name for a pathway. Example: an official name for a trail.",
+                    "description": "A field for a designated name for an edge. Example: an official name for a trail.",
                     "type": "string"
                 },
                 "surface": {
@@ -1891,13 +1829,15 @@
                     "type": "string"
                 },
                 "width": {
-                    "description": "A field for width of a pathway in meters.",
+                    "description": "A field for width of an edge in meters.",
                     "maximum": 500,
                     "minimum": 0,
                     "type": "number"
                 }
             },
             "required": [
+                "_u_id",
+                "_v_id",
                 "highway"
             ],
             "type": "object"
@@ -1989,6 +1929,12 @@
             "additionalProperties": false,
             "description": "Fields that apply to a service road.\nprimary street.",
             "properties": {
+                "_u_id": {
+                    "type": "string"
+                },
+                "_v_id": {
+                    "type": "string"
+                },
                 "brunnel": {
                     "description": "A field that indicates whether an entity is on a bridge, tunnel, or ford.",
                     "enum": [
@@ -1999,11 +1945,11 @@
                     "type": "string"
                 },
                 "description": {
-                    "description": "A free form text field for describing a pathway or point. May be pre-encoded in relevant pedestrian paths to assist with routing instructing or investigation of map features. For example, a description of the sidewalk in relation to a nearby street may be a useful textual description, such as \"NE of Main St.\" Can also be considered a flexible location to embed arbitrary information for specific use cases.",
+                    "description": "A free form text field for describing an edge of node. May be pre-encoded in relevant pedestrian paths to assist with routing instructing or investigation of map features. For example, a description of the sidewalk in relation to a nearby street may be a useful textual description, such as \"NE of Main St.\" Can also be considered a flexible location to embed arbitrary information for specific use cases.",
                     "type": "string"
                 },
                 "foot": {
-                    "description": "A field that indicates whether a pathway can be used by pedestrians. Is implied for a Footway entity and its subtypes.",
+                    "description": "A field that indicates whether an edge can be used by pedestrians. Is implied for a Footway entity and its subtypes.",
                     "type": "boolean"
                 },
                 "highway": {
@@ -2019,13 +1965,13 @@
                     "type": "number"
                 },
                 "layer": {
-                    "description": "A field that indicates the z-layer (integer) on which a pathway lies. If unset, a value of 0 is implied. Negative values are allowed.",
+                    "description": "A field that indicates the z-layer (integer) on which an edge lies. If unset, a value of 0 is implied. Negative values are allowed.",
                     "maximum": 10,
                     "minimum": -10,
                     "type": "integer"
                 },
                 "length": {
-                    "description": "A field for the length of a pathway in meters. This field is always inferred from the geometry.",
+                    "description": "A field for the length of an edge in meters. This field is always inferred from the geometry.",
                     "maximum": 5000,
                     "minimum": 0,
                     "type": "number"
@@ -2044,13 +1990,15 @@
                     "type": "string"
                 },
                 "width": {
-                    "description": "A field for width of a pathway in meters.",
+                    "description": "A field for width of an edge in meters.",
                     "maximum": 500,
                     "minimum": 0,
                     "type": "number"
                 }
             },
             "required": [
+                "_u_id",
+                "_v_id",
                 "highway"
             ],
             "type": "object"
@@ -2123,6 +2071,12 @@
                     "additionalProperties": false,
                     "description": "Properties associated with this feature.",
                     "properties": {
+                        "_u_id": {
+                            "type": "string"
+                        },
+                        "_v_id": {
+                            "type": "string"
+                        },
                         "footway": {
                             "enum": [
                                 "sidewalk"
@@ -2137,6 +2091,8 @@
                         }
                     },
                     "required": [
+                        "_u_id",
+                        "_v_id",
                         "footway",
                         "highway"
                     ]
@@ -2243,6 +2199,12 @@
             "additionalProperties": false,
             "description": "Fields that apply to a tertiary street.",
             "properties": {
+                "_u_id": {
+                    "type": "string"
+                },
+                "_v_id": {
+                    "type": "string"
+                },
                 "brunnel": {
                     "description": "A field that indicates whether an entity is on a bridge, tunnel, or ford.",
                     "enum": [
@@ -2253,11 +2215,11 @@
                     "type": "string"
                 },
                 "description": {
-                    "description": "A free form text field for describing a pathway or point. May be pre-encoded in relevant pedestrian paths to assist with routing instructing or investigation of map features. For example, a description of the sidewalk in relation to a nearby street may be a useful textual description, such as \"NE of Main St.\" Can also be considered a flexible location to embed arbitrary information for specific use cases.",
+                    "description": "A free form text field for describing an edge of node. May be pre-encoded in relevant pedestrian paths to assist with routing instructing or investigation of map features. For example, a description of the sidewalk in relation to a nearby street may be a useful textual description, such as \"NE of Main St.\" Can also be considered a flexible location to embed arbitrary information for specific use cases.",
                     "type": "string"
                 },
                 "foot": {
-                    "description": "A field that indicates whether a pathway can be used by pedestrians. Is implied for a Footway entity and its subtypes.",
+                    "description": "A field that indicates whether an edge can be used by pedestrians. Is implied for a Footway entity and its subtypes.",
                     "type": "boolean"
                 },
                 "highway": {
@@ -2273,19 +2235,19 @@
                     "type": "number"
                 },
                 "layer": {
-                    "description": "A field that indicates the z-layer (integer) on which a pathway lies. If unset, a value of 0 is implied. Negative values are allowed.",
+                    "description": "A field that indicates the z-layer (integer) on which an edge lies. If unset, a value of 0 is implied. Negative values are allowed.",
                     "maximum": 10,
                     "minimum": -10,
                     "type": "integer"
                 },
                 "length": {
-                    "description": "A field for the length of a pathway in meters. This field is always inferred from the geometry.",
+                    "description": "A field for the length of an edge in meters. This field is always inferred from the geometry.",
                     "maximum": 5000,
                     "minimum": 0,
                     "type": "number"
                 },
                 "name": {
-                    "description": "A field for a designated name for a pathway. Example: an official name for a trail.",
+                    "description": "A field for a designated name for an edge. Example: an official name for a trail.",
                     "type": "string"
                 },
                 "surface": {
@@ -2302,13 +2264,15 @@
                     "type": "string"
                 },
                 "width": {
-                    "description": "A field for width of a pathway in meters.",
+                    "description": "A field for width of an edge in meters.",
                     "maximum": 500,
                     "minimum": 0,
                     "type": "number"
                 }
             },
             "required": [
+                "_u_id",
+                "_v_id",
                 "highway"
             ],
             "type": "object"
@@ -2381,6 +2345,12 @@
                     "additionalProperties": false,
                     "description": "Properties associated with this feature.",
                     "properties": {
+                        "_u_id": {
+                            "type": "string"
+                        },
+                        "_v_id": {
+                            "type": "string"
+                        },
                         "footway": {
                             "enum": [
                                 "traffic_island"
@@ -2395,6 +2365,8 @@
                         }
                     },
                     "required": [
+                        "_u_id",
+                        "_v_id",
                         "footway",
                         "highway"
                     ]
@@ -2420,16 +2392,13 @@
             "items": {
                 "anyOf": [
                     {
+                        "$ref": "#/definitions/BareNode"
+                    },
+                    {
                         "$ref": "#/definitions/CurbRamp"
                     },
                     {
-                        "$ref": "#/definitions/FireHydrant"
-                    },
-                    {
                         "$ref": "#/definitions/FlushCurb"
-                    },
-                    {
-                        "$ref": "#/definitions/PowerPole"
                     },
                     {
                         "$ref": "#/definitions/RaisedCurb"

@@ -1,14 +1,11 @@
-import { CurbRamp } from "./curb-ramp";
+// Points are geospatial point features that are not explicitly associated with
+// the graph. They are still of interest to pedestrian datasets, however, and
+// may be queried relative to the graph using spatial relationships, e.g.
+// "all fire hydrants within 3 meters of this sidewalk".
+
 import { FireHydrant } from "./fire-hydrant";
-import { FlushCurb } from "./flush-curb";
 import { PowerPole } from "./power-pole";
-import { RaisedCurb } from "./raised-curb";
-import { RolledCurb } from "./rolled-curb";
 
 export type Point =
-  | CurbRamp
   | FireHydrant
-  | FlushCurb
-  | PowerPole
-  | RaisedCurb
-  | RolledCurb;
+  | PowerPole;

@@ -13,7 +13,7 @@ import { ResidentialStreet } from "./residential-street";
 import { ServiceRoad } from "./service-road";
 import { Driveway } from "./driveway";
 
-export type Pathway =
+export type Edge =
   | Crossing
   | Footway
   | Sidewalk
