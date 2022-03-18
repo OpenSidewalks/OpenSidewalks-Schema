@@ -13,7 +13,9 @@ interface CrossingIdentifyingFields {
 /**
  * Fields that apply to a crossing.
  */
-type CrossingFields = CrossingIdentifyingFields & FootwayFields;
+interface CrossingFields extends CrossingIdentifyingFields, FootwayFields {
+  crossing?: "marked" | "unmarked";
+}
 
 /**
  * The centerline of a pedestrian street crossing. This path exists only on the road surface itself, i.e. "from curb to curb". Crossings should not be connected directly to sidewalk centerlines - instead, a short footpath (this schema calls them "links") should connect the two together.
