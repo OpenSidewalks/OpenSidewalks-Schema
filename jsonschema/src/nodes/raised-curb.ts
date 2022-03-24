@@ -1,11 +1,12 @@
 import { Feature, Point } from "geojson";
 
+import { BaseNodeFields } from "./base-node-fields";
 import { Brunnel, Layer } from "../fields";
 
 /**
  * Fields that identify a raised curb.
  */
-interface RaisedCurbIdentifyingFields {
+interface RaisedCurbIdentifyingFields extends BaseNodeFields {
   kerb: "rolled";
 }
 
@@ -18,6 +19,6 @@ interface RaisedCurbFields extends RaisedCurbIdentifyingFields {
 }
 
 /**
- * A single, designed vertical displacement that separates two pathways. A common example is the curb that separates a street crossing from a sidewalk. This is mapped at the point where the two paths meet - on top of the curb is physically located.
+ * A single, designed vertical displacement that separates two edges. A common example is the curb that separates a street crossing from a sidewalk. This is mapped at the point where the two edges meet - on top of the curb is physically located.
  */
 export type RaisedCurb = Feature<Point, RaisedCurbFields>;

@@ -1,11 +1,12 @@
 import { Feature, LineString } from "geojson";
 
+import { BaseEdgeFields } from "./base-edge-fields";
 import { FootwayFields } from "./footway";
 
 /**
  * Fields that identify a sidewalk.
  */
-interface SidewalkIdentifyingFields {
+interface SidewalkIdentifyingFields extends BaseEdgeFields {
   highway: "footway";
   footway: "sidewalk";
 }

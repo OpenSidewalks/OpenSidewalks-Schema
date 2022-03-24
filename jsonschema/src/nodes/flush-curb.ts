@@ -1,11 +1,12 @@
 import { Feature, Point } from "geojson";
 
+import { BaseNodeFields } from "./base-node-fields";
 import { Brunnel, Layer } from "../fields";
 
 /**
  * Fields that identify a flush curb.
  */
-interface FlushCurbIdentifyingFields {
+interface FlushCurbIdentifyingFields extends BaseNodeFields {
   kerb: "flush";
 }
 

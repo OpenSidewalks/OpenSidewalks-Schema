@@ -1,11 +1,12 @@
 import { Feature, LineString } from "geojson";
 
+import { BaseEdgeFields } from "./base-edge-fields";
 import { ServiceRoadFields } from "./service-road";
 
 /**
  * Fields that identify a parking aisle.
  */
-interface ParkingAisleIdentifyingFields {
+interface ParkingAisleIdentifyingFields extends BaseEdgeFields {
   highway: "service";
   service: "parking_aisle";
 }

@@ -1,5 +1,6 @@
 import { Feature, LineString } from "geojson";
 
+import { BaseEdgeFields } from "./base-edge-fields";
 import {
   Brunnel,
   Description,
@@ -15,7 +16,7 @@ import {
 /**
  * Fields that identify a residential street.
  */
-interface ResidentialStreetIdentifyingFields {
+interface ResidentialStreetIdentifyingFields extends BaseEdgeFields {
   highway: "residential";
 }
 

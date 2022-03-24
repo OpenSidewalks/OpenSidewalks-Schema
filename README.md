@@ -9,9 +9,15 @@ pedestrian network-adjacent data. The OpenSidewalks Schema promotes an
 explicit network (graph) model wherein its primary data entities can be
 deterministically transformed into graph edges and graph nodes.
 Therefore, OpenSidewalks Schema data represent a traversable and
-graph-analyzable network of (conditional) pedestrian pathways like
+graph-analyzable network of (conditional) pedestrian paths like
 sidewalks, street crossings, some streets, and other paths, as well as
 metadata representing potential barriers.
+
+The OpenSidewalks Schema is explicitly a network schema: its primary features
+are defined and interpreted as elements of a network (or graph), i.e. nodes
+and edges. Therefore, OpenSidewalks Schema data are understood not only as
+a set of features describing pedestrian infrastructure, but as *connected
+elements* of a pedestrian network.
 
 The OpenSidewalks Schema draws from and is intended to be largely
 compatible with OpenStreetMap data, though it is possible to create
@@ -28,43 +34,63 @@ specification of [Simple Feature Access](https://www.ogc.org/standards/sfa),
 fields that uniquely define the entity type (in combination),
 optional topological information, and optional key-value pair [metadata
 fields](#fields) defined on a per-type
-basis. Each entity may optionally have an identifier (*id* string field)
-that must be unique within a given dataset.
+basis.
 
-There are currently two major categories of entity models, broken down
-by geometry type: one for Pathways, which are linear network features,
-and one for Points, which are point features, some of which map directly
-to network elements (such as curbs and curb ramps) and some of which
-intentionally separate from the network (such as fire hydrants).
+There are currently three major categories of entity models:
+- Nodes
+- Edges
+- Points
 
-All entities have a geometry type, a set of *identifying fields* that
-must be matched to infer the entity type, and optional fields, which are
-typed properties defined in the
-[Fields](#fields) section.
+Nodes and Edges are geometrical features (OGC Points and LineStrings,
+respectively) with network primitives defined such that a network (or graph)
+can be constructed purely from their metadata. Points are solely geometrical
+OGC Point features and they lack network metadata: their relationship to other
+members of the dataset are spatial. Examples of each entity model:
 
-### Network entities
+- Node: a raise curb.
+- Edge: a sidewalk.
+- Point: a fire hydrant.
 
-The [Pathway entity](#pathways) model defines linear
-features that are intended to meet end-to-end as a pedestrian network.
-All Pathways are network elements and can be thought of as edge
-descriptions. Inferring a network from a set of Pathways may be done by
-either inferring a shared node when pathways meet end-to-end (endpoints
-are within a distance tolerance) or when endpoint *node\_ids* match.
-Specifically, Pathways may define a special *node\_ids* field, an array
-of *id* values indicating Points from which the Pathway's geometry is
-constructed. The first and last *id* values must each refer to an *id*
-of a Point within the dataset. Pathways are further described in the
-[List of Entities](#pathways) section.
+Every entity has a set of defining attributes:
 
-The Point entity model defines point features. Some point features, such
-as curbs and curb ramps, are intended to describe on-network features,
-namely nodes in a resulting graph: curbs and curb points should exist at
-the endpoint(s) of Pathway(s). Other point features, such as fire
-hydrants, should not be on-network features. The only point features
-that are currently modeled as network nodes are curb interfaces,
-including curb ramps. All other features should be mapped outside of the
-network. Points are further described in the [List of
-Entities](#points) section.
+- *identifying fields* that must be matched to infer the entity type.
+- *optional fields* that describe additional attributes of the entity.
+- *geometry type* that define the OGC geospatial type of the feature.
+
+#### Nodes
+
+[Nodes](#nodes) are point features that also contain metadata to identify them
+as network (graph) vertices. Currently, this means that they must have a unique
+(within the dataset) `_id` field. Therefore, the set of network vertices in
+the dataset could be summarized as a set of these `_id` field values,
+consistent with the definition verticies within a graph in graph theory. As
+a result of storing these vertex identifiers, Nodes may be placed within a
+traversable graph using only metadata, not spatial inference.
+
+#### Edges
+
+[Edges](#edges) are linear features that also contain metadata to identify
+them as network (graph) edges. Currently, this means that they must have two
+node-referencing fields: `_u_id` and `_v_id`, which mean "this linear feature
+begins at the Node with `_id` of `_u_id` and ends at the Node with `_id` of
+`_v_id`. Therefore, a network (graph) may be constructed from a set of Nodes
+and Edges directly from metadata.
+
+Note that Edges are directional features: the start at one node and end at one
+node. The data they represent is directional as well: their geospatial data
+must start at one location and end at another and Edges often have fields like
+`incline` that only have meaning when direction is understood: a positive
+incline value is uphill while a negative incline value is downhill. However,
+this does not mean that datasets must be curated with both "forward" (`u` to
+`v`) Edges and "reverse" (`v` to `u`) Edges: any "reverse" edge can be
+inferred during graph creation.
+
+#### Points
+
+[Points](#points) are point features that do not contain network metadata, i.e.
+they do not have `_id` fields. These are features relevant to the pedestrian
+network that are nevertheless not (yet) represented as elements of it: they are
+nearby and useful for producing descriptions, flagging potential barriers, etc.
 
 ### Entity type inference
 
@@ -103,16 +129,24 @@ subsection](#fields-overview) of the fields section.
 The OpenSidewalks Schema includes network topological rules for the ways
 in which network-mappable entities can be connected.
 
-#### Pathway entities only connect end-to-end
+#### Edge entities only connect end-to-end
 
-A graph structure may be inferred from Pathways via their endpoints and
-using an optional *node\_ids* hint. Graph structures shall not be stored
-implicitly in other cases, such as when a pathway endpoint is very close
-to the middle of another Pathway. If a network-connected relationship
-should be represented in such a case, the second Pathway should be split
-so that the endpoints are co-located/share a start/end *node\_ids* *id.*
-The same logic applies to crossing paths: they do not imply a connection
-(a shared graph node) per the OpenSidewalks schema.
+While a graph structure may be inferred from Edges via their endpoints, the use
+of `_u_id` and `_v_id` are preferred. However, Edge entities should still meet
+end-to-end (within some small marging of error), as they are intended to
+represent a physically-connected space.
+
+Similarly, no connection is implied when the linear geometries of Edges cross.
+Instead, this represents one of two scenarios:
+
+1. The Edges have different `layer` values, i.e. they are at different vertical
+levels and so are not connected.
+
+2. There is a data error: the linear features are meant to meet where they
+intersect but the data maintainers have made a mistake. One way to infer this
+is when the intersecting linear features' `layer` values match (either
+because they are undefined and implicitly `layer=0` or have explicitly-defined
+matchin values).
 
 #### A road entity and a Crossing that intersects with it should share a location/node
 
@@ -123,19 +157,20 @@ should be split such that endpoints are shared.
 
 #### Crossings do not connect to sidewalk centerlines
 
-The OpenSidewalks Schema defines [Crossings](#pathway-crossing) as
+The OpenSidewalks Schema defines [Crossings](#edge-crossing) as
 existing only on the street surface and
-[Sidewalks](#pathway-sidewalk) as describing only
+[Sidewalks](#edge-sidewalk) as describing only
 the sidewalk centerline. There must therefore always be space between a
 Sidewalk and a Crossing. A Sidewalk and Crossing should be connected by
-a plain [Footway](#pathway-footway).
+a plain [Footway](#edge-footway).
 
-#### Curb interfaces and curb ramps are mapped at Pathway endpoints
+#### Curb interfaces and curb ramps are mapped at Edge endpoints
 
 Curb interface Points should be mapped directly at the endpoint(s) of
-one or more Pathway(s): they are features encountered along a pathway and
-should be considered important information when simulating a pedestrian
-moving from one Pathway to another. A curb or curb ramp Point
+one or more Edge(s): they are potential barriers or accessible infrastructure
+encountered along a path, so they should be available for inspection during
+network traversals. In other words, they are often important decision points
+when simulating a pedestrian moving through the network.
 
 ## Serialization Formats
 
@@ -150,30 +185,171 @@ Schema as well as a PostgreSQL schema.
 
 # <a name="list-of-entities"></a> List of Entities
 
-## <a name="pathways"></a> Pathways
+## <a name="nodes"></a> Nodes
 
-Pathways are lines (their serializable geometries are representable by
-LineStrings) intended to represent pedestrian network connections: when
-pathways meet end-to-end, they can be considered network edges connected
-by a shared node and used for network analysis and shortest-path
-routing. Pathways are often derived from topological data like that
-stored in OpenStreetMap, where network information has already been
-captured. When this is the case, a pathway may optionally have a
-*node\_ids* field, which is an array of string identifiers of nodes to
-aid in network inference. Similarly, Point entities may optionally have
-a *\_id* field to aid in placing them in a pedestrian network.
+Nodes are features that are geometrically defined by a single
+latitude-longitude pair: a point on the planet. They are also defined as a
+part of a pedestrian network: each Node must define an `_id` string field, a
+unique identifier to which Edges may refer using their `_u_id` and `_v_id`
+fields.
 
-All Pathways may use the
-[layer](#field-layer) and
-[brunnel](#field-brunnel) tags, as all
-pedestrian paths may overlap one another at different z-levels or be
-part of a bridge or tunnel.
-
-### <a name="pathway-footway"></a> Footway (plain)
+### <a name="node-bare_node"></a> Bare Node
 
 #### Description
 
-The centerline of a dedicated pedestrian pathway that does not fall into
+A special case of an abstract Node: this is a network (graph) node description
+that does not have any special metadata beyond location and the `_id` field. A
+"bare node" exists when two Edges meet at a location that is not one of the
+other Node types. For example, a single sidewalk may be represented by two
+[Sidewalk](edge-sidewalk) Edges with different `width` values, split where the
+width changes. There is no physical feature within the OpenSidewalks Schema at
+that split point: it is just a "bare node" that connects the two Edges
+together.
+
+Another way to interpret a "bare node" is in terms of the Edge definition
+rules: the Nodes referenced by `_u_id` and `_v_id` must exist within the
+dataset, so we must define Nodes wherever Edges meet regardless of whether that
+point in space has additional metadata.
+
+#### Subtype of
+
+*None*
+
+#### Geometry
+
+Point
+
+#### Identifying fields
+
+(must have the `_id` field, like all Nodes)
+
+#### Optional Fields
+
+*None*
+
+### <a name="node-raised_curb"></a> Raised curb
+
+#### Description
+
+A single, designed vertical displacement that separates two Edges. A
+common example is the curb that separates a street crossing from a
+sidewalk. This is mapped at the Node where the two Edges meet - on top
+of the curb is physically located.
+
+#### Subtype of
+
+*None*
+
+#### Geometry
+
+Point
+
+#### Identifying fields
+
+`barrier=kerb, kerb=raised`
+
+#### Optional Fields
+
+[layer](#field-layer)
+
+[brunnel](#field-brunnel)
+
+### <a name="node-rolled_curb"></a> Rolled curb
+
+#### Description
+
+A curb interface with a quarter-circle profile: traversing this curb is
+like going over half of a bump. Located where two Edges meet,
+physically at the location of the curb itself.
+
+#### Subtype of
+
+*None*
+
+#### Geometry
+
+Point
+
+#### Identifying fields
+
+`barrier=kerb, kerb=rolled`
+
+#### Optional Fields
+
+[layer](#field-layer)
+
+[brunnel](#field-brunnel)
+
+### <a name="node-curb_ramp"></name> Curb ramp
+
+#### Description
+
+A curb ramp (curb cut) mapped as a curb interface. Mapped at the
+location where the two Edges that it connects meet one another.
+
+#### Subtype of
+
+*None*
+
+#### Geometry
+
+Point
+
+#### Identifying fields
+
+`barrier=kerb, kerb=lowered`
+
+#### Optional Fields
+
+[layer](#field-layer)
+
+[brunnel](#field-brunnel)
+
+[surface](#field-surface)
+
+[tactile\_paving](#field-tactile_paving)
+
+### <a name="node-flush_curb"></a> Flush curb
+
+#### Description
+
+An indicator that there is no raised curb interface where two Edges meet
+- i.e. where someone might expect a curb interface, such as where a
+crossing and footway meet.
+
+#### Subtype of
+
+*None*
+
+#### Geometry
+
+Point
+
+#### Identifying fields
+
+`barrier=kerb, kerb=lowered`
+
+#### Optional Fields
+
+[layer](#field-layer)
+
+[brunnel](#field-brunnel)
+
+## <a name="edges"></a> Edges
+
+Edges are lines (their serializable geometries are representable by
+LineStrings) intended to represent pedestrian network connections. Edges are
+often derived from topological data like that stored in OpenStreetMap.
+
+All Edges may use the [layer](#field-layer) and [brunnel](#field-brunnel) tags,
+as all pedestrian paths may overlap one another at different z-levels or be
+part of a bridge or tunnel.
+
+### <a name="edge-footway"></a> Footway (plain)
+
+#### Description
+
+The centerline of a dedicated pedestrian path that does not fall into
 any other subcategories.
 
 #### Subtype of
@@ -190,7 +366,7 @@ LineString
 
 *(and no `footway=\*` subtag)*
 
-#### <a name="pathway-footway-optional-fields"></a> Optional Fields
+#### <a name="edge-footway-optional-fields"></a> Optional Fields
 
 [width](#field-width)
 
@@ -208,16 +384,16 @@ LineString
 
 [name](#field-name)
 
-### <a name="pathway-sidewalk"></a> Sidewalk
+### <a name="edge-sidewalk"></a> Sidewalk
 
 #### Description
 
-The centerline of a sidewalk, a designated pedestrian pathway to the
+The centerline of a sidewalk, a designated pedestrian path to the
 side of a street.
 
 #### Subtype of
 
-[Footway](#pathway-footway)
+[Footway](#edge-footway)
 
 #### Geometry
 
@@ -225,7 +401,7 @@ LineString
 
 #### Description
 
-A dedicated pedestrian pathway (footway) along one side of the road.
+A dedicated pedestrian path (footway) along one side of the road.
 
 #### Identifying fields
 
@@ -233,26 +409,32 @@ A dedicated pedestrian pathway (footway) along one side of the road.
 
 #### Optional Fields
 
-All [optional fields of footway](#pathway-footway-optional-fields)
+All [optional fields of footway](#edge-footway-optional-fields)
 
 [description](#field-description):
 Sidewalk-specific usage note: OpenSidewalks data will often infer a
 'description' property that states where the sidewalk is in relation to
 its associated street. Example: "NW side of 5th Ave".
 
-### <a name="pathway-crossing"></a> Crossing
+### <a name="edge-crossing"></a> Crossing
 
 #### Description
 
-The centerline of a pedestrian street crossing. This pathway exists only on
-the road surface itself, i.e. "from curb to curb". Crossings should not
-be connected directly to sidewalk centerlines - instead, a short
-footway (this schema calls them "links") should connect the two
-together.
+(Part of) the centerline of a pedestrian street crossing. A crossing exists
+only on the road surface itself, i.e. "from curb to curb".
+
+Because crossings should be connected to the street network, they should be
+represented by at least two Edges: one from the first curb interface to the
+street centerline and one from the street centerline to the second curb
+interface, e.g..
+
+Crossings should not be connected directly to sidewalk centerlines, as the
+sidewalk centerline is never the curb interface. Instead, a short footway
+should connect the two together.
 
 #### Subtype of
 
-[Footway](#pathway-footway)
+[Footway](#edge-footway)
 
 #### Geometry
 
@@ -264,11 +446,11 @@ LineString
 
 #### Optional Fields
 
-All [optional fields of footway](#pathway-footway-optional-fields)
+All [optional fields of footway](#edge-footway-optional-fields)
 
 [crossing](#field-crossing)
 
-### <a name="pathway-traffic_island"></a> Traffic Island
+### <a name="edge-traffic_island"></a> Traffic Island
 
 #### Description
 
@@ -276,12 +458,12 @@ The centerline of a footway traversing a traffic island. Some complex,
 long, or busy pedestrian crossings have a built-up "island" to protect
 pedestrians, splitting up the crossing of the street into two or more
 crossings. As a pedestrian uses this crossing, they will transition
-across these pathway elements: sidewalk → footway → crossing → traffic
-island → crossing → footway → sidewalk.
+across these Edge elements: sidewalk → footway → crossing → traffic island →
+crossing → footway → sidewalk.
 
 #### Subtype of
 
-[Footway](#pathway-footway)
+[Footway](#edge-footway)
 
 #### Geometry
 
@@ -293,13 +475,13 @@ LineString
 
 #### Optional Fields
 
-All [optional fields of footway](#pathway-footway-optional-fields)
+All [optional fields of footway](#edge-footway-optional-fields)
 
-### <a name="pathway-cycleway"></a> Cycleway
+### <a name="edge-cycleway"></a> Cycleway
 
 #### Description
 
-The centerline of a designated cycling pathway. This pathway may or may
+The centerline of a designated cycling path. This path may or may
 not permit pedestrian use.
 
 #### Subtype of
@@ -334,7 +516,7 @@ LineString
 
 [foot](#field-foot)
 
-### <a name="pathway-primary_street"></name> Primary Street
+### <a name="edge-primary_street"></name> Primary Street
 
 #### Description
 
@@ -352,7 +534,7 @@ LineString
 
 `highway=primary`
 
-#### <a name="pathway-primary_street-optional-fields"></a> Optional Fields
+#### <a name="edge-primary_street-optional-fields"></a> Optional Fields
 
 [width](#field-width)
 
@@ -372,7 +554,7 @@ LineString
 
 [foot](#field-foot)
 
-### <a name="pathway-secondary_street"></a> Secondary Street
+### <a name="edge-secondary_street"></a> Secondary Street
 
 #### Description
 
@@ -394,9 +576,9 @@ LineString
 #### Optional Fields
 
 All of [the optional fields of a primary
-street](#pathway-primary_street-optional-fields).
+street](#edge-primary_street-optional-fields).
 
-### <a name="pathway-tertiary_street"></a> Tertiary Street
+### <a name="edge-tertiary_street"></a> Tertiary Street
 
 #### Description
 
@@ -418,9 +600,9 @@ LineString
 #### Optional Fields
 
 All of [the optional fields of a primary
-street](#pathway-primary_street-optional-fields).
+street](#edge-primary_street-optional-fields).
 
-### <a name="pathway-residential_street"></a> Residential Street
+### <a name="edge-residential_street"></a> Residential Street
 
 #### Description
 
@@ -441,9 +623,9 @@ LineString
 #### Optional Fields
 
 All of [the optional fields of a primary
-street](#pathway-primary_street-optional-fields).
+street](#edge-primary_street-optional-fields).
 
-### <a name="pathway-service_road"></a> Service Road
+### <a name="edge-service_road"></a> Service Road
 
 #### Description
 
@@ -461,7 +643,7 @@ LineString
 
 `highway=service`
 
-#### <a name="pathway-service_road-optional-fields"></a> Optional Fields
+#### <a name="edge-service_road-optional-fields"></a> Optional Fields
 
 [width](#field-width)
 
@@ -479,7 +661,7 @@ LineString
 
 [foot](#field-foot)
 
-### <a name="pathway-driveway"></a> Driveway
+### <a name="edge-driveway"></a> Driveway
 
 #### Description
 
@@ -488,7 +670,7 @@ to another road.
 
 #### Subtype of
 
-[Service road](#pathway-service_road)
+[Service road](#edge-service_road)
 
 #### Geometry
 
@@ -501,9 +683,9 @@ LineString
 #### Optional Fields
 
 All of [the optional fields of a service
-road](#pathway-service_road-optional-fields).
+road](#edge-service_road-optional-fields).
 
-### <a name="pathway-alley"></a> Alley
+### <a name="edge-alley"></a> Alley
 
 #### Description
 
@@ -512,7 +694,7 @@ properties and provides access to utilities and private entrances.
 
 #### Subtype of
 
-[Service road](#pathway-service_road)
+[Service road](#edge-service_road)
 
 #### Geometry
 
@@ -525,9 +707,9 @@ LineString
 #### Optional Fields
 
 All of [the optional fields of a service
-road](#pathway-service_road-optional-fields).
+road](#edge-service_road-optional-fields).
 
-### <a name="pathway-parking_aisle"></a> Parking aisle
+### <a name="edge-parking_aisle"></a> Parking aisle
 
 #### Description
 
@@ -536,7 +718,7 @@ parking aisles to reach parking spaces in a parking lot.
 
 #### Subtype of
 
-[Service road](#pathway-service_road)
+[Service road](#edge-service_road)
 
 #### Geometry
 
@@ -549,125 +731,17 @@ LineString
 #### Optional Fields
 
 All of [the optional fields of a service
-road](#pathway-service_road-optional-fields).
+road](#edge-service_road-optional-fields).
 
 ## <a name="points"></a> Points
 
 Points are features that are geometrically defined by a single
-latitude-longitude pair: a point on the planet. They may be defined as a
-part of a pedestrian network (curbs and curb ramps) or as nearby
-disconnected features (fire hydrants, poles). Each Point may optionally
-define a *\_id* string field, a unique identifier for the point feature
-to which Pathways may refer using their (also optional) *node\_ids*
-field.
-
-### <a name="point-raised_curb"></a> Raised curb
-
-#### Description
-
-A single, designed vertical displacement that separates two pathways. A
-common example is the curb that separates a street crossing from a
-sidewalk. This is mapped at the point where the two paths meet - on top
-of the curb is physically located.
-
-#### Subtype of
-
-*None*
-
-#### Geometry
-
-Point
-
-#### Identifying fields
-
-`barrier=kerb, kerb=raised`
-
-#### Optional Fields
-
-[layer](#field-layer)
-
-[brunnel](#field-brunnel)
-
-### <a name="point-rolled_curb"></a> Rolled curb
-
-#### Description
-
-A curb interface with a quarter-circle profile: traversing this curb is
-like going over half of a bump. Located where two pathways meet,
-physically at the location of the curb itself.
-
-#### Subtype of
-
-*None*
-
-#### Geometry
-
-Point
-
-#### Identifying fields
-
-`barrier=kerb, kerb=rolled`
-
-#### Optional Fields
-
-[layer](#field-layer)
-
-[brunnel](#field-brunnel)
-
-### <a name="point-curb_ramp"></name> Curb ramp
-
-#### Description
-
-A curb ramp (curb cut) mapped as a curb interface. Mapped at the
-location where the two pathways that it connects meet one another.
-
-#### Subtype of
-
-*None*
-
-#### Geometry
-
-Point
-
-#### Identifying fields
-
-`barrier=kerb, kerb=lowered`
-
-#### Optional Fields
-
-[layer](#field-layer)
-
-[brunnel](#field-brunnel)
-
-[surface](#field-surface)
-
-[tactile\_paving](#field-tactile_paving)
-
-### <a name="point-flush_curb"></a> Flush curb
-
-#### Description
-
-An indicator that there is no raised curb interface where two paths meet
-- i.e. where someone might expect a curb interface, such as where a
-crossing and footway meet.
-
-#### Subtype of
-
-*None*
-
-#### Geometry
-
-Point
-
-#### Identifying fields
-
-`barrier=kerb, kerb=lowered`
-
-#### Optional Fields
-
-[layer](#field-layer)
-
-[brunnel](#field-brunnel)
+latitude-longitude pair: a point on the planet. They are explicitly not
+elements of the pedestrian network definition (i.e. the graph structure
+described by Nodes and Edges), but they are still highly relevant to the
+physical pedestrian network. Points may be considered part of the real physical
+pedestrian network, but aren't appropriate as elements of the network
+described by the OpenSidewalks Schema.
 
 ### <a name="point-power_pole"></a> Power pole
 
@@ -743,12 +817,16 @@ when a facility or asset is "open", as in accessible to the public.
 
 This may be a field inferred from other data.
 
-A free form text field for describing a path. May be pre-encoded in
-relevant pedestrian paths to assist with routing instructing or
+A free form text field for describing an Edge. May be pre-encoded in
+relevant pedestrian Edges to assist with routing instructing or
 investigation of map features. For example, a description of the
 sidewalk in relation to a nearby street may be a useful textual
-description, such as "NE of Main St." Can also be considered a flexible
-location to embed arbitrary information for specific use cases.
+description, such as "NE of Main St." Is a means by which to provide a short
+(1-3 sentences) textual description of information that's not directly
+available in the schema. Example: "this path is muddy when wet." Note that
+because `description` data are unstructured, they can only be interpreted one
+at a time by individual people and should not be considered a dumping ground
+for "extra data".
 
 ###### *Value type*: text
 
@@ -756,10 +834,10 @@ location to embed arbitrary information for specific use cases.
 
 *From OpenStreetMap*
 
-The (semi-)official name of a pathway. *Not* a description of the path.
-For example, this would be the street name for a street pathway or a
-specially-designated name for a famous footpath. name="The \[X\] trail",
-for example.
+The (semi-)official name of a path, of which an Edge is a part. *Not* a
+description of the path. For example, this would be the street name for a
+street path or a specially-designated name for a famous footpath.
+`name="The \[X\] trail"`, for example.
 
 ###### *Value type*: text
 
@@ -832,7 +910,7 @@ Original value of the foot key if it is set to yes or no.
 *From OpenStreetMap*
 
 The opening hours of the network element. This may apply to, for
-example, a pathway that is inside a building. The value is in OpenStreetMap
+example, a path that is inside a building. The value is in OpenStreetMap
 syntax for the opening\_hours tag. See [OpenStreetMap
 specification](https://wiki.openstreetmap.org/wiki/Key:opening_hours/specification)
 on the formatting for this field.
@@ -843,7 +921,7 @@ on the formatting for this field.
 
 *Unique to OpenSidewalks*
 
-Whether the pathway uses an elevator for vertical movement, e.g. building
+Whether an Edge uses an elevator for vertical movement, e.g. building
 paths.
 
 ###### *Value type*: boolean
@@ -852,7 +930,7 @@ paths.
 
 *From OpenStreetMap*
 
-The width of a pathway in meters.
+The width of an Edge in meters.
 
 ###### *Value type*: numeric
 
@@ -895,7 +973,7 @@ Whether an entity is indoors or not.
 
 *From OpenStreetMap*
 
-Whether a curb ramp or pathway has a tactile (textured) surface.
+Whether a curb ramp or Edge has a tactile (textured) surface.
 
 ###### *Value type*: boolean
 
