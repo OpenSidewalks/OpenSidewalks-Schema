@@ -979,7 +979,7 @@ Whether a curb ramp or Edge has a tactile (textured) surface.
 
 ##### <a name="field-crossing"></a> crossing
 
-From OpenStreetMap
+*From OpenStreetMap*
 
 Type of street crossing - marked or unmarked. When derived from
 OpenStreetMap data, the crossing key undergoes various conversions due
