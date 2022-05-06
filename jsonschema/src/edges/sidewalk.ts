@@ -14,7 +14,7 @@ interface SidewalkIdentifyingFields extends BaseEdgeFields {
 /**
  * Fields that apply to a sidewalk.
  */
-type SidewalkFields = SidewalkIdentifyingFields & FootwayFields;
+interface SidewalkFields extends SidewalkIdentifyingFields, FootwayFields {};
 
 /**
  * The centerline of a sidewalk, a designated pedestrian pathway to the side of a street.

@@ -14,7 +14,9 @@ interface TrafficIslandIdentifyingFields extends BaseEdgeFields {
 /**
  * Fields that apply to a traffic island.
  */
-type TrafficIslandFields = TrafficIslandIdentifyingFields & FootwayFields;
+interface TrafficIslandFields
+  extends TrafficIslandIdentifyingFields,
+    FootwayFields {}
 
 /**
  * The centerline of a footpath traversing a traffic island. Some complex, long, or busy pedestrian crossings have a built-up "island" to protect pedestrians, splitting up the crossing of the street into two or more crossings. As a pedestrian uses this crossing, they will transition across these path elements: sidewalk → footway → crossing → traffic island → crossing → footway → sidewalk.

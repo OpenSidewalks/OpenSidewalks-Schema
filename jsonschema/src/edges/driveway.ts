@@ -14,7 +14,7 @@ interface DrivewayIdentifyingFields extends BaseEdgeFields {
 /**
  * Fields that apply to a driveway.
  */
-type DrivewayFields = DrivewayIdentifyingFields & ServiceRoadFields;
+interface DrivewayFields extends DrivewayIdentifyingFields, ServiceRoadFields {}
 
 /**
  * The centerline of a driveway. Typically connects a residence or business

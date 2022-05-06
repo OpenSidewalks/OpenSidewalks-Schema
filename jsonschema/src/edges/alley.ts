@@ -14,7 +14,7 @@ interface AlleyIdentifyingFields extends BaseEdgeFields {
 /**
  * Fields that apply to an alley.
  */
-type AlleyFields = AlleyIdentifyingFields & ServiceRoadFields;
+interface AlleyFields extends AlleyIdentifyingFields, ServiceRoadFields {};
 
 /**
  * The centerline of an alley. An alley is usually located between properties and provides access to utilities and private entrances.

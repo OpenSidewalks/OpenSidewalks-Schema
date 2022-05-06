@@ -14,7 +14,9 @@ interface ParkingAisleIdentifyingFields extends BaseEdgeFields {
 /**
  * Fields that apply to a parking aisle.
  */
-type ParkingAisleFields = ParkingAisleIdentifyingFields & ServiceRoadFields;
+interface ParkingAisleFields
+  extends ParkingAisleIdentifyingFields,
+    ServiceRoadFields {}
 
 /**
  * The centerline of a subordinated way in a parking lot: vehicles drive on parking aisles to reach parking spaces in a parking lot.
