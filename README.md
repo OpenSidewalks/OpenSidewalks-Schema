@@ -448,7 +448,7 @@ LineString
 
 All [optional fields of footway](#edge-footway-optional-fields)
 
-[crossing](#field-crossing)
+[crossing:markings](#field-crossing_markings)
 
 ### <a name="edge-traffic_island"></a> Traffic Island
 
@@ -977,19 +977,58 @@ Whether a curb ramp or Edge has a tactile (textured) surface.
 
 ###### *Value type*: boolean
 
-##### <a name="field-crossing"></a> crossing
+##### <a name="field-crossing_markings"></a> crossing:markings
 
 *From OpenStreetMap*
 
-Type of street crossing - marked or unmarked. When derived from
-OpenStreetMap data, the crossing key undergoes various conversions due
-to fragmentation. Both the uncontrolled and zebra values are converted
-into marked and the traffic\_signals value is ignored.
+Whether a pedestrian street crossing has ground markings (and, optionally, what
+type of markings exist). When derived from OpenStreetMap data, the
+crossing:markings field may be derived not only from the identical
+`crossing:markings` tag in OpenStreetMap, but from any unambiguous tags in the
+problematic `crossing=*` tag, such as `crossing=marked` -->
+`crossing:markings=yes` and `crossing=unmarked` --> `crossing:markings=no`, and
+`crossing=zebra` --> `crossing:markings=yes`.
 
 ###### *Value type*: enum
 
 ###### *Enumerated values*:
 
--   marked: a marked crossing
+-   yes: The crossing has surface markings but the type is unspecified.
 
--   unmarked: an unmarked crossing
+-   no: The crossing has no surface markings.
+
+-   surface: There is a surface change but no distinct markings.
+
+-   lines: There are only two parallel lines to indicate the outline of the
+crossing.
+
+-   lines:paired: The same as `crossing:markings=lines` but each line is
+actually two very-close parallel lines (for a total of 4 lines).
+
+-   dashes: There are only two parallel dashed lines to indicate the outline of
+the crossing.
+
+-   dots: There are only two parallel dotted lines (square/round markings with
+significant distance between them) to indicate the outline of the crossing.
+
+-   zebra: The crossing is only marked by regularly spaced bars along its
+length.
+
+-   zebra:double: The same as `crossing:markings=zebra` but there are two sets
+of regularly spaced bars with a small gap between them.
+
+-   zebra:paired: The same as `crossing:markings=zebra` but each bar is made up
+of two smaller bars (i.e. there's a small gap between smaler bars).
+
+-   zebra:bicolour: The same as `crossing:markings=zebra` but there are the
+bars and gaps are made of two alternating colors.
+
+-   ladder: The same as combining `crossing:markings=zebra` and
+`crossing:markings=lines`: horizontal bars but with linears outlines enclosing
+the crossing.
+
+-   skewed: The same as `crossing:markings=ladder` but the horizontal bars are
+at a slight diagonal (~30 degree shift) - they're skewed.
+
+-   ladder:paired: The same as `crossing:markings=ladder` but the horizontal
+bars are actually made up of two very-close smaller bars.

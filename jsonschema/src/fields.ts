@@ -5,7 +5,8 @@ export type Brunnel = "bridge" | "ford" | "tunnel";
 /**
  * A field for the type of street crossing - marked or unmarked. When derived from OpenStreetMap data, the crossing key undergoes various conversions due to fragmentation. Both the uncontrolled and zebra values are converted into marked and the traffic\_signals value is ignored.
  */
-export type Crossing = "marked" | "unmarked";
+export type CrossingMarkings = "yes" | "no" | "surface" | "lines" | "lines:paired" | "dashes" | "dots" | "zebra" | "zebra:double" | "zebra:paired" | "zebra:bicolour" | "ladder" | "skewed" | "ladder:paired";
+
 /**
  * A free form text field for describing an edge of node. May be pre-encoded in relevant pedestrian paths to assist with routing instructing or investigation of map features. For example, a description of the sidewalk in relation to a nearby street may be a useful textual description, such as "NE of Main St." Can also be considered a flexible location to embed arbitrary information for specific use cases.
  */
