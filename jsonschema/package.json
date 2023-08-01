@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "@types/geojson": "^7946.0.8",
+    "tslib": "^2.6.1",
     "typescript-json-schema": "^0.53.0"
   }
 }

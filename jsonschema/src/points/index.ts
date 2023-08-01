@@ -5,7 +5,17 @@
 
 import { FireHydrant } from "./fire-hydrant";
 import { PowerPole } from "./power-pole";
+import { Bench } from "./bench";
+import { WasteBasket } from "./waste-basket";
+import { Manhole } from "./manhole";
+import { Bollard } from "./bollard";
+import { StreetLamp } from "./street-lamp";
 
 export type Point =
   | FireHydrant
-  | PowerPole;
+  | PowerPole
+  | Bench
+  | WasteBasket
+  | Manhole
+  | Bollard
+  | StreetLamp;

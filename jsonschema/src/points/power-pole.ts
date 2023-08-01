@@ -1,11 +1,11 @@
 import { Feature, Point } from "geojson";
 
-import { Brunnel, Layer } from "../fields";
+import { BasePointFields } from "./base-point-fields";
 
 /**
  * Fields that identify a power pole.
  */
-interface PowerPoleIdentifyingFields {
+interface PowerPoleIdentifyingFields extends BasePointFields {
   power: "pole";
 }
 
@@ -13,8 +13,7 @@ interface PowerPoleIdentifyingFields {
  * Fields that apply to a power pole.
  */
 interface PowerPoleFields extends PowerPoleIdentifyingFields {
-  brunnel?: Brunnel;
-  layer?: Layer;
+
 }
 
 /**

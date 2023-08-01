@@ -255,14 +255,265 @@
         },
         "BareNodeFields": {
             "additionalProperties": false,
-            "description": "Fields that apply to a bare node (none beyond _id).",
+            "description": "Fields that apply to a bare node.",
             "properties": {
                 "_id": {
                     "type": "string"
+                },
+                "brunnel": {
+                    "description": "A field that indicates whether an entity is on a bridge, tunnel, or ford.",
+                    "enum": [
+                        "bridge",
+                        "ford",
+                        "tunnel"
+                    ],
+                    "type": "string"
+                },
+                "layer": {
+                    "description": "A field that indicates the z-layer (integer) on which an edge lies. If unset, a value of 0 is implied. Negative values are allowed.",
+                    "maximum": 10,
+                    "minimum": -10,
+                    "type": "integer"
                 }
             },
             "required": [
                 "_id"
+            ],
+            "type": "object"
+        },
+        "Bench": {
+            "additionalProperties": false,
+            "description": "A bench - a place for people to sit; allows room for several people.",
+            "properties": {
+                "bbox": {
+                    "anyOf": [
+                        {
+                            "items": [
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                }
+                            ],
+                            "maxItems": 4,
+                            "minItems": 4,
+                            "type": "array"
+                        },
+                        {
+                            "items": [
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                }
+                            ],
+                            "maxItems": 6,
+                            "minItems": 6,
+                            "type": "array"
+                        }
+                    ],
+                    "description": "Bounding box of the coordinate range of the object's Geometries, Features, or Feature Collections.\nThe value of the bbox member is an array of length 2*n where n is the number of dimensions\nrepresented in the contained geometries, with all axes of the most southwesterly point\nfollowed by all axes of the more northeasterly point.\nThe axes order of a bbox follows the axes order of geometries.\nhttps://tools.ietf.org/html/rfc7946#section-5"
+                },
+                "geometry": {
+                    "$ref": "#/definitions/GeoJSON.Point",
+                    "description": "The feature's geometry"
+                },
+                "id": {
+                    "description": "A value that uniquely identifies this feature in a\nhttps://tools.ietf.org/html/rfc7946#section-3.2.",
+                    "type": [
+                        "string",
+                        "number"
+                    ]
+                },
+                "properties": {
+                    "$ref": "#/definitions/BenchFields",
+                    "description": "Properties associated with this feature."
+                },
+                "type": {
+                    "description": "Specifies the type of GeoJSON object.",
+                    "enum": [
+                        "Feature"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "geometry",
+                "properties",
+                "type"
+            ],
+            "type": "object"
+        },
+        "BenchFields": {
+            "additionalProperties": false,
+            "description": "Fields that apply to a bench.",
+            "properties": {
+                "_id": {
+                    "type": "string"
+                },
+                "amenity": {
+                    "enum": [
+                        "bench"
+                    ],
+                    "type": "string"
+                },
+                "brunnel": {
+                    "description": "A field that indicates whether an entity is on a bridge, tunnel, or ford.",
+                    "enum": [
+                        "bridge",
+                        "ford",
+                        "tunnel"
+                    ],
+                    "type": "string"
+                },
+                "layer": {
+                    "description": "A field that indicates the z-layer (integer) on which an edge lies. If unset, a value of 0 is implied. Negative values are allowed.",
+                    "maximum": 10,
+                    "minimum": -10,
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "_id",
+                "amenity"
+            ],
+            "type": "object"
+        },
+        "Bollard": {
+            "additionalProperties": false,
+            "description": "A Bollard - a solid pillar or pillars made of concrete, metal, plastic, etc., and used to control traffic.",
+            "properties": {
+                "bbox": {
+                    "anyOf": [
+                        {
+                            "items": [
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                }
+                            ],
+                            "maxItems": 4,
+                            "minItems": 4,
+                            "type": "array"
+                        },
+                        {
+                            "items": [
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                }
+                            ],
+                            "maxItems": 6,
+                            "minItems": 6,
+                            "type": "array"
+                        }
+                    ],
+                    "description": "Bounding box of the coordinate range of the object's Geometries, Features, or Feature Collections.\nThe value of the bbox member is an array of length 2*n where n is the number of dimensions\nrepresented in the contained geometries, with all axes of the most southwesterly point\nfollowed by all axes of the more northeasterly point.\nThe axes order of a bbox follows the axes order of geometries.\nhttps://tools.ietf.org/html/rfc7946#section-5"
+                },
+                "geometry": {
+                    "$ref": "#/definitions/GeoJSON.Point",
+                    "description": "The feature's geometry"
+                },
+                "id": {
+                    "description": "A value that uniquely identifies this feature in a\nhttps://tools.ietf.org/html/rfc7946#section-3.2.",
+                    "type": [
+                        "string",
+                        "number"
+                    ]
+                },
+                "properties": {
+                    "$ref": "#/definitions/BollardFields",
+                    "description": "Properties associated with this feature."
+                },
+                "type": {
+                    "description": "Specifies the type of GeoJSON object.",
+                    "enum": [
+                        "Feature"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "geometry",
+                "properties",
+                "type"
+            ],
+            "type": "object"
+        },
+        "BollardFields": {
+            "additionalProperties": false,
+            "description": "Fields that apply to a bollard.",
+            "properties": {
+                "_id": {
+                    "type": "string"
+                },
+                "barrier": {
+                    "enum": [
+                        "bollard"
+                    ],
+                    "type": "string"
+                },
+                "brunnel": {
+                    "description": "A field that indicates whether an entity is on a bridge, tunnel, or ford.",
+                    "enum": [
+                        "bridge",
+                        "ford",
+                        "tunnel"
+                    ],
+                    "type": "string"
+                },
+                "layer": {
+                    "description": "A field that indicates the z-layer (integer) on which an edge lies. If unset, a value of 0 is implied. Negative values are allowed.",
+                    "maximum": 10,
+                    "minimum": -10,
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "_id",
+                "barrier"
             ],
             "type": "object"
         },
@@ -908,6 +1159,124 @@
             ],
             "type": "object"
         },
+        "FireHydrant": {
+            "additionalProperties": false,
+            "description": "A fire hydrant - where fire response teams connect high-pressure hoses.",
+            "properties": {
+                "bbox": {
+                    "anyOf": [
+                        {
+                            "items": [
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                }
+                            ],
+                            "maxItems": 4,
+                            "minItems": 4,
+                            "type": "array"
+                        },
+                        {
+                            "items": [
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                }
+                            ],
+                            "maxItems": 6,
+                            "minItems": 6,
+                            "type": "array"
+                        }
+                    ],
+                    "description": "Bounding box of the coordinate range of the object's Geometries, Features, or Feature Collections.\nThe value of the bbox member is an array of length 2*n where n is the number of dimensions\nrepresented in the contained geometries, with all axes of the most southwesterly point\nfollowed by all axes of the more northeasterly point.\nThe axes order of a bbox follows the axes order of geometries.\nhttps://tools.ietf.org/html/rfc7946#section-5"
+                },
+                "geometry": {
+                    "$ref": "#/definitions/GeoJSON.Point",
+                    "description": "The feature's geometry"
+                },
+                "id": {
+                    "description": "A value that uniquely identifies this feature in a\nhttps://tools.ietf.org/html/rfc7946#section-3.2.",
+                    "type": [
+                        "string",
+                        "number"
+                    ]
+                },
+                "properties": {
+                    "$ref": "#/definitions/FireHydrantFields",
+                    "description": "Properties associated with this feature."
+                },
+                "type": {
+                    "description": "Specifies the type of GeoJSON object.",
+                    "enum": [
+                        "Feature"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "geometry",
+                "properties",
+                "type"
+            ],
+            "type": "object"
+        },
+        "FireHydrantFields": {
+            "additionalProperties": false,
+            "description": "Fields that apply to a fire hydrant.",
+            "properties": {
+                "_id": {
+                    "type": "string"
+                },
+                "brunnel": {
+                    "description": "A field that indicates whether an entity is on a bridge, tunnel, or ford.",
+                    "enum": [
+                        "bridge",
+                        "ford",
+                        "tunnel"
+                    ],
+                    "type": "string"
+                },
+                "emergency": {
+                    "enum": [
+                        "fire_hydrant"
+                    ],
+                    "type": "string"
+                },
+                "layer": {
+                    "description": "A field that indicates the z-layer (integer) on which an edge lies. If unset, a value of 0 is implied. Negative values are allowed.",
+                    "maximum": 10,
+                    "minimum": -10,
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "_id",
+                "emergency"
+            ],
+            "type": "object"
+        },
         "FlushCurb": {
             "additionalProperties": false,
             "description": "An indicator that there is no raised curb interface where two paths meet - i.e. where someone might expect a curb interface, such as where a crossing and footpath meet.",
@@ -1338,6 +1707,124 @@
             ],
             "type": "object"
         },
+        "Manhole": {
+            "additionalProperties": false,
+            "description": "A manhole - a hole with a cover that allows access to an underground service location, just large enough for a human to climb through.",
+            "properties": {
+                "bbox": {
+                    "anyOf": [
+                        {
+                            "items": [
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                }
+                            ],
+                            "maxItems": 4,
+                            "minItems": 4,
+                            "type": "array"
+                        },
+                        {
+                            "items": [
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                }
+                            ],
+                            "maxItems": 6,
+                            "minItems": 6,
+                            "type": "array"
+                        }
+                    ],
+                    "description": "Bounding box of the coordinate range of the object's Geometries, Features, or Feature Collections.\nThe value of the bbox member is an array of length 2*n where n is the number of dimensions\nrepresented in the contained geometries, with all axes of the most southwesterly point\nfollowed by all axes of the more northeasterly point.\nThe axes order of a bbox follows the axes order of geometries.\nhttps://tools.ietf.org/html/rfc7946#section-5"
+                },
+                "geometry": {
+                    "$ref": "#/definitions/GeoJSON.Point",
+                    "description": "The feature's geometry"
+                },
+                "id": {
+                    "description": "A value that uniquely identifies this feature in a\nhttps://tools.ietf.org/html/rfc7946#section-3.2.",
+                    "type": [
+                        "string",
+                        "number"
+                    ]
+                },
+                "properties": {
+                    "$ref": "#/definitions/ManholeFields",
+                    "description": "Properties associated with this feature."
+                },
+                "type": {
+                    "description": "Specifies the type of GeoJSON object.",
+                    "enum": [
+                        "Feature"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "geometry",
+                "properties",
+                "type"
+            ],
+            "type": "object"
+        },
+        "ManholeFields": {
+            "additionalProperties": false,
+            "description": "Fields that apply to a manhole.",
+            "properties": {
+                "_id": {
+                    "type": "string"
+                },
+                "brunnel": {
+                    "description": "A field that indicates whether an entity is on a bridge, tunnel, or ford.",
+                    "enum": [
+                        "bridge",
+                        "ford",
+                        "tunnel"
+                    ],
+                    "type": "string"
+                },
+                "layer": {
+                    "description": "A field that indicates the z-layer (integer) on which an edge lies. If unset, a value of 0 is implied. Negative values are allowed.",
+                    "maximum": 10,
+                    "minimum": -10,
+                    "type": "integer"
+                },
+                "man_made": {
+                    "enum": [
+                        "manhole"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "_id",
+                "man_made"
+            ],
+            "type": "object"
+        },
         "ParkingAisle": {
             "additionalProperties": false,
             "description": "The centerline of a subordinated way in a parking lot: vehicles drive on parking aisles to reach parking spaces in a parking lot.",
@@ -1503,6 +1990,124 @@
                 "_v_id",
                 "highway",
                 "service"
+            ],
+            "type": "object"
+        },
+        "PowerPole": {
+            "additionalProperties": false,
+            "description": "A power pole. Often made of wood or metal, they hold power lines.",
+            "properties": {
+                "bbox": {
+                    "anyOf": [
+                        {
+                            "items": [
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                }
+                            ],
+                            "maxItems": 4,
+                            "minItems": 4,
+                            "type": "array"
+                        },
+                        {
+                            "items": [
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                }
+                            ],
+                            "maxItems": 6,
+                            "minItems": 6,
+                            "type": "array"
+                        }
+                    ],
+                    "description": "Bounding box of the coordinate range of the object's Geometries, Features, or Feature Collections.\nThe value of the bbox member is an array of length 2*n where n is the number of dimensions\nrepresented in the contained geometries, with all axes of the most southwesterly point\nfollowed by all axes of the more northeasterly point.\nThe axes order of a bbox follows the axes order of geometries.\nhttps://tools.ietf.org/html/rfc7946#section-5"
+                },
+                "geometry": {
+                    "$ref": "#/definitions/GeoJSON.Point",
+                    "description": "The feature's geometry"
+                },
+                "id": {
+                    "description": "A value that uniquely identifies this feature in a\nhttps://tools.ietf.org/html/rfc7946#section-3.2.",
+                    "type": [
+                        "string",
+                        "number"
+                    ]
+                },
+                "properties": {
+                    "$ref": "#/definitions/PowerPoleFields",
+                    "description": "Properties associated with this feature."
+                },
+                "type": {
+                    "description": "Specifies the type of GeoJSON object.",
+                    "enum": [
+                        "Feature"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "geometry",
+                "properties",
+                "type"
+            ],
+            "type": "object"
+        },
+        "PowerPoleFields": {
+            "additionalProperties": false,
+            "description": "Fields that apply to a power pole.",
+            "properties": {
+                "_id": {
+                    "type": "string"
+                },
+                "brunnel": {
+                    "description": "A field that indicates whether an entity is on a bridge, tunnel, or ford.",
+                    "enum": [
+                        "bridge",
+                        "ford",
+                        "tunnel"
+                    ],
+                    "type": "string"
+                },
+                "layer": {
+                    "description": "A field that indicates the z-layer (integer) on which an edge lies. If unset, a value of 0 is implied. Negative values are allowed.",
+                    "maximum": 10,
+                    "minimum": -10,
+                    "type": "integer"
+                },
+                "power": {
+                    "enum": [
+                        "pole"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "_id",
+                "power"
             ],
             "type": "object"
         },
@@ -1772,7 +2377,7 @@
                 },
                 "kerb": {
                     "enum": [
-                        "rolled"
+                        "raised"
                     ],
                     "type": "string"
                 },
@@ -2566,6 +3171,124 @@
             ],
             "type": "object"
         },
+        "StreetLamp": {
+            "additionalProperties": false,
+            "description": "A street lamp - a street light, lamppost, street lamp, light standard, or lamp standard: a raised source of light above a road, which is turned on or lit at night.",
+            "properties": {
+                "bbox": {
+                    "anyOf": [
+                        {
+                            "items": [
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                }
+                            ],
+                            "maxItems": 4,
+                            "minItems": 4,
+                            "type": "array"
+                        },
+                        {
+                            "items": [
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                }
+                            ],
+                            "maxItems": 6,
+                            "minItems": 6,
+                            "type": "array"
+                        }
+                    ],
+                    "description": "Bounding box of the coordinate range of the object's Geometries, Features, or Feature Collections.\nThe value of the bbox member is an array of length 2*n where n is the number of dimensions\nrepresented in the contained geometries, with all axes of the most southwesterly point\nfollowed by all axes of the more northeasterly point.\nThe axes order of a bbox follows the axes order of geometries.\nhttps://tools.ietf.org/html/rfc7946#section-5"
+                },
+                "geometry": {
+                    "$ref": "#/definitions/GeoJSON.Point",
+                    "description": "The feature's geometry"
+                },
+                "id": {
+                    "description": "A value that uniquely identifies this feature in a\nhttps://tools.ietf.org/html/rfc7946#section-3.2.",
+                    "type": [
+                        "string",
+                        "number"
+                    ]
+                },
+                "properties": {
+                    "$ref": "#/definitions/StreetLampFields",
+                    "description": "Properties associated with this feature."
+                },
+                "type": {
+                    "description": "Specifies the type of GeoJSON object.",
+                    "enum": [
+                        "Feature"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "geometry",
+                "properties",
+                "type"
+            ],
+            "type": "object"
+        },
+        "StreetLampFields": {
+            "additionalProperties": false,
+            "description": "Fields that apply to a street lamp.",
+            "properties": {
+                "_id": {
+                    "type": "string"
+                },
+                "brunnel": {
+                    "description": "A field that indicates whether an entity is on a bridge, tunnel, or ford.",
+                    "enum": [
+                        "bridge",
+                        "ford",
+                        "tunnel"
+                    ],
+                    "type": "string"
+                },
+                "highway": {
+                    "enum": [
+                        "street_lamp"
+                    ],
+                    "type": "string"
+                },
+                "layer": {
+                    "description": "A field that indicates the z-layer (integer) on which an edge lies. If unset, a value of 0 is implied. Negative values are allowed.",
+                    "maximum": 10,
+                    "minimum": -10,
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "_id",
+                "highway"
+            ],
+            "type": "object"
+        },
         "TertiaryStreet": {
             "additionalProperties": false,
             "description": "A road linking small settlements, or the local centers of a large town or city.",
@@ -2898,6 +3621,124 @@
                 "highway"
             ],
             "type": "object"
+        },
+        "WasteBasket": {
+            "additionalProperties": false,
+            "description": "A waste basket - a single small container for depositing garbage that is easily accessible for pedestrians.",
+            "properties": {
+                "bbox": {
+                    "anyOf": [
+                        {
+                            "items": [
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                }
+                            ],
+                            "maxItems": 4,
+                            "minItems": 4,
+                            "type": "array"
+                        },
+                        {
+                            "items": [
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                }
+                            ],
+                            "maxItems": 6,
+                            "minItems": 6,
+                            "type": "array"
+                        }
+                    ],
+                    "description": "Bounding box of the coordinate range of the object's Geometries, Features, or Feature Collections.\nThe value of the bbox member is an array of length 2*n where n is the number of dimensions\nrepresented in the contained geometries, with all axes of the most southwesterly point\nfollowed by all axes of the more northeasterly point.\nThe axes order of a bbox follows the axes order of geometries.\nhttps://tools.ietf.org/html/rfc7946#section-5"
+                },
+                "geometry": {
+                    "$ref": "#/definitions/GeoJSON.Point",
+                    "description": "The feature's geometry"
+                },
+                "id": {
+                    "description": "A value that uniquely identifies this feature in a\nhttps://tools.ietf.org/html/rfc7946#section-3.2.",
+                    "type": [
+                        "string",
+                        "number"
+                    ]
+                },
+                "properties": {
+                    "$ref": "#/definitions/WasteBasketFields",
+                    "description": "Properties associated with this feature."
+                },
+                "type": {
+                    "description": "Specifies the type of GeoJSON object.",
+                    "enum": [
+                        "Feature"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "geometry",
+                "properties",
+                "type"
+            ],
+            "type": "object"
+        },
+        "WasteBasketFields": {
+            "additionalProperties": false,
+            "description": "Fields that apply to a waste basket.",
+            "properties": {
+                "_id": {
+                    "type": "string"
+                },
+                "amenity": {
+                    "enum": [
+                        "waste_basket"
+                    ],
+                    "type": "string"
+                },
+                "brunnel": {
+                    "description": "A field that indicates whether an entity is on a bridge, tunnel, or ford.",
+                    "enum": [
+                        "bridge",
+                        "ford",
+                        "tunnel"
+                    ],
+                    "type": "string"
+                },
+                "layer": {
+                    "description": "A field that indicates the z-layer (integer) on which an edge lies. If unset, a value of 0 is implied. Negative values are allowed.",
+                    "maximum": 10,
+                    "minimum": -10,
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "_id",
+                "amenity"
+            ],
+            "type": "object"
         }
     },
     "properties": {
@@ -2957,6 +3798,27 @@
                     },
                     {
                         "$ref": "#/definitions/ParkingAisle"
+                    },
+                    {
+                        "$ref": "#/definitions/FireHydrant"
+                    },
+                    {
+                        "$ref": "#/definitions/PowerPole"
+                    },
+                    {
+                        "$ref": "#/definitions/Bench"
+                    },
+                    {
+                        "$ref": "#/definitions/WasteBasket"
+                    },
+                    {
+                        "$ref": "#/definitions/Manhole"
+                    },
+                    {
+                        "$ref": "#/definitions/Bollard"
+                    },
+                    {
+                        "$ref": "#/definitions/StreetLamp"
                     }
                 ]
             },

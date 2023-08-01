@@ -8,7 +8,7 @@ import { BaseNodeFields } from "./base-node-fields";
 interface BareNodeIdentifyingFields extends BaseNodeFields {}
 
 /**
- * Fields that apply to a bare node (none beyond _id).
+ * Fields that apply to a bare node.
  */
 interface BareNodeFields extends BareNodeIdentifyingFields {}
 
