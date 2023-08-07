@@ -14,6 +14,8 @@ import { ServiceRoad } from "./service-road";
 import { Alley } from "./alley";
 import { Driveway } from "./driveway";
 import { ParkingAisle } from "./parking-aisle";
+import { Steps } from "./steps";
+import { Pedestrian } from "./pedestrian";
 
 export type Edge =
   | Crossing
@@ -28,4 +30,6 @@ export type Edge =
   | ServiceRoad
   | Alley
   | Driveway
-  | ParkingAisle;
+  | ParkingAisle
+  | Steps
+  | Pedestrian;

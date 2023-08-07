@@ -1,6 +1,7 @@
 import { Feature, Point } from "geojson";
 
 import { BaseNodeFields } from "./base-node-fields";
+import { Surface, TactilePaving } from "fields";
 
 /**
  * Fields that identify a raised curb.
@@ -13,7 +14,8 @@ interface RaisedCurbIdentifyingFields extends BaseNodeFields {
  * Fields that apply to a raised curb.
  */
 interface RaisedCurbFields extends RaisedCurbIdentifyingFields {
-
+  surface?: Surface;
+  tactile_paving?: TactilePaving;
 }
 
 /**

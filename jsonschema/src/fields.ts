@@ -60,7 +60,9 @@ export type Surface =
   | "grass"
   | "paved"
   | "paving_stones"
-  | "unpaved";
+  | "unpaved"
+  | "dirt"
+  | "grass_paver";
 /**
  * A field for whether a curb ramp or edge has a tactile (textured) surface.
  */
@@ -71,3 +73,9 @@ export type TactilePaving = boolean;
  * @maximum 500
  */
 export type Width = number;
+/**
+ * A field for number of steps in stairs.
+ * @minimum 0
+ * @maximum 500
+ */
+export type StepCount = number;
