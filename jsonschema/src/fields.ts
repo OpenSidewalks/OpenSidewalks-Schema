@@ -7,6 +7,10 @@ export type Brunnel = "bridge" | "ford" | "tunnel";
  */
 export type Crossing = "marked" | "unmarked";
 /**
+ * A field for markings on the ground which are meant to draw attention to the area where pedestrians are to cross the road.
+ */
+export type CrossingMarkings = "dashes" | "dots" | "ladder" | "ladder:paired" | "lines" | "lines:paired" | "no" | "skewed" | "surface" | "yes" | "zebra" | "zebra:bicolour" | "zebra:double" | "zebra:paired" | "rainbow" | "lines:rainbow" | "zebra:rainbow" | "ladder:skewed" | "pictograms";
+/**
  * A free form text field for describing an edge of node. May be pre-encoded in relevant pedestrian paths to assist with routing instructing or investigation of map features. For example, a description of the sidewalk in relation to a nearby street may be a useful textual description, such as "NE of Main St." Can also be considered a flexible location to embed arbitrary information for specific use cases.
  */
 export type Description = string;
