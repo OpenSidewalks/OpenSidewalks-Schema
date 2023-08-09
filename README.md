@@ -239,6 +239,8 @@ Point
 
 #### Optional Fields
 
+[tactile\_paving](#field-tactile_paving)
+
 ### <a name="node-rolled_curb"></a> Rolled curb
 
 #### Description
@@ -261,6 +263,8 @@ Point
 
 #### Optional Fields
 
+[tactile\_paving](#field-tactile_paving)
+
 ### <a name="node-curb_ramp"></name> Curb ramp
 
 #### Description
@@ -281,8 +285,6 @@ Point
 `barrier=kerb, kerb=lowered`
 
 #### Optional Fields
-
-[surface](#field-surface)
 
 [tactile\_paving](#field-tactile_paving)
 
@@ -307,6 +309,8 @@ Point
 `barrier=kerb, kerb=lowered`
 
 #### Optional Fields
+
+[tactile\_paving](#field-tactile_paving)
 
 ## <a name="edges"></a> Edges
 
