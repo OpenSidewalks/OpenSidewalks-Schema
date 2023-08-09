@@ -414,6 +414,7 @@ LineString
 All [optional fields of footway](#edge-footway-optional-fields)
 
 [crossing](#field-crossing)
+
 [crossing:markings](#field-crossing_markings)
 
 ### <a name="edge-traffic_island"></a> Traffic Island
