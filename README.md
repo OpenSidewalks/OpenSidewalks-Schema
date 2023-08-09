@@ -879,4 +879,4 @@ bars are actually made up of two very-close smaller bars.
 
 Can be added to indicate the number of steps
 
-###### *Value type*: numeric
+###### *Value type*: integer
