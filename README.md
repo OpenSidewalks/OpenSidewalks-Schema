@@ -87,8 +87,7 @@ inferred during graph creation.
 
 #### Points
 
-[Points](#points) are point features that do not contain network metadata, i.e.
-they do not have `_id` fields. These are features relevant to the pedestrian
+[Points](#points) are point features that do not contain network metadata. These are features relevant to the pedestrian
 network that are nevertheless not (yet) represented as elements of it: they are
 nearby and useful for producing descriptions, flagging potential barriers, etc.
 
