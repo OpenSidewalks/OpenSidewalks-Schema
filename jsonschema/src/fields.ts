@@ -11,24 +11,11 @@ export type CrossingMarkings = "dashes" | "dots" | "ladder" | "ladder:paired" | 
  */
 export type Description = string;
 /**
- * A field for whether an edge uses an elevator for vertical movement, e.g. building
-paths.
- */
-export type Elevator = boolean;
-/**
- * A field that indicates whether an edge can be used by pedestrians. Is implied for a Footway entity and its subtypes.
- */
-export type Foot = boolean;
-/**
  * A field for the estimated incline over a particular path, i.e. slope, i.e. grade, i.e. rise over run. If derived from OpenStreetMap data, this is the maximum incline over the path. If derived from DEM data, it is more likely to be an underestimation. Positive values indicate an uphill climb while negative are downhill. For example, a 45 degree downhill value for incline would be -1.0.
  * @minimum -1.0
  * @maximum 1.0
  */
 export type Incline = number;
-/**
- * A field that indicates whether an edge is indoors.
- */
-export type Indoor = boolean;
 /**
  * A field for the length of an edge in meters. This field is always inferred from the geometry.
  * @minimum 0
@@ -39,10 +26,6 @@ export type Length = number;
  * A field for a designated name for an edge. Example: an official name for a trail.
  */
 export type Name = string;
-/**
- * A field for the opening hours of an entity: whether it is available at a given time. An edge through a building that closes at night, for example, may have this field. The value is in OpenStreetMap syntax for the opening\_hours tag. See [OpenStreetMap specification](https://wiki.openstreetmap.org/wiki/Key:opening_hours/specification) on the formatting for this field.
- */
-export type OpeningHours = string;
 /**
  * A field for the surface material of the path.
  */

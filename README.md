@@ -688,9 +688,6 @@ OpenSidewalks Schema fields are typed key-value pairs. Keys are always strings
 
 - `numeric`: an number, either integer or decimal
 
-- `opening_hours`: serialized as a string, a specialized format for describing
-when a facility or asset is "open", as in accessible to the public.
-
 ## List of fields
 
 ##### <a name="field-description"></a> description
@@ -777,41 +774,6 @@ also handle these data, but for now length is precalculated.
 
 ###### *Value type*: numeric
 
-##### <a name="field-foot"></a> foot
-
-*From OpenStreetMap*
-
-Original value of the foot key if it is set to yes or no.
-
-###### *Value type*: enum
-
-###### *Enumerated values*:
-
--   1
-
--   0
-
-##### <a name="field-opening_hours"></a> opening\_hours
-
-*From OpenStreetMap*
-
-The opening hours of the network element. This may apply to, for
-example, a path that is inside a building. The value is in OpenStreetMap
-syntax for the opening\_hours tag. See [OpenStreetMap
-specification](https://wiki.openstreetmap.org/wiki/Key:opening_hours/specification)
-on the formatting for this field.
-
-###### *Value type*: opening\_hours
-
-##### <a name="field-elevator"></a> elevator
-
-*Unique to OpenSidewalks*
-
-Whether an Edge uses an elevator for vertical movement, e.g. building
-paths.
-
-###### *Value type*: boolean
-
 ##### <a name="field-width"></a> width
 
 *From OpenStreetMap*
@@ -819,14 +781,6 @@ paths.
 The width of an Edge in meters.
 
 ###### *Value type*: numeric
-
-##### <a name="field-indoor"></a> indoor
-
-*From OpenStreetMap*
-
-Whether an entity is indoors or not.
-
-###### *Value type*: boolean
 
 ##### <a name="field-tactile_paving"></a> tactile\_paving
 
