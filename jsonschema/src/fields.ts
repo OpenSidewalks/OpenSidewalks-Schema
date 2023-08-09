@@ -1,8 +1,4 @@
 /**
- * A field that indicates whether an entity is on a bridge, tunnel, or ford.
- */
-export type Brunnel = "bridge" | "ford" | "tunnel";
-/**
  * A field for the type of street crossing - marked or unmarked. When derived from OpenStreetMap data, the crossing key undergoes various conversions due to fragmentation. Both the uncontrolled and zebra values are converted into marked and the traffic\_signals value is ignored.
  */
 export type Crossing = "marked" | "unmarked";
@@ -33,13 +29,6 @@ export type Incline = number;
  * A field that indicates whether an edge is indoors.
  */
 export type Indoor = boolean;
-/**
- * A field that indicates the z-layer (integer) on which an edge lies. If unset, a value of 0 is implied. Negative values are allowed.
- * @TJS-type integer
- * @minimum -10
- * @maximum 10
- */
-export type Layer = number;
 /**
  * A field for the length of an edge in meters. This field is always inferred from the geometry.
  * @minimum 0

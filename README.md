@@ -137,16 +137,6 @@ end-to-end (within some small marging of error), as they are intended to
 represent a physically-connected space.
 
 Similarly, no connection is implied when the linear geometries of Edges cross.
-Instead, this represents one of two scenarios:
-
-1. The Edges have different `layer` values, i.e. they are at different vertical
-levels and so are not connected.
-
-2. There is a data error: the linear features are meant to meet where they
-intersect but the data maintainers have made a mistake. One way to infer this
-is when the intersecting linear features' `layer` values match (either
-because they are undefined and implicitly `layer=0` or have explicitly-defined
-matchin values).
 
 #### A road entity and a Crossing that intersects with it should share a location/node
 
@@ -250,10 +240,6 @@ Point
 
 #### Optional Fields
 
-[layer](#field-layer)
-
-[brunnel](#field-brunnel)
-
 ### <a name="node-rolled_curb"></a> Rolled curb
 
 #### Description
@@ -276,10 +262,6 @@ Point
 
 #### Optional Fields
 
-[layer](#field-layer)
-
-[brunnel](#field-brunnel)
-
 ### <a name="node-curb_ramp"></name> Curb ramp
 
 #### Description
@@ -300,10 +282,6 @@ Point
 `barrier=kerb, kerb=lowered`
 
 #### Optional Fields
-
-[layer](#field-layer)
-
-[brunnel](#field-brunnel)
 
 [surface](#field-surface)
 
@@ -331,19 +309,11 @@ Point
 
 #### Optional Fields
 
-[layer](#field-layer)
-
-[brunnel](#field-brunnel)
-
 ## <a name="edges"></a> Edges
 
 Edges are lines (their serializable geometries are representable by
 LineStrings) intended to represent pedestrian network connections. Edges are
 often derived from topological data like that stored in OpenStreetMap.
-
-All Edges may use the [layer](#field-layer) and [brunnel](#field-brunnel) tags,
-as all pedestrian paths may overlap one another at different z-levels or be
-part of a bridge or tunnel.
 
 ### <a name="edge-footway"></a> Footway (plain)
 
@@ -375,10 +345,6 @@ LineString
 [incline](#field-incline)
 
 [length](#field-length)
-
-[layer](#field-layer)
-
-[brunnel](#field-brunnel)
 
 [description](#field-description)
 
@@ -449,6 +415,7 @@ LineString
 All [optional fields of footway](#edge-footway-optional-fields)
 
 [crossing](#field-crossing)
+[crossing:markings](#field-crossing_markings)
 
 ### <a name="edge-traffic_island"></a> Traffic Island
 
@@ -476,262 +443,6 @@ LineString
 #### Optional Fields
 
 All [optional fields of footway](#edge-footway-optional-fields)
-
-### <a name="edge-cycleway"></a> Cycleway
-
-#### Description
-
-The centerline of a designated cycling path. This path may or may
-not permit pedestrian use.
-
-#### Subtype of
-
-*None*
-
-#### Geometry
-
-LineString
-
-#### Identifying fields
-
-`highway=cycleway`
-
-#### Optional Fields
-
-[width](#field-width)
-
-[surface](#field-surface)
-
-[incline](#field-incline)
-
-[length](#field-length)
-
-[layer](#field-layer)
-
-[brunnel](#field-brunnel)
-
-[description](#field-description)
-
-[name](#field-name)
-
-[foot](#field-foot)
-
-### <a name="edge-primary_street"></name> Primary Street
-
-#### Description
-
-The centerline of a major highway.
-
-#### Subtype of
-
-*None*
-
-#### Geometry
-
-LineString
-
-#### Identifying fields
-
-`highway=primary`
-
-#### <a name="edge-primary_street-optional-fields"></a> Optional Fields
-
-[width](#field-width)
-
-[surface](#field-surface)
-
-[incline](#field-incline)
-
-[length](#field-length)
-
-[layer](#field-layer)
-
-[brunnel](#field-brunnel)
-
-[description](#field-description)
-
-[name](#field-name)
-
-[foot](#field-foot)
-
-### <a name="edge-secondary_street"></a> Secondary Street
-
-#### Description
-
-The centerline of a secondary highway: not a major highway, but forms a
-major link in the national route network.
-
-#### Subtype of
-
-*None*
-
-#### Geometry
-
-LineString
-
-#### Identifying fields
-
-`highway=secondary`
-
-#### Optional Fields
-
-All of [the optional fields of a primary
-street](#edge-primary_street-optional-fields).
-
-### <a name="edge-tertiary_street"></a> Tertiary Street
-
-#### Description
-
-A road linking small settlements, or the local centers of a large town
-or city.
-
-#### Subtype of
-
-*None*
-
-#### Geometry
-
-LineString
-
-#### Identifying fields
-
-`highway=tertiary`
-
-#### Optional Fields
-
-All of [the optional fields of a primary
-street](#edge-primary_street-optional-fields).
-
-### <a name="edge-residential_street"></a> Residential Street
-
-#### Description
-
-A residential street.
-
-#### Subtype of
-
-*None*
-
-#### Geometry
-
-LineString
-
-#### Identifying fields
-
-`highway=residential`
-
-#### Optional Fields
-
-All of [the optional fields of a primary
-street](#edge-primary_street-optional-fields).
-
-### <a name="edge-service_road"></a> Service Road
-
-#### Description
-
-A road intended for service use.
-
-#### Subtype of
-
-*None*
-
-#### Geometry
-
-LineString
-
-#### Identifying fields
-
-`highway=service`
-
-#### <a name="edge-service_road-optional-fields"></a> Optional Fields
-
-[width](#field-width)
-
-[surface](#field-surface)
-
-[incline](#field-incline)
-
-[length](#field-length)
-
-[layer](#field-layer)
-
-[brunnel](#field-brunnel)
-
-[description](#field-description)
-
-[foot](#field-foot)
-
-### <a name="edge-driveway"></a> Driveway
-
-#### Description
-
-The centerline of a driveway. Typically connects a residence or business
-to another road.
-
-#### Subtype of
-
-[Service road](#edge-service_road)
-
-#### Geometry
-
-LineString
-
-#### Identifying fields
-
-`highway=service, service=driveway`
-
-#### Optional Fields
-
-All of [the optional fields of a service
-road](#edge-service_road-optional-fields).
-
-### <a name="edge-alley"></a> Alley
-
-#### Description
-
-The centerline of an alley. An alley is usually located between
-properties and provides access to utilities and private entrances.
-
-#### Subtype of
-
-[Service road](#edge-service_road)
-
-#### Geometry
-
-LineString
-
-#### Identifying fields
-
-`highway=service, service=alley`
-
-#### Optional Fields
-
-All of [the optional fields of a service
-road](#edge-service_road-optional-fields).
-
-### <a name="edge-parking_aisle"></a> Parking aisle
-
-#### Description
-
-The centerline of a subordinated way in a parking lot: vehicles drive on
-parking aisles to reach parking spaces in a parking lot.
-
-#### Subtype of
-
-[Service road](#edge-service_road)
-
-#### Geometry
-
-LineString
-
-#### Identifying fields
-
-`highway=service, service=parking\_aisle`
-
-#### Optional Fields
-
-All of [the optional fields of a service
-road](#edge-service_road-optional-fields).
 
 ## <a name="points"></a> Points
 
@@ -763,10 +474,6 @@ Point
 
 #### Optional Fields
 
-[layer](#field-layer)
-
-[brunnel](#field-brunnel)
-
 ### <a name="point-fire_hydrant"></a> Fire hydrant
 
 #### Description
@@ -784,6 +491,116 @@ Point
 #### Identifying fields
 
 `emergency=fire\_hydrant`
+
+#### Optional Fields
+
+*None*
+
+### <a name="point-bench"></a> Bench
+
+#### Description
+
+A bench - a place for people to sit; allows room for several people.
+
+#### Subtype of
+
+*None*
+
+#### Geometry
+
+Point
+
+#### Identifying fields
+
+`amenity=bench`
+
+#### Optional Fields
+
+*None*
+
+### <a name="point-bollard"></a> Bollard
+
+#### Description
+
+A Bollard - a solid pillar or pillars made of concrete, metal, plastic, etc., and used to control traffic.
+
+#### Subtype of
+
+*None*
+
+#### Geometry
+
+Point
+
+#### Identifying fields
+
+`barrier=bollard`
+
+#### Optional Fields
+
+*None*
+
+### <a name="point-manhole"></a> Manhole
+
+#### Description
+
+A manhole - a hole with a cover that allows access to an underground service location, just large enough for a human to climb through.
+
+#### Subtype of
+
+*None*
+
+#### Geometry
+
+Point
+
+#### Identifying fields
+
+`man\_made=manhole`
+
+#### Optional Fields
+
+*None*
+
+### <a name="point-street_lamp"></a> Street Lamp
+
+#### Description
+
+A street lamp - a street light, lamppost, street lamp, light standard, or lamp standard: a raised source of light above a road, which is turned on or lit at night.
+
+#### Subtype of
+
+*None*
+
+#### Geometry
+
+Point
+
+#### Identifying fields
+
+`highway=street\_lamp`
+
+#### Optional Fields
+
+*None*
+
+### <a name="point-waste_basket"></a> Waste Basket
+
+#### Description
+
+A waste basket - a single small container for depositing garbage that is easily accessible for pedestrians.
+
+#### Subtype of
+
+*None*
+
+#### Geometry
+
+Point
+
+#### Identifying fields
+
+`amenity=waste\_basket`
 
 #### Optional Fields
 
@@ -879,6 +696,10 @@ from OpenStreetMap.
 
 -   unpaved
 
+-   dirt
+
+-   grass\_paver
+
 ##### <a name="field-length"></a> length
 
 *From OpenStreetMap*
@@ -934,33 +755,6 @@ The width of an Edge in meters.
 
 ###### *Value type*: numeric
 
-##### <a name="field-layer"></a> layer
-
-*From OpenStreetMap*
-
-The relative z-order of map elements. Useful for both rendering and
-detecting spatial intersections - paths of different layer values can
-intersect without sharing a node. Values are integers that can be
-negative (for underground), with the implied default being layer=0.
-
-###### *Value type*: integer
-
-##### <a name="field-brunnel"></a> brunnel
-
-*From OpenStreetMap*
-
-A field indicating that an entity is part of a bridge, tunnel, or ford.
-
-###### *Value type*: enum
-
-###### *Enumerated values*:
-
--   bridge
-
--   ford
-
--   tunnel
-
 ##### <a name="field-indoor"></a> indoor
 
 *From OpenStreetMap*
@@ -993,3 +787,69 @@ into marked and the traffic\_signals value is ignored.
 -   marked: a marked crossing
 
 -   unmarked: an unmarked crossing
+
+##### <a name="field-crossing_markings"></a> crossing:markings
+
+*From OpenStreetMap*
+
+Whether a pedestrian street crossing has ground markings (and, optionally, what
+type of markings exist). When derived from OpenStreetMap data, the
+crossing:markings field may be derived not only from the identical
+`crossing:markings` tag in OpenStreetMap, but from any unambiguous tags in the
+problematic `crossing=*` tag, such as `crossing=marked` -->
+`crossing:markings=yes` and `crossing=unmarked` --> `crossing:markings=no`, and
+`crossing=zebra` --> `crossing:markings=yes`.
+
+###### *Value type*: enum
+
+###### *Enumerated values*:
+
+-   yes: The crossing has surface markings but the type is unspecified.
+
+-   no: The crossing has no surface markings.
+
+-   surface: There is a surface change but no distinct markings.
+
+-   lines: There are only two parallel lines to indicate the outline of the
+crossing.
+
+-   lines:paired: The same as `crossing:markings=lines` but each line is
+actually two very-close parallel lines (for a total of 4 lines).
+
+-   dashes: There are only two parallel dashed lines to indicate the outline of
+the crossing.
+
+-   dots: There are only two parallel dotted lines (square/round markings with
+significant distance between them) to indicate the outline of the crossing.
+
+-   zebra: The crossing is only marked by regularly spaced bars along its
+length.
+
+-   zebra:double: The same as `crossing:markings=zebra` but there are two sets
+of regularly spaced bars with a small gap between them.
+
+-   zebra:paired: The same as `crossing:markings=zebra` but each bar is made up
+of two smaller bars (i.e. there's a small gap between smaler bars).
+
+-   zebra:bicolour: The same as `crossing:markings=zebra` but there are the
+bars and gaps are made of two alternating colors.
+
+-   ladder: The same as combining `crossing:markings=zebra` and
+`crossing:markings=lines`: horizontal bars but with linears outlines enclosing
+the crossing.
+
+-   skewed: The same as `crossing:markings=ladder` but the horizontal bars are
+at a slight diagonal (~30 degree shift) - they're skewed.
+
+-   ladder:paired: The same as `crossing:markings=ladder` but the horizontal
+bars are actually made up of two very-close smaller bars.
+
+-   rainbow: A crossing with rainbow colours, other than in zebra pattern or lines along the crossing.
+
+-   lines:rainbow: Rainbow coloured lines along the crossing.
+
+-   zebra:rainbow: A zebra crossing with rainbow colours.
+
+-   ladder:skewed: Two lines orthogonal to the direction of the roadway with diagonal bars connecting the two lines.
+
+-   pictograms: Painted pictogram(s) of pedestrian and/or bicycle (with or without arrows)

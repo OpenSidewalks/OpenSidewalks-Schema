@@ -2,10 +2,8 @@ import { Feature, LineString } from "geojson";
 
 import { BaseEdgeFields } from "./base-edge-fields";
 import {
-  Brunnel,
   Description,
   Incline,
-  Layer,
   Length,
   Name,
   StepCount,
@@ -24,10 +22,8 @@ export interface StepsFields extends StepsIdentifyingFields {
   /**
    * Fields that apply to steps.
    */
-  brunnel?: Brunnel;
   description?: Description;
   incline?: Incline;
-  layer?: Layer;
   length?: Length;
   name?: Name;
   surface?: Surface;

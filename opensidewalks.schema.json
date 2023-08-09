@@ -2,174 +2,6 @@
     "$schema": "http://json-schema.org/draft-07/schema#",
     "additionalProperties": false,
     "definitions": {
-        "Alley": {
-            "additionalProperties": false,
-            "description": "The centerline of an alley. An alley is usually located between properties and provides access to utilities and private entrances.",
-            "properties": {
-                "bbox": {
-                    "anyOf": [
-                        {
-                            "items": [
-                                {
-                                    "type": "number"
-                                },
-                                {
-                                    "type": "number"
-                                },
-                                {
-                                    "type": "number"
-                                },
-                                {
-                                    "type": "number"
-                                }
-                            ],
-                            "maxItems": 4,
-                            "minItems": 4,
-                            "type": "array"
-                        },
-                        {
-                            "items": [
-                                {
-                                    "type": "number"
-                                },
-                                {
-                                    "type": "number"
-                                },
-                                {
-                                    "type": "number"
-                                },
-                                {
-                                    "type": "number"
-                                },
-                                {
-                                    "type": "number"
-                                },
-                                {
-                                    "type": "number"
-                                }
-                            ],
-                            "maxItems": 6,
-                            "minItems": 6,
-                            "type": "array"
-                        }
-                    ],
-                    "description": "Bounding box of the coordinate range of the object's Geometries, Features, or Feature Collections.\nThe value of the bbox member is an array of length 2*n where n is the number of dimensions\nrepresented in the contained geometries, with all axes of the most southwesterly point\nfollowed by all axes of the more northeasterly point.\nThe axes order of a bbox follows the axes order of geometries.\nhttps://tools.ietf.org/html/rfc7946#section-5"
-                },
-                "geometry": {
-                    "$ref": "#/definitions/GeoJSON.LineString",
-                    "description": "The feature's geometry"
-                },
-                "id": {
-                    "description": "A value that uniquely identifies this feature in a\nhttps://tools.ietf.org/html/rfc7946#section-3.2.",
-                    "type": [
-                        "string",
-                        "number"
-                    ]
-                },
-                "properties": {
-                    "$ref": "#/definitions/AlleyFields",
-                    "description": "Properties associated with this feature."
-                },
-                "type": {
-                    "description": "Specifies the type of GeoJSON object.",
-                    "enum": [
-                        "Feature"
-                    ],
-                    "type": "string"
-                }
-            },
-            "required": [
-                "geometry",
-                "properties",
-                "type"
-            ],
-            "type": "object"
-        },
-        "AlleyFields": {
-            "additionalProperties": false,
-            "description": "Fields that apply to an alley.",
-            "properties": {
-                "_u_id": {
-                    "type": "string"
-                },
-                "_v_id": {
-                    "type": "string"
-                },
-                "brunnel": {
-                    "description": "A field that indicates whether an entity is on a bridge, tunnel, or ford.",
-                    "enum": [
-                        "bridge",
-                        "ford",
-                        "tunnel"
-                    ],
-                    "type": "string"
-                },
-                "description": {
-                    "description": "A free form text field for describing an edge of node. May be pre-encoded in relevant pedestrian paths to assist with routing instructing or investigation of map features. For example, a description of the sidewalk in relation to a nearby street may be a useful textual description, such as \"NE of Main St.\" Can also be considered a flexible location to embed arbitrary information for specific use cases.",
-                    "type": "string"
-                },
-                "foot": {
-                    "description": "A field that indicates whether an edge can be used by pedestrians. Is implied for a Footway entity and its subtypes.",
-                    "type": "boolean"
-                },
-                "highway": {
-                    "enum": [
-                        "service"
-                    ],
-                    "type": "string"
-                },
-                "incline": {
-                    "description": "A field for the estimated incline over a particular path, i.e. slope, i.e. grade, i.e. rise over run. If derived from OpenStreetMap data, this is the maximum incline over the path. If derived from DEM data, it is more likely to be an underestimation. Positive values indicate an uphill climb while negative are downhill. For example, a 45 degree downhill value for incline would be -1.0.",
-                    "maximum": 1,
-                    "minimum": -1,
-                    "type": "number"
-                },
-                "layer": {
-                    "description": "A field that indicates the z-layer (integer) on which an edge lies. If unset, a value of 0 is implied. Negative values are allowed.",
-                    "maximum": 10,
-                    "minimum": -10,
-                    "type": "integer"
-                },
-                "length": {
-                    "description": "A field for the length of an edge in meters. This field is always inferred from the geometry.",
-                    "maximum": 5000,
-                    "minimum": 0,
-                    "type": "number"
-                },
-                "service": {
-                    "enum": [
-                        "alley"
-                    ],
-                    "type": "string"
-                },
-                "surface": {
-                    "description": "A field for the surface material of the path.",
-                    "enum": [
-                        "asphalt",
-                        "concrete",
-                        "grass",
-                        "gravel",
-                        "paved",
-                        "paving_stones",
-                        "unpaved"
-                    ],
-                    "type": "string"
-                },
-                "width": {
-                    "description": "A field for width of an edge in meters.",
-                    "maximum": 500,
-                    "minimum": 0,
-                    "type": "number"
-                }
-            },
-            "required": [
-                "_u_id",
-                "_v_id",
-                "highway",
-                "service"
-            ],
-            "type": "object"
-        },
         "BareNode": {
             "additionalProperties": false,
             "description": "A node that is merely part of the graph structure but has no metadata or meaning of its own. For example, a sidewalk may be split into two edges because they have differing widths, so they must be joined by a node - but there is no data to place on the node itself beyond basic spatial and graph primitives.",
@@ -259,21 +91,6 @@
             "properties": {
                 "_id": {
                     "type": "string"
-                },
-                "brunnel": {
-                    "description": "A field that indicates whether an entity is on a bridge, tunnel, or ford.",
-                    "enum": [
-                        "bridge",
-                        "ford",
-                        "tunnel"
-                    ],
-                    "type": "string"
-                },
-                "layer": {
-                    "description": "A field that indicates the z-layer (integer) on which an edge lies. If unset, a value of 0 is implied. Negative values are allowed.",
-                    "maximum": 10,
-                    "minimum": -10,
-                    "type": "integer"
                 }
             },
             "required": [
@@ -376,21 +193,6 @@
                         "bench"
                     ],
                     "type": "string"
-                },
-                "brunnel": {
-                    "description": "A field that indicates whether an entity is on a bridge, tunnel, or ford.",
-                    "enum": [
-                        "bridge",
-                        "ford",
-                        "tunnel"
-                    ],
-                    "type": "string"
-                },
-                "layer": {
-                    "description": "A field that indicates the z-layer (integer) on which an edge lies. If unset, a value of 0 is implied. Negative values are allowed.",
-                    "maximum": 10,
-                    "minimum": -10,
-                    "type": "integer"
                 }
             },
             "required": [
@@ -494,21 +296,6 @@
                         "bollard"
                     ],
                     "type": "string"
-                },
-                "brunnel": {
-                    "description": "A field that indicates whether an entity is on a bridge, tunnel, or ford.",
-                    "enum": [
-                        "bridge",
-                        "ford",
-                        "tunnel"
-                    ],
-                    "type": "string"
-                },
-                "layer": {
-                    "description": "A field that indicates the z-layer (integer) on which an edge lies. If unset, a value of 0 is implied. Negative values are allowed.",
-                    "maximum": 10,
-                    "minimum": -10,
-                    "type": "integer"
                 }
             },
             "required": [
@@ -610,19 +397,35 @@
                 "_v_id": {
                     "type": "string"
                 },
-                "brunnel": {
-                    "description": "A field that indicates whether an entity is on a bridge, tunnel, or ford.",
-                    "enum": [
-                        "bridge",
-                        "ford",
-                        "tunnel"
-                    ],
-                    "type": "string"
-                },
                 "crossing": {
                     "enum": [
                         "marked",
                         "unmarked"
+                    ],
+                    "type": "string"
+                },
+                "crossing:markings": {
+                    "description": "A field for markings on the ground which are meant to draw attention to the area where pedestrians are to cross the road.",
+                    "enum": [
+                        "dashes",
+                        "dots",
+                        "ladder",
+                        "ladder:paired",
+                        "ladder:skewed",
+                        "lines",
+                        "lines:paired",
+                        "lines:rainbow",
+                        "no",
+                        "pictograms",
+                        "rainbow",
+                        "skewed",
+                        "surface",
+                        "yes",
+                        "zebra",
+                        "zebra:bicolour",
+                        "zebra:double",
+                        "zebra:paired",
+                        "zebra:rainbow"
                     ],
                     "type": "string"
                 },
@@ -648,12 +451,6 @@
                     "minimum": -1,
                     "type": "number"
                 },
-                "layer": {
-                    "description": "A field that indicates the z-layer (integer) on which an edge lies. If unset, a value of 0 is implied. Negative values are allowed.",
-                    "maximum": 10,
-                    "minimum": -10,
-                    "type": "integer"
-                },
                 "length": {
                     "description": "A field for the length of an edge in meters. This field is always inferred from the geometry.",
                     "maximum": 5000,
@@ -669,7 +466,9 @@
                     "enum": [
                         "asphalt",
                         "concrete",
+                        "dirt",
                         "grass",
+                        "grass_paver",
                         "gravel",
                         "paved",
                         "paving_stones",
@@ -782,37 +581,15 @@
                 "_id": {
                     "type": "string"
                 },
-                "brunnel": {
-                    "description": "A field that indicates whether an entity is on a bridge, tunnel, or ford.",
+                "barrier": {
                     "enum": [
-                        "bridge",
-                        "ford",
-                        "tunnel"
+                        "kerb"
                     ],
                     "type": "string"
                 },
                 "kerb": {
                     "enum": [
                         "lowered"
-                    ],
-                    "type": "string"
-                },
-                "layer": {
-                    "description": "A field that indicates the z-layer (integer) on which an edge lies. If unset, a value of 0 is implied. Negative values are allowed.",
-                    "maximum": 10,
-                    "minimum": -10,
-                    "type": "integer"
-                },
-                "surface": {
-                    "description": "A field for the surface material of the path.",
-                    "enum": [
-                        "asphalt",
-                        "concrete",
-                        "grass",
-                        "gravel",
-                        "paved",
-                        "paving_stones",
-                        "unpaved"
                     ],
                     "type": "string"
                 },
@@ -823,339 +600,8 @@
             },
             "required": [
                 "_id",
+                "barrier",
                 "kerb"
-            ],
-            "type": "object"
-        },
-        "Cycleway": {
-            "additionalProperties": false,
-            "description": "The centerline of a designated cycling pathway. This pathway may or may not permit pedestrian use.",
-            "properties": {
-                "bbox": {
-                    "anyOf": [
-                        {
-                            "items": [
-                                {
-                                    "type": "number"
-                                },
-                                {
-                                    "type": "number"
-                                },
-                                {
-                                    "type": "number"
-                                },
-                                {
-                                    "type": "number"
-                                }
-                            ],
-                            "maxItems": 4,
-                            "minItems": 4,
-                            "type": "array"
-                        },
-                        {
-                            "items": [
-                                {
-                                    "type": "number"
-                                },
-                                {
-                                    "type": "number"
-                                },
-                                {
-                                    "type": "number"
-                                },
-                                {
-                                    "type": "number"
-                                },
-                                {
-                                    "type": "number"
-                                },
-                                {
-                                    "type": "number"
-                                }
-                            ],
-                            "maxItems": 6,
-                            "minItems": 6,
-                            "type": "array"
-                        }
-                    ],
-                    "description": "Bounding box of the coordinate range of the object's Geometries, Features, or Feature Collections.\nThe value of the bbox member is an array of length 2*n where n is the number of dimensions\nrepresented in the contained geometries, with all axes of the most southwesterly point\nfollowed by all axes of the more northeasterly point.\nThe axes order of a bbox follows the axes order of geometries.\nhttps://tools.ietf.org/html/rfc7946#section-5"
-                },
-                "geometry": {
-                    "$ref": "#/definitions/GeoJSON.LineString",
-                    "description": "The feature's geometry"
-                },
-                "id": {
-                    "description": "A value that uniquely identifies this feature in a\nhttps://tools.ietf.org/html/rfc7946#section-3.2.",
-                    "type": [
-                        "string",
-                        "number"
-                    ]
-                },
-                "properties": {
-                    "$ref": "#/definitions/CyclewayFields",
-                    "description": "Properties associated with this feature."
-                },
-                "type": {
-                    "description": "Specifies the type of GeoJSON object.",
-                    "enum": [
-                        "Feature"
-                    ],
-                    "type": "string"
-                }
-            },
-            "required": [
-                "geometry",
-                "properties",
-                "type"
-            ],
-            "type": "object"
-        },
-        "CyclewayFields": {
-            "additionalProperties": false,
-            "properties": {
-                "_u_id": {
-                    "type": "string"
-                },
-                "_v_id": {
-                    "type": "string"
-                },
-                "brunnel": {
-                    "description": "Fields that apply to a cycleway.",
-                    "enum": [
-                        "bridge",
-                        "ford",
-                        "tunnel"
-                    ],
-                    "type": "string"
-                },
-                "description": {
-                    "description": "A free form text field for describing an edge of node. May be pre-encoded in relevant pedestrian paths to assist with routing instructing or investigation of map features. For example, a description of the sidewalk in relation to a nearby street may be a useful textual description, such as \"NE of Main St.\" Can also be considered a flexible location to embed arbitrary information for specific use cases.",
-                    "type": "string"
-                },
-                "foot": {
-                    "description": "A field that indicates whether an edge can be used by pedestrians. Is implied for a Footway entity and its subtypes.",
-                    "type": "boolean"
-                },
-                "highway": {
-                    "enum": [
-                        "cycleway"
-                    ],
-                    "type": "string"
-                },
-                "incline": {
-                    "description": "A field for the estimated incline over a particular path, i.e. slope, i.e. grade, i.e. rise over run. If derived from OpenStreetMap data, this is the maximum incline over the path. If derived from DEM data, it is more likely to be an underestimation. Positive values indicate an uphill climb while negative are downhill. For example, a 45 degree downhill value for incline would be -1.0.",
-                    "maximum": 1,
-                    "minimum": -1,
-                    "type": "number"
-                },
-                "layer": {
-                    "description": "A field that indicates the z-layer (integer) on which an edge lies. If unset, a value of 0 is implied. Negative values are allowed.",
-                    "maximum": 10,
-                    "minimum": -10,
-                    "type": "integer"
-                },
-                "length": {
-                    "description": "A field for the length of an edge in meters. This field is always inferred from the geometry.",
-                    "maximum": 5000,
-                    "minimum": 0,
-                    "type": "number"
-                },
-                "name": {
-                    "description": "A field for a designated name for an edge. Example: an official name for a trail.",
-                    "type": "string"
-                },
-                "surface": {
-                    "description": "A field for the surface material of the path.",
-                    "enum": [
-                        "asphalt",
-                        "concrete",
-                        "grass",
-                        "gravel",
-                        "paved",
-                        "paving_stones",
-                        "unpaved"
-                    ],
-                    "type": "string"
-                },
-                "width": {
-                    "description": "A field for width of an edge in meters.",
-                    "maximum": 500,
-                    "minimum": 0,
-                    "type": "number"
-                }
-            },
-            "required": [
-                "_u_id",
-                "_v_id",
-                "highway"
-            ],
-            "type": "object"
-        },
-        "Driveway": {
-            "additionalProperties": false,
-            "description": "The centerline of a driveway. Typically connects a residence or business\nto another road.",
-            "properties": {
-                "bbox": {
-                    "anyOf": [
-                        {
-                            "items": [
-                                {
-                                    "type": "number"
-                                },
-                                {
-                                    "type": "number"
-                                },
-                                {
-                                    "type": "number"
-                                },
-                                {
-                                    "type": "number"
-                                }
-                            ],
-                            "maxItems": 4,
-                            "minItems": 4,
-                            "type": "array"
-                        },
-                        {
-                            "items": [
-                                {
-                                    "type": "number"
-                                },
-                                {
-                                    "type": "number"
-                                },
-                                {
-                                    "type": "number"
-                                },
-                                {
-                                    "type": "number"
-                                },
-                                {
-                                    "type": "number"
-                                },
-                                {
-                                    "type": "number"
-                                }
-                            ],
-                            "maxItems": 6,
-                            "minItems": 6,
-                            "type": "array"
-                        }
-                    ],
-                    "description": "Bounding box of the coordinate range of the object's Geometries, Features, or Feature Collections.\nThe value of the bbox member is an array of length 2*n where n is the number of dimensions\nrepresented in the contained geometries, with all axes of the most southwesterly point\nfollowed by all axes of the more northeasterly point.\nThe axes order of a bbox follows the axes order of geometries.\nhttps://tools.ietf.org/html/rfc7946#section-5"
-                },
-                "geometry": {
-                    "$ref": "#/definitions/GeoJSON.LineString",
-                    "description": "The feature's geometry"
-                },
-                "id": {
-                    "description": "A value that uniquely identifies this feature in a\nhttps://tools.ietf.org/html/rfc7946#section-3.2.",
-                    "type": [
-                        "string",
-                        "number"
-                    ]
-                },
-                "properties": {
-                    "$ref": "#/definitions/DrivewayFields",
-                    "description": "Properties associated with this feature."
-                },
-                "type": {
-                    "description": "Specifies the type of GeoJSON object.",
-                    "enum": [
-                        "Feature"
-                    ],
-                    "type": "string"
-                }
-            },
-            "required": [
-                "geometry",
-                "properties",
-                "type"
-            ],
-            "type": "object"
-        },
-        "DrivewayFields": {
-            "additionalProperties": false,
-            "description": "Fields that apply to a driveway.",
-            "properties": {
-                "_u_id": {
-                    "type": "string"
-                },
-                "_v_id": {
-                    "type": "string"
-                },
-                "brunnel": {
-                    "description": "A field that indicates whether an entity is on a bridge, tunnel, or ford.",
-                    "enum": [
-                        "bridge",
-                        "ford",
-                        "tunnel"
-                    ],
-                    "type": "string"
-                },
-                "description": {
-                    "description": "A free form text field for describing an edge of node. May be pre-encoded in relevant pedestrian paths to assist with routing instructing or investigation of map features. For example, a description of the sidewalk in relation to a nearby street may be a useful textual description, such as \"NE of Main St.\" Can also be considered a flexible location to embed arbitrary information for specific use cases.",
-                    "type": "string"
-                },
-                "foot": {
-                    "description": "A field that indicates whether an edge can be used by pedestrians. Is implied for a Footway entity and its subtypes.",
-                    "type": "boolean"
-                },
-                "highway": {
-                    "enum": [
-                        "service"
-                    ],
-                    "type": "string"
-                },
-                "incline": {
-                    "description": "A field for the estimated incline over a particular path, i.e. slope, i.e. grade, i.e. rise over run. If derived from OpenStreetMap data, this is the maximum incline over the path. If derived from DEM data, it is more likely to be an underestimation. Positive values indicate an uphill climb while negative are downhill. For example, a 45 degree downhill value for incline would be -1.0.",
-                    "maximum": 1,
-                    "minimum": -1,
-                    "type": "number"
-                },
-                "layer": {
-                    "description": "A field that indicates the z-layer (integer) on which an edge lies. If unset, a value of 0 is implied. Negative values are allowed.",
-                    "maximum": 10,
-                    "minimum": -10,
-                    "type": "integer"
-                },
-                "length": {
-                    "description": "A field for the length of an edge in meters. This field is always inferred from the geometry.",
-                    "maximum": 5000,
-                    "minimum": 0,
-                    "type": "number"
-                },
-                "service": {
-                    "enum": [
-                        "driveway"
-                    ],
-                    "type": "string"
-                },
-                "surface": {
-                    "description": "A field for the surface material of the path.",
-                    "enum": [
-                        "asphalt",
-                        "concrete",
-                        "grass",
-                        "gravel",
-                        "paved",
-                        "paving_stones",
-                        "unpaved"
-                    ],
-                    "type": "string"
-                },
-                "width": {
-                    "description": "A field for width of an edge in meters.",
-                    "maximum": 500,
-                    "minimum": 0,
-                    "type": "number"
-                }
-            },
-            "required": [
-                "_u_id",
-                "_v_id",
-                "highway",
-                "service"
             ],
             "type": "object"
         },
@@ -1249,26 +695,11 @@
                 "_id": {
                     "type": "string"
                 },
-                "brunnel": {
-                    "description": "A field that indicates whether an entity is on a bridge, tunnel, or ford.",
-                    "enum": [
-                        "bridge",
-                        "ford",
-                        "tunnel"
-                    ],
-                    "type": "string"
-                },
                 "emergency": {
                     "enum": [
                         "fire_hydrant"
                     ],
                     "type": "string"
-                },
-                "layer": {
-                    "description": "A field that indicates the z-layer (integer) on which an edge lies. If unset, a value of 0 is implied. Negative values are allowed.",
-                    "maximum": 10,
-                    "minimum": -10,
-                    "type": "integer"
                 }
             },
             "required": [
@@ -1367,12 +798,9 @@
                 "_id": {
                     "type": "string"
                 },
-                "brunnel": {
-                    "description": "A field that indicates whether an entity is on a bridge, tunnel, or ford.",
+                "barrier": {
                     "enum": [
-                        "bridge",
-                        "ford",
-                        "tunnel"
+                        "kerb"
                     ],
                     "type": "string"
                 },
@@ -1382,15 +810,14 @@
                     ],
                     "type": "string"
                 },
-                "layer": {
-                    "description": "A field that indicates the z-layer (integer) on which an edge lies. If unset, a value of 0 is implied. Negative values are allowed.",
-                    "maximum": 10,
-                    "minimum": -10,
-                    "type": "integer"
+                "tactile_paving": {
+                    "description": "A field for whether a curb ramp or edge has a tactile (textured) surface.",
+                    "type": "boolean"
                 }
             },
             "required": [
                 "_id",
+                "barrier",
                 "kerb"
             ],
             "type": "object"
@@ -1488,15 +915,6 @@
                 "_v_id": {
                     "type": "string"
                 },
-                "brunnel": {
-                    "description": "A field that indicates whether an entity is on a bridge, tunnel, or ford.",
-                    "enum": [
-                        "bridge",
-                        "ford",
-                        "tunnel"
-                    ],
-                    "type": "string"
-                },
                 "description": {
                     "description": "A free form text field for describing an edge of node. May be pre-encoded in relevant pedestrian paths to assist with routing instructing or investigation of map features. For example, a description of the sidewalk in relation to a nearby street may be a useful textual description, such as \"NE of Main St.\" Can also be considered a flexible location to embed arbitrary information for specific use cases.",
                     "type": "string"
@@ -1513,12 +931,6 @@
                     "minimum": -1,
                     "type": "number"
                 },
-                "layer": {
-                    "description": "A field that indicates the z-layer (integer) on which an edge lies. If unset, a value of 0 is implied. Negative values are allowed.",
-                    "maximum": 10,
-                    "minimum": -10,
-                    "type": "integer"
-                },
                 "length": {
                     "description": "A field for the length of an edge in meters. This field is always inferred from the geometry.",
                     "maximum": 5000,
@@ -1534,7 +946,9 @@
                     "enum": [
                         "asphalt",
                         "concrete",
+                        "dirt",
                         "grass",
+                        "grass_paver",
                         "gravel",
                         "paved",
                         "paving_stones",
@@ -1797,21 +1211,6 @@
                 "_id": {
                     "type": "string"
                 },
-                "brunnel": {
-                    "description": "A field that indicates whether an entity is on a bridge, tunnel, or ford.",
-                    "enum": [
-                        "bridge",
-                        "ford",
-                        "tunnel"
-                    ],
-                    "type": "string"
-                },
-                "layer": {
-                    "description": "A field that indicates the z-layer (integer) on which an edge lies. If unset, a value of 0 is implied. Negative values are allowed.",
-                    "maximum": 10,
-                    "minimum": -10,
-                    "type": "integer"
-                },
                 "man_made": {
                     "enum": [
                         "manhole"
@@ -1825,9 +1224,9 @@
             ],
             "type": "object"
         },
-        "ParkingAisle": {
+        "Pedestrian": {
             "additionalProperties": false,
-            "description": "The centerline of a subordinated way in a parking lot: vehicles drive on parking aisles to reach parking spaces in a parking lot.",
+            "description": "For a road or an area mainly or exclusively for pedestrians in which some vehicle traffic may be authorized.",
             "properties": {
                 "bbox": {
                     "anyOf": [
@@ -1890,7 +1289,7 @@
                     ]
                 },
                 "properties": {
-                    "$ref": "#/definitions/ParkingAisleFields",
+                    "$ref": "#/definitions/PedestrianFields",
                     "description": "Properties associated with this feature."
                 },
                 "type": {
@@ -1908,9 +1307,8 @@
             ],
             "type": "object"
         },
-        "ParkingAisleFields": {
+        "PedestrianFields": {
             "additionalProperties": false,
-            "description": "Fields that apply to a parking aisle.",
             "properties": {
                 "_u_id": {
                     "type": "string"
@@ -1918,26 +1316,13 @@
                 "_v_id": {
                     "type": "string"
                 },
-                "brunnel": {
-                    "description": "A field that indicates whether an entity is on a bridge, tunnel, or ford.",
-                    "enum": [
-                        "bridge",
-                        "ford",
-                        "tunnel"
-                    ],
-                    "type": "string"
-                },
                 "description": {
-                    "description": "A free form text field for describing an edge of node. May be pre-encoded in relevant pedestrian paths to assist with routing instructing or investigation of map features. For example, a description of the sidewalk in relation to a nearby street may be a useful textual description, such as \"NE of Main St.\" Can also be considered a flexible location to embed arbitrary information for specific use cases.",
+                    "description": "Fields that apply to a pedestrian road.",
                     "type": "string"
-                },
-                "foot": {
-                    "description": "A field that indicates whether an edge can be used by pedestrians. Is implied for a Footway entity and its subtypes.",
-                    "type": "boolean"
                 },
                 "highway": {
                     "enum": [
-                        "service"
+                        "pedestrian"
                     ],
                     "type": "string"
                 },
@@ -1947,22 +1332,14 @@
                     "minimum": -1,
                     "type": "number"
                 },
-                "layer": {
-                    "description": "A field that indicates the z-layer (integer) on which an edge lies. If unset, a value of 0 is implied. Negative values are allowed.",
-                    "maximum": 10,
-                    "minimum": -10,
-                    "type": "integer"
-                },
                 "length": {
                     "description": "A field for the length of an edge in meters. This field is always inferred from the geometry.",
                     "maximum": 5000,
                     "minimum": 0,
                     "type": "number"
                 },
-                "service": {
-                    "enum": [
-                        "parking_aisle"
-                    ],
+                "name": {
+                    "description": "A field for a designated name for an edge. Example: an official name for a trail.",
                     "type": "string"
                 },
                 "surface": {
@@ -1970,7 +1347,9 @@
                     "enum": [
                         "asphalt",
                         "concrete",
+                        "dirt",
                         "grass",
+                        "grass_paver",
                         "gravel",
                         "paved",
                         "paving_stones",
@@ -1988,8 +1367,7 @@
             "required": [
                 "_u_id",
                 "_v_id",
-                "highway",
-                "service"
+                "highway"
             ],
             "type": "object"
         },
@@ -2083,21 +1461,6 @@
                 "_id": {
                     "type": "string"
                 },
-                "brunnel": {
-                    "description": "A field that indicates whether an entity is on a bridge, tunnel, or ford.",
-                    "enum": [
-                        "bridge",
-                        "ford",
-                        "tunnel"
-                    ],
-                    "type": "string"
-                },
-                "layer": {
-                    "description": "A field that indicates the z-layer (integer) on which an edge lies. If unset, a value of 0 is implied. Negative values are allowed.",
-                    "maximum": 10,
-                    "minimum": -10,
-                    "type": "integer"
-                },
                 "power": {
                     "enum": [
                         "pole"
@@ -2108,171 +1471,6 @@
             "required": [
                 "_id",
                 "power"
-            ],
-            "type": "object"
-        },
-        "PrimaryStreet": {
-            "additionalProperties": false,
-            "description": "The centerline of a major highway.",
-            "properties": {
-                "bbox": {
-                    "anyOf": [
-                        {
-                            "items": [
-                                {
-                                    "type": "number"
-                                },
-                                {
-                                    "type": "number"
-                                },
-                                {
-                                    "type": "number"
-                                },
-                                {
-                                    "type": "number"
-                                }
-                            ],
-                            "maxItems": 4,
-                            "minItems": 4,
-                            "type": "array"
-                        },
-                        {
-                            "items": [
-                                {
-                                    "type": "number"
-                                },
-                                {
-                                    "type": "number"
-                                },
-                                {
-                                    "type": "number"
-                                },
-                                {
-                                    "type": "number"
-                                },
-                                {
-                                    "type": "number"
-                                },
-                                {
-                                    "type": "number"
-                                }
-                            ],
-                            "maxItems": 6,
-                            "minItems": 6,
-                            "type": "array"
-                        }
-                    ],
-                    "description": "Bounding box of the coordinate range of the object's Geometries, Features, or Feature Collections.\nThe value of the bbox member is an array of length 2*n where n is the number of dimensions\nrepresented in the contained geometries, with all axes of the most southwesterly point\nfollowed by all axes of the more northeasterly point.\nThe axes order of a bbox follows the axes order of geometries.\nhttps://tools.ietf.org/html/rfc7946#section-5"
-                },
-                "geometry": {
-                    "$ref": "#/definitions/GeoJSON.LineString",
-                    "description": "The feature's geometry"
-                },
-                "id": {
-                    "description": "A value that uniquely identifies this feature in a\nhttps://tools.ietf.org/html/rfc7946#section-3.2.",
-                    "type": [
-                        "string",
-                        "number"
-                    ]
-                },
-                "properties": {
-                    "$ref": "#/definitions/PrimaryStreetFields",
-                    "description": "Properties associated with this feature."
-                },
-                "type": {
-                    "description": "Specifies the type of GeoJSON object.",
-                    "enum": [
-                        "Feature"
-                    ],
-                    "type": "string"
-                }
-            },
-            "required": [
-                "geometry",
-                "properties",
-                "type"
-            ],
-            "type": "object"
-        },
-        "PrimaryStreetFields": {
-            "additionalProperties": false,
-            "description": "Fields that apply to a primary street.",
-            "properties": {
-                "_u_id": {
-                    "type": "string"
-                },
-                "_v_id": {
-                    "type": "string"
-                },
-                "brunnel": {
-                    "description": "A field that indicates whether an entity is on a bridge, tunnel, or ford.",
-                    "enum": [
-                        "bridge",
-                        "ford",
-                        "tunnel"
-                    ],
-                    "type": "string"
-                },
-                "description": {
-                    "description": "A free form text field for describing an edge of node. May be pre-encoded in relevant pedestrian paths to assist with routing instructing or investigation of map features. For example, a description of the sidewalk in relation to a nearby street may be a useful textual description, such as \"NE of Main St.\" Can also be considered a flexible location to embed arbitrary information for specific use cases.",
-                    "type": "string"
-                },
-                "foot": {
-                    "description": "A field that indicates whether an edge can be used by pedestrians. Is implied for a Footway entity and its subtypes.",
-                    "type": "boolean"
-                },
-                "highway": {
-                    "enum": [
-                        "primary"
-                    ],
-                    "type": "string"
-                },
-                "incline": {
-                    "description": "A field for the estimated incline over a particular path, i.e. slope, i.e. grade, i.e. rise over run. If derived from OpenStreetMap data, this is the maximum incline over the path. If derived from DEM data, it is more likely to be an underestimation. Positive values indicate an uphill climb while negative are downhill. For example, a 45 degree downhill value for incline would be -1.0.",
-                    "maximum": 1,
-                    "minimum": -1,
-                    "type": "number"
-                },
-                "layer": {
-                    "description": "A field that indicates the z-layer (integer) on which an edge lies. If unset, a value of 0 is implied. Negative values are allowed.",
-                    "maximum": 10,
-                    "minimum": -10,
-                    "type": "integer"
-                },
-                "length": {
-                    "description": "A field for the length of an edge in meters. This field is always inferred from the geometry.",
-                    "maximum": 5000,
-                    "minimum": 0,
-                    "type": "number"
-                },
-                "name": {
-                    "description": "A field for a designated name for an edge. Example: an official name for a trail.",
-                    "type": "string"
-                },
-                "surface": {
-                    "description": "A field for the surface material of the path.",
-                    "enum": [
-                        "asphalt",
-                        "concrete",
-                        "grass",
-                        "gravel",
-                        "paved",
-                        "paving_stones",
-                        "unpaved"
-                    ],
-                    "type": "string"
-                },
-                "width": {
-                    "description": "A field for width of an edge in meters.",
-                    "maximum": 500,
-                    "minimum": 0,
-                    "type": "number"
-                }
-            },
-            "required": [
-                "_u_id",
-                "_v_id",
-                "highway"
             ],
             "type": "object"
         },
@@ -2366,12 +1564,9 @@
                 "_id": {
                     "type": "string"
                 },
-                "brunnel": {
-                    "description": "A field that indicates whether an entity is on a bridge, tunnel, or ford.",
+                "barrier": {
                     "enum": [
-                        "bridge",
-                        "ford",
-                        "tunnel"
+                        "kerb"
                     ],
                     "type": "string"
                 },
@@ -2381,181 +1576,15 @@
                     ],
                     "type": "string"
                 },
-                "layer": {
-                    "description": "A field that indicates the z-layer (integer) on which an edge lies. If unset, a value of 0 is implied. Negative values are allowed.",
-                    "maximum": 10,
-                    "minimum": -10,
-                    "type": "integer"
+                "tactile_paving": {
+                    "description": "A field for whether a curb ramp or edge has a tactile (textured) surface.",
+                    "type": "boolean"
                 }
             },
             "required": [
                 "_id",
+                "barrier",
                 "kerb"
-            ],
-            "type": "object"
-        },
-        "ResidentialStreet": {
-            "additionalProperties": false,
-            "description": "A residential street.",
-            "properties": {
-                "bbox": {
-                    "anyOf": [
-                        {
-                            "items": [
-                                {
-                                    "type": "number"
-                                },
-                                {
-                                    "type": "number"
-                                },
-                                {
-                                    "type": "number"
-                                },
-                                {
-                                    "type": "number"
-                                }
-                            ],
-                            "maxItems": 4,
-                            "minItems": 4,
-                            "type": "array"
-                        },
-                        {
-                            "items": [
-                                {
-                                    "type": "number"
-                                },
-                                {
-                                    "type": "number"
-                                },
-                                {
-                                    "type": "number"
-                                },
-                                {
-                                    "type": "number"
-                                },
-                                {
-                                    "type": "number"
-                                },
-                                {
-                                    "type": "number"
-                                }
-                            ],
-                            "maxItems": 6,
-                            "minItems": 6,
-                            "type": "array"
-                        }
-                    ],
-                    "description": "Bounding box of the coordinate range of the object's Geometries, Features, or Feature Collections.\nThe value of the bbox member is an array of length 2*n where n is the number of dimensions\nrepresented in the contained geometries, with all axes of the most southwesterly point\nfollowed by all axes of the more northeasterly point.\nThe axes order of a bbox follows the axes order of geometries.\nhttps://tools.ietf.org/html/rfc7946#section-5"
-                },
-                "geometry": {
-                    "$ref": "#/definitions/GeoJSON.LineString",
-                    "description": "The feature's geometry"
-                },
-                "id": {
-                    "description": "A value that uniquely identifies this feature in a\nhttps://tools.ietf.org/html/rfc7946#section-3.2.",
-                    "type": [
-                        "string",
-                        "number"
-                    ]
-                },
-                "properties": {
-                    "$ref": "#/definitions/ResidentialStreetFields",
-                    "description": "Properties associated with this feature."
-                },
-                "type": {
-                    "description": "Specifies the type of GeoJSON object.",
-                    "enum": [
-                        "Feature"
-                    ],
-                    "type": "string"
-                }
-            },
-            "required": [
-                "geometry",
-                "properties",
-                "type"
-            ],
-            "type": "object"
-        },
-        "ResidentialStreetFields": {
-            "additionalProperties": false,
-            "description": "Fields that apply to a residential street.",
-            "properties": {
-                "_u_id": {
-                    "type": "string"
-                },
-                "_v_id": {
-                    "type": "string"
-                },
-                "brunnel": {
-                    "description": "A field that indicates whether an entity is on a bridge, tunnel, or ford.",
-                    "enum": [
-                        "bridge",
-                        "ford",
-                        "tunnel"
-                    ],
-                    "type": "string"
-                },
-                "description": {
-                    "description": "A free form text field for describing an edge of node. May be pre-encoded in relevant pedestrian paths to assist with routing instructing or investigation of map features. For example, a description of the sidewalk in relation to a nearby street may be a useful textual description, such as \"NE of Main St.\" Can also be considered a flexible location to embed arbitrary information for specific use cases.",
-                    "type": "string"
-                },
-                "foot": {
-                    "description": "A field that indicates whether an edge can be used by pedestrians. Is implied for a Footway entity and its subtypes.",
-                    "type": "boolean"
-                },
-                "highway": {
-                    "enum": [
-                        "residential"
-                    ],
-                    "type": "string"
-                },
-                "incline": {
-                    "description": "A field for the estimated incline over a particular path, i.e. slope, i.e. grade, i.e. rise over run. If derived from OpenStreetMap data, this is the maximum incline over the path. If derived from DEM data, it is more likely to be an underestimation. Positive values indicate an uphill climb while negative are downhill. For example, a 45 degree downhill value for incline would be -1.0.",
-                    "maximum": 1,
-                    "minimum": -1,
-                    "type": "number"
-                },
-                "layer": {
-                    "description": "A field that indicates the z-layer (integer) on which an edge lies. If unset, a value of 0 is implied. Negative values are allowed.",
-                    "maximum": 10,
-                    "minimum": -10,
-                    "type": "integer"
-                },
-                "length": {
-                    "description": "A field for the length of an edge in meters. This field is always inferred from the geometry.",
-                    "maximum": 5000,
-                    "minimum": 0,
-                    "type": "number"
-                },
-                "name": {
-                    "description": "A field for a designated name for an edge. Example: an official name for a trail.",
-                    "type": "string"
-                },
-                "surface": {
-                    "description": "A field for the surface material of the path.",
-                    "enum": [
-                        "asphalt",
-                        "concrete",
-                        "grass",
-                        "gravel",
-                        "paved",
-                        "paving_stones",
-                        "unpaved"
-                    ],
-                    "type": "string"
-                },
-                "width": {
-                    "description": "A field for width of an edge in meters.",
-                    "maximum": 500,
-                    "minimum": 0,
-                    "type": "number"
-                }
-            },
-            "required": [
-                "_u_id",
-                "_v_id",
-                "highway"
             ],
             "type": "object"
         },
@@ -2649,12 +1678,9 @@
                 "_id": {
                     "type": "string"
                 },
-                "brunnel": {
-                    "description": "A field that indicates whether an entity is on a bridge, tunnel, or ford.",
+                "barrier": {
                     "enum": [
-                        "bridge",
-                        "ford",
-                        "tunnel"
+                        "kerb"
                     ],
                     "type": "string"
                 },
@@ -2664,342 +1690,15 @@
                     ],
                     "type": "string"
                 },
-                "layer": {
-                    "description": "A field that indicates the z-layer (integer) on which an edge lies. If unset, a value of 0 is implied. Negative values are allowed.",
-                    "maximum": 10,
-                    "minimum": -10,
-                    "type": "integer"
+                "tactile_paving": {
+                    "description": "A field for whether a curb ramp or edge has a tactile (textured) surface.",
+                    "type": "boolean"
                 }
             },
             "required": [
                 "_id",
+                "barrier",
                 "kerb"
-            ],
-            "type": "object"
-        },
-        "SecondaryStreet": {
-            "additionalProperties": false,
-            "description": "The centerline of a secondary highway: not a major highway, but forms a major link in the national route network.",
-            "properties": {
-                "bbox": {
-                    "anyOf": [
-                        {
-                            "items": [
-                                {
-                                    "type": "number"
-                                },
-                                {
-                                    "type": "number"
-                                },
-                                {
-                                    "type": "number"
-                                },
-                                {
-                                    "type": "number"
-                                }
-                            ],
-                            "maxItems": 4,
-                            "minItems": 4,
-                            "type": "array"
-                        },
-                        {
-                            "items": [
-                                {
-                                    "type": "number"
-                                },
-                                {
-                                    "type": "number"
-                                },
-                                {
-                                    "type": "number"
-                                },
-                                {
-                                    "type": "number"
-                                },
-                                {
-                                    "type": "number"
-                                },
-                                {
-                                    "type": "number"
-                                }
-                            ],
-                            "maxItems": 6,
-                            "minItems": 6,
-                            "type": "array"
-                        }
-                    ],
-                    "description": "Bounding box of the coordinate range of the object's Geometries, Features, or Feature Collections.\nThe value of the bbox member is an array of length 2*n where n is the number of dimensions\nrepresented in the contained geometries, with all axes of the most southwesterly point\nfollowed by all axes of the more northeasterly point.\nThe axes order of a bbox follows the axes order of geometries.\nhttps://tools.ietf.org/html/rfc7946#section-5"
-                },
-                "geometry": {
-                    "$ref": "#/definitions/GeoJSON.LineString",
-                    "description": "The feature's geometry"
-                },
-                "id": {
-                    "description": "A value that uniquely identifies this feature in a\nhttps://tools.ietf.org/html/rfc7946#section-3.2.",
-                    "type": [
-                        "string",
-                        "number"
-                    ]
-                },
-                "properties": {
-                    "$ref": "#/definitions/SecondaryStreetFields",
-                    "description": "Properties associated with this feature."
-                },
-                "type": {
-                    "description": "Specifies the type of GeoJSON object.",
-                    "enum": [
-                        "Feature"
-                    ],
-                    "type": "string"
-                }
-            },
-            "required": [
-                "geometry",
-                "properties",
-                "type"
-            ],
-            "type": "object"
-        },
-        "SecondaryStreetFields": {
-            "additionalProperties": false,
-            "description": "Fields that apply to a secondary street.",
-            "properties": {
-                "_u_id": {
-                    "type": "string"
-                },
-                "_v_id": {
-                    "type": "string"
-                },
-                "brunnel": {
-                    "description": "A field that indicates whether an entity is on a bridge, tunnel, or ford.",
-                    "enum": [
-                        "bridge",
-                        "ford",
-                        "tunnel"
-                    ],
-                    "type": "string"
-                },
-                "description": {
-                    "description": "A free form text field for describing an edge of node. May be pre-encoded in relevant pedestrian paths to assist with routing instructing or investigation of map features. For example, a description of the sidewalk in relation to a nearby street may be a useful textual description, such as \"NE of Main St.\" Can also be considered a flexible location to embed arbitrary information for specific use cases.",
-                    "type": "string"
-                },
-                "foot": {
-                    "description": "A field that indicates whether an edge can be used by pedestrians. Is implied for a Footway entity and its subtypes.",
-                    "type": "boolean"
-                },
-                "highway": {
-                    "enum": [
-                        "secondary"
-                    ],
-                    "type": "string"
-                },
-                "incline": {
-                    "description": "A field for the estimated incline over a particular path, i.e. slope, i.e. grade, i.e. rise over run. If derived from OpenStreetMap data, this is the maximum incline over the path. If derived from DEM data, it is more likely to be an underestimation. Positive values indicate an uphill climb while negative are downhill. For example, a 45 degree downhill value for incline would be -1.0.",
-                    "maximum": 1,
-                    "minimum": -1,
-                    "type": "number"
-                },
-                "layer": {
-                    "description": "A field that indicates the z-layer (integer) on which an edge lies. If unset, a value of 0 is implied. Negative values are allowed.",
-                    "maximum": 10,
-                    "minimum": -10,
-                    "type": "integer"
-                },
-                "length": {
-                    "description": "A field for the length of an edge in meters. This field is always inferred from the geometry.",
-                    "maximum": 5000,
-                    "minimum": 0,
-                    "type": "number"
-                },
-                "name": {
-                    "description": "A field for a designated name for an edge. Example: an official name for a trail.",
-                    "type": "string"
-                },
-                "surface": {
-                    "description": "A field for the surface material of the path.",
-                    "enum": [
-                        "asphalt",
-                        "concrete",
-                        "grass",
-                        "gravel",
-                        "paved",
-                        "paving_stones",
-                        "unpaved"
-                    ],
-                    "type": "string"
-                },
-                "width": {
-                    "description": "A field for width of an edge in meters.",
-                    "maximum": 500,
-                    "minimum": 0,
-                    "type": "number"
-                }
-            },
-            "required": [
-                "_u_id",
-                "_v_id",
-                "highway"
-            ],
-            "type": "object"
-        },
-        "ServiceRoad": {
-            "additionalProperties": false,
-            "description": "A road intended for service use.",
-            "properties": {
-                "bbox": {
-                    "anyOf": [
-                        {
-                            "items": [
-                                {
-                                    "type": "number"
-                                },
-                                {
-                                    "type": "number"
-                                },
-                                {
-                                    "type": "number"
-                                },
-                                {
-                                    "type": "number"
-                                }
-                            ],
-                            "maxItems": 4,
-                            "minItems": 4,
-                            "type": "array"
-                        },
-                        {
-                            "items": [
-                                {
-                                    "type": "number"
-                                },
-                                {
-                                    "type": "number"
-                                },
-                                {
-                                    "type": "number"
-                                },
-                                {
-                                    "type": "number"
-                                },
-                                {
-                                    "type": "number"
-                                },
-                                {
-                                    "type": "number"
-                                }
-                            ],
-                            "maxItems": 6,
-                            "minItems": 6,
-                            "type": "array"
-                        }
-                    ],
-                    "description": "Bounding box of the coordinate range of the object's Geometries, Features, or Feature Collections.\nThe value of the bbox member is an array of length 2*n where n is the number of dimensions\nrepresented in the contained geometries, with all axes of the most southwesterly point\nfollowed by all axes of the more northeasterly point.\nThe axes order of a bbox follows the axes order of geometries.\nhttps://tools.ietf.org/html/rfc7946#section-5"
-                },
-                "geometry": {
-                    "$ref": "#/definitions/GeoJSON.LineString",
-                    "description": "The feature's geometry"
-                },
-                "id": {
-                    "description": "A value that uniquely identifies this feature in a\nhttps://tools.ietf.org/html/rfc7946#section-3.2.",
-                    "type": [
-                        "string",
-                        "number"
-                    ]
-                },
-                "properties": {
-                    "$ref": "#/definitions/ServiceRoadFields",
-                    "description": "Properties associated with this feature."
-                },
-                "type": {
-                    "description": "Specifies the type of GeoJSON object.",
-                    "enum": [
-                        "Feature"
-                    ],
-                    "type": "string"
-                }
-            },
-            "required": [
-                "geometry",
-                "properties",
-                "type"
-            ],
-            "type": "object"
-        },
-        "ServiceRoadFields": {
-            "additionalProperties": false,
-            "description": "Fields that apply to a service road.\nprimary street.",
-            "properties": {
-                "_u_id": {
-                    "type": "string"
-                },
-                "_v_id": {
-                    "type": "string"
-                },
-                "brunnel": {
-                    "description": "A field that indicates whether an entity is on a bridge, tunnel, or ford.",
-                    "enum": [
-                        "bridge",
-                        "ford",
-                        "tunnel"
-                    ],
-                    "type": "string"
-                },
-                "description": {
-                    "description": "A free form text field for describing an edge of node. May be pre-encoded in relevant pedestrian paths to assist with routing instructing or investigation of map features. For example, a description of the sidewalk in relation to a nearby street may be a useful textual description, such as \"NE of Main St.\" Can also be considered a flexible location to embed arbitrary information for specific use cases.",
-                    "type": "string"
-                },
-                "foot": {
-                    "description": "A field that indicates whether an edge can be used by pedestrians. Is implied for a Footway entity and its subtypes.",
-                    "type": "boolean"
-                },
-                "highway": {
-                    "enum": [
-                        "service"
-                    ],
-                    "type": "string"
-                },
-                "incline": {
-                    "description": "A field for the estimated incline over a particular path, i.e. slope, i.e. grade, i.e. rise over run. If derived from OpenStreetMap data, this is the maximum incline over the path. If derived from DEM data, it is more likely to be an underestimation. Positive values indicate an uphill climb while negative are downhill. For example, a 45 degree downhill value for incline would be -1.0.",
-                    "maximum": 1,
-                    "minimum": -1,
-                    "type": "number"
-                },
-                "layer": {
-                    "description": "A field that indicates the z-layer (integer) on which an edge lies. If unset, a value of 0 is implied. Negative values are allowed.",
-                    "maximum": 10,
-                    "minimum": -10,
-                    "type": "integer"
-                },
-                "length": {
-                    "description": "A field for the length of an edge in meters. This field is always inferred from the geometry.",
-                    "maximum": 5000,
-                    "minimum": 0,
-                    "type": "number"
-                },
-                "surface": {
-                    "description": "A field for the surface material of the path.",
-                    "enum": [
-                        "asphalt",
-                        "concrete",
-                        "grass",
-                        "gravel",
-                        "paved",
-                        "paving_stones",
-                        "unpaved"
-                    ],
-                    "type": "string"
-                },
-                "width": {
-                    "description": "A field for width of an edge in meters.",
-                    "maximum": 500,
-                    "minimum": 0,
-                    "type": "number"
-                }
-            },
-            "required": [
-                "_u_id",
-                "_v_id",
-                "highway"
             ],
             "type": "object"
         },
@@ -3096,15 +1795,6 @@
                 "_v_id": {
                     "type": "string"
                 },
-                "brunnel": {
-                    "description": "A field that indicates whether an entity is on a bridge, tunnel, or ford.",
-                    "enum": [
-                        "bridge",
-                        "ford",
-                        "tunnel"
-                    ],
-                    "type": "string"
-                },
                 "description": {
                     "description": "A free form text field for describing an edge of node. May be pre-encoded in relevant pedestrian paths to assist with routing instructing or investigation of map features. For example, a description of the sidewalk in relation to a nearby street may be a useful textual description, such as \"NE of Main St.\" Can also be considered a flexible location to embed arbitrary information for specific use cases.",
                     "type": "string"
@@ -3127,12 +1817,6 @@
                     "minimum": -1,
                     "type": "number"
                 },
-                "layer": {
-                    "description": "A field that indicates the z-layer (integer) on which an edge lies. If unset, a value of 0 is implied. Negative values are allowed.",
-                    "maximum": 10,
-                    "minimum": -10,
-                    "type": "integer"
-                },
                 "length": {
                     "description": "A field for the length of an edge in meters. This field is always inferred from the geometry.",
                     "maximum": 5000,
@@ -3148,7 +1832,9 @@
                     "enum": [
                         "asphalt",
                         "concrete",
+                        "dirt",
                         "grass",
+                        "grass_paver",
                         "gravel",
                         "paved",
                         "paving_stones",
@@ -3167,6 +1853,159 @@
                 "_u_id",
                 "_v_id",
                 "footway",
+                "highway"
+            ],
+            "type": "object"
+        },
+        "Steps": {
+            "additionalProperties": false,
+            "description": "For flights of steps on footways and paths.",
+            "properties": {
+                "bbox": {
+                    "anyOf": [
+                        {
+                            "items": [
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                }
+                            ],
+                            "maxItems": 4,
+                            "minItems": 4,
+                            "type": "array"
+                        },
+                        {
+                            "items": [
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                }
+                            ],
+                            "maxItems": 6,
+                            "minItems": 6,
+                            "type": "array"
+                        }
+                    ],
+                    "description": "Bounding box of the coordinate range of the object's Geometries, Features, or Feature Collections.\nThe value of the bbox member is an array of length 2*n where n is the number of dimensions\nrepresented in the contained geometries, with all axes of the most southwesterly point\nfollowed by all axes of the more northeasterly point.\nThe axes order of a bbox follows the axes order of geometries.\nhttps://tools.ietf.org/html/rfc7946#section-5"
+                },
+                "geometry": {
+                    "$ref": "#/definitions/GeoJSON.LineString",
+                    "description": "The feature's geometry"
+                },
+                "id": {
+                    "description": "A value that uniquely identifies this feature in a\nhttps://tools.ietf.org/html/rfc7946#section-3.2.",
+                    "type": [
+                        "string",
+                        "number"
+                    ]
+                },
+                "properties": {
+                    "$ref": "#/definitions/StepsFields",
+                    "description": "Properties associated with this feature."
+                },
+                "type": {
+                    "description": "Specifies the type of GeoJSON object.",
+                    "enum": [
+                        "Feature"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "geometry",
+                "properties",
+                "type"
+            ],
+            "type": "object"
+        },
+        "StepsFields": {
+            "additionalProperties": false,
+            "properties": {
+                "_u_id": {
+                    "type": "string"
+                },
+                "_v_id": {
+                    "type": "string"
+                },
+                "description": {
+                    "description": "Fields that apply to steps.",
+                    "type": "string"
+                },
+                "highway": {
+                    "enum": [
+                        "steps"
+                    ],
+                    "type": "string"
+                },
+                "incline": {
+                    "description": "A field for the estimated incline over a particular path, i.e. slope, i.e. grade, i.e. rise over run. If derived from OpenStreetMap data, this is the maximum incline over the path. If derived from DEM data, it is more likely to be an underestimation. Positive values indicate an uphill climb while negative are downhill. For example, a 45 degree downhill value for incline would be -1.0.",
+                    "maximum": 1,
+                    "minimum": -1,
+                    "type": "number"
+                },
+                "length": {
+                    "description": "A field for the length of an edge in meters. This field is always inferred from the geometry.",
+                    "maximum": 5000,
+                    "minimum": 0,
+                    "type": "number"
+                },
+                "name": {
+                    "description": "A field for a designated name for an edge. Example: an official name for a trail.",
+                    "type": "string"
+                },
+                "step_count": {
+                    "description": "A field for number of steps in stairs.",
+                    "maximum": 500,
+                    "minimum": 0,
+                    "type": "number"
+                },
+                "surface": {
+                    "description": "A field for the surface material of the path.",
+                    "enum": [
+                        "asphalt",
+                        "concrete",
+                        "dirt",
+                        "grass",
+                        "grass_paver",
+                        "gravel",
+                        "paved",
+                        "paving_stones",
+                        "unpaved"
+                    ],
+                    "type": "string"
+                },
+                "width": {
+                    "description": "A field for width of an edge in meters.",
+                    "maximum": 500,
+                    "minimum": 0,
+                    "type": "number"
+                }
+            },
+            "required": [
+                "_u_id",
+                "_v_id",
                 "highway"
             ],
             "type": "object"
@@ -3261,195 +2100,15 @@
                 "_id": {
                     "type": "string"
                 },
-                "brunnel": {
-                    "description": "A field that indicates whether an entity is on a bridge, tunnel, or ford.",
-                    "enum": [
-                        "bridge",
-                        "ford",
-                        "tunnel"
-                    ],
-                    "type": "string"
-                },
                 "highway": {
                     "enum": [
                         "street_lamp"
                     ],
                     "type": "string"
-                },
-                "layer": {
-                    "description": "A field that indicates the z-layer (integer) on which an edge lies. If unset, a value of 0 is implied. Negative values are allowed.",
-                    "maximum": 10,
-                    "minimum": -10,
-                    "type": "integer"
                 }
             },
             "required": [
                 "_id",
-                "highway"
-            ],
-            "type": "object"
-        },
-        "TertiaryStreet": {
-            "additionalProperties": false,
-            "description": "A road linking small settlements, or the local centers of a large town or city.",
-            "properties": {
-                "bbox": {
-                    "anyOf": [
-                        {
-                            "items": [
-                                {
-                                    "type": "number"
-                                },
-                                {
-                                    "type": "number"
-                                },
-                                {
-                                    "type": "number"
-                                },
-                                {
-                                    "type": "number"
-                                }
-                            ],
-                            "maxItems": 4,
-                            "minItems": 4,
-                            "type": "array"
-                        },
-                        {
-                            "items": [
-                                {
-                                    "type": "number"
-                                },
-                                {
-                                    "type": "number"
-                                },
-                                {
-                                    "type": "number"
-                                },
-                                {
-                                    "type": "number"
-                                },
-                                {
-                                    "type": "number"
-                                },
-                                {
-                                    "type": "number"
-                                }
-                            ],
-                            "maxItems": 6,
-                            "minItems": 6,
-                            "type": "array"
-                        }
-                    ],
-                    "description": "Bounding box of the coordinate range of the object's Geometries, Features, or Feature Collections.\nThe value of the bbox member is an array of length 2*n where n is the number of dimensions\nrepresented in the contained geometries, with all axes of the most southwesterly point\nfollowed by all axes of the more northeasterly point.\nThe axes order of a bbox follows the axes order of geometries.\nhttps://tools.ietf.org/html/rfc7946#section-5"
-                },
-                "geometry": {
-                    "$ref": "#/definitions/GeoJSON.LineString",
-                    "description": "The feature's geometry"
-                },
-                "id": {
-                    "description": "A value that uniquely identifies this feature in a\nhttps://tools.ietf.org/html/rfc7946#section-3.2.",
-                    "type": [
-                        "string",
-                        "number"
-                    ]
-                },
-                "properties": {
-                    "$ref": "#/definitions/TertiaryStreetFields",
-                    "description": "Properties associated with this feature."
-                },
-                "type": {
-                    "description": "Specifies the type of GeoJSON object.",
-                    "enum": [
-                        "Feature"
-                    ],
-                    "type": "string"
-                }
-            },
-            "required": [
-                "geometry",
-                "properties",
-                "type"
-            ],
-            "type": "object"
-        },
-        "TertiaryStreetFields": {
-            "additionalProperties": false,
-            "description": "Fields that apply to a tertiary street.",
-            "properties": {
-                "_u_id": {
-                    "type": "string"
-                },
-                "_v_id": {
-                    "type": "string"
-                },
-                "brunnel": {
-                    "description": "A field that indicates whether an entity is on a bridge, tunnel, or ford.",
-                    "enum": [
-                        "bridge",
-                        "ford",
-                        "tunnel"
-                    ],
-                    "type": "string"
-                },
-                "description": {
-                    "description": "A free form text field for describing an edge of node. May be pre-encoded in relevant pedestrian paths to assist with routing instructing or investigation of map features. For example, a description of the sidewalk in relation to a nearby street may be a useful textual description, such as \"NE of Main St.\" Can also be considered a flexible location to embed arbitrary information for specific use cases.",
-                    "type": "string"
-                },
-                "foot": {
-                    "description": "A field that indicates whether an edge can be used by pedestrians. Is implied for a Footway entity and its subtypes.",
-                    "type": "boolean"
-                },
-                "highway": {
-                    "enum": [
-                        "tertiary"
-                    ],
-                    "type": "string"
-                },
-                "incline": {
-                    "description": "A field for the estimated incline over a particular path, i.e. slope, i.e. grade, i.e. rise over run. If derived from OpenStreetMap data, this is the maximum incline over the path. If derived from DEM data, it is more likely to be an underestimation. Positive values indicate an uphill climb while negative are downhill. For example, a 45 degree downhill value for incline would be -1.0.",
-                    "maximum": 1,
-                    "minimum": -1,
-                    "type": "number"
-                },
-                "layer": {
-                    "description": "A field that indicates the z-layer (integer) on which an edge lies. If unset, a value of 0 is implied. Negative values are allowed.",
-                    "maximum": 10,
-                    "minimum": -10,
-                    "type": "integer"
-                },
-                "length": {
-                    "description": "A field for the length of an edge in meters. This field is always inferred from the geometry.",
-                    "maximum": 5000,
-                    "minimum": 0,
-                    "type": "number"
-                },
-                "name": {
-                    "description": "A field for a designated name for an edge. Example: an official name for a trail.",
-                    "type": "string"
-                },
-                "surface": {
-                    "description": "A field for the surface material of the path.",
-                    "enum": [
-                        "asphalt",
-                        "concrete",
-                        "grass",
-                        "gravel",
-                        "paved",
-                        "paving_stones",
-                        "unpaved"
-                    ],
-                    "type": "string"
-                },
-                "width": {
-                    "description": "A field for width of an edge in meters.",
-                    "maximum": 500,
-                    "minimum": 0,
-                    "type": "number"
-                }
-            },
-            "required": [
-                "_u_id",
-                "_v_id",
                 "highway"
             ],
             "type": "object"
@@ -3547,15 +2206,6 @@
                 "_v_id": {
                     "type": "string"
                 },
-                "brunnel": {
-                    "description": "A field that indicates whether an entity is on a bridge, tunnel, or ford.",
-                    "enum": [
-                        "bridge",
-                        "ford",
-                        "tunnel"
-                    ],
-                    "type": "string"
-                },
                 "description": {
                     "description": "A free form text field for describing an edge of node. May be pre-encoded in relevant pedestrian paths to assist with routing instructing or investigation of map features. For example, a description of the sidewalk in relation to a nearby street may be a useful textual description, such as \"NE of Main St.\" Can also be considered a flexible location to embed arbitrary information for specific use cases.",
                     "type": "string"
@@ -3578,12 +2228,6 @@
                     "minimum": -1,
                     "type": "number"
                 },
-                "layer": {
-                    "description": "A field that indicates the z-layer (integer) on which an edge lies. If unset, a value of 0 is implied. Negative values are allowed.",
-                    "maximum": 10,
-                    "minimum": -10,
-                    "type": "integer"
-                },
                 "length": {
                     "description": "A field for the length of an edge in meters. This field is always inferred from the geometry.",
                     "maximum": 5000,
@@ -3599,7 +2243,9 @@
                     "enum": [
                         "asphalt",
                         "concrete",
+                        "dirt",
                         "grass",
+                        "grass_paver",
                         "gravel",
                         "paved",
                         "paving_stones",
@@ -3717,21 +2363,6 @@
                         "waste_basket"
                     ],
                     "type": "string"
-                },
-                "brunnel": {
-                    "description": "A field that indicates whether an entity is on a bridge, tunnel, or ford.",
-                    "enum": [
-                        "bridge",
-                        "ford",
-                        "tunnel"
-                    ],
-                    "type": "string"
-                },
-                "layer": {
-                    "description": "A field that indicates the z-layer (integer) on which an edge lies. If unset, a value of 0 is implied. Negative values are allowed.",
-                    "maximum": 10,
-                    "minimum": -10,
-                    "type": "integer"
                 }
             },
             "required": [
@@ -3773,31 +2404,10 @@
                         "$ref": "#/definitions/TrafficIsland"
                     },
                     {
-                        "$ref": "#/definitions/Cycleway"
+                        "$ref": "#/definitions/Steps"
                     },
                     {
-                        "$ref": "#/definitions/PrimaryStreet"
-                    },
-                    {
-                        "$ref": "#/definitions/SecondaryStreet"
-                    },
-                    {
-                        "$ref": "#/definitions/TertiaryStreet"
-                    },
-                    {
-                        "$ref": "#/definitions/ResidentialStreet"
-                    },
-                    {
-                        "$ref": "#/definitions/ServiceRoad"
-                    },
-                    {
-                        "$ref": "#/definitions/Alley"
-                    },
-                    {
-                        "$ref": "#/definitions/Driveway"
-                    },
-                    {
-                        "$ref": "#/definitions/ParkingAisle"
+                        "$ref": "#/definitions/Pedestrian"
                     },
                     {
                         "$ref": "#/definitions/FireHydrant"

@@ -7,6 +7,7 @@ import { TactilePaving } from "fields";
  * Fields that identify a rolled curb.
  */
 interface RolledCurbIdentifyingFields extends BaseNodeFields {
+  barrier: "kerb";
   kerb: "rolled";
 }
 

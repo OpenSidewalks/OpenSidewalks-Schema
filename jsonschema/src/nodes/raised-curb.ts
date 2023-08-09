@@ -7,6 +7,7 @@ import { TactilePaving } from "fields";
  * Fields that identify a raised curb.
  */
 interface RaisedCurbIdentifyingFields extends BaseNodeFields {
+  barrier: "kerb";
   kerb: "raised";
 }
 
