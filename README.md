@@ -443,6 +443,72 @@ LineString
 
 All [optional fields of footway](#edge-footway-optional-fields)
 
+### <a name="edge-pedestrian"></a> Pedestrian
+
+#### Description
+
+The centerline of a road or an area mainly or exclusively for pedestrians in which some vehicle traffic may be authorized.
+
+#### Subtype of
+
+*None*
+
+#### Geometry
+
+LineString
+
+#### Identifying fields
+
+`highway=pedestrian`
+
+#### <a name="edge-pedestrian-optional-fields"></a> Optional Fields
+
+[width](#field-width)
+
+[surface](#field-surface)
+
+[incline](#field-incline)
+
+[length](#field-length)
+
+[description](#field-description)
+
+[name](#field-name)
+
+### <a name="edge-steps"></a> Steps
+
+#### Description
+
+The centerline of a flights of steps on footways and paths.
+
+#### Subtype of
+
+*None*
+
+#### Geometry
+
+LineString
+
+#### Identifying fields
+
+`highway=steps`
+
+#### <a name="edge-pedestrian-optional-fields"></a> Optional Fields
+
+[width](#field-width)
+
+[surface](#field-surface)
+
+[incline](#field-incline)
+
+[length](#field-length)
+
+[description](#field-description)
+
+[name](#field-name)
+
+[step_count](#field-step_count)
+
 ## <a name="points"></a> Points
 
 Points are features that are geometrically defined by a single
@@ -852,3 +918,11 @@ bars are actually made up of two very-close smaller bars.
 -   ladder:skewed: Two lines orthogonal to the direction of the roadway with diagonal bars connecting the two lines.
 
 -   pictograms: Painted pictogram(s) of pedestrian and/or bicycle (with or without arrows)
+
+##### <a name="field-step_count"></a> step_count
+
+*From OpenStreetMap*
+
+Can be added to indicate the number of steps
+
+###### *Value type*: numeric
