@@ -846,9 +846,9 @@ bars are actually made up of two very-close smaller bars.
 
 -   rainbow: A crossing with rainbow colours, other than in zebra pattern or lines along the crossing.
 
--   lines:rainbow: Rainbow coloured lines along the crossing.
+-   "lines:rainbow": Rainbow coloured lines along the crossing.
 
--   zebra:rainbow: A zebra crossing with rainbow colours.
+-   "zebra:rainbow": A zebra crossing with rainbow colours.
 
 -   ladder:skewed: Two lines orthogonal to the direction of the roadway with diagonal bars connecting the two lines.
 
