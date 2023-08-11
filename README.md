@@ -89,7 +89,7 @@ inferred during graph creation.
 
 [Points](#points) are point features that do not contain network metadata. These are features relevant to the pedestrian
 network that are nevertheless not (yet) represented as elements of it: they are
-nearby and useful for producing descriptions, flagging potential barriers, etc. Point features are not required for producing a valid OpenSidewalks dataset.
+nearby and useful for producing descriptions, flagging potential barriers, etc. Points are not required for producing a valid OpenSidewalks dataset.
 
 ### Entity type inference
 
