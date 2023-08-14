@@ -7,6 +7,7 @@ import { TactilePaving } from "fields";
  * Fields that identify a flush curb.
  */
 interface FlushCurbIdentifyingFields extends BaseNodeFields {
+  barrier: "kerb";
   kerb: "flush";
 }
 

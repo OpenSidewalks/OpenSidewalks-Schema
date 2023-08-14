@@ -87,10 +87,9 @@ inferred during graph creation.
 
 #### Points
 
-[Points](#points) are point features that do not contain network metadata, i.e.
-they do not have `_id` fields. These are features relevant to the pedestrian
+[Points](#points) are point features that do not contain network metadata. These are features relevant to the pedestrian
 network that are nevertheless not (yet) represented as elements of it: they are
-nearby and useful for producing descriptions, flagging potential barriers, etc.
+nearby and useful for producing descriptions, flagging potential barriers, etc. Points are not required for producing a valid OpenSidewalks dataset.
 
 ### Entity type inference
 
@@ -254,6 +253,8 @@ Point
 
 [brunnel](#field-brunnel)
 
+[tactile\_paving](#field-tactile_paving)
+
 ### <a name="node-rolled_curb"></a> Rolled curb
 
 #### Description
@@ -280,6 +281,8 @@ Point
 
 [brunnel](#field-brunnel)
 
+[tactile\_paving](#field-tactile_paving)
+
 ### <a name="node-curb_ramp"></name> Curb ramp
 
 #### Description
@@ -304,8 +307,6 @@ Point
 [layer](#field-layer)
 
 [brunnel](#field-brunnel)
-
-[surface](#field-surface)
 
 [tactile\_paving](#field-tactile_paving)
 
@@ -334,6 +335,8 @@ Point
 [layer](#field-layer)
 
 [brunnel](#field-brunnel)
+
+[tactile\_paving](#field-tactile_paving)
 
 ## <a name="edges"></a> Edges
 
@@ -449,6 +452,8 @@ LineString
 All [optional fields of footway](#edge-footway-optional-fields)
 
 [crossing](#field-crossing)
+
+[crossing:markings](#field-crossing_markings)
 
 ### <a name="edge-traffic_island"></a> Traffic Island
 
@@ -733,6 +738,72 @@ LineString
 All of [the optional fields of a service
 road](#edge-service_road-optional-fields).
 
+### <a name="edge-pedestrian"></a> Pedestrian
+
+#### Description
+
+The centerline of a road or an area mainly or exclusively for pedestrians in which some vehicle traffic may be authorized.
+
+#### Subtype of
+
+*None*
+
+#### Geometry
+
+LineString
+
+#### Identifying fields
+
+`highway=pedestrian`
+
+#### <a name="edge-pedestrian-optional-fields"></a> Optional Fields
+
+[width](#field-width)
+
+[surface](#field-surface)
+
+[incline](#field-incline)
+
+[length](#field-length)
+
+[description](#field-description)
+
+[name](#field-name)
+
+### <a name="edge-steps"></a> Steps
+
+#### Description
+
+The centerline of a flights of steps on footways and paths.
+
+#### Subtype of
+
+*None*
+
+#### Geometry
+
+LineString
+
+#### Identifying fields
+
+`highway=steps`
+
+#### <a name="edge-pedestrian-optional-fields"></a> Optional Fields
+
+[width](#field-width)
+
+[surface](#field-surface)
+
+[incline](#field-incline)
+
+[length](#field-length)
+
+[description](#field-description)
+
+[name](#field-name)
+
+[step_count](#field-step_count)
+
 ## <a name="points"></a> Points
 
 Points are features that are geometrically defined by a single
@@ -784,6 +855,116 @@ Point
 #### Identifying fields
 
 `emergency=fire\_hydrant`
+
+#### Optional Fields
+
+*None*
+
+### <a name="point-bench"></a> Bench
+
+#### Description
+
+A bench - a place for people to sit; allows room for several people.
+
+#### Subtype of
+
+*None*
+
+#### Geometry
+
+Point
+
+#### Identifying fields
+
+`amenity=bench`
+
+#### Optional Fields
+
+*None*
+
+### <a name="point-bollard"></a> Bollard
+
+#### Description
+
+A Bollard - a solid pillar or pillars made of concrete, metal, plastic, etc., and used to control traffic.
+
+#### Subtype of
+
+*None*
+
+#### Geometry
+
+Point
+
+#### Identifying fields
+
+`barrier=bollard`
+
+#### Optional Fields
+
+*None*
+
+### <a name="point-manhole"></a> Manhole
+
+#### Description
+
+A manhole - a hole with a cover that allows access to an underground service location, just large enough for a human to climb through.
+
+#### Subtype of
+
+*None*
+
+#### Geometry
+
+Point
+
+#### Identifying fields
+
+`man\_made=manhole`
+
+#### Optional Fields
+
+*None*
+
+### <a name="point-street_lamp"></a> Street Lamp
+
+#### Description
+
+A street lamp - a street light, lamppost, street lamp, light standard, or lamp standard: a raised source of light above a road, which is turned on or lit at night.
+
+#### Subtype of
+
+*None*
+
+#### Geometry
+
+Point
+
+#### Identifying fields
+
+`highway=street\_lamp`
+
+#### Optional Fields
+
+*None*
+
+### <a name="point-waste_basket"></a> Waste Basket
+
+#### Description
+
+A waste basket - a single small container for depositing garbage that is easily accessible for pedestrians.
+
+#### Subtype of
+
+*None*
+
+#### Geometry
+
+Point
+
+#### Identifying fields
+
+`amenity=waste\_basket`
 
 #### Optional Fields
 
@@ -878,6 +1059,10 @@ from OpenStreetMap.
 -   paving\_stones
 
 -   unpaved
+
+-   dirt
+
+-   grass\_paver
 
 ##### <a name="field-length"></a> length
 
@@ -993,3 +1178,77 @@ into marked and the traffic\_signals value is ignored.
 -   marked: a marked crossing
 
 -   unmarked: an unmarked crossing
+
+##### <a name="field-crossing_markings"></a> crossing:markings
+
+*From OpenStreetMap*
+
+Whether a pedestrian street crossing has ground markings (and, optionally, what
+type of markings exist). When derived from OpenStreetMap data, the
+crossing:markings field may be derived not only from the identical
+`crossing:markings` tag in OpenStreetMap, but from any unambiguous tags in the
+problematic `crossing=*` tag, such as `crossing=marked` -->
+`crossing:markings=yes` and `crossing=unmarked` --> `crossing:markings=no`, and
+`crossing=zebra` --> `crossing:markings=yes`.
+
+###### *Value type*: enum
+
+###### *Enumerated values*:
+
+-   yes: The crossing has surface markings but the type is unspecified.
+
+-   no: The crossing has no surface markings.
+
+-   surface: There is a surface change but no distinct markings.
+
+-   lines: There are only two parallel lines to indicate the outline of the
+crossing.
+
+-   lines:paired: The same as `crossing:markings=lines` but each line is
+actually two very-close parallel lines (for a total of 4 lines).
+
+-   dashes: There are only two parallel dashed lines to indicate the outline of
+the crossing.
+
+-   dots: There are only two parallel dotted lines (square/round markings with
+significant distance between them) to indicate the outline of the crossing.
+
+-   zebra: The crossing is only marked by regularly spaced bars along its
+length.
+
+-   zebra:double: The same as `crossing:markings=zebra` but there are two sets
+of regularly spaced bars with a small gap between them.
+
+-   zebra:paired: The same as `crossing:markings=zebra` but each bar is made up
+of two smaller bars (i.e. there's a small gap between smaler bars).
+
+-   zebra:bicolour: The same as `crossing:markings=zebra` but there are the
+bars and gaps are made of two alternating colors.
+
+-   ladder: The same as combining `crossing:markings=zebra` and
+`crossing:markings=lines`: horizontal bars but with linears outlines enclosing
+the crossing.
+
+-   skewed: The same as `crossing:markings=ladder` but the horizontal bars are
+at a slight diagonal (~30 degree shift) - they're skewed.
+
+-   ladder:paired: The same as `crossing:markings=ladder` but the horizontal
+bars are actually made up of two very-close smaller bars.
+
+-   rainbow: A crossing with rainbow colours, other than in zebra pattern or lines along the crossing.
+
+-   "lines:rainbow": Rainbow coloured lines along the crossing.
+
+-   "zebra:rainbow": A zebra crossing with rainbow colours.
+
+-   ladder:skewed: Two lines orthogonal to the direction of the roadway with diagonal bars connecting the two lines.
+
+-   pictograms: Painted pictogram(s) of pedestrian and/or bicycle (with or without arrows)
+
+##### <a name="field-step_count"></a> step_count
+
+*From OpenStreetMap*
+
+Can be added to indicate the number of steps
+
+###### *Value type*: integer

@@ -7,6 +7,7 @@ import { TactilePaving } from "../fields";
  * Fields that identify a curb ramp.
  */
 interface CurbRampIdentifyingFields extends BaseNodeFields {
+  barrier: "kerb";
   kerb: "lowered";
 }
 

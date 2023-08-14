@@ -811,6 +811,12 @@
                 "_id": {
                     "type": "string"
                 },
+                "barrier": {
+                    "enum": [
+                        "kerb"
+                    ],
+                    "type": "string"
+                },
                 "brunnel": {
                     "description": "A field that indicates whether an entity is on a bridge, tunnel, or ford.",
                     "enum": [
@@ -839,6 +845,7 @@
             },
             "required": [
                 "_id",
+                "barrier",
                 "kerb"
             ],
             "type": "object"
@@ -1387,6 +1394,12 @@
                 "_id": {
                     "type": "string"
                 },
+                "barrier": {
+                    "enum": [
+                        "kerb"
+                    ],
+                    "type": "string"
+                },
                 "brunnel": {
                     "description": "A field that indicates whether an entity is on a bridge, tunnel, or ford.",
                     "enum": [
@@ -1415,6 +1428,7 @@
             },
             "required": [
                 "_id",
+                "barrier",
                 "kerb"
             ],
             "type": "object"
@@ -2558,6 +2572,12 @@
                 "_id": {
                     "type": "string"
                 },
+                "barrier": {
+                    "enum": [
+                        "kerb"
+                    ],
+                    "type": "string"
+                },
                 "brunnel": {
                     "description": "A field that indicates whether an entity is on a bridge, tunnel, or ford.",
                     "enum": [
@@ -2586,6 +2606,7 @@
             },
             "required": [
                 "_id",
+                "barrier",
                 "kerb"
             ],
             "type": "object"
@@ -2847,6 +2868,12 @@
                 "_id": {
                     "type": "string"
                 },
+                "barrier": {
+                    "enum": [
+                        "kerb"
+                    ],
+                    "type": "string"
+                },
                 "brunnel": {
                     "description": "A field that indicates whether an entity is on a bridge, tunnel, or ford.",
                     "enum": [
@@ -2875,6 +2902,7 @@
             },
             "required": [
                 "_id",
+                "barrier",
                 "kerb"
             ],
             "type": "object"
