@@ -147,7 +147,9 @@
                     "enum": [
                         "asphalt",
                         "concrete",
+                        "dirt",
                         "grass",
+                        "grass_paver",
                         "gravel",
                         "paved",
                         "paving_stones",
@@ -626,6 +628,31 @@
                     ],
                     "type": "string"
                 },
+                "crossing:markings": {
+                    "description": "A field for markings on the ground which are meant to draw attention to the area where pedestrians are to cross the road.",
+                    "enum": [
+                        "dashes",
+                        "dots",
+                        "ladder",
+                        "ladder:paired",
+                        "ladder:skewed",
+                        "lines",
+                        "lines:paired",
+                        "lines:rainbow",
+                        "no",
+                        "pictograms",
+                        "rainbow",
+                        "skewed",
+                        "surface",
+                        "yes",
+                        "zebra",
+                        "zebra:bicolour",
+                        "zebra:double",
+                        "zebra:paired",
+                        "zebra:rainbow"
+                    ],
+                    "type": "string"
+                },
                 "description": {
                     "description": "A free form text field for describing an edge of node. May be pre-encoded in relevant pedestrian paths to assist with routing instructing or investigation of map features. For example, a description of the sidewalk in relation to a nearby street may be a useful textual description, such as \"NE of Main St.\" Can also be considered a flexible location to embed arbitrary information for specific use cases.",
                     "type": "string"
@@ -669,7 +696,9 @@
                     "enum": [
                         "asphalt",
                         "concrete",
+                        "dirt",
                         "grass",
+                        "grass_paver",
                         "gravel",
                         "paved",
                         "paving_stones",
@@ -802,19 +831,6 @@
                     "maximum": 10,
                     "minimum": -10,
                     "type": "integer"
-                },
-                "surface": {
-                    "description": "A field for the surface material of the path.",
-                    "enum": [
-                        "asphalt",
-                        "concrete",
-                        "grass",
-                        "gravel",
-                        "paved",
-                        "paving_stones",
-                        "unpaved"
-                    ],
-                    "type": "string"
                 },
                 "tactile_paving": {
                     "description": "A field for whether a curb ramp or edge has a tactile (textured) surface.",
@@ -969,7 +985,9 @@
                     "enum": [
                         "asphalt",
                         "concrete",
+                        "dirt",
                         "grass",
+                        "grass_paver",
                         "gravel",
                         "paved",
                         "paving_stones",
@@ -1136,7 +1154,9 @@
                     "enum": [
                         "asphalt",
                         "concrete",
+                        "dirt",
                         "grass",
+                        "grass_paver",
                         "gravel",
                         "paved",
                         "paving_stones",
@@ -1387,6 +1407,10 @@
                     "maximum": 10,
                     "minimum": -10,
                     "type": "integer"
+                },
+                "tactile_paving": {
+                    "description": "A field for whether a curb ramp or edge has a tactile (textured) surface.",
+                    "type": "boolean"
                 }
             },
             "required": [
@@ -1534,7 +1558,9 @@
                     "enum": [
                         "asphalt",
                         "concrete",
+                        "dirt",
                         "grass",
+                        "grass_paver",
                         "gravel",
                         "paved",
                         "paving_stones",
@@ -1970,7 +1996,9 @@
                     "enum": [
                         "asphalt",
                         "concrete",
+                        "dirt",
                         "grass",
+                        "grass_paver",
                         "gravel",
                         "paved",
                         "paving_stones",
@@ -1990,6 +2018,168 @@
                 "_v_id",
                 "highway",
                 "service"
+            ],
+            "type": "object"
+        },
+        "Pedestrian": {
+            "additionalProperties": false,
+            "description": "For a road or an area mainly or exclusively for pedestrians in which some vehicle traffic may be authorized.",
+            "properties": {
+                "bbox": {
+                    "anyOf": [
+                        {
+                            "items": [
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                }
+                            ],
+                            "maxItems": 4,
+                            "minItems": 4,
+                            "type": "array"
+                        },
+                        {
+                            "items": [
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                }
+                            ],
+                            "maxItems": 6,
+                            "minItems": 6,
+                            "type": "array"
+                        }
+                    ],
+                    "description": "Bounding box of the coordinate range of the object's Geometries, Features, or Feature Collections.\nThe value of the bbox member is an array of length 2*n where n is the number of dimensions\nrepresented in the contained geometries, with all axes of the most southwesterly point\nfollowed by all axes of the more northeasterly point.\nThe axes order of a bbox follows the axes order of geometries.\nhttps://tools.ietf.org/html/rfc7946#section-5"
+                },
+                "geometry": {
+                    "$ref": "#/definitions/GeoJSON.LineString",
+                    "description": "The feature's geometry"
+                },
+                "id": {
+                    "description": "A value that uniquely identifies this feature in a\nhttps://tools.ietf.org/html/rfc7946#section-3.2.",
+                    "type": [
+                        "string",
+                        "number"
+                    ]
+                },
+                "properties": {
+                    "$ref": "#/definitions/PedestrianFields",
+                    "description": "Properties associated with this feature."
+                },
+                "type": {
+                    "description": "Specifies the type of GeoJSON object.",
+                    "enum": [
+                        "Feature"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "geometry",
+                "properties",
+                "type"
+            ],
+            "type": "object"
+        },
+        "PedestrianFields": {
+            "additionalProperties": false,
+            "properties": {
+                "_u_id": {
+                    "type": "string"
+                },
+                "_v_id": {
+                    "type": "string"
+                },
+                "brunnel": {
+                    "description": "Fields that apply to a pedestrian road.",
+                    "enum": [
+                        "bridge",
+                        "ford",
+                        "tunnel"
+                    ],
+                    "type": "string"
+                },
+                "description": {
+                    "description": "A free form text field for describing an edge of node. May be pre-encoded in relevant pedestrian paths to assist with routing instructing or investigation of map features. For example, a description of the sidewalk in relation to a nearby street may be a useful textual description, such as \"NE of Main St.\" Can also be considered a flexible location to embed arbitrary information for specific use cases.",
+                    "type": "string"
+                },
+                "highway": {
+                    "enum": [
+                        "pedestrian"
+                    ],
+                    "type": "string"
+                },
+                "incline": {
+                    "description": "A field for the estimated incline over a particular path, i.e. slope, i.e. grade, i.e. rise over run. If derived from OpenStreetMap data, this is the maximum incline over the path. If derived from DEM data, it is more likely to be an underestimation. Positive values indicate an uphill climb while negative are downhill. For example, a 45 degree downhill value for incline would be -1.0.",
+                    "maximum": 1,
+                    "minimum": -1,
+                    "type": "number"
+                },
+                "layer": {
+                    "description": "A field that indicates the z-layer (integer) on which an edge lies. If unset, a value of 0 is implied. Negative values are allowed.",
+                    "maximum": 10,
+                    "minimum": -10,
+                    "type": "integer"
+                },
+                "length": {
+                    "description": "A field for the length of an edge in meters. This field is always inferred from the geometry.",
+                    "maximum": 5000,
+                    "minimum": 0,
+                    "type": "number"
+                },
+                "name": {
+                    "description": "A field for a designated name for an edge. Example: an official name for a trail.",
+                    "type": "string"
+                },
+                "surface": {
+                    "description": "A field for the surface material of the path.",
+                    "enum": [
+                        "asphalt",
+                        "concrete",
+                        "dirt",
+                        "grass",
+                        "grass_paver",
+                        "gravel",
+                        "paved",
+                        "paving_stones",
+                        "unpaved"
+                    ],
+                    "type": "string"
+                },
+                "width": {
+                    "description": "A field for width of an edge in meters.",
+                    "maximum": 500,
+                    "minimum": 0,
+                    "type": "number"
+                }
+            },
+            "required": [
+                "_u_id",
+                "_v_id",
+                "highway"
             ],
             "type": "object"
         },
@@ -2254,7 +2444,9 @@
                     "enum": [
                         "asphalt",
                         "concrete",
+                        "dirt",
                         "grass",
+                        "grass_paver",
                         "gravel",
                         "paved",
                         "paving_stones",
@@ -2386,6 +2578,10 @@
                     "maximum": 10,
                     "minimum": -10,
                     "type": "integer"
+                },
+                "tactile_paving": {
+                    "description": "A field for whether a curb ramp or edge has a tactile (textured) surface.",
+                    "type": "boolean"
                 }
             },
             "required": [
@@ -2537,7 +2733,9 @@
                     "enum": [
                         "asphalt",
                         "concrete",
+                        "dirt",
                         "grass",
+                        "grass_paver",
                         "gravel",
                         "paved",
                         "paving_stones",
@@ -2669,6 +2867,10 @@
                     "maximum": 10,
                     "minimum": -10,
                     "type": "integer"
+                },
+                "tactile_paving": {
+                    "description": "A field for whether a curb ramp or edge has a tactile (textured) surface.",
+                    "type": "boolean"
                 }
             },
             "required": [
@@ -2820,7 +3022,9 @@
                     "enum": [
                         "asphalt",
                         "concrete",
+                        "dirt",
                         "grass",
+                        "grass_paver",
                         "gravel",
                         "paved",
                         "paving_stones",
@@ -2981,7 +3185,9 @@
                     "enum": [
                         "asphalt",
                         "concrete",
+                        "dirt",
                         "grass",
+                        "grass_paver",
                         "gravel",
                         "paved",
                         "paving_stones",
@@ -3148,7 +3354,9 @@
                     "enum": [
                         "asphalt",
                         "concrete",
+                        "dirt",
                         "grass",
+                        "grass_paver",
                         "gravel",
                         "paved",
                         "paving_stones",
@@ -3167,6 +3375,174 @@
                 "_u_id",
                 "_v_id",
                 "footway",
+                "highway"
+            ],
+            "type": "object"
+        },
+        "Steps": {
+            "additionalProperties": false,
+            "description": "For flights of steps on footways and paths.",
+            "properties": {
+                "bbox": {
+                    "anyOf": [
+                        {
+                            "items": [
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                }
+                            ],
+                            "maxItems": 4,
+                            "minItems": 4,
+                            "type": "array"
+                        },
+                        {
+                            "items": [
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                }
+                            ],
+                            "maxItems": 6,
+                            "minItems": 6,
+                            "type": "array"
+                        }
+                    ],
+                    "description": "Bounding box of the coordinate range of the object's Geometries, Features, or Feature Collections.\nThe value of the bbox member is an array of length 2*n where n is the number of dimensions\nrepresented in the contained geometries, with all axes of the most southwesterly point\nfollowed by all axes of the more northeasterly point.\nThe axes order of a bbox follows the axes order of geometries.\nhttps://tools.ietf.org/html/rfc7946#section-5"
+                },
+                "geometry": {
+                    "$ref": "#/definitions/GeoJSON.LineString",
+                    "description": "The feature's geometry"
+                },
+                "id": {
+                    "description": "A value that uniquely identifies this feature in a\nhttps://tools.ietf.org/html/rfc7946#section-3.2.",
+                    "type": [
+                        "string",
+                        "number"
+                    ]
+                },
+                "properties": {
+                    "$ref": "#/definitions/StepsFields",
+                    "description": "Properties associated with this feature."
+                },
+                "type": {
+                    "description": "Specifies the type of GeoJSON object.",
+                    "enum": [
+                        "Feature"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "geometry",
+                "properties",
+                "type"
+            ],
+            "type": "object"
+        },
+        "StepsFields": {
+            "additionalProperties": false,
+            "properties": {
+                "_u_id": {
+                    "type": "string"
+                },
+                "_v_id": {
+                    "type": "string"
+                },
+                "brunnel": {
+                    "description": "Fields that apply to steps.",
+                    "enum": [
+                        "bridge",
+                        "ford",
+                        "tunnel"
+                    ],
+                    "type": "string"
+                },
+                "description": {
+                    "description": "A free form text field for describing an edge of node. May be pre-encoded in relevant pedestrian paths to assist with routing instructing or investigation of map features. For example, a description of the sidewalk in relation to a nearby street may be a useful textual description, such as \"NE of Main St.\" Can also be considered a flexible location to embed arbitrary information for specific use cases.",
+                    "type": "string"
+                },
+                "highway": {
+                    "enum": [
+                        "steps"
+                    ],
+                    "type": "string"
+                },
+                "incline": {
+                    "description": "A field for the estimated incline over a particular path, i.e. slope, i.e. grade, i.e. rise over run. If derived from OpenStreetMap data, this is the maximum incline over the path. If derived from DEM data, it is more likely to be an underestimation. Positive values indicate an uphill climb while negative are downhill. For example, a 45 degree downhill value for incline would be -1.0.",
+                    "maximum": 1,
+                    "minimum": -1,
+                    "type": "number"
+                },
+                "layer": {
+                    "description": "A field that indicates the z-layer (integer) on which an edge lies. If unset, a value of 0 is implied. Negative values are allowed.",
+                    "maximum": 10,
+                    "minimum": -10,
+                    "type": "integer"
+                },
+                "length": {
+                    "description": "A field for the length of an edge in meters. This field is always inferred from the geometry.",
+                    "maximum": 5000,
+                    "minimum": 0,
+                    "type": "number"
+                },
+                "name": {
+                    "description": "A field for a designated name for an edge. Example: an official name for a trail.",
+                    "type": "string"
+                },
+                "step_count": {
+                    "description": "A field for number of steps in stairs.",
+                    "maximum": 500,
+                    "minimum": 0,
+                    "type": "number"
+                },
+                "surface": {
+                    "description": "A field for the surface material of the path.",
+                    "enum": [
+                        "asphalt",
+                        "concrete",
+                        "dirt",
+                        "grass",
+                        "grass_paver",
+                        "gravel",
+                        "paved",
+                        "paving_stones",
+                        "unpaved"
+                    ],
+                    "type": "string"
+                },
+                "width": {
+                    "description": "A field for width of an edge in meters.",
+                    "maximum": 500,
+                    "minimum": 0,
+                    "type": "number"
+                }
+            },
+            "required": [
+                "_u_id",
+                "_v_id",
                 "highway"
             ],
             "type": "object"
@@ -3432,7 +3808,9 @@
                     "enum": [
                         "asphalt",
                         "concrete",
+                        "dirt",
                         "grass",
+                        "grass_paver",
                         "gravel",
                         "paved",
                         "paving_stones",
@@ -3599,7 +3977,9 @@
                     "enum": [
                         "asphalt",
                         "concrete",
+                        "dirt",
                         "grass",
+                        "grass_paver",
                         "gravel",
                         "paved",
                         "paving_stones",
@@ -3798,6 +4178,12 @@
                     },
                     {
                         "$ref": "#/definitions/ParkingAisle"
+                    },
+                    {
+                        "$ref": "#/definitions/Steps"
+                    },
+                    {
+                        "$ref": "#/definitions/Pedestrian"
                     },
                     {
                         "$ref": "#/definitions/FireHydrant"
