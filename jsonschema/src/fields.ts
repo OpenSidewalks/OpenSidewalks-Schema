@@ -55,3 +55,9 @@ export type Width = number;
  * @maximum 500
  */
 export type StepCount = number;
+/**
+ * A field for the climb direction of steps.
+ */
+export type Climb =
+  | "up"
+  | "down";

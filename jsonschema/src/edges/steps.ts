@@ -2,6 +2,7 @@ import { Feature, LineString } from "geojson";
 
 import { BaseEdgeFields } from "./base-edge-fields";
 import {
+  Climb,
   Description,
   Incline,
   Length,
@@ -29,6 +30,7 @@ export interface StepsFields extends StepsIdentifyingFields {
   surface?: Surface;
   width?: Width;
   step_count?: StepCount;
+  climb?: Climb;
 }
 
 /**

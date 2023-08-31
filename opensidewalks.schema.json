@@ -391,6 +391,9 @@
             "additionalProperties": false,
             "description": "Fields that apply to a crossing.",
             "properties": {
+                "_id": {
+                    "type": "string"
+                },
                 "_u_id": {
                     "type": "string"
                 },
@@ -484,6 +487,7 @@
                 }
             },
             "required": [
+                "_id",
                 "_u_id",
                 "_v_id",
                 "footway",
@@ -909,6 +913,9 @@
             "additionalProperties": false,
             "description": "Fields that apply to a footway.",
             "properties": {
+                "_id": {
+                    "type": "string"
+                },
                 "_u_id": {
                     "type": "string"
                 },
@@ -964,6 +971,7 @@
                 }
             },
             "required": [
+                "_id",
                 "_u_id",
                 "_v_id",
                 "highway"
@@ -1310,6 +1318,9 @@
         "PedestrianFields": {
             "additionalProperties": false,
             "properties": {
+                "_id": {
+                    "type": "string"
+                },
                 "_u_id": {
                     "type": "string"
                 },
@@ -1365,6 +1376,7 @@
                 }
             },
             "required": [
+                "_id",
                 "_u_id",
                 "_v_id",
                 "highway"
@@ -1789,6 +1801,9 @@
             "additionalProperties": false,
             "description": "Fields that apply to a sidewalk.",
             "properties": {
+                "_id": {
+                    "type": "string"
+                },
                 "_u_id": {
                     "type": "string"
                 },
@@ -1850,6 +1865,7 @@
                 }
             },
             "required": [
+                "_id",
                 "_u_id",
                 "_v_id",
                 "footway",
@@ -1943,10 +1959,21 @@
         "StepsFields": {
             "additionalProperties": false,
             "properties": {
+                "_id": {
+                    "type": "string"
+                },
                 "_u_id": {
                     "type": "string"
                 },
                 "_v_id": {
+                    "type": "string"
+                },
+                "climb": {
+                    "description": "A field for the climb direction of steps.",
+                    "enum": [
+                        "down",
+                        "up"
+                    ],
                     "type": "string"
                 },
                 "description": {
@@ -2004,6 +2031,7 @@
                 }
             },
             "required": [
+                "_id",
                 "_u_id",
                 "_v_id",
                 "highway"
@@ -2200,6 +2228,9 @@
             "additionalProperties": false,
             "description": "Fields that apply to a traffic island.",
             "properties": {
+                "_id": {
+                    "type": "string"
+                },
                 "_u_id": {
                     "type": "string"
                 },
@@ -2261,6 +2292,7 @@
                 }
             },
             "required": [
+                "_id",
                 "_u_id",
                 "_v_id",
                 "footway",
