@@ -74,7 +74,8 @@ them as network (graph) edges. Currently, this means that they must have two
 node-referencing fields: `_u_id` and `_v_id`, which mean "this linear feature
 begins at the Node with `_id` of `_u_id` and ends at the Node with `_id` of
 `_v_id`. Therefore, a network (graph) may be constructed from a set of Nodes
-and Edges directly from metadata.
+and Edges directly from metadata. Outside of the graph representation, edges 
+must have a unique (within the dataset) _id field.
 
 Note that Edges are directional features: the start at one node and end at one
 node. The data they represent is directional as well: their geospatial data
@@ -87,9 +88,11 @@ inferred during graph creation.
 
 #### Points
 
-[Points](#points) are point features that do not contain network metadata. These are features relevant to the pedestrian
-network that are nevertheless not (yet) represented as elements of it: they are
-nearby and useful for producing descriptions, flagging potential barriers, etc. Points are not required for producing a valid OpenSidewalks dataset.
+[Points](#points) are point features that do not contain network metadata.
+These are features relevant to the pedestrian network that are nevertheless not 
+(yet) represented as elements of it: they are nearby and useful for producing 
+descriptions, flagging potential barriers, etc. Points are not required for 
+producing a valid OpenSidewalks dataset.
 
 ### Entity type inference
 
@@ -316,7 +319,8 @@ Point
 
 Edges are lines (their serializable geometries are representable by
 LineStrings) intended to represent pedestrian network connections. Edges are
-often derived from topological data like that stored in OpenStreetMap.
+often derived from topological data like that stored in OpenStreetMap. All 
+edges must have a unique _id field.
 
 ### <a name="edge-footway"></a> Footway (plain)
 
@@ -513,6 +517,8 @@ LineString
 [name](#field-name)
 
 [step_count](#field-step_count)
+
+[climb](#field-climb)
 
 ## <a name="points"></a> Points
 
@@ -885,3 +891,17 @@ bars are actually made up of two very-close smaller bars.
 Can be added to indicate the number of steps
 
 ###### *Value type*: integer
+
+##### <a name="field-climb"></a> climb
+
+*From OpenStreetMap*
+
+Can be used to indicate the direction of the steps
+
+###### *Value type*: enum
+
+###### *Enumerated values*:
+
+-   up: used when the direction of the steps points upward.
+
+-   down: Used when the direction of the steps points downward.
