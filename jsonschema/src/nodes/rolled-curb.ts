@@ -1,7 +1,7 @@
 import { Feature, Point } from "geojson";
 
 import { BaseNodeFields } from "./base-node-fields";
-import { TactilePaving } from "fields";
+import { TactilePaving } from "../fields";
 
 /**
  * Fields that identify a rolled curb.

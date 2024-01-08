@@ -17,10 +17,10 @@ interface PedestrianIdentifyingFields extends BaseEdgeFields {
   highway: "pedestrian";
 }
 
+/**
+ * Fields that apply to a pedestrian road.
+ */
 export interface PedestrianFields extends PedestrianIdentifyingFields {
-  /**
-   * Fields that apply to a pedestrian road.
-   */
   description?: Description;
   incline?: Incline;
   length?: Length;

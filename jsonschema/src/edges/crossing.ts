@@ -15,9 +15,11 @@ interface CrossingIdentifyingFields extends BaseEdgeFields {
 /**
  * Fields that apply to a crossing.
  */
-interface CrossingFields extends CrossingIdentifyingFields, FootwayFields {
-  crossing?: "marked" | "unmarked";
-  "crossing:markings"?: CrossingMarkings;
+interface CrossingFields
+  extends CrossingIdentifyingFields,
+  FootwayFields {
+    crossing?: "marked" | "unmarked";
+    "crossing:markings"?: CrossingMarkings;
 }
 
 /**
