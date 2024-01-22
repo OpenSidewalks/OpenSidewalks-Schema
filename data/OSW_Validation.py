@@ -1,16 +1,11 @@
 import json
+import types
 import jsonschema
 from pathlib import Path
 
-def load_osw_schema(schema_path):
-    """Load OSW Schema"""
-    with open(schema_path, 'r') as file:
-        schema = json.load(file)
-    return schema
-
-def load_osw_file(graph_geojson_path):
+def load_file(file_path):
     """Load OSW Data"""
-    with open(graph_geojson_path, 'r') as file:
+    with open(file_path, 'r') as file:
         data = json.load(file)
     return data
 
@@ -27,20 +22,68 @@ def validate_osw_errors(geojson_data, schema):
     
     return error_count==0
 
-workdir=".\\output"
+workdir=".\\"
 schema_path = Path(workdir, "opensidewalks.schema.json")
 region_id = "wa.microsoft"
 
-schema = load_osw_schema(schema_path)
+schema = load_file(schema_path)
 
+graph_edges_geojson_path = Path(workdir, "data", f"{region_id}.graph.edges.OSW.geojson")
+graph_nodes_geojson_path = Path(workdir, "data", f"{region_id}.graph.nodes.OSW.geojson")
+graph_points_geojson_path = Path(workdir, "data", f"{region_id}.graph.points.OSW.geojson")
+graph_lines_geojson_path = Path(workdir, "data", f"{region_id}.graph.lines.OSW.geojson")
+graph_zones_geojson_path = Path(workdir, "data", f"{region_id}.graph.zones.OSW.geojson")
+graph_polygons_geojson_path = Path(workdir, "data", f"{region_id}.graph.polygons.OSW.geojson")
+
+print(f"Validating OSW dataset for {region_id}")
 # validate edges
-is_valid = validate_osw_errors(load_osw_file(Path(workdir, f"{region_id}.graph.edges.OSW.geojson")), schema)
-print(is_valid)
+is_valid = validate_osw_errors(load_file(graph_edges_geojson_path), schema)
+if is_valid:
+    print(f"OSW edges are valid for {region_id}")
+else:
+    print(f"OSW edges failed validation for {region_id}")
+    exit(1)
 
 # validate nodes
-is_valid = validate_osw_errors(load_osw_file(Path(workdir, f"{region_id}.graph.nodes.OSW.geojson")), schema)
-print(is_valid)
+is_valid = validate_osw_errors(load_file(graph_nodes_geojson_path), schema)
+if is_valid:
+    print(f"OSW nodes are valid for {region_id}")
+else:
+    print(f"OSW nodes failed validation for {region_id}")
+    exit(1)
 
 # validate points
-is_valid = validate_osw_errors(load_osw_file(Path(workdir, f"{region_id}.graph.points.OSW.geojson")), schema)
-print(is_valid)
+if graph_points_geojson_path.exists():
+    is_valid = validate_osw_errors(load_file(graph_points_geojson_path), schema)
+    if is_valid:
+        print(f"OSW points are valid for {region_id}")
+    else:
+        print(f"OSW points failed validation for {region_id}")
+        exit(1)
+
+# validate lines
+if graph_lines_geojson_path.exists():
+    is_valid = validate_osw_errors(load_file(graph_lines_geojson_path), schema)
+    if is_valid:
+        print(f"OSW lines are valid for {region_id}")
+    else:
+        print(f"OSW lines failed validation for {region_id}")
+        exit(1)
+
+# validate zones
+if graph_zones_geojson_path.exists():
+    is_valid = validate_osw_errors(load_file(graph_zones_geojson_path), schema)
+    if is_valid:
+        print(f"OSW zones are valid for {region_id}")
+    else:
+        print(f"OSW zones failed validation for {region_id}")
+        exit(1)
+
+# validate polygons
+if graph_polygons_geojson_path.exists():
+    is_valid = validate_osw_errors(load_file(graph_polygons_geojson_path), schema)
+    if is_valid:
+        print(f"OSW polygons are valid for {region_id}")
+    else:
+        print(f"OSW polygons failed validation for {region_id}")
+        exit(1)

@@ -1,4 +1,4 @@
-*The OpenSidewalks Schema (Draft: OSW v0.2)*
+*The OpenSidewalks Schema*
 ========================
 
 ##### Table of Contents  
@@ -33,6 +33,7 @@
     * [Traffic Island](#-traffic-island)
     * [Pedestrian Road](#-pedestrian-road)
     * [Steps](#-steps)
+    * [Living Street](#-living-street)
     * [Motor Vehicle Roads](#-motor-vehicle-roads)
   * [Zones](#-zones)
     * [Pedestrian Zone](#-pedestrian-zone)
@@ -57,7 +58,6 @@
   * [length](#--length)
   * [width](#--width)
   * [tactile_paving](#--tactile_paving)
-  * [crossing](#--crossing)
   * [crossing:markings](#--crossingmarkings)
   * [step_count](#--step_count)
   * [building](#--building)
@@ -134,7 +134,7 @@ node-referencing fields: `_u_id` and `_v_id`, which mean "this linear feature
 begins at the Node with `_id` of `_u_id` and ends at the Node with `_id` of
 `_v_id`. Therefore, a network (graph) may be constructed from a set of Nodes
 and Edges directly from metadata. Outside of the graph representation, edges 
-must have a unique (within the dataset) _id field.
+must have a unique (within the dataset) `_id` field.
 
 Note that Edges are directional features: the start at one node and end at one
 node. The data they represent is directional as well: their geospatial data
@@ -317,8 +317,8 @@ The following is a sample snippet demonstrating the use of these metadata fields
 Nodes are features that are geometrically defined by a single
 latitude-longitude pair: a point on the planet. They are also defined as a
 part of a pedestrian network: each Node must define an `_id` string field, a
-unique identifier to which Edges may refer using their `_u_id` and `_v_id`
-fields.
+unique identifier to which Edges and Zones may refer using their `_u_id`, `_v_id`
+or `_w_id` fields.
 
 <details>
   <summary><h3><a name="node-bare_node"></a> Bare Node</h3></summary>
@@ -451,7 +451,7 @@ fields.
 Edges are lines (their serializable geometries are representable by
 LineStrings) intended to represent pedestrian network connections. Edges are
 often derived from topological data like that stored in OpenStreetMap. All 
-edges must have a unique _id field.
+edges must have a unique `_id` field.
 
 <details>
   <summary><h3><a name="edge-footway"></a> Footway (plain)</h3></summary>
@@ -503,7 +503,7 @@ edges must have a unique _id field.
 | **Identifying fields**
 | `highway=footway`, `footway=crossing`
 | **Optional Fields**
-| All [optional fields of footway](#-footway-plain)<br>[crossing](#field-crossing)<br>[crossing:markings](#field-crossing_markings)
+| All [optional fields of footway](#-footway-plain)<br>[crossing:markings](#field-crossing_markings)
 
 </details>
 
@@ -558,6 +558,24 @@ edges must have a unique _id field.
 | `highway=steps`
 | **Optional Fields**
 | [width](#field-width)<br>[surface](#field-surface)<br>[incline](#field-incline)<br>[length](#field-length)<br>[description](#field-description)<br>[name](#field-name)<br>[step_count](#field-step_count)<br>[foot](#--foot)
+
+</details>
+
+<details>
+  <summary><h3><a name="edge-living-street"></a> Living Street</h3></summary>
+
+|   |
+|:- |
+| **Description**
+| A street designed with the interests of pedestrians and cyclists in mind by providing enriching and experiential spaces.
+| **Subtype of**
+| *None*
+| **Geometry**
+| LineString
+| **Identifying fields**
+| `highway=living_street`
+| **Optional Fields**
+| [width](#field-width)<br>[surface](#field-surface)<br>[incline](#field-incline)<br>[length](#field-length)<br>[description](#field-description)<br>[name](#field-name)<br>[foot](#--foot)
 
 </details>
 
@@ -716,13 +734,49 @@ pedestrian. We recommend applications clearly communicate the risk to pedestrian
 
 </details>
 
+<details>
+  <summary><h3><a name="edge-unclassified-road"></a> Unclassified Road</h3></summary>
+
+|   |
+|:- |
+| **Description**
+| A minor public roads, typically at the lowest level of whatever administrative hierarchy is used in that jurisdiction.
+| **Subtype of**
+| *None*
+| **Geometry**
+| LineString
+| **Identifying fields**
+| `highway=unclassified`
+| **Optional Fields**
+| All [optional fields of a primary street](#-primary-street).
+
+</details>
+
+<details>
+  <summary><h3><a name="edge-trunk-road"></a> Trunk Road</h3></summary>
+
+|   |
+|:- |
+| **Description**
+| A high-performance or high-importance roads that don't meet the requirements for motorway, but are not classified as highway=primary either.
+| **Subtype of**
+| *None*
+| **Geometry**
+| LineString
+| **Identifying fields**
+| `highway=trunk`
+| **Optional Fields**
+| All [optional fields of a primary street](#-primary-street).
+
+</details>
+
 </details>
 
 ## <a name="zones"></a> Zones
 
 Zones are polygons (their serializable geometries are representable by
 Polygons) intended to represent areas where pedestrians can travel freely in
-all directions. They are part of the pedestrian network: each zone contains a list (`_w_id`) of node `_id`'s. All zones must have a unique _id field.
+all directions. They are part of the pedestrian network: each zone contains a list (`_w_id`) of node `_id`'s. All zones must have a unique `_id` field.
 
 <details>
   <summary><h3><a name="zone-pedestrian"></a> Pedestrian Zone</h3></summary>
@@ -730,7 +784,7 @@ all directions. They are part of the pedestrian network: each zone contains a li
 |   |
 |:- |
 | **Description**
-| An areas where pedestrians can travel freely in all directions.
+| An area where pedestrians can travel freely in all directions.
 | **Subtype of**
 | *None*
 | **Geometry**
@@ -752,8 +806,7 @@ elements of the pedestrian network definition (i.e. the graph structure
 described by Nodes and Edges), but they are still highly relevant to the
 physical pedestrian network. Points may be considered part of the real physical
 pedestrian network, but aren't appropriate as elements of the network
-described by the OpenSidewalks Schema.
-
+described by the OpenSidewalks Schema. All points must have a unique `_id` field.
 
 <details>
   <summary><h3><a name="point-power_pole"></a> Power pole</h3></summary>
@@ -886,7 +939,7 @@ described by the OpenSidewalks Schema.
 Lines are features that are geometrically defined by a series of coordinates forming a
 LineString. They are explicitly not elements of the pedestrian network definition (i.e.
 the graph structure described by Nodes, Edges and Zones), but they are still highly relevant
-to the physical pedestrian network.
+to the physical pedestrian network. All lines must have a unique `_id` field.
 
 <details>
   <summary><h3><a name="line-fence"></a> Fence</h3></summary>
@@ -910,7 +963,7 @@ to the physical pedestrian network.
 
 Polygons describe 2-dimensional areas which are adjacent to pedestrian paths. They are explicitly not elements of the pedestrian network definition (i.e.
 the graph structure described by Nodes, Edges and Zones), but they are still highly relevant
-to the physical pedestrian network.
+to the physical pedestrian network. All polygons must have a unique `_id` field.
 
 <details>
   <summary><h3><a name="polygon-building"></a> Building</h3></summary>
@@ -1078,32 +1131,13 @@ A field for whether a curb has a tactile (textured) surface. Tactile paving is a
 
 -   no
 
--   contrasted: Where there is a tactile paving which contrast is at least 70% [ dubious – discuss ] the colour of the ground (white if the ground is black and vice-versa).
+-   contrasted: Where there is a tactile paving which contrast is at least 70% the colour of the ground (white if the ground is black and vice-versa).
 
 -   primitive: Where any water drain or decorative tactile element can be used for orientation accidentally, but no typical tactile ground elements are used.
 
 -   incorrect: Where tactile paving is used but not in a sensible way, e.g. if the paving is symmetric for visual pleasure but on one of the sides it leads to nothing, or if only one sloped kerb at a crossing has tactile paving. It may be sensible if tactile paving leads to a building wall, because the way continues next to the wall and it can be used for orientation with a white cane.
 
 -   partial
-
-</details>
-<details>
-  <summary><h5> <a name="field-crossing"></a> crossing</h5></summary>
-
-*From OpenStreetMap*
-
-Type of street crossing - marked or unmarked. When derived from
-OpenStreetMap data, the crossing key undergoes various conversions due
-to fragmentation. Both the uncontrolled and zebra values are converted
-into marked and the traffic_signals value is ignored.
-
-###### *Value type*: enum
-
-###### *Enumerated values*:
-
--   marked: a marked crossing.
-
--   unmarked: an unmarked crossing.
 
 </details>
 <details>
@@ -1360,4 +1394,4 @@ A field that indicates whether an edge can be used by pedestrians.
 | Version | Release Date | Link | Notes |
 | ------ | ------ | ------ | ------ |
 | 0.1 | 8/11/2023 | [GitHub](https://github.com/OpenSidewalks/OpenSidewalks-Schema/tree/32dad18bb303289f660fd8d26f02f5e301d0a9d1) | Minimal initial beta release of schema to unblock development of schema consuming applications |
-| 0.2 | TBD | [GitHub](https://github.com/OpenSidewalks/OpenSidewalks-Schema/tree/Audiom)| - Add required _id field to edges <br>- Update the documentation with regards to the [coordinate reference system](#coordinate-reference-system) <br>- Introduce the concept of [core entities](#1-core-entities) and [extensions](#2-extensions) <br>- Add [zones](#zones) to [core entities](#1-core-entities) <br>- Add [lines](#lines) and [polygons](#-polygons) to [extensions](#2-extensions) <br>- Add [schema versions](#schema-versions) and [OpenSidewalks dataset metadata](#opensidewalks-dataset-metadata) <br>- Add [pedestrian zone](#-pedestrian-zone) to [zones](#zones) <br>- Add [fence](#-fence) to [lines](#lines) <br>- Add [building](#-building) to [polygons](#-polygons) <br>- Add *additional fields* to [entity attributes](#entity-attributes) <br>- Add [motor vehicle roads](#-motor-vehicle-roads) to [edges](#-edges) with justification <br>- Deprecate climb in favor of [incline](#--incline) to maintain compatibility with OpenStreetMap <br>- Add [opening_hours](#--opening_hours) field and include it in [building](#-building) entity fields <br>- Add [generic curb](#-generic-curb) and [unknown curb](#-unknown-curb) entities to [nodes](#-nodes) <br>- Add [foot](#--foot) field to all [edges](#-edges) and [zones](#-zones) <br>- Change [entity type inference](#entity-type-inference) to include the *geometry type* in addition to the *identifying fields* <br>- Fix lossiness of [tactile_paving](#--tactile_paving) field    |        |
+| 0.2 | TBD | [GitHub](https://github.com/OpenSidewalks/OpenSidewalks-Schema/tree/Audiom)| - Add required `_id` field to edges <br>- Update the documentation with regards to the [coordinate reference system](#coordinate-reference-system) <br>- Introduce the concept of [core entities](#1-core-entities) and [extensions](#2-extensions) <br>- Add [zones](#zones) to [core entities](#1-core-entities) <br>- Add [lines](#lines) and [polygons](#-polygons) to [extensions](#2-extensions) <br>- Add [schema versions](#schema-versions) and [OpenSidewalks dataset metadata](#opensidewalks-dataset-metadata) <br>- Add [pedestrian zone](#-pedestrian-zone) to [zones](#zones) <br>- Add [fence](#-fence) to [lines](#lines) <br>- Add [building](#-building) to [polygons](#-polygons) <br>- Add *additional fields* to [entity attributes](#entity-attributes) <br>- Add [motor vehicle roads](#-motor-vehicle-roads) to [edges](#-edges) with justification <br>- Deprecate climb in favor of [incline](#--incline) to maintain compatibility with OpenStreetMap <br>- Add [opening_hours](#--opening_hours) field and include it in [building](#-building) entity fields <br>- Add [generic curb](#-generic-curb) and [unknown curb](#-unknown-curb) entities to [nodes](#-nodes) <br>- Add [foot](#--foot) field to all [edges](#-edges) and [zones](#-zones) <br>- Change [entity type inference](#entity-type-inference) to include the *geometry type* in addition to the *identifying fields* <br>- Fix lossiness of [tactile_paving](#--tactile_paving) field<br>- Removed *crossing* field in favor of [crossing:markings](#--crossingmarkings) field<br>- Add [living street](#-living-street) to [edges](#-edges)<br>- Add *unclassified road* to [motor vehicle roads](#-motor-vehicle-roads)<br>- Add *trunk road* to [motor vehicle roads](#-motor-vehicle-roads)<br>- Require that the `_id` field for all entities has at least one character to ensure it is not left as an empty string    |        |

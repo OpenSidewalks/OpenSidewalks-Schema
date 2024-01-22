@@ -95,12 +95,15 @@
             },
             "properties": {
                 "_id": {
+                    "minLength": 1,
                     "type": "string"
                 },
                 "_u_id": {
+                    "minLength": 1,
                     "type": "string"
                 },
                 "_v_id": {
+                    "minLength": 1,
                     "type": "string"
                 },
                 "description": {
@@ -282,6 +285,7 @@
             },
             "properties": {
                 "_id": {
+                    "minLength": 1,
                     "type": "string"
                 }
             },
@@ -382,6 +386,7 @@
             },
             "properties": {
                 "_id": {
+                    "minLength": 1,
                     "type": "string"
                 },
                 "amenity": {
@@ -489,6 +494,7 @@
             },
             "properties": {
                 "_id": {
+                    "minLength": 1,
                     "type": "string"
                 },
                 "barrier": {
@@ -701,6 +707,7 @@
             },
             "properties": {
                 "_id": {
+                    "minLength": 1,
                     "type": "string"
                 },
                 "building": {
@@ -813,19 +820,15 @@
             },
             "properties": {
                 "_id": {
+                    "minLength": 1,
                     "type": "string"
                 },
                 "_u_id": {
+                    "minLength": 1,
                     "type": "string"
                 },
                 "_v_id": {
-                    "type": "string"
-                },
-                "crossing": {
-                    "enum": [
-                        "marked",
-                        "unmarked"
-                    ],
+                    "minLength": 1,
                     "type": "string"
                 },
                 "crossing:markings": {
@@ -1032,6 +1035,7 @@
             },
             "properties": {
                 "_id": {
+                    "minLength": 1,
                     "type": "string"
                 },
                 "barrier": {
@@ -1158,12 +1162,15 @@
             },
             "properties": {
                 "_id": {
+                    "minLength": 1,
                     "type": "string"
                 },
                 "_u_id": {
+                    "minLength": 1,
                     "type": "string"
                 },
                 "_v_id": {
+                    "minLength": 1,
                     "type": "string"
                 },
                 "description": {
@@ -1345,6 +1352,7 @@
             },
             "properties": {
                 "_id": {
+                    "minLength": 1,
                     "type": "string"
                 },
                 "barrier": {
@@ -1458,6 +1466,7 @@
             },
             "properties": {
                 "_id": {
+                    "minLength": 1,
                     "type": "string"
                 },
                 "emergency": {
@@ -1565,6 +1574,7 @@
             },
             "properties": {
                 "_id": {
+                    "minLength": 1,
                     "type": "string"
                 },
                 "barrier": {
@@ -1691,12 +1701,15 @@
             },
             "properties": {
                 "_id": {
+                    "minLength": 1,
                     "type": "string"
                 },
                 "_u_id": {
+                    "minLength": 1,
                     "type": "string"
                 },
                 "_v_id": {
+                    "minLength": 1,
                     "type": "string"
                 },
                 "description": {
@@ -1871,6 +1884,7 @@
             },
             "properties": {
                 "_id": {
+                    "minLength": 1,
                     "type": "string"
                 },
                 "barrier": {
@@ -2212,6 +2226,189 @@
             ],
             "type": "object"
         },
+        "LivingStreet": {
+            "additionalProperties": false,
+            "description": "A street designed with the interests of pedestrians and cyclists in mind by providing enriching and experiential spaces.",
+            "properties": {
+                "bbox": {
+                    "anyOf": [
+                        {
+                            "items": [
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                }
+                            ],
+                            "maxItems": 4,
+                            "minItems": 4,
+                            "type": "array"
+                        },
+                        {
+                            "items": [
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                }
+                            ],
+                            "maxItems": 6,
+                            "minItems": 6,
+                            "type": "array"
+                        }
+                    ],
+                    "description": "Bounding box of the coordinate range of the object's Geometries, Features, or Feature Collections.\nThe value of the bbox member is an array of length 2*n where n is the number of dimensions\nrepresented in the contained geometries, with all axes of the most southwesterly point\nfollowed by all axes of the more northeasterly point.\nThe axes order of a bbox follows the axes order of geometries.\nhttps://tools.ietf.org/html/rfc7946#section-5"
+                },
+                "geometry": {
+                    "$ref": "https://sidewalks.uw.edu/opensidewalks/0.2/schema.json#/definitions/GeoJSON.LineString",
+                    "description": "The feature's geometry"
+                },
+                "id": {
+                    "description": "A value that uniquely identifies this feature in a\nhttps://tools.ietf.org/html/rfc7946#section-3.2.",
+                    "type": [
+                        "string",
+                        "number"
+                    ]
+                },
+                "properties": {
+                    "$ref": "https://sidewalks.uw.edu/opensidewalks/0.2/schema.json#/definitions/LivingStreetFields",
+                    "description": "Properties associated with this feature."
+                },
+                "type": {
+                    "description": "Specifies the type of GeoJSON object.",
+                    "enum": [
+                        "Feature"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "geometry",
+                "properties",
+                "type"
+            ],
+            "type": "object"
+        },
+        "LivingStreetFields": {
+            "additionalProperties": false,
+            "description": "Fields that apply to a living street.",
+            "patternProperties": {
+                "^ext:.*$": {
+                }
+            },
+            "properties": {
+                "_id": {
+                    "minLength": 1,
+                    "type": "string"
+                },
+                "_u_id": {
+                    "minLength": 1,
+                    "type": "string"
+                },
+                "_v_id": {
+                    "minLength": 1,
+                    "type": "string"
+                },
+                "description": {
+                    "description": "A free form text field for describing an entity. May be pre-encoded in relevant pedestrian paths to assist with routing instructing or investigation of map features. For example, a description of the sidewalk in relation to a nearby street may be a useful textual description, such as \"NE of Main St.\" Can also be considered a flexible location to embed arbitrary information for specific use cases.",
+                    "type": "string"
+                },
+                "foot": {
+                    "description": "A field that indicates whether an edge can be used by pedestrians.",
+                    "enum": [
+                        "designated",
+                        "destination",
+                        "no",
+                        "permissive",
+                        "private",
+                        "use_sidepath",
+                        "yes"
+                    ],
+                    "type": "string"
+                },
+                "highway": {
+                    "enum": [
+                        "living_street"
+                    ],
+                    "type": "string"
+                },
+                "incline": {
+                    "anyOf": [
+                        {
+                            "enum": [
+                                "down",
+                                "up"
+                            ],
+                            "type": "string"
+                        },
+                        {
+                            "type": "number"
+                        }
+                    ],
+                    "description": "A field for the estimated incline over a particular path, i.e. slope, i.e. grade, i.e. rise over run. If derived from OpenStreetMap data, this is the maximum incline over the path. If derived from DEM data, it is more likely to be an underestimation. Positive values indicate an uphill climb while negative are downhill. For example, a 45 degree downhill value for incline would be -1.0. For steps, you can use \"up\" or \"down\" to indicate the direction of the climb.",
+                    "maximum": 1,
+                    "minimum": -1
+                },
+                "length": {
+                    "description": "A field for the length of an entity in meters. This field is always inferred from the geometry.",
+                    "maximum": 5000,
+                    "minimum": 0,
+                    "type": "number"
+                },
+                "name": {
+                    "description": "A field for a designated name for an entity. Example: an official name for a trail.",
+                    "type": "string"
+                },
+                "surface": {
+                    "description": "A field for the surface material of the path.",
+                    "enum": [
+                        "asphalt",
+                        "concrete",
+                        "dirt",
+                        "grass",
+                        "grass_paver",
+                        "gravel",
+                        "paved",
+                        "paving_stones",
+                        "unpaved"
+                    ],
+                    "type": "string"
+                },
+                "width": {
+                    "description": "A field for width of an entity in meters.",
+                    "maximum": 500,
+                    "minimum": 0,
+                    "type": "number"
+                }
+            },
+            "required": [
+                "_id",
+                "_u_id",
+                "_v_id",
+                "highway"
+            ],
+            "type": "object"
+        },
         "Manhole": {
             "additionalProperties": false,
             "description": "A manhole - a hole with a cover that allows access to an underground service location, just large enough for a human to climb through.",
@@ -2304,6 +2501,7 @@
             },
             "properties": {
                 "_id": {
+                    "minLength": 1,
                     "type": "string"
                 },
                 "man_made": {
@@ -2411,12 +2609,15 @@
             },
             "properties": {
                 "_id": {
+                    "minLength": 1,
                     "type": "string"
                 },
                 "_u_id": {
+                    "minLength": 1,
                     "type": "string"
                 },
                 "_v_id": {
+                    "minLength": 1,
                     "type": "string"
                 },
                 "description": {
@@ -2598,12 +2799,15 @@
             },
             "properties": {
                 "_id": {
+                    "minLength": 1,
                     "type": "string"
                 },
                 "_u_id": {
+                    "minLength": 1,
                     "type": "string"
                 },
                 "_v_id": {
+                    "minLength": 1,
                     "type": "string"
                 },
                 "description": {
@@ -2778,6 +2982,7 @@
             },
             "properties": {
                 "_id": {
+                    "minLength": 1,
                     "type": "string"
                 },
                 "_w_id": {
@@ -2928,6 +3133,7 @@
             },
             "properties": {
                 "_id": {
+                    "minLength": 1,
                     "type": "string"
                 },
                 "power": {
@@ -3035,12 +3241,15 @@
             },
             "properties": {
                 "_id": {
+                    "minLength": 1,
                     "type": "string"
                 },
                 "_u_id": {
+                    "minLength": 1,
                     "type": "string"
                 },
                 "_v_id": {
+                    "minLength": 1,
                     "type": "string"
                 },
                 "description": {
@@ -3215,6 +3424,7 @@
             },
             "properties": {
                 "_id": {
+                    "minLength": 1,
                     "type": "string"
                 },
                 "barrier": {
@@ -3341,12 +3551,15 @@
             },
             "properties": {
                 "_id": {
+                    "minLength": 1,
                     "type": "string"
                 },
                 "_u_id": {
+                    "minLength": 1,
                     "type": "string"
                 },
                 "_v_id": {
+                    "minLength": 1,
                     "type": "string"
                 },
                 "description": {
@@ -3521,6 +3734,7 @@
             },
             "properties": {
                 "_id": {
+                    "minLength": 1,
                     "type": "string"
                 },
                 "barrier": {
@@ -3647,12 +3861,15 @@
             },
             "properties": {
                 "_id": {
+                    "minLength": 1,
                     "type": "string"
                 },
                 "_u_id": {
+                    "minLength": 1,
                     "type": "string"
                 },
                 "_v_id": {
+                    "minLength": 1,
                     "type": "string"
                 },
                 "description": {
@@ -3827,12 +4044,15 @@
             },
             "properties": {
                 "_id": {
+                    "minLength": 1,
                     "type": "string"
                 },
                 "_u_id": {
+                    "minLength": 1,
                     "type": "string"
                 },
                 "_v_id": {
+                    "minLength": 1,
                     "type": "string"
                 },
                 "description": {
@@ -4007,12 +4227,15 @@
             },
             "properties": {
                 "_id": {
+                    "minLength": 1,
                     "type": "string"
                 },
                 "_u_id": {
+                    "minLength": 1,
                     "type": "string"
                 },
                 "_v_id": {
+                    "minLength": 1,
                     "type": "string"
                 },
                 "description": {
@@ -4194,12 +4417,15 @@
             },
             "properties": {
                 "_id": {
+                    "minLength": 1,
                     "type": "string"
                 },
                 "_u_id": {
+                    "minLength": 1,
                     "type": "string"
                 },
                 "_v_id": {
+                    "minLength": 1,
                     "type": "string"
                 },
                 "description": {
@@ -4380,6 +4606,7 @@
             },
             "properties": {
                 "_id": {
+                    "minLength": 1,
                     "type": "string"
                 },
                 "highway": {
@@ -4487,12 +4714,15 @@
             },
             "properties": {
                 "_id": {
+                    "minLength": 1,
                     "type": "string"
                 },
                 "_u_id": {
+                    "minLength": 1,
                     "type": "string"
                 },
                 "_v_id": {
+                    "minLength": 1,
                     "type": "string"
                 },
                 "description": {
@@ -4667,12 +4897,15 @@
             },
             "properties": {
                 "_id": {
+                    "minLength": 1,
                     "type": "string"
                 },
                 "_u_id": {
+                    "minLength": 1,
                     "type": "string"
                 },
                 "_v_id": {
+                    "minLength": 1,
                     "type": "string"
                 },
                 "description": {
@@ -4758,6 +4991,372 @@
                 "_u_id",
                 "_v_id",
                 "footway",
+                "highway"
+            ],
+            "type": "object"
+        },
+        "TrunkRoad": {
+            "additionalProperties": false,
+            "description": "A high-performance or high-importance roads that don't meet the requirements for motorway, but are not classified as highway=primary either.",
+            "properties": {
+                "bbox": {
+                    "anyOf": [
+                        {
+                            "items": [
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                }
+                            ],
+                            "maxItems": 4,
+                            "minItems": 4,
+                            "type": "array"
+                        },
+                        {
+                            "items": [
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                }
+                            ],
+                            "maxItems": 6,
+                            "minItems": 6,
+                            "type": "array"
+                        }
+                    ],
+                    "description": "Bounding box of the coordinate range of the object's Geometries, Features, or Feature Collections.\nThe value of the bbox member is an array of length 2*n where n is the number of dimensions\nrepresented in the contained geometries, with all axes of the most southwesterly point\nfollowed by all axes of the more northeasterly point.\nThe axes order of a bbox follows the axes order of geometries.\nhttps://tools.ietf.org/html/rfc7946#section-5"
+                },
+                "geometry": {
+                    "$ref": "https://sidewalks.uw.edu/opensidewalks/0.2/schema.json#/definitions/GeoJSON.LineString",
+                    "description": "The feature's geometry"
+                },
+                "id": {
+                    "description": "A value that uniquely identifies this feature in a\nhttps://tools.ietf.org/html/rfc7946#section-3.2.",
+                    "type": [
+                        "string",
+                        "number"
+                    ]
+                },
+                "properties": {
+                    "$ref": "https://sidewalks.uw.edu/opensidewalks/0.2/schema.json#/definitions/TrunkRoadFields",
+                    "description": "Properties associated with this feature."
+                },
+                "type": {
+                    "description": "Specifies the type of GeoJSON object.",
+                    "enum": [
+                        "Feature"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "geometry",
+                "properties",
+                "type"
+            ],
+            "type": "object"
+        },
+        "TrunkRoadFields": {
+            "additionalProperties": false,
+            "description": "Fields that apply to a trunk road.",
+            "patternProperties": {
+                "^ext:.*$": {
+                }
+            },
+            "properties": {
+                "_id": {
+                    "minLength": 1,
+                    "type": "string"
+                },
+                "_u_id": {
+                    "minLength": 1,
+                    "type": "string"
+                },
+                "_v_id": {
+                    "minLength": 1,
+                    "type": "string"
+                },
+                "description": {
+                    "description": "A free form text field for describing an entity. May be pre-encoded in relevant pedestrian paths to assist with routing instructing or investigation of map features. For example, a description of the sidewalk in relation to a nearby street may be a useful textual description, such as \"NE of Main St.\" Can also be considered a flexible location to embed arbitrary information for specific use cases.",
+                    "type": "string"
+                },
+                "foot": {
+                    "description": "A field that indicates whether an edge can be used by pedestrians.",
+                    "enum": [
+                        "designated",
+                        "destination",
+                        "no",
+                        "permissive",
+                        "private",
+                        "use_sidepath",
+                        "yes"
+                    ],
+                    "type": "string"
+                },
+                "highway": {
+                    "enum": [
+                        "trunk"
+                    ],
+                    "type": "string"
+                },
+                "incline": {
+                    "anyOf": [
+                        {
+                            "enum": [
+                                "down",
+                                "up"
+                            ],
+                            "type": "string"
+                        },
+                        {
+                            "type": "number"
+                        }
+                    ],
+                    "description": "A field for the estimated incline over a particular path, i.e. slope, i.e. grade, i.e. rise over run. If derived from OpenStreetMap data, this is the maximum incline over the path. If derived from DEM data, it is more likely to be an underestimation. Positive values indicate an uphill climb while negative are downhill. For example, a 45 degree downhill value for incline would be -1.0. For steps, you can use \"up\" or \"down\" to indicate the direction of the climb.",
+                    "maximum": 1,
+                    "minimum": -1
+                },
+                "length": {
+                    "description": "A field for the length of an entity in meters. This field is always inferred from the geometry.",
+                    "maximum": 5000,
+                    "minimum": 0,
+                    "type": "number"
+                },
+                "name": {
+                    "description": "A field for a designated name for an entity. Example: an official name for a trail.",
+                    "type": "string"
+                },
+                "surface": {
+                    "description": "A field for the surface material of the path.",
+                    "enum": [
+                        "asphalt",
+                        "concrete",
+                        "dirt",
+                        "grass",
+                        "grass_paver",
+                        "gravel",
+                        "paved",
+                        "paving_stones",
+                        "unpaved"
+                    ],
+                    "type": "string"
+                },
+                "width": {
+                    "description": "A field for width of an entity in meters.",
+                    "maximum": 500,
+                    "minimum": 0,
+                    "type": "number"
+                }
+            },
+            "required": [
+                "_id",
+                "_u_id",
+                "_v_id",
+                "highway"
+            ],
+            "type": "object"
+        },
+        "UnclassifiedRoad": {
+            "additionalProperties": false,
+            "description": "A minor public roads, typically at the lowest level of whatever administrative hierarchy is used in that jurisdiction.",
+            "properties": {
+                "bbox": {
+                    "anyOf": [
+                        {
+                            "items": [
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                }
+                            ],
+                            "maxItems": 4,
+                            "minItems": 4,
+                            "type": "array"
+                        },
+                        {
+                            "items": [
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                }
+                            ],
+                            "maxItems": 6,
+                            "minItems": 6,
+                            "type": "array"
+                        }
+                    ],
+                    "description": "Bounding box of the coordinate range of the object's Geometries, Features, or Feature Collections.\nThe value of the bbox member is an array of length 2*n where n is the number of dimensions\nrepresented in the contained geometries, with all axes of the most southwesterly point\nfollowed by all axes of the more northeasterly point.\nThe axes order of a bbox follows the axes order of geometries.\nhttps://tools.ietf.org/html/rfc7946#section-5"
+                },
+                "geometry": {
+                    "$ref": "https://sidewalks.uw.edu/opensidewalks/0.2/schema.json#/definitions/GeoJSON.LineString",
+                    "description": "The feature's geometry"
+                },
+                "id": {
+                    "description": "A value that uniquely identifies this feature in a\nhttps://tools.ietf.org/html/rfc7946#section-3.2.",
+                    "type": [
+                        "string",
+                        "number"
+                    ]
+                },
+                "properties": {
+                    "$ref": "https://sidewalks.uw.edu/opensidewalks/0.2/schema.json#/definitions/UnclassifiedRoadFields",
+                    "description": "Properties associated with this feature."
+                },
+                "type": {
+                    "description": "Specifies the type of GeoJSON object.",
+                    "enum": [
+                        "Feature"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "geometry",
+                "properties",
+                "type"
+            ],
+            "type": "object"
+        },
+        "UnclassifiedRoadFields": {
+            "additionalProperties": false,
+            "description": "Fields that apply to an unclassified road.",
+            "patternProperties": {
+                "^ext:.*$": {
+                }
+            },
+            "properties": {
+                "_id": {
+                    "minLength": 1,
+                    "type": "string"
+                },
+                "_u_id": {
+                    "minLength": 1,
+                    "type": "string"
+                },
+                "_v_id": {
+                    "minLength": 1,
+                    "type": "string"
+                },
+                "description": {
+                    "description": "A free form text field for describing an entity. May be pre-encoded in relevant pedestrian paths to assist with routing instructing or investigation of map features. For example, a description of the sidewalk in relation to a nearby street may be a useful textual description, such as \"NE of Main St.\" Can also be considered a flexible location to embed arbitrary information for specific use cases.",
+                    "type": "string"
+                },
+                "foot": {
+                    "description": "A field that indicates whether an edge can be used by pedestrians.",
+                    "enum": [
+                        "designated",
+                        "destination",
+                        "no",
+                        "permissive",
+                        "private",
+                        "use_sidepath",
+                        "yes"
+                    ],
+                    "type": "string"
+                },
+                "highway": {
+                    "enum": [
+                        "unclassified"
+                    ],
+                    "type": "string"
+                },
+                "incline": {
+                    "anyOf": [
+                        {
+                            "enum": [
+                                "down",
+                                "up"
+                            ],
+                            "type": "string"
+                        },
+                        {
+                            "type": "number"
+                        }
+                    ],
+                    "description": "A field for the estimated incline over a particular path, i.e. slope, i.e. grade, i.e. rise over run. If derived from OpenStreetMap data, this is the maximum incline over the path. If derived from DEM data, it is more likely to be an underestimation. Positive values indicate an uphill climb while negative are downhill. For example, a 45 degree downhill value for incline would be -1.0. For steps, you can use \"up\" or \"down\" to indicate the direction of the climb.",
+                    "maximum": 1,
+                    "minimum": -1
+                },
+                "length": {
+                    "description": "A field for the length of an entity in meters. This field is always inferred from the geometry.",
+                    "maximum": 5000,
+                    "minimum": 0,
+                    "type": "number"
+                },
+                "name": {
+                    "description": "A field for a designated name for an entity. Example: an official name for a trail.",
+                    "type": "string"
+                },
+                "surface": {
+                    "description": "A field for the surface material of the path.",
+                    "enum": [
+                        "asphalt",
+                        "concrete",
+                        "dirt",
+                        "grass",
+                        "grass_paver",
+                        "gravel",
+                        "paved",
+                        "paving_stones",
+                        "unpaved"
+                    ],
+                    "type": "string"
+                },
+                "width": {
+                    "description": "A field for width of an entity in meters.",
+                    "maximum": 500,
+                    "minimum": 0,
+                    "type": "number"
+                }
+            },
+            "required": [
+                "_id",
+                "_u_id",
+                "_v_id",
                 "highway"
             ],
             "type": "object"
@@ -4854,6 +5453,7 @@
             },
             "properties": {
                 "_id": {
+                    "minLength": 1,
                     "type": "string"
                 },
                 "barrier": {
@@ -4980,6 +5580,7 @@
             },
             "properties": {
                 "_id": {
+                    "minLength": 1,
                     "type": "string"
                 },
                 "amenity": {
@@ -5095,6 +5696,18 @@
                     {
                         "$ref": "https://sidewalks.uw.edu/opensidewalks/0.2/schema.json#/definitions/ParkingAisle",
                         "description": "The centerline of a subordinated way in a parking lot: vehicles drive on parking aisles to reach parking spaces in a parking lot."
+                    },
+                    {
+                        "$ref": "https://sidewalks.uw.edu/opensidewalks/0.2/schema.json#/definitions/TrunkRoad",
+                        "description": "A high-performance or high-importance roads that don't meet the requirements for motorway, but are not classified as highway=primary either."
+                    },
+                    {
+                        "$ref": "https://sidewalks.uw.edu/opensidewalks/0.2/schema.json#/definitions/UnclassifiedRoad",
+                        "description": "A minor public roads, typically at the lowest level of whatever administrative hierarchy is used in that jurisdiction."
+                    },
+                    {
+                        "$ref": "https://sidewalks.uw.edu/opensidewalks/0.2/schema.json#/definitions/LivingStreet",
+                        "description": "A street designed with the interests of pedestrians and cyclists in mind by providing enriching and experiential spaces."
                     },
                     {
                         "$ref": "https://sidewalks.uw.edu/opensidewalks/0.2/schema.json#/definitions/FireHydrant",

@@ -13,6 +13,9 @@ import { ServiceRoad } from "./roads/service-road";
 import { Alley } from "./roads/alley";
 import { Driveway } from "./roads/driveway";
 import { ParkingAisle } from "./roads/parking-aisle";
+import { TrunkRoad } from "./roads/trunk-road";
+import { UnclassifiedRoad } from "./roads/unclassified-road";
+import { LivingStreet } from "./living-street";
 
 export type Edge =
   | Crossing
@@ -28,4 +31,7 @@ export type Edge =
   | ServiceRoad
   | Alley
   | Driveway
-  | ParkingAisle;
+  | ParkingAisle
+  | TrunkRoad
+  | UnclassifiedRoad
+  | LivingStreet;

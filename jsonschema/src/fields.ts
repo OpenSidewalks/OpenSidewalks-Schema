@@ -1,8 +1,4 @@
 /**
- * A field for the type of street crossing - marked or unmarked. When derived from OpenStreetMap data, the crossing key undergoes various conversions due to fragmentation. Both the uncontrolled and zebra values are converted into marked and the traffic\_signals value is ignored.
- */
-export type Crossing = "marked" | "unmarked";
-/**
  * A field for markings on the ground which are meant to draw attention to the area where pedestrians are to cross the road.
  */
 export type CrossingMarkings =
