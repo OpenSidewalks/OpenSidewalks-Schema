@@ -1049,16 +1049,16 @@ i.e. rise over run. If derived from OpenStreetMap data, this is the
 maximum incline over the path. If derived from DEM data, it is more
 likely to be an underestimation. Positive values indicate an uphill
 climb while negative are downhill. For example, a 45 degree downhill
-value for incline would be -1.0. For steps, you can use "up" or "down"
-to indicate the direction of the climb.
+value for incline would be -1.0. For steps, you can use "up" or "down" 
+to indicate the direction of the climb relative to the direction of the edge.
 
 ###### *Value type*: numeric or enum
 
 ###### *Enumerated values*:
 
--   up: used when the direction of the steps points upward.
+-   up: when a way rises upward in the direction of the edge.
 
--   down: Used when the direction of the steps points downward.
+-   down: when a way rises upward against the direction of the edge.
 
 </details>
 <details>
