@@ -1,8 +1,9 @@
 {
-"$schema": "https://sidewalks.uw.edu/opensidewalks/0.2/schema.json", 
-"dataSource": "OpenStreetMap", 
+"$schema": "https://sidewalks.washington.edu/opensidewalks/0.2/schema.json", 
+"dataSource": {"name": "OpenStreetMap", "copyright": "https://www.openstreetmap.org/copyright", "license": "https://opendatacommons.org/licenses/odbl/1-0/"}, 
+"region": {"coordinates": [[[[-122.1369414, 47.6365011], [-122.1431969, 47.6365115], [-122.1431951, 47.6469514], [-122.1430782, 47.6495122], [-122.1429792, 47.6495373], [-122.1405534, 47.6496913], [-122.1342967, 47.6496869], [-122.1321999, 47.6496722], [-122.1321845, 47.6496558], [-122.1321535, 47.6482983], [-122.1321166, 47.6461809], [-122.1321064, 47.6451781], [-122.1321023, 47.6446787], [-122.1321018, 47.6423675], [-122.1321109, 47.6368204], [-122.1321117, 47.6366159], [-122.1336295, 47.6365148], [-122.1369414, 47.6365011]]]], "type": "MultiPolygon"}, 
 "dataTimestamp": "2023-08-08T20:22:00Z", 
-"pipelineVersion": "OSWDataPipeline-0.2-beta", 
+"pipelineVersion": {"name": "OSWDataPipeline", "version": "0.2-beta", "url": "https://github.com/TaskarCenterAtUW/OSWDataPipeline/tree/v0.2-beta"}, 
 "type": "FeatureCollection", 
 "features": [
 {"type": "Feature", "geometry": {"type": "Point", "coordinates": [-122.1450364, 47.6459538]}, "properties": {"_id": "2298864238"}}, 

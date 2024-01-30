@@ -13,7 +13,7 @@ const settings: TJS.PartialArgs = {
     required: true,
     noExtraProps: true,
     constAsEnum: true,
-    id: "https://sidewalks.uw.edu/opensidewalks/" + schemaVersion + "/schema.json"
+    id: "https://sidewalks.washington.edu/opensidewalks/" + schemaVersion + "/schema.json"
 };
 
 // pass ts compiler options to match old schema generation using command line

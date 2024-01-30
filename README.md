@@ -25,7 +25,6 @@
     * [Rolled curb](#-rolled-curb)
     * [Curb ramp](#-curb-ramp)
     * [Flush curb](#-flush-curb)
-    * [Unknown curb](#-unknown-curb)
   * [Edges](#-edges)
     * [Footway (plain)](#-footway-plain)
     * [Sidewalk](#-sidewalk)
@@ -60,6 +59,7 @@
   * [tactile_paving](#--tactile_paving)
   * [crossing:markings](#--crossingmarkings)
   * [step_count](#--step_count)
+  * [climb](#--climb)
   * [building](#--building)
   * [opening_hours](#--opening_hours)
   * [foot](#--foot)
@@ -150,7 +150,7 @@ inferred during graph creation.
 them as network (graph) edges. Currently, this means that they must have a list
 of node references: `_w_id`, which mean "this 2-dimensional polygon feature consists
 of a complete graph with every pair of distinct nodes in `_w_id` connected by a unique edge.
-Note that this would yield k(k-1)/2 edges for a zone comprised of k nodes.
+Note that this would yield $k(k-1)/2$ edges for a zone comprised of $k$ nodes.
 
 ### 2. Extensions
 Extensions are pedestrian network-adjacent entities which help describe the surrounding
@@ -281,16 +281,20 @@ In compliance with the RFC 7946 GeoJSON, a crs member will not be included in th
 
 Each file in the OpenSidewalks dataset will contain the following metadata fields:
 - `$schema` (string, required): this field specifies the [schema version](#schema-versions) which the dataset is compliant with and should be used for validation.
-- `dataSource` (string, optional): the data source which was used to generate the dataset. This can be OpenStreetMap or satellite imagery or a dataset provided by an agency or a combination of sources.
+- `dataSource` (object, optional): the data source which was used to generate the dataset. This can be OpenStreetMap or satellite imagery or a dataset provided by an agency or a combination of sources.
 - `region` (MultiPolygon, optional): a MultiPolygon capturing the geographical covered by the OpenSidewalks dataset.
 - `dataTimestamp` (date/time, optional): a date/time field stating the freshness of the data used in creating the OpenSidewalks dataset. For example, if satellite imagery was the basis for generating a dataset then the timestamp associated with these images can be used.
-- `pipelineVersion` (string, optional): the software and version of the software that was used to generated the dataset.
+- `pipelineVersion` (object, optional): the software and version of the software that was used to generated the dataset.
 
 The following is a sample snippet demonstrating the use of these metadata fields:
 ```json
 {
-   "$schema": "https://sidewalks.uw.edu/opensidewalks/0.2/schema.json",
-   "dataSource": "OpenStreetMap",
+   "$schema": "https://sidewalks.washington.edu/opensidewalks/0.2/schema.json",
+   "dataSource": {
+       "name": "OpenStreetMap",
+       "copyright": "https://www.openstreetmap.org/copyright",
+       "license": "https://opendatacommons.org/licenses/odbl/1-0/"
+   },
    "region": {
        "type": "MultiPolygon",
        "coordinates": [
@@ -306,7 +310,11 @@ The following is a sample snippet demonstrating the use of these metadata fields
        ]
    },
    "dataTimestamp": "2023-08-08T20:22:00Z",
-   "pipelineVersion": "OSWDataPipeline-0.1-beta"
+   "pipelineVersion": {
+       "name": "OSWDataPipeline",
+       "version": "0.2-beta",
+       "url": "https://github.com/TaskarCenterAtUW/OSWDataPipeline/tree/v0.2-beta"
+   }
 }
 ```
 
@@ -428,24 +436,6 @@ or `_w_id` fields.
 
 </details>
 
-<details>
-  <summary><h3><a name="node-unknown_curb"></a> Unknown curb</h3></summary>
-
-|   |
-|:- |
-| **Description**
-| A curb for which a type could not be determined despite some effort.
-| **Subtype of**
-| [Generic curb](#-generic-curb)
-| **Geometry**
-| Point
-| **Identifying fields**
-| `barrier=kerb`, `kerb=yes`
-| **Optional Fields**
-| All [optional fields of generic curb](#-generic-curb)
-
-</details>
-
 ## <a name="edges"></a> Edges
 
 Edges are lines (their serializable geometries are representable by
@@ -557,7 +547,7 @@ edges must have a unique `_id` field.
 | **Identifying fields**
 | `highway=steps`
 | **Optional Fields**
-| [width](#field-width)<br>[surface](#field-surface)<br>[incline](#field-incline)<br>[length](#field-length)<br>[description](#field-description)<br>[name](#field-name)<br>[step_count](#field-step_count)<br>[foot](#--foot)
+| [width](#field-width)<br>[surface](#field-surface)<br>[incline](#field-incline)<br>[length](#field-length)<br>[description](#field-description)<br>[name](#field-name)<br>[step_count](#field-step_count)<br>[climb](#field-climb)<br>[foot](#--foot)
 
 </details>
 
@@ -1052,13 +1042,7 @@ climb while negative are downhill. For example, a 45 degree downhill
 value for incline would be -1.0. For steps, you can use "up" or "down" 
 to indicate the direction of the climb relative to the direction of the edge.
 
-###### *Value type*: numeric or enum
-
-###### *Enumerated values*:
-
--   up: when a way rises upward in the direction of the edge.
-
--   down: when a way rises upward against the direction of the edge.
+###### *Value type*: numeric
 
 </details>
 <details>
@@ -1134,10 +1118,6 @@ A field for whether a curb has a tactile (textured) surface. Tactile paving is a
 -   contrasted: Where there is a tactile paving which contrast is at least 70% the colour of the ground (white if the ground is black and vice-versa).
 
 -   primitive: Where any water drain or decorative tactile element can be used for orientation accidentally, but no typical tactile ground elements are used.
-
--   incorrect: Where tactile paving is used but not in a sensible way, e.g. if the paving is symmetric for visual pleasure but on one of the sides it leads to nothing, or if only one sloped kerb at a crossing has tactile paving. It may be sensible if tactile paving leads to a building wall, because the way continues next to the wall and it can be used for orientation with a white cane.
-
--   partial
 
 </details>
 <details>
@@ -1216,6 +1196,22 @@ bars are actually made up of two very-close smaller bars.
 Can be added to indicate the number of steps
 
 ###### *Value type*: integer
+
+</details>
+<details>
+  <summary><h5> <a name="field-climb"></a> climb</h5></summary>
+
+*From OpenStreetMap*
+
+For steps, can be used to indicate the direction of the climb relative to the direction of the edge
+
+###### *Value type*: enum
+
+###### *Enumerated values*:
+
+-   up: when a way rises upward *in the direction* of the edge.
+
+-   down: when a way rises upward *against the direction* of the edge.
 
 </details>
 <details>
@@ -1394,4 +1390,4 @@ A field that indicates whether an edge can be used by pedestrians.
 | Version | Release Date | Link | Notes |
 | ------ | ------ | ------ | ------ |
 | 0.1 | 8/11/2023 | [GitHub](https://github.com/OpenSidewalks/OpenSidewalks-Schema/tree/32dad18bb303289f660fd8d26f02f5e301d0a9d1) | Minimal initial beta release of schema to unblock development of schema consuming applications |
-| 0.2 | TBD | [GitHub](https://github.com/OpenSidewalks/OpenSidewalks-Schema/tree/Audiom)| - Add required `_id` field to edges <br>- Update the documentation with regards to the [coordinate reference system](#coordinate-reference-system) <br>- Introduce the concept of [core entities](#1-core-entities) and [extensions](#2-extensions) <br>- Add [zones](#zones) to [core entities](#1-core-entities) <br>- Add [lines](#lines) and [polygons](#-polygons) to [extensions](#2-extensions) <br>- Add [schema versions](#schema-versions) and [OpenSidewalks dataset metadata](#opensidewalks-dataset-metadata) <br>- Add [pedestrian zone](#-pedestrian-zone) to [zones](#zones) <br>- Add [fence](#-fence) to [lines](#lines) <br>- Add [building](#-building) to [polygons](#-polygons) <br>- Add *additional fields* to [entity attributes](#entity-attributes) <br>- Add [motor vehicle roads](#-motor-vehicle-roads) to [edges](#-edges) with justification <br>- Deprecate climb in favor of [incline](#--incline) to maintain compatibility with OpenStreetMap <br>- Add [opening_hours](#--opening_hours) field and include it in [building](#-building) entity fields <br>- Add [generic curb](#-generic-curb) and [unknown curb](#-unknown-curb) entities to [nodes](#-nodes) <br>- Add [foot](#--foot) field to all [edges](#-edges) and [zones](#-zones) <br>- Change [entity type inference](#entity-type-inference) to include the *geometry type* in addition to the *identifying fields* <br>- Fix lossiness of [tactile_paving](#--tactile_paving) field<br>- Removed *crossing* field in favor of [crossing:markings](#--crossingmarkings) field<br>- Add [living street](#-living-street) to [edges](#-edges)<br>- Add *unclassified road* to [motor vehicle roads](#-motor-vehicle-roads)<br>- Add *trunk road* to [motor vehicle roads](#-motor-vehicle-roads)<br>- Require that the `_id` field for all entities has at least one character to ensure it is not left as an empty string    |        |
+| 0.2 | 1/30/2024 | [GitHub](https://github.com/OpenSidewalks/OpenSidewalks-Schema)| - Add required `_id` field to edges <br>- Update the documentation with regards to the [coordinate reference system](#coordinate-reference-system) <br>- Introduce the concept of [core entities](#1-core-entities) and [extensions](#2-extensions) <br>- Add [zones](#zones) to [core entities](#1-core-entities) <br>- Add [lines](#lines) and [polygons](#-polygons) to [extensions](#2-extensions) <br>- Add [schema versions](#schema-versions) and [OpenSidewalks dataset metadata](#opensidewalks-dataset-metadata) <br>- Add [pedestrian zone](#-pedestrian-zone) to [zones](#zones) <br>- Add [fence](#-fence) to [lines](#lines) <br>- Add [building](#-building) to [polygons](#-polygons) <br>- Add *additional fields* to [entity attributes](#entity-attributes) <br>- Add [motor vehicle roads](#-motor-vehicle-roads) to [edges](#-edges) with justification <br>- Added [climb](#--climb) field to [steps](#-steps) edge in addition to the existing [incline](#--incline) field to prevent mixed data types <br>- Add [opening_hours](#--opening_hours) field and include it in [building](#-building) entity fields <br>- Add [generic curb](#-generic-curb) entity to [nodes](#-nodes) <br>- Add [foot](#--foot) field to all [edges](#-edges) and [zones](#-zones) <br>- Change [entity type inference](#entity-type-inference) to include the *geometry type* in addition to the *identifying fields* <br>- Fix lossiness of [tactile_paving](#--tactile_paving) field<br>- Removed *crossing* field in favor of [crossing:markings](#--crossingmarkings) field<br>- Add [living street](#-living-street) to [edges](#-edges)<br>- Add *unclassified road* to [motor vehicle roads](#-motor-vehicle-roads)<br>- Add *trunk road* to [motor vehicle roads](#-motor-vehicle-roads)<br>- Require that the `_id` field for all entities has at least one character to ensure it is not left as an empty string    |        |

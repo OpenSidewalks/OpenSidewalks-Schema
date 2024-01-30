@@ -10,9 +10,9 @@ import { MultiPolygon } from "geojson";
 export interface OpenSidewalksFeatureCollection {
   type: "FeatureCollection";
   $schema: SchemaID;
-  dataSource?: string;
+  dataSource?: object;
   region?: MultiPolygon;
   dataTimestamp?: Date;
-  pipelineVersion?: string;
+  pipelineVersion?: object;
   features: (Point | Node | Edge | Zone | Line | Polygon)[];
 }

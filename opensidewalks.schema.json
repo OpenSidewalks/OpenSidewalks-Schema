@@ -1,5 +1,5 @@
 {
-    "$id": "https://sidewalks.uw.edu/opensidewalks/0.2/schema.json",
+    "$id": "https://sidewalks.washington.edu/opensidewalks/0.2/schema.json",
     "$schema": "http://json-schema.org/draft-07/schema#",
     "additionalProperties": false,
     "definitions": {
@@ -57,7 +57,7 @@
                     "description": "Bounding box of the coordinate range of the object's Geometries, Features, or Feature Collections.\nThe value of the bbox member is an array of length 2*n where n is the number of dimensions\nrepresented in the contained geometries, with all axes of the most southwesterly point\nfollowed by all axes of the more northeasterly point.\nThe axes order of a bbox follows the axes order of geometries.\nhttps://tools.ietf.org/html/rfc7946#section-5"
                 },
                 "geometry": {
-                    "$ref": "https://sidewalks.uw.edu/opensidewalks/0.2/schema.json#/definitions/GeoJSON.LineString",
+                    "$ref": "https://sidewalks.washington.edu/opensidewalks/0.2/schema.json#/definitions/GeoJSON.LineString",
                     "description": "The feature's geometry"
                 },
                 "id": {
@@ -68,7 +68,7 @@
                     ]
                 },
                 "properties": {
-                    "$ref": "https://sidewalks.uw.edu/opensidewalks/0.2/schema.json#/definitions/AlleyFields",
+                    "$ref": "https://sidewalks.washington.edu/opensidewalks/0.2/schema.json#/definitions/AlleyFields",
                     "description": "Properties associated with this feature."
                 },
                 "type": {
@@ -130,21 +130,10 @@
                     "type": "string"
                 },
                 "incline": {
-                    "anyOf": [
-                        {
-                            "enum": [
-                                "down",
-                                "up"
-                            ],
-                            "type": "string"
-                        },
-                        {
-                            "type": "number"
-                        }
-                    ],
-                    "description": "A field for the estimated incline over a particular path, i.e. slope, i.e. grade, i.e. rise over run. If derived from OpenStreetMap data, this is the maximum incline over the path. If derived from DEM data, it is more likely to be an underestimation. Positive values indicate an uphill climb while negative are downhill. For example, a 45 degree downhill value for incline would be -1.0. For steps, you can use \"up\" or \"down\" to indicate the direction of the climb.",
+                    "description": "A field for the estimated incline over a particular path, i.e. slope, i.e. grade, i.e. rise over run. If derived from OpenStreetMap data, this is the maximum incline over the path. If derived from DEM data, it is more likely to be an underestimation. Positive values indicate an uphill climb while negative are downhill. For example, a 45 degree downhill value for incline would be -1.0.",
                     "maximum": 1,
-                    "minimum": -1
+                    "minimum": -1,
+                    "type": "number"
                 },
                 "length": {
                     "description": "A field for the length of an entity in meters. This field is always inferred from the geometry.",
@@ -247,7 +236,7 @@
                     "description": "Bounding box of the coordinate range of the object's Geometries, Features, or Feature Collections.\nThe value of the bbox member is an array of length 2*n where n is the number of dimensions\nrepresented in the contained geometries, with all axes of the most southwesterly point\nfollowed by all axes of the more northeasterly point.\nThe axes order of a bbox follows the axes order of geometries.\nhttps://tools.ietf.org/html/rfc7946#section-5"
                 },
                 "geometry": {
-                    "$ref": "https://sidewalks.uw.edu/opensidewalks/0.2/schema.json#/definitions/GeoJSON.Point",
+                    "$ref": "https://sidewalks.washington.edu/opensidewalks/0.2/schema.json#/definitions/GeoJSON.Point",
                     "description": "The feature's geometry"
                 },
                 "id": {
@@ -258,7 +247,7 @@
                     ]
                 },
                 "properties": {
-                    "$ref": "https://sidewalks.uw.edu/opensidewalks/0.2/schema.json#/definitions/BareNodeFields",
+                    "$ref": "https://sidewalks.washington.edu/opensidewalks/0.2/schema.json#/definitions/BareNodeFields",
                     "description": "Properties associated with this feature."
                 },
                 "type": {
@@ -348,7 +337,7 @@
                     "description": "Bounding box of the coordinate range of the object's Geometries, Features, or Feature Collections.\nThe value of the bbox member is an array of length 2*n where n is the number of dimensions\nrepresented in the contained geometries, with all axes of the most southwesterly point\nfollowed by all axes of the more northeasterly point.\nThe axes order of a bbox follows the axes order of geometries.\nhttps://tools.ietf.org/html/rfc7946#section-5"
                 },
                 "geometry": {
-                    "$ref": "https://sidewalks.uw.edu/opensidewalks/0.2/schema.json#/definitions/GeoJSON.Point",
+                    "$ref": "https://sidewalks.washington.edu/opensidewalks/0.2/schema.json#/definitions/GeoJSON.Point",
                     "description": "The feature's geometry"
                 },
                 "id": {
@@ -359,7 +348,7 @@
                     ]
                 },
                 "properties": {
-                    "$ref": "https://sidewalks.uw.edu/opensidewalks/0.2/schema.json#/definitions/BenchFields",
+                    "$ref": "https://sidewalks.washington.edu/opensidewalks/0.2/schema.json#/definitions/BenchFields",
                     "description": "Properties associated with this feature."
                 },
                 "type": {
@@ -456,7 +445,7 @@
                     "description": "Bounding box of the coordinate range of the object's Geometries, Features, or Feature Collections.\nThe value of the bbox member is an array of length 2*n where n is the number of dimensions\nrepresented in the contained geometries, with all axes of the most southwesterly point\nfollowed by all axes of the more northeasterly point.\nThe axes order of a bbox follows the axes order of geometries.\nhttps://tools.ietf.org/html/rfc7946#section-5"
                 },
                 "geometry": {
-                    "$ref": "https://sidewalks.uw.edu/opensidewalks/0.2/schema.json#/definitions/GeoJSON.Point",
+                    "$ref": "https://sidewalks.washington.edu/opensidewalks/0.2/schema.json#/definitions/GeoJSON.Point",
                     "description": "The feature's geometry"
                 },
                 "id": {
@@ -467,7 +456,7 @@
                     ]
                 },
                 "properties": {
-                    "$ref": "https://sidewalks.uw.edu/opensidewalks/0.2/schema.json#/definitions/BollardFields",
+                    "$ref": "https://sidewalks.washington.edu/opensidewalks/0.2/schema.json#/definitions/BollardFields",
                     "description": "Properties associated with this feature."
                 },
                 "type": {
@@ -564,7 +553,7 @@
                     "description": "Bounding box of the coordinate range of the object's Geometries, Features, or Feature Collections.\nThe value of the bbox member is an array of length 2*n where n is the number of dimensions\nrepresented in the contained geometries, with all axes of the most southwesterly point\nfollowed by all axes of the more northeasterly point.\nThe axes order of a bbox follows the axes order of geometries.\nhttps://tools.ietf.org/html/rfc7946#section-5"
                 },
                 "geometry": {
-                    "$ref": "https://sidewalks.uw.edu/opensidewalks/0.2/schema.json#/definitions/GeoJSON.Polygon",
+                    "$ref": "https://sidewalks.washington.edu/opensidewalks/0.2/schema.json#/definitions/GeoJSON.Polygon",
                     "description": "The feature's geometry"
                 },
                 "id": {
@@ -575,7 +564,7 @@
                     ]
                 },
                 "properties": {
-                    "$ref": "https://sidewalks.uw.edu/opensidewalks/0.2/schema.json#/definitions/BuildingFields",
+                    "$ref": "https://sidewalks.washington.edu/opensidewalks/0.2/schema.json#/definitions/BuildingFields",
                     "description": "Properties associated with this feature."
                 },
                 "type": {
@@ -711,7 +700,7 @@
                     "type": "string"
                 },
                 "building": {
-                    "$ref": "https://sidewalks.uw.edu/opensidewalks/0.2/schema.json#/definitions/BuildingField"
+                    "$ref": "https://sidewalks.washington.edu/opensidewalks/0.2/schema.json#/definitions/BuildingField"
                 },
                 "name": {
                     "description": "A field for a designated name for an entity. Example: an official name for a trail.",
@@ -782,7 +771,7 @@
                     "description": "Bounding box of the coordinate range of the object's Geometries, Features, or Feature Collections.\nThe value of the bbox member is an array of length 2*n where n is the number of dimensions\nrepresented in the contained geometries, with all axes of the most southwesterly point\nfollowed by all axes of the more northeasterly point.\nThe axes order of a bbox follows the axes order of geometries.\nhttps://tools.ietf.org/html/rfc7946#section-5"
                 },
                 "geometry": {
-                    "$ref": "https://sidewalks.uw.edu/opensidewalks/0.2/schema.json#/definitions/GeoJSON.LineString",
+                    "$ref": "https://sidewalks.washington.edu/opensidewalks/0.2/schema.json#/definitions/GeoJSON.LineString",
                     "description": "The feature's geometry"
                 },
                 "id": {
@@ -793,7 +782,7 @@
                     ]
                 },
                 "properties": {
-                    "$ref": "https://sidewalks.uw.edu/opensidewalks/0.2/schema.json#/definitions/CrossingFields",
+                    "$ref": "https://sidewalks.washington.edu/opensidewalks/0.2/schema.json#/definitions/CrossingFields",
                     "description": "Properties associated with this feature."
                 },
                 "type": {
@@ -886,21 +875,10 @@
                     "type": "string"
                 },
                 "incline": {
-                    "anyOf": [
-                        {
-                            "enum": [
-                                "down",
-                                "up"
-                            ],
-                            "type": "string"
-                        },
-                        {
-                            "type": "number"
-                        }
-                    ],
-                    "description": "A field for the estimated incline over a particular path, i.e. slope, i.e. grade, i.e. rise over run. If derived from OpenStreetMap data, this is the maximum incline over the path. If derived from DEM data, it is more likely to be an underestimation. Positive values indicate an uphill climb while negative are downhill. For example, a 45 degree downhill value for incline would be -1.0. For steps, you can use \"up\" or \"down\" to indicate the direction of the climb.",
+                    "description": "A field for the estimated incline over a particular path, i.e. slope, i.e. grade, i.e. rise over run. If derived from OpenStreetMap data, this is the maximum incline over the path. If derived from DEM data, it is more likely to be an underestimation. Positive values indicate an uphill climb while negative are downhill. For example, a 45 degree downhill value for incline would be -1.0.",
                     "maximum": 1,
-                    "minimum": -1
+                    "minimum": -1,
+                    "type": "number"
                 },
                 "length": {
                     "description": "A field for the length of an entity in meters. This field is always inferred from the geometry.",
@@ -997,7 +975,7 @@
                     "description": "Bounding box of the coordinate range of the object's Geometries, Features, or Feature Collections.\nThe value of the bbox member is an array of length 2*n where n is the number of dimensions\nrepresented in the contained geometries, with all axes of the most southwesterly point\nfollowed by all axes of the more northeasterly point.\nThe axes order of a bbox follows the axes order of geometries.\nhttps://tools.ietf.org/html/rfc7946#section-5"
                 },
                 "geometry": {
-                    "$ref": "https://sidewalks.uw.edu/opensidewalks/0.2/schema.json#/definitions/GeoJSON.Point",
+                    "$ref": "https://sidewalks.washington.edu/opensidewalks/0.2/schema.json#/definitions/GeoJSON.Point",
                     "description": "The feature's geometry"
                 },
                 "id": {
@@ -1008,7 +986,7 @@
                     ]
                 },
                 "properties": {
-                    "$ref": "https://sidewalks.uw.edu/opensidewalks/0.2/schema.json#/definitions/CurbRampFields",
+                    "$ref": "https://sidewalks.washington.edu/opensidewalks/0.2/schema.json#/definitions/CurbRampFields",
                     "description": "Properties associated with this feature."
                 },
                 "type": {
@@ -1054,9 +1032,7 @@
                     "description": "A field for whether a curb has a tactile (textured) surface. Tactile paving is a system of textured ground surface indicators found on footpaths, stairs and public transportation platforms to assist pedestrians who are blind or visually impaired. A tactile paving area has a surface that is easy to detect using a long cane, typically because it is rougher than the surrounding surface area or has an embossed pattern.",
                     "enum": [
                         "contrasted",
-                        "incorrect",
                         "no",
-                        "partial",
                         "primitive",
                         "yes"
                     ],
@@ -1124,7 +1100,7 @@
                     "description": "Bounding box of the coordinate range of the object's Geometries, Features, or Feature Collections.\nThe value of the bbox member is an array of length 2*n where n is the number of dimensions\nrepresented in the contained geometries, with all axes of the most southwesterly point\nfollowed by all axes of the more northeasterly point.\nThe axes order of a bbox follows the axes order of geometries.\nhttps://tools.ietf.org/html/rfc7946#section-5"
                 },
                 "geometry": {
-                    "$ref": "https://sidewalks.uw.edu/opensidewalks/0.2/schema.json#/definitions/GeoJSON.LineString",
+                    "$ref": "https://sidewalks.washington.edu/opensidewalks/0.2/schema.json#/definitions/GeoJSON.LineString",
                     "description": "The feature's geometry"
                 },
                 "id": {
@@ -1135,7 +1111,7 @@
                     ]
                 },
                 "properties": {
-                    "$ref": "https://sidewalks.uw.edu/opensidewalks/0.2/schema.json#/definitions/DrivewayFields",
+                    "$ref": "https://sidewalks.washington.edu/opensidewalks/0.2/schema.json#/definitions/DrivewayFields",
                     "description": "Properties associated with this feature."
                 },
                 "type": {
@@ -1197,21 +1173,10 @@
                     "type": "string"
                 },
                 "incline": {
-                    "anyOf": [
-                        {
-                            "enum": [
-                                "down",
-                                "up"
-                            ],
-                            "type": "string"
-                        },
-                        {
-                            "type": "number"
-                        }
-                    ],
-                    "description": "A field for the estimated incline over a particular path, i.e. slope, i.e. grade, i.e. rise over run. If derived from OpenStreetMap data, this is the maximum incline over the path. If derived from DEM data, it is more likely to be an underestimation. Positive values indicate an uphill climb while negative are downhill. For example, a 45 degree downhill value for incline would be -1.0. For steps, you can use \"up\" or \"down\" to indicate the direction of the climb.",
+                    "description": "A field for the estimated incline over a particular path, i.e. slope, i.e. grade, i.e. rise over run. If derived from OpenStreetMap data, this is the maximum incline over the path. If derived from DEM data, it is more likely to be an underestimation. Positive values indicate an uphill climb while negative are downhill. For example, a 45 degree downhill value for incline would be -1.0.",
                     "maximum": 1,
-                    "minimum": -1
+                    "minimum": -1,
+                    "type": "number"
                 },
                 "length": {
                     "description": "A field for the length of an entity in meters. This field is always inferred from the geometry.",
@@ -1314,7 +1279,7 @@
                     "description": "Bounding box of the coordinate range of the object's Geometries, Features, or Feature Collections.\nThe value of the bbox member is an array of length 2*n where n is the number of dimensions\nrepresented in the contained geometries, with all axes of the most southwesterly point\nfollowed by all axes of the more northeasterly point.\nThe axes order of a bbox follows the axes order of geometries.\nhttps://tools.ietf.org/html/rfc7946#section-5"
                 },
                 "geometry": {
-                    "$ref": "https://sidewalks.uw.edu/opensidewalks/0.2/schema.json#/definitions/GeoJSON.LineString",
+                    "$ref": "https://sidewalks.washington.edu/opensidewalks/0.2/schema.json#/definitions/GeoJSON.LineString",
                     "description": "The feature's geometry"
                 },
                 "id": {
@@ -1325,7 +1290,7 @@
                     ]
                 },
                 "properties": {
-                    "$ref": "https://sidewalks.uw.edu/opensidewalks/0.2/schema.json#/definitions/FenceFields",
+                    "$ref": "https://sidewalks.washington.edu/opensidewalks/0.2/schema.json#/definitions/FenceFields",
                     "description": "Properties associated with this feature."
                 },
                 "type": {
@@ -1428,7 +1393,7 @@
                     "description": "Bounding box of the coordinate range of the object's Geometries, Features, or Feature Collections.\nThe value of the bbox member is an array of length 2*n where n is the number of dimensions\nrepresented in the contained geometries, with all axes of the most southwesterly point\nfollowed by all axes of the more northeasterly point.\nThe axes order of a bbox follows the axes order of geometries.\nhttps://tools.ietf.org/html/rfc7946#section-5"
                 },
                 "geometry": {
-                    "$ref": "https://sidewalks.uw.edu/opensidewalks/0.2/schema.json#/definitions/GeoJSON.Point",
+                    "$ref": "https://sidewalks.washington.edu/opensidewalks/0.2/schema.json#/definitions/GeoJSON.Point",
                     "description": "The feature's geometry"
                 },
                 "id": {
@@ -1439,7 +1404,7 @@
                     ]
                 },
                 "properties": {
-                    "$ref": "https://sidewalks.uw.edu/opensidewalks/0.2/schema.json#/definitions/FireHydrantFields",
+                    "$ref": "https://sidewalks.washington.edu/opensidewalks/0.2/schema.json#/definitions/FireHydrantFields",
                     "description": "Properties associated with this feature."
                 },
                 "type": {
@@ -1536,7 +1501,7 @@
                     "description": "Bounding box of the coordinate range of the object's Geometries, Features, or Feature Collections.\nThe value of the bbox member is an array of length 2*n where n is the number of dimensions\nrepresented in the contained geometries, with all axes of the most southwesterly point\nfollowed by all axes of the more northeasterly point.\nThe axes order of a bbox follows the axes order of geometries.\nhttps://tools.ietf.org/html/rfc7946#section-5"
                 },
                 "geometry": {
-                    "$ref": "https://sidewalks.uw.edu/opensidewalks/0.2/schema.json#/definitions/GeoJSON.Point",
+                    "$ref": "https://sidewalks.washington.edu/opensidewalks/0.2/schema.json#/definitions/GeoJSON.Point",
                     "description": "The feature's geometry"
                 },
                 "id": {
@@ -1547,7 +1512,7 @@
                     ]
                 },
                 "properties": {
-                    "$ref": "https://sidewalks.uw.edu/opensidewalks/0.2/schema.json#/definitions/FlushCurbFields",
+                    "$ref": "https://sidewalks.washington.edu/opensidewalks/0.2/schema.json#/definitions/FlushCurbFields",
                     "description": "Properties associated with this feature."
                 },
                 "type": {
@@ -1593,9 +1558,7 @@
                     "description": "A field for whether a curb has a tactile (textured) surface. Tactile paving is a system of textured ground surface indicators found on footpaths, stairs and public transportation platforms to assist pedestrians who are blind or visually impaired. A tactile paving area has a surface that is easy to detect using a long cane, typically because it is rougher than the surrounding surface area or has an embossed pattern.",
                     "enum": [
                         "contrasted",
-                        "incorrect",
                         "no",
-                        "partial",
                         "primitive",
                         "yes"
                     ],
@@ -1663,7 +1626,7 @@
                     "description": "Bounding box of the coordinate range of the object's Geometries, Features, or Feature Collections.\nThe value of the bbox member is an array of length 2*n where n is the number of dimensions\nrepresented in the contained geometries, with all axes of the most southwesterly point\nfollowed by all axes of the more northeasterly point.\nThe axes order of a bbox follows the axes order of geometries.\nhttps://tools.ietf.org/html/rfc7946#section-5"
                 },
                 "geometry": {
-                    "$ref": "https://sidewalks.uw.edu/opensidewalks/0.2/schema.json#/definitions/GeoJSON.LineString",
+                    "$ref": "https://sidewalks.washington.edu/opensidewalks/0.2/schema.json#/definitions/GeoJSON.LineString",
                     "description": "The feature's geometry"
                 },
                 "id": {
@@ -1674,7 +1637,7 @@
                     ]
                 },
                 "properties": {
-                    "$ref": "https://sidewalks.uw.edu/opensidewalks/0.2/schema.json#/definitions/FootwayFields",
+                    "$ref": "https://sidewalks.washington.edu/opensidewalks/0.2/schema.json#/definitions/FootwayFields",
                     "description": "Properties associated with this feature."
                 },
                 "type": {
@@ -1736,21 +1699,10 @@
                     "type": "string"
                 },
                 "incline": {
-                    "anyOf": [
-                        {
-                            "enum": [
-                                "down",
-                                "up"
-                            ],
-                            "type": "string"
-                        },
-                        {
-                            "type": "number"
-                        }
-                    ],
-                    "description": "A field for the estimated incline over a particular path, i.e. slope, i.e. grade, i.e. rise over run. If derived from OpenStreetMap data, this is the maximum incline over the path. If derived from DEM data, it is more likely to be an underestimation. Positive values indicate an uphill climb while negative are downhill. For example, a 45 degree downhill value for incline would be -1.0. For steps, you can use \"up\" or \"down\" to indicate the direction of the climb.",
+                    "description": "A field for the estimated incline over a particular path, i.e. slope, i.e. grade, i.e. rise over run. If derived from OpenStreetMap data, this is the maximum incline over the path. If derived from DEM data, it is more likely to be an underestimation. Positive values indicate an uphill climb while negative are downhill. For example, a 45 degree downhill value for incline would be -1.0.",
                     "maximum": 1,
-                    "minimum": -1
+                    "minimum": -1,
+                    "type": "number"
                 },
                 "length": {
                     "description": "A field for the length of an entity in meters. This field is always inferred from the geometry.",
@@ -1794,7 +1746,7 @@
         },
         "GenericCurb": {
             "additionalProperties": false,
-            "description": "A curb for which a type has not been determined yet.",
+            "description": "A curb for which a type has not been determined yet or a type could not be determined despite some effort.",
             "properties": {
                 "bbox": {
                     "anyOf": [
@@ -1846,7 +1798,7 @@
                     "description": "Bounding box of the coordinate range of the object's Geometries, Features, or Feature Collections.\nThe value of the bbox member is an array of length 2*n where n is the number of dimensions\nrepresented in the contained geometries, with all axes of the most southwesterly point\nfollowed by all axes of the more northeasterly point.\nThe axes order of a bbox follows the axes order of geometries.\nhttps://tools.ietf.org/html/rfc7946#section-5"
                 },
                 "geometry": {
-                    "$ref": "https://sidewalks.uw.edu/opensidewalks/0.2/schema.json#/definitions/GeoJSON.Point",
+                    "$ref": "https://sidewalks.washington.edu/opensidewalks/0.2/schema.json#/definitions/GeoJSON.Point",
                     "description": "The feature's geometry"
                 },
                 "id": {
@@ -1857,7 +1809,7 @@
                     ]
                 },
                 "properties": {
-                    "$ref": "https://sidewalks.uw.edu/opensidewalks/0.2/schema.json#/definitions/GenericCurbFields",
+                    "$ref": "https://sidewalks.washington.edu/opensidewalks/0.2/schema.json#/definitions/GenericCurbFields",
                     "description": "Properties associated with this feature."
                 },
                 "type": {
@@ -1897,9 +1849,7 @@
                     "description": "A field for whether a curb has a tactile (textured) surface. Tactile paving is a system of textured ground surface indicators found on footpaths, stairs and public transportation platforms to assist pedestrians who are blind or visually impaired. A tactile paving area has a surface that is easy to detect using a long cane, typically because it is rougher than the surrounding surface area or has an embossed pattern.",
                     "enum": [
                         "contrasted",
-                        "incorrect",
                         "no",
-                        "partial",
                         "primitive",
                         "yes"
                     ],
@@ -2280,7 +2230,7 @@
                     "description": "Bounding box of the coordinate range of the object's Geometries, Features, or Feature Collections.\nThe value of the bbox member is an array of length 2*n where n is the number of dimensions\nrepresented in the contained geometries, with all axes of the most southwesterly point\nfollowed by all axes of the more northeasterly point.\nThe axes order of a bbox follows the axes order of geometries.\nhttps://tools.ietf.org/html/rfc7946#section-5"
                 },
                 "geometry": {
-                    "$ref": "https://sidewalks.uw.edu/opensidewalks/0.2/schema.json#/definitions/GeoJSON.LineString",
+                    "$ref": "https://sidewalks.washington.edu/opensidewalks/0.2/schema.json#/definitions/GeoJSON.LineString",
                     "description": "The feature's geometry"
                 },
                 "id": {
@@ -2291,7 +2241,7 @@
                     ]
                 },
                 "properties": {
-                    "$ref": "https://sidewalks.uw.edu/opensidewalks/0.2/schema.json#/definitions/LivingStreetFields",
+                    "$ref": "https://sidewalks.washington.edu/opensidewalks/0.2/schema.json#/definitions/LivingStreetFields",
                     "description": "Properties associated with this feature."
                 },
                 "type": {
@@ -2353,21 +2303,10 @@
                     "type": "string"
                 },
                 "incline": {
-                    "anyOf": [
-                        {
-                            "enum": [
-                                "down",
-                                "up"
-                            ],
-                            "type": "string"
-                        },
-                        {
-                            "type": "number"
-                        }
-                    ],
-                    "description": "A field for the estimated incline over a particular path, i.e. slope, i.e. grade, i.e. rise over run. If derived from OpenStreetMap data, this is the maximum incline over the path. If derived from DEM data, it is more likely to be an underestimation. Positive values indicate an uphill climb while negative are downhill. For example, a 45 degree downhill value for incline would be -1.0. For steps, you can use \"up\" or \"down\" to indicate the direction of the climb.",
+                    "description": "A field for the estimated incline over a particular path, i.e. slope, i.e. grade, i.e. rise over run. If derived from OpenStreetMap data, this is the maximum incline over the path. If derived from DEM data, it is more likely to be an underestimation. Positive values indicate an uphill climb while negative are downhill. For example, a 45 degree downhill value for incline would be -1.0.",
                     "maximum": 1,
-                    "minimum": -1
+                    "minimum": -1,
+                    "type": "number"
                 },
                 "length": {
                     "description": "A field for the length of an entity in meters. This field is always inferred from the geometry.",
@@ -2463,7 +2402,7 @@
                     "description": "Bounding box of the coordinate range of the object's Geometries, Features, or Feature Collections.\nThe value of the bbox member is an array of length 2*n where n is the number of dimensions\nrepresented in the contained geometries, with all axes of the most southwesterly point\nfollowed by all axes of the more northeasterly point.\nThe axes order of a bbox follows the axes order of geometries.\nhttps://tools.ietf.org/html/rfc7946#section-5"
                 },
                 "geometry": {
-                    "$ref": "https://sidewalks.uw.edu/opensidewalks/0.2/schema.json#/definitions/GeoJSON.Point",
+                    "$ref": "https://sidewalks.washington.edu/opensidewalks/0.2/schema.json#/definitions/GeoJSON.Point",
                     "description": "The feature's geometry"
                 },
                 "id": {
@@ -2474,7 +2413,7 @@
                     ]
                 },
                 "properties": {
-                    "$ref": "https://sidewalks.uw.edu/opensidewalks/0.2/schema.json#/definitions/ManholeFields",
+                    "$ref": "https://sidewalks.washington.edu/opensidewalks/0.2/schema.json#/definitions/ManholeFields",
                     "description": "Properties associated with this feature."
                 },
                 "type": {
@@ -2571,7 +2510,7 @@
                     "description": "Bounding box of the coordinate range of the object's Geometries, Features, or Feature Collections.\nThe value of the bbox member is an array of length 2*n where n is the number of dimensions\nrepresented in the contained geometries, with all axes of the most southwesterly point\nfollowed by all axes of the more northeasterly point.\nThe axes order of a bbox follows the axes order of geometries.\nhttps://tools.ietf.org/html/rfc7946#section-5"
                 },
                 "geometry": {
-                    "$ref": "https://sidewalks.uw.edu/opensidewalks/0.2/schema.json#/definitions/GeoJSON.LineString",
+                    "$ref": "https://sidewalks.washington.edu/opensidewalks/0.2/schema.json#/definitions/GeoJSON.LineString",
                     "description": "The feature's geometry"
                 },
                 "id": {
@@ -2582,7 +2521,7 @@
                     ]
                 },
                 "properties": {
-                    "$ref": "https://sidewalks.uw.edu/opensidewalks/0.2/schema.json#/definitions/ParkingAisleFields",
+                    "$ref": "https://sidewalks.washington.edu/opensidewalks/0.2/schema.json#/definitions/ParkingAisleFields",
                     "description": "Properties associated with this feature."
                 },
                 "type": {
@@ -2644,21 +2583,10 @@
                     "type": "string"
                 },
                 "incline": {
-                    "anyOf": [
-                        {
-                            "enum": [
-                                "down",
-                                "up"
-                            ],
-                            "type": "string"
-                        },
-                        {
-                            "type": "number"
-                        }
-                    ],
-                    "description": "A field for the estimated incline over a particular path, i.e. slope, i.e. grade, i.e. rise over run. If derived from OpenStreetMap data, this is the maximum incline over the path. If derived from DEM data, it is more likely to be an underestimation. Positive values indicate an uphill climb while negative are downhill. For example, a 45 degree downhill value for incline would be -1.0. For steps, you can use \"up\" or \"down\" to indicate the direction of the climb.",
+                    "description": "A field for the estimated incline over a particular path, i.e. slope, i.e. grade, i.e. rise over run. If derived from OpenStreetMap data, this is the maximum incline over the path. If derived from DEM data, it is more likely to be an underestimation. Positive values indicate an uphill climb while negative are downhill. For example, a 45 degree downhill value for incline would be -1.0.",
                     "maximum": 1,
-                    "minimum": -1
+                    "minimum": -1,
+                    "type": "number"
                 },
                 "length": {
                     "description": "A field for the length of an entity in meters. This field is always inferred from the geometry.",
@@ -2761,7 +2689,7 @@
                     "description": "Bounding box of the coordinate range of the object's Geometries, Features, or Feature Collections.\nThe value of the bbox member is an array of length 2*n where n is the number of dimensions\nrepresented in the contained geometries, with all axes of the most southwesterly point\nfollowed by all axes of the more northeasterly point.\nThe axes order of a bbox follows the axes order of geometries.\nhttps://tools.ietf.org/html/rfc7946#section-5"
                 },
                 "geometry": {
-                    "$ref": "https://sidewalks.uw.edu/opensidewalks/0.2/schema.json#/definitions/GeoJSON.LineString",
+                    "$ref": "https://sidewalks.washington.edu/opensidewalks/0.2/schema.json#/definitions/GeoJSON.LineString",
                     "description": "The feature's geometry"
                 },
                 "id": {
@@ -2772,7 +2700,7 @@
                     ]
                 },
                 "properties": {
-                    "$ref": "https://sidewalks.uw.edu/opensidewalks/0.2/schema.json#/definitions/PedestrianFields",
+                    "$ref": "https://sidewalks.washington.edu/opensidewalks/0.2/schema.json#/definitions/PedestrianFields",
                     "description": "Properties associated with this feature."
                 },
                 "type": {
@@ -2834,21 +2762,10 @@
                     "type": "string"
                 },
                 "incline": {
-                    "anyOf": [
-                        {
-                            "enum": [
-                                "down",
-                                "up"
-                            ],
-                            "type": "string"
-                        },
-                        {
-                            "type": "number"
-                        }
-                    ],
-                    "description": "A field for the estimated incline over a particular path, i.e. slope, i.e. grade, i.e. rise over run. If derived from OpenStreetMap data, this is the maximum incline over the path. If derived from DEM data, it is more likely to be an underestimation. Positive values indicate an uphill climb while negative are downhill. For example, a 45 degree downhill value for incline would be -1.0. For steps, you can use \"up\" or \"down\" to indicate the direction of the climb.",
+                    "description": "A field for the estimated incline over a particular path, i.e. slope, i.e. grade, i.e. rise over run. If derived from OpenStreetMap data, this is the maximum incline over the path. If derived from DEM data, it is more likely to be an underestimation. Positive values indicate an uphill climb while negative are downhill. For example, a 45 degree downhill value for incline would be -1.0.",
                     "maximum": 1,
-                    "minimum": -1
+                    "minimum": -1,
+                    "type": "number"
                 },
                 "length": {
                     "description": "A field for the length of an entity in meters. This field is always inferred from the geometry.",
@@ -2944,7 +2861,7 @@
                     "description": "Bounding box of the coordinate range of the object's Geometries, Features, or Feature Collections.\nThe value of the bbox member is an array of length 2*n where n is the number of dimensions\nrepresented in the contained geometries, with all axes of the most southwesterly point\nfollowed by all axes of the more northeasterly point.\nThe axes order of a bbox follows the axes order of geometries.\nhttps://tools.ietf.org/html/rfc7946#section-5"
                 },
                 "geometry": {
-                    "$ref": "https://sidewalks.uw.edu/opensidewalks/0.2/schema.json#/definitions/GeoJSON.Polygon",
+                    "$ref": "https://sidewalks.washington.edu/opensidewalks/0.2/schema.json#/definitions/GeoJSON.Polygon",
                     "description": "The feature's geometry"
                 },
                 "id": {
@@ -2955,7 +2872,7 @@
                     ]
                 },
                 "properties": {
-                    "$ref": "https://sidewalks.uw.edu/opensidewalks/0.2/schema.json#/definitions/PedestrianZoneFields",
+                    "$ref": "https://sidewalks.washington.edu/opensidewalks/0.2/schema.json#/definitions/PedestrianZoneFields",
                     "description": "Properties associated with this feature."
                 },
                 "type": {
@@ -3095,7 +3012,7 @@
                     "description": "Bounding box of the coordinate range of the object's Geometries, Features, or Feature Collections.\nThe value of the bbox member is an array of length 2*n where n is the number of dimensions\nrepresented in the contained geometries, with all axes of the most southwesterly point\nfollowed by all axes of the more northeasterly point.\nThe axes order of a bbox follows the axes order of geometries.\nhttps://tools.ietf.org/html/rfc7946#section-5"
                 },
                 "geometry": {
-                    "$ref": "https://sidewalks.uw.edu/opensidewalks/0.2/schema.json#/definitions/GeoJSON.Point",
+                    "$ref": "https://sidewalks.washington.edu/opensidewalks/0.2/schema.json#/definitions/GeoJSON.Point",
                     "description": "The feature's geometry"
                 },
                 "id": {
@@ -3106,7 +3023,7 @@
                     ]
                 },
                 "properties": {
-                    "$ref": "https://sidewalks.uw.edu/opensidewalks/0.2/schema.json#/definitions/PowerPoleFields",
+                    "$ref": "https://sidewalks.washington.edu/opensidewalks/0.2/schema.json#/definitions/PowerPoleFields",
                     "description": "Properties associated with this feature."
                 },
                 "type": {
@@ -3203,7 +3120,7 @@
                     "description": "Bounding box of the coordinate range of the object's Geometries, Features, or Feature Collections.\nThe value of the bbox member is an array of length 2*n where n is the number of dimensions\nrepresented in the contained geometries, with all axes of the most southwesterly point\nfollowed by all axes of the more northeasterly point.\nThe axes order of a bbox follows the axes order of geometries.\nhttps://tools.ietf.org/html/rfc7946#section-5"
                 },
                 "geometry": {
-                    "$ref": "https://sidewalks.uw.edu/opensidewalks/0.2/schema.json#/definitions/GeoJSON.LineString",
+                    "$ref": "https://sidewalks.washington.edu/opensidewalks/0.2/schema.json#/definitions/GeoJSON.LineString",
                     "description": "The feature's geometry"
                 },
                 "id": {
@@ -3214,7 +3131,7 @@
                     ]
                 },
                 "properties": {
-                    "$ref": "https://sidewalks.uw.edu/opensidewalks/0.2/schema.json#/definitions/PrimaryStreetFields",
+                    "$ref": "https://sidewalks.washington.edu/opensidewalks/0.2/schema.json#/definitions/PrimaryStreetFields",
                     "description": "Properties associated with this feature."
                 },
                 "type": {
@@ -3276,21 +3193,10 @@
                     "type": "string"
                 },
                 "incline": {
-                    "anyOf": [
-                        {
-                            "enum": [
-                                "down",
-                                "up"
-                            ],
-                            "type": "string"
-                        },
-                        {
-                            "type": "number"
-                        }
-                    ],
-                    "description": "A field for the estimated incline over a particular path, i.e. slope, i.e. grade, i.e. rise over run. If derived from OpenStreetMap data, this is the maximum incline over the path. If derived from DEM data, it is more likely to be an underestimation. Positive values indicate an uphill climb while negative are downhill. For example, a 45 degree downhill value for incline would be -1.0. For steps, you can use \"up\" or \"down\" to indicate the direction of the climb.",
+                    "description": "A field for the estimated incline over a particular path, i.e. slope, i.e. grade, i.e. rise over run. If derived from OpenStreetMap data, this is the maximum incline over the path. If derived from DEM data, it is more likely to be an underestimation. Positive values indicate an uphill climb while negative are downhill. For example, a 45 degree downhill value for incline would be -1.0.",
                     "maximum": 1,
-                    "minimum": -1
+                    "minimum": -1,
+                    "type": "number"
                 },
                 "length": {
                     "description": "A field for the length of an entity in meters. This field is always inferred from the geometry.",
@@ -3386,7 +3292,7 @@
                     "description": "Bounding box of the coordinate range of the object's Geometries, Features, or Feature Collections.\nThe value of the bbox member is an array of length 2*n where n is the number of dimensions\nrepresented in the contained geometries, with all axes of the most southwesterly point\nfollowed by all axes of the more northeasterly point.\nThe axes order of a bbox follows the axes order of geometries.\nhttps://tools.ietf.org/html/rfc7946#section-5"
                 },
                 "geometry": {
-                    "$ref": "https://sidewalks.uw.edu/opensidewalks/0.2/schema.json#/definitions/GeoJSON.Point",
+                    "$ref": "https://sidewalks.washington.edu/opensidewalks/0.2/schema.json#/definitions/GeoJSON.Point",
                     "description": "The feature's geometry"
                 },
                 "id": {
@@ -3397,7 +3303,7 @@
                     ]
                 },
                 "properties": {
-                    "$ref": "https://sidewalks.uw.edu/opensidewalks/0.2/schema.json#/definitions/RaisedCurbFields",
+                    "$ref": "https://sidewalks.washington.edu/opensidewalks/0.2/schema.json#/definitions/RaisedCurbFields",
                     "description": "Properties associated with this feature."
                 },
                 "type": {
@@ -3443,9 +3349,7 @@
                     "description": "A field for whether a curb has a tactile (textured) surface. Tactile paving is a system of textured ground surface indicators found on footpaths, stairs and public transportation platforms to assist pedestrians who are blind or visually impaired. A tactile paving area has a surface that is easy to detect using a long cane, typically because it is rougher than the surrounding surface area or has an embossed pattern.",
                     "enum": [
                         "contrasted",
-                        "incorrect",
                         "no",
-                        "partial",
                         "primitive",
                         "yes"
                     ],
@@ -3513,7 +3417,7 @@
                     "description": "Bounding box of the coordinate range of the object's Geometries, Features, or Feature Collections.\nThe value of the bbox member is an array of length 2*n where n is the number of dimensions\nrepresented in the contained geometries, with all axes of the most southwesterly point\nfollowed by all axes of the more northeasterly point.\nThe axes order of a bbox follows the axes order of geometries.\nhttps://tools.ietf.org/html/rfc7946#section-5"
                 },
                 "geometry": {
-                    "$ref": "https://sidewalks.uw.edu/opensidewalks/0.2/schema.json#/definitions/GeoJSON.LineString",
+                    "$ref": "https://sidewalks.washington.edu/opensidewalks/0.2/schema.json#/definitions/GeoJSON.LineString",
                     "description": "The feature's geometry"
                 },
                 "id": {
@@ -3524,7 +3428,7 @@
                     ]
                 },
                 "properties": {
-                    "$ref": "https://sidewalks.uw.edu/opensidewalks/0.2/schema.json#/definitions/ResidentialStreetFields",
+                    "$ref": "https://sidewalks.washington.edu/opensidewalks/0.2/schema.json#/definitions/ResidentialStreetFields",
                     "description": "Properties associated with this feature."
                 },
                 "type": {
@@ -3586,21 +3490,10 @@
                     "type": "string"
                 },
                 "incline": {
-                    "anyOf": [
-                        {
-                            "enum": [
-                                "down",
-                                "up"
-                            ],
-                            "type": "string"
-                        },
-                        {
-                            "type": "number"
-                        }
-                    ],
-                    "description": "A field for the estimated incline over a particular path, i.e. slope, i.e. grade, i.e. rise over run. If derived from OpenStreetMap data, this is the maximum incline over the path. If derived from DEM data, it is more likely to be an underestimation. Positive values indicate an uphill climb while negative are downhill. For example, a 45 degree downhill value for incline would be -1.0. For steps, you can use \"up\" or \"down\" to indicate the direction of the climb.",
+                    "description": "A field for the estimated incline over a particular path, i.e. slope, i.e. grade, i.e. rise over run. If derived from OpenStreetMap data, this is the maximum incline over the path. If derived from DEM data, it is more likely to be an underestimation. Positive values indicate an uphill climb while negative are downhill. For example, a 45 degree downhill value for incline would be -1.0.",
                     "maximum": 1,
-                    "minimum": -1
+                    "minimum": -1,
+                    "type": "number"
                 },
                 "length": {
                     "description": "A field for the length of an entity in meters. This field is always inferred from the geometry.",
@@ -3696,7 +3589,7 @@
                     "description": "Bounding box of the coordinate range of the object's Geometries, Features, or Feature Collections.\nThe value of the bbox member is an array of length 2*n where n is the number of dimensions\nrepresented in the contained geometries, with all axes of the most southwesterly point\nfollowed by all axes of the more northeasterly point.\nThe axes order of a bbox follows the axes order of geometries.\nhttps://tools.ietf.org/html/rfc7946#section-5"
                 },
                 "geometry": {
-                    "$ref": "https://sidewalks.uw.edu/opensidewalks/0.2/schema.json#/definitions/GeoJSON.Point",
+                    "$ref": "https://sidewalks.washington.edu/opensidewalks/0.2/schema.json#/definitions/GeoJSON.Point",
                     "description": "The feature's geometry"
                 },
                 "id": {
@@ -3707,7 +3600,7 @@
                     ]
                 },
                 "properties": {
-                    "$ref": "https://sidewalks.uw.edu/opensidewalks/0.2/schema.json#/definitions/RolledCurbFields",
+                    "$ref": "https://sidewalks.washington.edu/opensidewalks/0.2/schema.json#/definitions/RolledCurbFields",
                     "description": "Properties associated with this feature."
                 },
                 "type": {
@@ -3753,9 +3646,7 @@
                     "description": "A field for whether a curb has a tactile (textured) surface. Tactile paving is a system of textured ground surface indicators found on footpaths, stairs and public transportation platforms to assist pedestrians who are blind or visually impaired. A tactile paving area has a surface that is easy to detect using a long cane, typically because it is rougher than the surrounding surface area or has an embossed pattern.",
                     "enum": [
                         "contrasted",
-                        "incorrect",
                         "no",
-                        "partial",
                         "primitive",
                         "yes"
                     ],
@@ -3823,7 +3714,7 @@
                     "description": "Bounding box of the coordinate range of the object's Geometries, Features, or Feature Collections.\nThe value of the bbox member is an array of length 2*n where n is the number of dimensions\nrepresented in the contained geometries, with all axes of the most southwesterly point\nfollowed by all axes of the more northeasterly point.\nThe axes order of a bbox follows the axes order of geometries.\nhttps://tools.ietf.org/html/rfc7946#section-5"
                 },
                 "geometry": {
-                    "$ref": "https://sidewalks.uw.edu/opensidewalks/0.2/schema.json#/definitions/GeoJSON.LineString",
+                    "$ref": "https://sidewalks.washington.edu/opensidewalks/0.2/schema.json#/definitions/GeoJSON.LineString",
                     "description": "The feature's geometry"
                 },
                 "id": {
@@ -3834,7 +3725,7 @@
                     ]
                 },
                 "properties": {
-                    "$ref": "https://sidewalks.uw.edu/opensidewalks/0.2/schema.json#/definitions/SecondaryStreetFields",
+                    "$ref": "https://sidewalks.washington.edu/opensidewalks/0.2/schema.json#/definitions/SecondaryStreetFields",
                     "description": "Properties associated with this feature."
                 },
                 "type": {
@@ -3896,21 +3787,10 @@
                     "type": "string"
                 },
                 "incline": {
-                    "anyOf": [
-                        {
-                            "enum": [
-                                "down",
-                                "up"
-                            ],
-                            "type": "string"
-                        },
-                        {
-                            "type": "number"
-                        }
-                    ],
-                    "description": "A field for the estimated incline over a particular path, i.e. slope, i.e. grade, i.e. rise over run. If derived from OpenStreetMap data, this is the maximum incline over the path. If derived from DEM data, it is more likely to be an underestimation. Positive values indicate an uphill climb while negative are downhill. For example, a 45 degree downhill value for incline would be -1.0. For steps, you can use \"up\" or \"down\" to indicate the direction of the climb.",
+                    "description": "A field for the estimated incline over a particular path, i.e. slope, i.e. grade, i.e. rise over run. If derived from OpenStreetMap data, this is the maximum incline over the path. If derived from DEM data, it is more likely to be an underestimation. Positive values indicate an uphill climb while negative are downhill. For example, a 45 degree downhill value for incline would be -1.0.",
                     "maximum": 1,
-                    "minimum": -1
+                    "minimum": -1,
+                    "type": "number"
                 },
                 "length": {
                     "description": "A field for the length of an entity in meters. This field is always inferred from the geometry.",
@@ -4006,7 +3886,7 @@
                     "description": "Bounding box of the coordinate range of the object's Geometries, Features, or Feature Collections.\nThe value of the bbox member is an array of length 2*n where n is the number of dimensions\nrepresented in the contained geometries, with all axes of the most southwesterly point\nfollowed by all axes of the more northeasterly point.\nThe axes order of a bbox follows the axes order of geometries.\nhttps://tools.ietf.org/html/rfc7946#section-5"
                 },
                 "geometry": {
-                    "$ref": "https://sidewalks.uw.edu/opensidewalks/0.2/schema.json#/definitions/GeoJSON.LineString",
+                    "$ref": "https://sidewalks.washington.edu/opensidewalks/0.2/schema.json#/definitions/GeoJSON.LineString",
                     "description": "The feature's geometry"
                 },
                 "id": {
@@ -4017,7 +3897,7 @@
                     ]
                 },
                 "properties": {
-                    "$ref": "https://sidewalks.uw.edu/opensidewalks/0.2/schema.json#/definitions/ServiceRoadFields",
+                    "$ref": "https://sidewalks.washington.edu/opensidewalks/0.2/schema.json#/definitions/ServiceRoadFields",
                     "description": "Properties associated with this feature."
                 },
                 "type": {
@@ -4079,21 +3959,10 @@
                     "type": "string"
                 },
                 "incline": {
-                    "anyOf": [
-                        {
-                            "enum": [
-                                "down",
-                                "up"
-                            ],
-                            "type": "string"
-                        },
-                        {
-                            "type": "number"
-                        }
-                    ],
-                    "description": "A field for the estimated incline over a particular path, i.e. slope, i.e. grade, i.e. rise over run. If derived from OpenStreetMap data, this is the maximum incline over the path. If derived from DEM data, it is more likely to be an underestimation. Positive values indicate an uphill climb while negative are downhill. For example, a 45 degree downhill value for incline would be -1.0. For steps, you can use \"up\" or \"down\" to indicate the direction of the climb.",
+                    "description": "A field for the estimated incline over a particular path, i.e. slope, i.e. grade, i.e. rise over run. If derived from OpenStreetMap data, this is the maximum incline over the path. If derived from DEM data, it is more likely to be an underestimation. Positive values indicate an uphill climb while negative are downhill. For example, a 45 degree downhill value for incline would be -1.0.",
                     "maximum": 1,
-                    "minimum": -1
+                    "minimum": -1,
+                    "type": "number"
                 },
                 "length": {
                     "description": "A field for the length of an entity in meters. This field is always inferred from the geometry.",
@@ -4189,7 +4058,7 @@
                     "description": "Bounding box of the coordinate range of the object's Geometries, Features, or Feature Collections.\nThe value of the bbox member is an array of length 2*n where n is the number of dimensions\nrepresented in the contained geometries, with all axes of the most southwesterly point\nfollowed by all axes of the more northeasterly point.\nThe axes order of a bbox follows the axes order of geometries.\nhttps://tools.ietf.org/html/rfc7946#section-5"
                 },
                 "geometry": {
-                    "$ref": "https://sidewalks.uw.edu/opensidewalks/0.2/schema.json#/definitions/GeoJSON.LineString",
+                    "$ref": "https://sidewalks.washington.edu/opensidewalks/0.2/schema.json#/definitions/GeoJSON.LineString",
                     "description": "The feature's geometry"
                 },
                 "id": {
@@ -4200,7 +4069,7 @@
                     ]
                 },
                 "properties": {
-                    "$ref": "https://sidewalks.uw.edu/opensidewalks/0.2/schema.json#/definitions/SidewalkFields",
+                    "$ref": "https://sidewalks.washington.edu/opensidewalks/0.2/schema.json#/definitions/SidewalkFields",
                     "description": "Properties associated with this feature."
                 },
                 "type": {
@@ -4268,21 +4137,10 @@
                     "type": "string"
                 },
                 "incline": {
-                    "anyOf": [
-                        {
-                            "enum": [
-                                "down",
-                                "up"
-                            ],
-                            "type": "string"
-                        },
-                        {
-                            "type": "number"
-                        }
-                    ],
-                    "description": "A field for the estimated incline over a particular path, i.e. slope, i.e. grade, i.e. rise over run. If derived from OpenStreetMap data, this is the maximum incline over the path. If derived from DEM data, it is more likely to be an underestimation. Positive values indicate an uphill climb while negative are downhill. For example, a 45 degree downhill value for incline would be -1.0. For steps, you can use \"up\" or \"down\" to indicate the direction of the climb.",
+                    "description": "A field for the estimated incline over a particular path, i.e. slope, i.e. grade, i.e. rise over run. If derived from OpenStreetMap data, this is the maximum incline over the path. If derived from DEM data, it is more likely to be an underestimation. Positive values indicate an uphill climb while negative are downhill. For example, a 45 degree downhill value for incline would be -1.0.",
                     "maximum": 1,
-                    "minimum": -1
+                    "minimum": -1,
+                    "type": "number"
                 },
                 "length": {
                     "description": "A field for the length of an entity in meters. This field is always inferred from the geometry.",
@@ -4379,7 +4237,7 @@
                     "description": "Bounding box of the coordinate range of the object's Geometries, Features, or Feature Collections.\nThe value of the bbox member is an array of length 2*n where n is the number of dimensions\nrepresented in the contained geometries, with all axes of the most southwesterly point\nfollowed by all axes of the more northeasterly point.\nThe axes order of a bbox follows the axes order of geometries.\nhttps://tools.ietf.org/html/rfc7946#section-5"
                 },
                 "geometry": {
-                    "$ref": "https://sidewalks.uw.edu/opensidewalks/0.2/schema.json#/definitions/GeoJSON.LineString",
+                    "$ref": "https://sidewalks.washington.edu/opensidewalks/0.2/schema.json#/definitions/GeoJSON.LineString",
                     "description": "The feature's geometry"
                 },
                 "id": {
@@ -4390,7 +4248,7 @@
                     ]
                 },
                 "properties": {
-                    "$ref": "https://sidewalks.uw.edu/opensidewalks/0.2/schema.json#/definitions/StepsFields",
+                    "$ref": "https://sidewalks.washington.edu/opensidewalks/0.2/schema.json#/definitions/StepsFields",
                     "description": "Properties associated with this feature."
                 },
                 "type": {
@@ -4428,6 +4286,14 @@
                     "minLength": 1,
                     "type": "string"
                 },
+                "climb": {
+                    "description": "A field for the climb direction of steps. You can use \"up\" or \"down\" to indicate the direction of the climb relative to the direction of the edge.",
+                    "enum": [
+                        "down",
+                        "up"
+                    ],
+                    "type": "string"
+                },
                 "description": {
                     "description": "A free form text field for describing an entity. May be pre-encoded in relevant pedestrian paths to assist with routing instructing or investigation of map features. For example, a description of the sidewalk in relation to a nearby street may be a useful textual description, such as \"NE of Main St.\" Can also be considered a flexible location to embed arbitrary information for specific use cases.",
                     "type": "string"
@@ -4452,21 +4318,10 @@
                     "type": "string"
                 },
                 "incline": {
-                    "anyOf": [
-                        {
-                            "enum": [
-                                "down",
-                                "up"
-                            ],
-                            "type": "string"
-                        },
-                        {
-                            "type": "number"
-                        }
-                    ],
-                    "description": "A field for the estimated incline over a particular path, i.e. slope, i.e. grade, i.e. rise over run. If derived from OpenStreetMap data, this is the maximum incline over the path. If derived from DEM data, it is more likely to be an underestimation. Positive values indicate an uphill climb while negative are downhill. For example, a 45 degree downhill value for incline would be -1.0. For steps, you can use \"up\" or \"down\" to indicate the direction of the climb.",
+                    "description": "A field for the estimated incline over a particular path, i.e. slope, i.e. grade, i.e. rise over run. If derived from OpenStreetMap data, this is the maximum incline over the path. If derived from DEM data, it is more likely to be an underestimation. Positive values indicate an uphill climb while negative are downhill. For example, a 45 degree downhill value for incline would be -1.0.",
                     "maximum": 1,
-                    "minimum": -1
+                    "minimum": -1,
+                    "type": "number"
                 },
                 "length": {
                     "description": "A field for the length of an entity in meters. This field is always inferred from the geometry.",
@@ -4568,7 +4423,7 @@
                     "description": "Bounding box of the coordinate range of the object's Geometries, Features, or Feature Collections.\nThe value of the bbox member is an array of length 2*n where n is the number of dimensions\nrepresented in the contained geometries, with all axes of the most southwesterly point\nfollowed by all axes of the more northeasterly point.\nThe axes order of a bbox follows the axes order of geometries.\nhttps://tools.ietf.org/html/rfc7946#section-5"
                 },
                 "geometry": {
-                    "$ref": "https://sidewalks.uw.edu/opensidewalks/0.2/schema.json#/definitions/GeoJSON.Point",
+                    "$ref": "https://sidewalks.washington.edu/opensidewalks/0.2/schema.json#/definitions/GeoJSON.Point",
                     "description": "The feature's geometry"
                 },
                 "id": {
@@ -4579,7 +4434,7 @@
                     ]
                 },
                 "properties": {
-                    "$ref": "https://sidewalks.uw.edu/opensidewalks/0.2/schema.json#/definitions/StreetLampFields",
+                    "$ref": "https://sidewalks.washington.edu/opensidewalks/0.2/schema.json#/definitions/StreetLampFields",
                     "description": "Properties associated with this feature."
                 },
                 "type": {
@@ -4676,7 +4531,7 @@
                     "description": "Bounding box of the coordinate range of the object's Geometries, Features, or Feature Collections.\nThe value of the bbox member is an array of length 2*n where n is the number of dimensions\nrepresented in the contained geometries, with all axes of the most southwesterly point\nfollowed by all axes of the more northeasterly point.\nThe axes order of a bbox follows the axes order of geometries.\nhttps://tools.ietf.org/html/rfc7946#section-5"
                 },
                 "geometry": {
-                    "$ref": "https://sidewalks.uw.edu/opensidewalks/0.2/schema.json#/definitions/GeoJSON.LineString",
+                    "$ref": "https://sidewalks.washington.edu/opensidewalks/0.2/schema.json#/definitions/GeoJSON.LineString",
                     "description": "The feature's geometry"
                 },
                 "id": {
@@ -4687,7 +4542,7 @@
                     ]
                 },
                 "properties": {
-                    "$ref": "https://sidewalks.uw.edu/opensidewalks/0.2/schema.json#/definitions/TertiaryStreetFields",
+                    "$ref": "https://sidewalks.washington.edu/opensidewalks/0.2/schema.json#/definitions/TertiaryStreetFields",
                     "description": "Properties associated with this feature."
                 },
                 "type": {
@@ -4749,21 +4604,10 @@
                     "type": "string"
                 },
                 "incline": {
-                    "anyOf": [
-                        {
-                            "enum": [
-                                "down",
-                                "up"
-                            ],
-                            "type": "string"
-                        },
-                        {
-                            "type": "number"
-                        }
-                    ],
-                    "description": "A field for the estimated incline over a particular path, i.e. slope, i.e. grade, i.e. rise over run. If derived from OpenStreetMap data, this is the maximum incline over the path. If derived from DEM data, it is more likely to be an underestimation. Positive values indicate an uphill climb while negative are downhill. For example, a 45 degree downhill value for incline would be -1.0. For steps, you can use \"up\" or \"down\" to indicate the direction of the climb.",
+                    "description": "A field for the estimated incline over a particular path, i.e. slope, i.e. grade, i.e. rise over run. If derived from OpenStreetMap data, this is the maximum incline over the path. If derived from DEM data, it is more likely to be an underestimation. Positive values indicate an uphill climb while negative are downhill. For example, a 45 degree downhill value for incline would be -1.0.",
                     "maximum": 1,
-                    "minimum": -1
+                    "minimum": -1,
+                    "type": "number"
                 },
                 "length": {
                     "description": "A field for the length of an entity in meters. This field is always inferred from the geometry.",
@@ -4859,7 +4703,7 @@
                     "description": "Bounding box of the coordinate range of the object's Geometries, Features, or Feature Collections.\nThe value of the bbox member is an array of length 2*n where n is the number of dimensions\nrepresented in the contained geometries, with all axes of the most southwesterly point\nfollowed by all axes of the more northeasterly point.\nThe axes order of a bbox follows the axes order of geometries.\nhttps://tools.ietf.org/html/rfc7946#section-5"
                 },
                 "geometry": {
-                    "$ref": "https://sidewalks.uw.edu/opensidewalks/0.2/schema.json#/definitions/GeoJSON.LineString",
+                    "$ref": "https://sidewalks.washington.edu/opensidewalks/0.2/schema.json#/definitions/GeoJSON.LineString",
                     "description": "The feature's geometry"
                 },
                 "id": {
@@ -4870,7 +4714,7 @@
                     ]
                 },
                 "properties": {
-                    "$ref": "https://sidewalks.uw.edu/opensidewalks/0.2/schema.json#/definitions/TrafficIslandFields",
+                    "$ref": "https://sidewalks.washington.edu/opensidewalks/0.2/schema.json#/definitions/TrafficIslandFields",
                     "description": "Properties associated with this feature."
                 },
                 "type": {
@@ -4938,21 +4782,10 @@
                     "type": "string"
                 },
                 "incline": {
-                    "anyOf": [
-                        {
-                            "enum": [
-                                "down",
-                                "up"
-                            ],
-                            "type": "string"
-                        },
-                        {
-                            "type": "number"
-                        }
-                    ],
-                    "description": "A field for the estimated incline over a particular path, i.e. slope, i.e. grade, i.e. rise over run. If derived from OpenStreetMap data, this is the maximum incline over the path. If derived from DEM data, it is more likely to be an underestimation. Positive values indicate an uphill climb while negative are downhill. For example, a 45 degree downhill value for incline would be -1.0. For steps, you can use \"up\" or \"down\" to indicate the direction of the climb.",
+                    "description": "A field for the estimated incline over a particular path, i.e. slope, i.e. grade, i.e. rise over run. If derived from OpenStreetMap data, this is the maximum incline over the path. If derived from DEM data, it is more likely to be an underestimation. Positive values indicate an uphill climb while negative are downhill. For example, a 45 degree downhill value for incline would be -1.0.",
                     "maximum": 1,
-                    "minimum": -1
+                    "minimum": -1,
+                    "type": "number"
                 },
                 "length": {
                     "description": "A field for the length of an entity in meters. This field is always inferred from the geometry.",
@@ -5049,7 +4882,7 @@
                     "description": "Bounding box of the coordinate range of the object's Geometries, Features, or Feature Collections.\nThe value of the bbox member is an array of length 2*n where n is the number of dimensions\nrepresented in the contained geometries, with all axes of the most southwesterly point\nfollowed by all axes of the more northeasterly point.\nThe axes order of a bbox follows the axes order of geometries.\nhttps://tools.ietf.org/html/rfc7946#section-5"
                 },
                 "geometry": {
-                    "$ref": "https://sidewalks.uw.edu/opensidewalks/0.2/schema.json#/definitions/GeoJSON.LineString",
+                    "$ref": "https://sidewalks.washington.edu/opensidewalks/0.2/schema.json#/definitions/GeoJSON.LineString",
                     "description": "The feature's geometry"
                 },
                 "id": {
@@ -5060,7 +4893,7 @@
                     ]
                 },
                 "properties": {
-                    "$ref": "https://sidewalks.uw.edu/opensidewalks/0.2/schema.json#/definitions/TrunkRoadFields",
+                    "$ref": "https://sidewalks.washington.edu/opensidewalks/0.2/schema.json#/definitions/TrunkRoadFields",
                     "description": "Properties associated with this feature."
                 },
                 "type": {
@@ -5122,21 +4955,10 @@
                     "type": "string"
                 },
                 "incline": {
-                    "anyOf": [
-                        {
-                            "enum": [
-                                "down",
-                                "up"
-                            ],
-                            "type": "string"
-                        },
-                        {
-                            "type": "number"
-                        }
-                    ],
-                    "description": "A field for the estimated incline over a particular path, i.e. slope, i.e. grade, i.e. rise over run. If derived from OpenStreetMap data, this is the maximum incline over the path. If derived from DEM data, it is more likely to be an underestimation. Positive values indicate an uphill climb while negative are downhill. For example, a 45 degree downhill value for incline would be -1.0. For steps, you can use \"up\" or \"down\" to indicate the direction of the climb.",
+                    "description": "A field for the estimated incline over a particular path, i.e. slope, i.e. grade, i.e. rise over run. If derived from OpenStreetMap data, this is the maximum incline over the path. If derived from DEM data, it is more likely to be an underestimation. Positive values indicate an uphill climb while negative are downhill. For example, a 45 degree downhill value for incline would be -1.0.",
                     "maximum": 1,
-                    "minimum": -1
+                    "minimum": -1,
+                    "type": "number"
                 },
                 "length": {
                     "description": "A field for the length of an entity in meters. This field is always inferred from the geometry.",
@@ -5232,7 +5054,7 @@
                     "description": "Bounding box of the coordinate range of the object's Geometries, Features, or Feature Collections.\nThe value of the bbox member is an array of length 2*n where n is the number of dimensions\nrepresented in the contained geometries, with all axes of the most southwesterly point\nfollowed by all axes of the more northeasterly point.\nThe axes order of a bbox follows the axes order of geometries.\nhttps://tools.ietf.org/html/rfc7946#section-5"
                 },
                 "geometry": {
-                    "$ref": "https://sidewalks.uw.edu/opensidewalks/0.2/schema.json#/definitions/GeoJSON.LineString",
+                    "$ref": "https://sidewalks.washington.edu/opensidewalks/0.2/schema.json#/definitions/GeoJSON.LineString",
                     "description": "The feature's geometry"
                 },
                 "id": {
@@ -5243,7 +5065,7 @@
                     ]
                 },
                 "properties": {
-                    "$ref": "https://sidewalks.uw.edu/opensidewalks/0.2/schema.json#/definitions/UnclassifiedRoadFields",
+                    "$ref": "https://sidewalks.washington.edu/opensidewalks/0.2/schema.json#/definitions/UnclassifiedRoadFields",
                     "description": "Properties associated with this feature."
                 },
                 "type": {
@@ -5305,21 +5127,10 @@
                     "type": "string"
                 },
                 "incline": {
-                    "anyOf": [
-                        {
-                            "enum": [
-                                "down",
-                                "up"
-                            ],
-                            "type": "string"
-                        },
-                        {
-                            "type": "number"
-                        }
-                    ],
-                    "description": "A field for the estimated incline over a particular path, i.e. slope, i.e. grade, i.e. rise over run. If derived from OpenStreetMap data, this is the maximum incline over the path. If derived from DEM data, it is more likely to be an underestimation. Positive values indicate an uphill climb while negative are downhill. For example, a 45 degree downhill value for incline would be -1.0. For steps, you can use \"up\" or \"down\" to indicate the direction of the climb.",
+                    "description": "A field for the estimated incline over a particular path, i.e. slope, i.e. grade, i.e. rise over run. If derived from OpenStreetMap data, this is the maximum incline over the path. If derived from DEM data, it is more likely to be an underestimation. Positive values indicate an uphill climb while negative are downhill. For example, a 45 degree downhill value for incline would be -1.0.",
                     "maximum": 1,
-                    "minimum": -1
+                    "minimum": -1,
+                    "type": "number"
                 },
                 "length": {
                     "description": "A field for the length of an entity in meters. This field is always inferred from the geometry.",
@@ -5358,133 +5169,6 @@
                 "_u_id",
                 "_v_id",
                 "highway"
-            ],
-            "type": "object"
-        },
-        "UnknownCurb": {
-            "additionalProperties": false,
-            "description": "A curb for which a type could not be determined despite some effort.",
-            "properties": {
-                "bbox": {
-                    "anyOf": [
-                        {
-                            "items": [
-                                {
-                                    "type": "number"
-                                },
-                                {
-                                    "type": "number"
-                                },
-                                {
-                                    "type": "number"
-                                },
-                                {
-                                    "type": "number"
-                                }
-                            ],
-                            "maxItems": 4,
-                            "minItems": 4,
-                            "type": "array"
-                        },
-                        {
-                            "items": [
-                                {
-                                    "type": "number"
-                                },
-                                {
-                                    "type": "number"
-                                },
-                                {
-                                    "type": "number"
-                                },
-                                {
-                                    "type": "number"
-                                },
-                                {
-                                    "type": "number"
-                                },
-                                {
-                                    "type": "number"
-                                }
-                            ],
-                            "maxItems": 6,
-                            "minItems": 6,
-                            "type": "array"
-                        }
-                    ],
-                    "description": "Bounding box of the coordinate range of the object's Geometries, Features, or Feature Collections.\nThe value of the bbox member is an array of length 2*n where n is the number of dimensions\nrepresented in the contained geometries, with all axes of the most southwesterly point\nfollowed by all axes of the more northeasterly point.\nThe axes order of a bbox follows the axes order of geometries.\nhttps://tools.ietf.org/html/rfc7946#section-5"
-                },
-                "geometry": {
-                    "$ref": "https://sidewalks.uw.edu/opensidewalks/0.2/schema.json#/definitions/GeoJSON.Point",
-                    "description": "The feature's geometry"
-                },
-                "id": {
-                    "description": "A value that uniquely identifies this feature in a\nhttps://tools.ietf.org/html/rfc7946#section-3.2.",
-                    "type": [
-                        "string",
-                        "number"
-                    ]
-                },
-                "properties": {
-                    "$ref": "https://sidewalks.uw.edu/opensidewalks/0.2/schema.json#/definitions/UnknownCurbFields",
-                    "description": "Properties associated with this feature."
-                },
-                "type": {
-                    "description": "Specifies the type of GeoJSON object.",
-                    "enum": [
-                        "Feature"
-                    ],
-                    "type": "string"
-                }
-            },
-            "required": [
-                "geometry",
-                "properties",
-                "type"
-            ],
-            "type": "object"
-        },
-        "UnknownCurbFields": {
-            "additionalProperties": false,
-            "description": "Fields that apply to an unknown curb.",
-            "patternProperties": {
-                "^ext:.*$": {
-                }
-            },
-            "properties": {
-                "_id": {
-                    "minLength": 1,
-                    "type": "string"
-                },
-                "barrier": {
-                    "enum": [
-                        "kerb"
-                    ],
-                    "type": "string"
-                },
-                "kerb": {
-                    "enum": [
-                        "yes"
-                    ],
-                    "type": "string"
-                },
-                "tactile_paving": {
-                    "description": "A field for whether a curb has a tactile (textured) surface. Tactile paving is a system of textured ground surface indicators found on footpaths, stairs and public transportation platforms to assist pedestrians who are blind or visually impaired. A tactile paving area has a surface that is easy to detect using a long cane, typically because it is rougher than the surrounding surface area or has an embossed pattern.",
-                    "enum": [
-                        "contrasted",
-                        "incorrect",
-                        "no",
-                        "partial",
-                        "primitive",
-                        "yes"
-                    ],
-                    "type": "string"
-                }
-            },
-            "required": [
-                "_id",
-                "barrier",
-                "kerb"
             ],
             "type": "object"
         },
@@ -5542,7 +5226,7 @@
                     "description": "Bounding box of the coordinate range of the object's Geometries, Features, or Feature Collections.\nThe value of the bbox member is an array of length 2*n where n is the number of dimensions\nrepresented in the contained geometries, with all axes of the most southwesterly point\nfollowed by all axes of the more northeasterly point.\nThe axes order of a bbox follows the axes order of geometries.\nhttps://tools.ietf.org/html/rfc7946#section-5"
                 },
                 "geometry": {
-                    "$ref": "https://sidewalks.uw.edu/opensidewalks/0.2/schema.json#/definitions/GeoJSON.Point",
+                    "$ref": "https://sidewalks.washington.edu/opensidewalks/0.2/schema.json#/definitions/GeoJSON.Point",
                     "description": "The feature's geometry"
                 },
                 "id": {
@@ -5553,7 +5237,7 @@
                     ]
                 },
                 "properties": {
-                    "$ref": "https://sidewalks.uw.edu/opensidewalks/0.2/schema.json#/definitions/WasteBasketFields",
+                    "$ref": "https://sidewalks.washington.edu/opensidewalks/0.2/schema.json#/definitions/WasteBasketFields",
                     "description": "Properties associated with this feature."
                 },
                 "type": {
@@ -5600,11 +5284,16 @@
     "properties": {
         "$schema": {
             "description": "A field for the schema id.",
-            "pattern": "^https://sidewalks.uw.edu/opensidewalks/[0-9]*.[0-9]*/schema.json$",
+            "enum": [
+                "https://sidewalks.washington.edu/opensidewalks/0.2/schema.json"
+            ],
             "type": "string"
         },
         "dataSource": {
-            "type": "string"
+            "additionalProperties": true,
+            "properties": {
+            },
+            "type": "object"
         },
         "dataTimestamp": {
             "format": "date-time",
@@ -5614,139 +5303,135 @@
             "items": {
                 "anyOf": [
                     {
-                        "$ref": "https://sidewalks.uw.edu/opensidewalks/0.2/schema.json#/definitions/BareNode",
+                        "$ref": "https://sidewalks.washington.edu/opensidewalks/0.2/schema.json#/definitions/BareNode",
                         "description": "A node that is merely part of the graph structure but has no metadata or meaning of its own. For example, a sidewalk may be split into two edges because they have differing widths, so they must be joined by a node - but there is no data to place on the node itself beyond basic spatial and graph primitives."
                     },
                     {
-                        "$ref": "https://sidewalks.uw.edu/opensidewalks/0.2/schema.json#/definitions/CurbRamp",
+                        "$ref": "https://sidewalks.washington.edu/opensidewalks/0.2/schema.json#/definitions/CurbRamp",
                         "description": "A curb ramp (curb cut) mapped as a curb interface. Mapped at the location where the two edges that it connects meet one another."
                     },
                     {
-                        "$ref": "https://sidewalks.uw.edu/opensidewalks/0.2/schema.json#/definitions/FlushCurb",
+                        "$ref": "https://sidewalks.washington.edu/opensidewalks/0.2/schema.json#/definitions/FlushCurb",
                         "description": "An indicator that there is no raised curb interface where two paths meet - i.e. where someone might expect a curb interface, such as where a crossing and footpath meet."
                     },
                     {
-                        "$ref": "https://sidewalks.uw.edu/opensidewalks/0.2/schema.json#/definitions/GenericCurb",
-                        "description": "A curb for which a type has not been determined yet."
+                        "$ref": "https://sidewalks.washington.edu/opensidewalks/0.2/schema.json#/definitions/GenericCurb",
+                        "description": "A curb for which a type has not been determined yet or a type could not be determined despite some effort."
                     },
                     {
-                        "$ref": "https://sidewalks.uw.edu/opensidewalks/0.2/schema.json#/definitions/RaisedCurb",
+                        "$ref": "https://sidewalks.washington.edu/opensidewalks/0.2/schema.json#/definitions/RaisedCurb",
                         "description": "A single, designed vertical displacement that separates two edges. A common example is the curb that separates a street crossing from a sidewalk. This is mapped at the point where the two edges meet - on top of the curb is physically located."
                     },
                     {
-                        "$ref": "https://sidewalks.uw.edu/opensidewalks/0.2/schema.json#/definitions/RolledCurb",
+                        "$ref": "https://sidewalks.washington.edu/opensidewalks/0.2/schema.json#/definitions/RolledCurb",
                         "description": "A curb interface with a quarter-circle profile: traversing this curb is like going over half of a bump. Located where two edges meet, physically at the location of the curb itself."
                     },
                     {
-                        "$ref": "https://sidewalks.uw.edu/opensidewalks/0.2/schema.json#/definitions/UnknownCurb",
-                        "description": "A curb for which a type could not be determined despite some effort."
-                    },
-                    {
-                        "$ref": "https://sidewalks.uw.edu/opensidewalks/0.2/schema.json#/definitions/Footway",
+                        "$ref": "https://sidewalks.washington.edu/opensidewalks/0.2/schema.json#/definitions/Footway",
                         "description": "The centerline of a dedicated pedestrian pathway that does not fall into any other subcategories."
                     },
                     {
-                        "$ref": "https://sidewalks.uw.edu/opensidewalks/0.2/schema.json#/definitions/Crossing",
+                        "$ref": "https://sidewalks.washington.edu/opensidewalks/0.2/schema.json#/definitions/Crossing",
                         "description": "The centerline of a pedestrian street crossing. This path exists only on the road surface itself, i.e. \"from curb to curb\". Crossings should not be connected directly to sidewalk centerlines - instead, a short footpath (this schema calls them \"links\") should connect the two together."
                     },
                     {
-                        "$ref": "https://sidewalks.uw.edu/opensidewalks/0.2/schema.json#/definitions/Sidewalk",
+                        "$ref": "https://sidewalks.washington.edu/opensidewalks/0.2/schema.json#/definitions/Sidewalk",
                         "description": "The centerline of a sidewalk, a designated pedestrian pathway to the side of a street."
                     },
                     {
-                        "$ref": "https://sidewalks.uw.edu/opensidewalks/0.2/schema.json#/definitions/TrafficIsland",
+                        "$ref": "https://sidewalks.washington.edu/opensidewalks/0.2/schema.json#/definitions/TrafficIsland",
                         "description": "The centerline of a footpath traversing a traffic island. Some complex, long, or busy pedestrian crossings have a built-up \"island\" to protect pedestrians, splitting up the crossing of the street into two or more crossings. As a pedestrian uses this crossing, they will transition across these path elements: sidewalk → footway → crossing → traffic island → crossing → footway → sidewalk."
                     },
                     {
-                        "$ref": "https://sidewalks.uw.edu/opensidewalks/0.2/schema.json#/definitions/Steps",
+                        "$ref": "https://sidewalks.washington.edu/opensidewalks/0.2/schema.json#/definitions/Steps",
                         "description": "For flights of steps on footways and paths."
                     },
                     {
-                        "$ref": "https://sidewalks.uw.edu/opensidewalks/0.2/schema.json#/definitions/Pedestrian",
+                        "$ref": "https://sidewalks.washington.edu/opensidewalks/0.2/schema.json#/definitions/Pedestrian",
                         "description": "For a road or an area mainly or exclusively for pedestrians in which some vehicle traffic may be authorized."
                     },
                     {
-                        "$ref": "https://sidewalks.uw.edu/opensidewalks/0.2/schema.json#/definitions/PrimaryStreet",
+                        "$ref": "https://sidewalks.washington.edu/opensidewalks/0.2/schema.json#/definitions/PrimaryStreet",
                         "description": "The centerline of a major highway."
                     },
                     {
-                        "$ref": "https://sidewalks.uw.edu/opensidewalks/0.2/schema.json#/definitions/SecondaryStreet",
+                        "$ref": "https://sidewalks.washington.edu/opensidewalks/0.2/schema.json#/definitions/SecondaryStreet",
                         "description": "The centerline of a secondary highway: not a major highway, but forms a major link in the national route network."
                     },
                     {
-                        "$ref": "https://sidewalks.uw.edu/opensidewalks/0.2/schema.json#/definitions/TertiaryStreet",
+                        "$ref": "https://sidewalks.washington.edu/opensidewalks/0.2/schema.json#/definitions/TertiaryStreet",
                         "description": "A road linking small settlements, or the local centers of a large town or city."
                     },
                     {
-                        "$ref": "https://sidewalks.uw.edu/opensidewalks/0.2/schema.json#/definitions/ResidentialStreet",
+                        "$ref": "https://sidewalks.washington.edu/opensidewalks/0.2/schema.json#/definitions/ResidentialStreet",
                         "description": "A residential street."
                     },
                     {
-                        "$ref": "https://sidewalks.uw.edu/opensidewalks/0.2/schema.json#/definitions/ServiceRoad",
+                        "$ref": "https://sidewalks.washington.edu/opensidewalks/0.2/schema.json#/definitions/ServiceRoad",
                         "description": "A road intended for service use."
                     },
                     {
-                        "$ref": "https://sidewalks.uw.edu/opensidewalks/0.2/schema.json#/definitions/Alley",
+                        "$ref": "https://sidewalks.washington.edu/opensidewalks/0.2/schema.json#/definitions/Alley",
                         "description": "The centerline of an alley. An alley is usually located between properties and provides access to utilities and private entrances."
                     },
                     {
-                        "$ref": "https://sidewalks.uw.edu/opensidewalks/0.2/schema.json#/definitions/Driveway",
+                        "$ref": "https://sidewalks.washington.edu/opensidewalks/0.2/schema.json#/definitions/Driveway",
                         "description": "The centerline of a driveway. Typically connects a residence or business to another road."
                     },
                     {
-                        "$ref": "https://sidewalks.uw.edu/opensidewalks/0.2/schema.json#/definitions/ParkingAisle",
+                        "$ref": "https://sidewalks.washington.edu/opensidewalks/0.2/schema.json#/definitions/ParkingAisle",
                         "description": "The centerline of a subordinated way in a parking lot: vehicles drive on parking aisles to reach parking spaces in a parking lot."
                     },
                     {
-                        "$ref": "https://sidewalks.uw.edu/opensidewalks/0.2/schema.json#/definitions/TrunkRoad",
+                        "$ref": "https://sidewalks.washington.edu/opensidewalks/0.2/schema.json#/definitions/TrunkRoad",
                         "description": "A high-performance or high-importance roads that don't meet the requirements for motorway, but are not classified as highway=primary either."
                     },
                     {
-                        "$ref": "https://sidewalks.uw.edu/opensidewalks/0.2/schema.json#/definitions/UnclassifiedRoad",
+                        "$ref": "https://sidewalks.washington.edu/opensidewalks/0.2/schema.json#/definitions/UnclassifiedRoad",
                         "description": "A minor public roads, typically at the lowest level of whatever administrative hierarchy is used in that jurisdiction."
                     },
                     {
-                        "$ref": "https://sidewalks.uw.edu/opensidewalks/0.2/schema.json#/definitions/LivingStreet",
+                        "$ref": "https://sidewalks.washington.edu/opensidewalks/0.2/schema.json#/definitions/LivingStreet",
                         "description": "A street designed with the interests of pedestrians and cyclists in mind by providing enriching and experiential spaces."
                     },
                     {
-                        "$ref": "https://sidewalks.uw.edu/opensidewalks/0.2/schema.json#/definitions/FireHydrant",
+                        "$ref": "https://sidewalks.washington.edu/opensidewalks/0.2/schema.json#/definitions/FireHydrant",
                         "description": "A fire hydrant - where fire response teams connect high-pressure hoses."
                     },
                     {
-                        "$ref": "https://sidewalks.uw.edu/opensidewalks/0.2/schema.json#/definitions/PowerPole",
+                        "$ref": "https://sidewalks.washington.edu/opensidewalks/0.2/schema.json#/definitions/PowerPole",
                         "description": "A power pole. Often made of wood or metal, they hold power lines."
                     },
                     {
-                        "$ref": "https://sidewalks.uw.edu/opensidewalks/0.2/schema.json#/definitions/Bench",
+                        "$ref": "https://sidewalks.washington.edu/opensidewalks/0.2/schema.json#/definitions/Bench",
                         "description": "A bench - a place for people to sit; allows room for several people."
                     },
                     {
-                        "$ref": "https://sidewalks.uw.edu/opensidewalks/0.2/schema.json#/definitions/WasteBasket",
+                        "$ref": "https://sidewalks.washington.edu/opensidewalks/0.2/schema.json#/definitions/WasteBasket",
                         "description": "A waste basket - a single small container for depositing garbage that is easily accessible for pedestrians."
                     },
                     {
-                        "$ref": "https://sidewalks.uw.edu/opensidewalks/0.2/schema.json#/definitions/Manhole",
+                        "$ref": "https://sidewalks.washington.edu/opensidewalks/0.2/schema.json#/definitions/Manhole",
                         "description": "A manhole - a hole with a cover that allows access to an underground service location, just large enough for a human to climb through."
                     },
                     {
-                        "$ref": "https://sidewalks.uw.edu/opensidewalks/0.2/schema.json#/definitions/Bollard",
+                        "$ref": "https://sidewalks.washington.edu/opensidewalks/0.2/schema.json#/definitions/Bollard",
                         "description": "A Bollard - a solid pillar or pillars made of concrete, metal, plastic, etc., and used to control traffic."
                     },
                     {
-                        "$ref": "https://sidewalks.uw.edu/opensidewalks/0.2/schema.json#/definitions/StreetLamp",
+                        "$ref": "https://sidewalks.washington.edu/opensidewalks/0.2/schema.json#/definitions/StreetLamp",
                         "description": "A street lamp - a street light, lamppost, street lamp, light standard, or lamp standard: a raised source of light above a road, which is turned on or lit at night."
                     },
                     {
-                        "$ref": "https://sidewalks.uw.edu/opensidewalks/0.2/schema.json#/definitions/PedestrianZone",
+                        "$ref": "https://sidewalks.washington.edu/opensidewalks/0.2/schema.json#/definitions/PedestrianZone",
                         "description": "An areas where pedestrians can travel freely in all directions."
                     },
                     {
-                        "$ref": "https://sidewalks.uw.edu/opensidewalks/0.2/schema.json#/definitions/Fence",
+                        "$ref": "https://sidewalks.washington.edu/opensidewalks/0.2/schema.json#/definitions/Fence",
                         "description": "A fence is a freestanding structure designed to restrict or prevent movement across a boundary. It is generally distinguished from a wall by the lightness of its construction."
                     },
                     {
-                        "$ref": "https://sidewalks.uw.edu/opensidewalks/0.2/schema.json#/definitions/Building",
+                        "$ref": "https://sidewalks.washington.edu/opensidewalks/0.2/schema.json#/definitions/Building",
                         "description": "A building is a man-made structure with a roof, standing more or less permanently in one place."
                     }
                 ]
@@ -5754,10 +5439,13 @@
             "type": "array"
         },
         "pipelineVersion": {
-            "type": "string"
+            "additionalProperties": true,
+            "properties": {
+            },
+            "type": "object"
         },
         "region": {
-            "$ref": "https://sidewalks.uw.edu/opensidewalks/0.2/schema.json#/definitions/GeoJSON.MultiPolygon",
+            "$ref": "https://sidewalks.washington.edu/opensidewalks/0.2/schema.json#/definitions/GeoJSON.MultiPolygon",
             "description": "MultiPolygon geometry object.\nhttps://tools.ietf.org/html/rfc7946#section-3.1.7"
         },
         "type": {

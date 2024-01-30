@@ -18,6 +18,6 @@ interface GenericCurbFields extends GenericCurbIdentifyingFields {
 }
 
 /**
- * A curb for which a type has not been determined yet.
+ * A curb for which a type has not been determined yet or a type could not be determined despite some effort.
  */
 export type GenericCurb = Feature<Point, GenericCurbFields>;

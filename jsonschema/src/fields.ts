@@ -26,14 +26,11 @@ export type CrossingMarkings =
  */
 export type Description = string;
 /**
- * A field for the estimated incline over a particular path, i.e. slope, i.e. grade, i.e. rise over run. If derived from OpenStreetMap data, this is the maximum incline over the path. If derived from DEM data, it is more likely to be an underestimation. Positive values indicate an uphill climb while negative are downhill. For example, a 45 degree downhill value for incline would be -1.0. For steps, you can use "up" or "down" to indicate the direction of the climb.
+ * A field for the estimated incline over a particular path, i.e. slope, i.e. grade, i.e. rise over run. If derived from OpenStreetMap data, this is the maximum incline over the path. If derived from DEM data, it is more likely to be an underestimation. Positive values indicate an uphill climb while negative are downhill. For example, a 45 degree downhill value for incline would be -1.0.
  * @minimum -1.0
  * @maximum 1.0
  */
-export type Incline =
-  | number
-  | "up"
-  | "down";
+export type Incline = number;
 /**
  * A field for the length of an entity in meters. This field is always inferred from the geometry.
  * @minimum 0
@@ -64,9 +61,7 @@ export type TactilePaving =
 | "yes"
 | "no"
 | "contrasted"
-| "primitive"
-| "incorrect"
-| "partial";
+| "primitive";
 /**
  * A field for width of an entity in meters.
  * @minimum 0
@@ -80,6 +75,12 @@ export type Width = number;
  * @TJS-type integer
  */
 export type StepCount = number;
+/**
+ * A field for the climb direction of steps. You can use "up" or "down" to indicate the direction of the climb relative to the direction of the edge.
+ */
+export type Climb =
+  | "up"
+  | "down";
 /**
  * A field that indicates whether an edge can be used by pedestrians.
  */
@@ -201,8 +202,8 @@ export type OpeningHours = string;
 /**
  * A field for the schema version.
  */
-export type SchemaVersion = `${number}.${number}`;
+export type SchemaVersion = `0.2`;
 /**
  * A field for the schema id.
  */
-export type SchemaID = `https://sidewalks.uw.edu/opensidewalks/${SchemaVersion}/schema.json`;
+export type SchemaID = `https://sidewalks.washington.edu/opensidewalks/${SchemaVersion}/schema.json`;
