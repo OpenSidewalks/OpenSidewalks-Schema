@@ -352,7 +352,7 @@ or `_w_id` fields.
 |   |
 |:- |
 | **Description**
-| A curb for which a type has not been determined yet.
+| A curb for which a type has not been determined yet or a type could not be determined despite some effort.
 | **Subtype of**
 | *None*
 | **Geometry**
