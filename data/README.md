@@ -1,0 +1,1 @@
+Data source: washington-latest.osm.pbf, suitable for Osmium, Osmosis, imposm, osm2pgsql, mkgmap, and others. This file contains all OSM data up to 2023-08-08T20:22:00Z. File size: 250 MB; MD5 sum: 0a863d1377af9deec074380cc42529cb. [https://download.geofabrik.de/north-america/us/washington.html]. The data was narrowed down to the MultiPolygon defined in region.geojson

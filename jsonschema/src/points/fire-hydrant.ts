@@ -1,11 +1,11 @@
 import { Feature, Point } from "geojson";
 
-import { Brunnel, Layer } from "../fields";
+import { BasePointFields } from "./base-point-fields";
 
 /**
  * Fields that identify a fire hydrant.
  */
-interface FireHydrantIdentifyingFields {
+interface FireHydrantIdentifyingFields extends BasePointFields {
   emergency: "fire_hydrant";
 }
 
@@ -13,8 +13,7 @@ interface FireHydrantIdentifyingFields {
  * Fields that apply to a fire hydrant.
  */
 interface FireHydrantFields extends FireHydrantIdentifyingFields {
-  brunnel?: Brunnel;
-  layer?: Layer;
+
 }
 
 /**

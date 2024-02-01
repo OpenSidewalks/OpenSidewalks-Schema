@@ -2,6 +2,9 @@
 // This comports with a graph theoretic definition of a vertex, where we need
 // a way to define the node as a member of the vertex set.
 
+/**
+ * @minLength 1
+ */
 export type NodeID = string;
 
 export interface BaseNodeFields {

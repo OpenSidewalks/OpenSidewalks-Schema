@@ -2,10 +2,8 @@ import { Feature, LineString } from "geojson";
 
 import { BaseEdgeFields } from "./base-edge-fields";
 import {
-  Brunnel,
   Description,
   Incline,
-  Layer,
   Length,
   Name,
   Surface,
@@ -23,10 +21,8 @@ interface FootwayIdentifyingFields extends BaseEdgeFields {
  * Fields that apply to a footway.
  */
 export interface FootwayFields extends FootwayIdentifyingFields {
-  brunnel?: Brunnel;
   description?: Description;
   incline?: Incline;
-  layer?: Layer;
   length?: Length;
   name?: Name;
   surface?: Surface;

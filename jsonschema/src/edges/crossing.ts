@@ -2,6 +2,7 @@ import { Feature, LineString } from "geojson";
 
 import { BaseEdgeFields } from "./base-edge-fields";
 import { FootwayFields } from "./footway";
+import { CrossingMarkings } from "../fields";
 
 /**
  * Fields that identify a crossing.
@@ -14,8 +15,10 @@ interface CrossingIdentifyingFields extends BaseEdgeFields {
 /**
  * Fields that apply to a crossing.
  */
-interface CrossingFields extends CrossingIdentifyingFields, FootwayFields {
-  crossing?: "marked" | "unmarked";
+interface CrossingFields
+  extends CrossingIdentifyingFields,
+  FootwayFields {
+    "crossing:markings"?: CrossingMarkings;
 }
 
 /**

@@ -4,11 +4,10 @@ import { NodeID } from "../nodes/base-node-fields";
 /**
  * @minLength 1
  */
-export type EdgeID = string;
+export type ZoneID = string;
 
-export interface BaseEdgeFields {
-  _id: EdgeID;
-  _u_id: NodeID;
-  _v_id: NodeID;
+export interface BaseZoneFields {
+  _id: ZoneID;
+  _w_id: NodeID[];
   foot?: Foot;
 }

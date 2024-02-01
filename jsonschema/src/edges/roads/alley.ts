@@ -1,6 +1,6 @@
 import { Feature, LineString } from "geojson";
 
-import { BaseEdgeFields } from "./base-edge-fields";
+import { BaseEdgeFields } from "../base-edge-fields";
 import { ServiceRoadFields } from "./service-road";
 
 /**
@@ -14,7 +14,9 @@ interface AlleyIdentifyingFields extends BaseEdgeFields {
 /**
  * Fields that apply to an alley.
  */
-interface AlleyFields extends AlleyIdentifyingFields, ServiceRoadFields {};
+interface AlleyFields
+  extends AlleyIdentifyingFields,
+  ServiceRoadFields {};
 
 /**
  * The centerline of an alley. An alley is usually located between properties and provides access to utilities and private entrances.

@@ -1,12 +1,13 @@
 import { Feature, Point } from "geojson";
 
 import { BaseNodeFields } from "./base-node-fields";
-import { Brunnel, Layer } from "../fields";
+import { TactilePaving } from "../fields";
 
 /**
  * Fields that identify a flush curb.
  */
 interface FlushCurbIdentifyingFields extends BaseNodeFields {
+  barrier: "kerb";
   kerb: "flush";
 }
 
@@ -14,8 +15,7 @@ interface FlushCurbIdentifyingFields extends BaseNodeFields {
  * Fields that apply to a flush curb.
  */
 interface FlushCurbFields extends FlushCurbIdentifyingFields {
-  brunnel?: Brunnel;
-  layer?: Layer;
+  tactile_paving?: TactilePaving;
 }
 
 /**

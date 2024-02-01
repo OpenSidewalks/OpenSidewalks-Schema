@@ -1,12 +1,13 @@
 import { Feature, Point } from "geojson";
 
 import { BaseNodeFields } from "./base-node-fields";
-import { Brunnel, Layer } from "../fields";
+import { TactilePaving } from "../fields";
 
 /**
  * Fields that identify a rolled curb.
  */
 interface RolledCurbIdentifyingFields extends BaseNodeFields {
+  barrier: "kerb";
   kerb: "rolled";
 }
 
@@ -14,8 +15,7 @@ interface RolledCurbIdentifyingFields extends BaseNodeFields {
  * Fields that apply to a rolled curb.
  */
 interface RolledCurbFields extends RolledCurbIdentifyingFields {
-  brunnel?: Brunnel;
-  layer?: Layer;
+  tactile_paving?: TactilePaving;
 }
 
 /**

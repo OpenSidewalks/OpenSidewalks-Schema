@@ -1,6 +1,6 @@
 import { Feature, LineString } from "geojson";
 
-import { BaseEdgeFields } from "./base-edge-fields";
+import { BaseEdgeFields } from "../base-edge-fields";
 import { ServiceRoadFields } from "./service-road";
 
 /**
@@ -16,7 +16,7 @@ interface ParkingAisleIdentifyingFields extends BaseEdgeFields {
  */
 interface ParkingAisleFields
   extends ParkingAisleIdentifyingFields,
-    ServiceRoadFields {}
+  ServiceRoadFields {}
 
 /**
  * The centerline of a subordinated way in a parking lot: vehicles drive on parking aisles to reach parking spaces in a parking lot.

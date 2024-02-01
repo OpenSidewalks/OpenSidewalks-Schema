@@ -2,25 +2,28 @@ import { Crossing } from "./crossing";
 import { Footway } from "./footway";
 import { Sidewalk } from "./sidewalk";
 import { TrafficIsland } from "./traffic-island";
+import { Steps } from "./steps";
+import { Pedestrian } from "./pedestrian";
 
-import { Cycleway } from "./cycleway";
-
-import { PrimaryStreet } from "./primary-street";
-import { SecondaryStreet } from "./secondary-street";
-import { TertiaryStreet } from "./tertiary-street";
-import { ResidentialStreet } from "./residential-street";
-
-import { ServiceRoad } from "./service-road";
-import { Alley } from "./alley";
-import { Driveway } from "./driveway";
-import { ParkingAisle } from "./parking-aisle";
+import { PrimaryStreet } from "./roads/primary-street";
+import { SecondaryStreet } from "./roads/secondary-street";
+import { TertiaryStreet } from "./roads/tertiary-street";
+import { ResidentialStreet } from "./roads/residential-street";
+import { ServiceRoad } from "./roads/service-road";
+import { Alley } from "./roads/alley";
+import { Driveway } from "./roads/driveway";
+import { ParkingAisle } from "./roads/parking-aisle";
+import { TrunkRoad } from "./roads/trunk-road";
+import { UnclassifiedRoad } from "./roads/unclassified-road";
+import { LivingStreet } from "./living-street";
 
 export type Edge =
   | Crossing
   | Footway
   | Sidewalk
   | TrafficIsland
-  | Cycleway
+  | Steps
+  | Pedestrian
   | PrimaryStreet
   | SecondaryStreet
   | TertiaryStreet
@@ -28,4 +31,7 @@ export type Edge =
   | ServiceRoad
   | Alley
   | Driveway
-  | ParkingAisle;
+  | ParkingAisle
+  | TrunkRoad
+  | UnclassifiedRoad
+  | LivingStreet;
