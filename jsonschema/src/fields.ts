@@ -202,7 +202,7 @@ export type OpeningHours = string;
 /**
  * A field for the schema version.
  */
-export type SchemaVersion = `0.2`;
+export type SchemaVersion = "0.2";
 /**
  * A field for the schema id.
  */
