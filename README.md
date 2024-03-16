@@ -329,7 +329,7 @@ unique identifier to which Edges and Zones may refer using their `_u_id`, `_v_id
 or `_w_id` fields.
 
 <details>
-  <summary><h3><a name="node-bare_node"></a> Bare Node</h3></summary>
+  <summary><b><a name="-bare-node"></a> Bare Node</b></summary>
 
 |   |
 |:- |
@@ -347,7 +347,7 @@ or `_w_id` fields.
 </details>
 
 <details>
-  <summary><h3><a name="node-generic_curb"></a> Generic curb</h3></summary>
+  <summary><b><a name="-generic-curb"></a> Generic curb</b></summary>
 
 |   |
 |:- |
@@ -360,12 +360,12 @@ or `_w_id` fields.
 | **Identifying fields**
 | `barrier=kerb`
 | **Optional Fields**
-| [tactile_paving](#field-tactile_paving)
+| [tactile_paving](#--tactile_paving)
 
 </details>
 
 <details>
-  <summary><h3><a name="node-raised_curb"></a> Raised curb</h3></summary>
+  <summary><b><a name="-raised-curb"></a> Raised curb</b></summary>
 
 |   |
 |:- |
@@ -383,7 +383,7 @@ or `_w_id` fields.
 </details>
 
 <details>
-  <summary><h3><a name="node-rolled_curb"></a> Rolled curb</h3></summary>
+  <summary><b><a name="-rolled-curb"></a> Rolled curb</b></summary>
 
 |   |
 |:- |
@@ -401,7 +401,7 @@ or `_w_id` fields.
 </details>
 
 <details>
-  <summary><h3><a name="node-curb_ramp"></name> Curb ramp</h3></summary>
+  <summary><b><a name="-curb-ramp"></a> Curb ramp</b></summary>
 
 |   |
 |:- |
@@ -419,7 +419,7 @@ or `_w_id` fields.
 </details>
 
 <details>
-  <summary><h3><a name="node-flush_curb"></a> Flush curb</h3></summary>
+  <summary><b><a name="-flush-curb"></a> Flush curb</b></summary>
 
 |   |
 |:- |
@@ -444,7 +444,7 @@ often derived from topological data like that stored in OpenStreetMap. All
 edges must have a unique `_id` field.
 
 <details>
-  <summary><h3><a name="edge-footway"></a> Footway (plain)</h3></summary>
+  <summary><b><a name="-footway"></a> Footway (plain)</b></summary>
 
 |   |
 |:- |
@@ -457,12 +457,12 @@ edges must have a unique `_id` field.
 | **Identifying fields**
 | `highway=footway`<br>*(and no `footway=*` subtag)*
 | **Optional Fields**
-| [width](#field-width)<br>[surface](#field-surface)<br>[incline](#field-incline)<br>[length](#field-length)<br>[description](#field-description)<br>[name](#field-name)<br>[foot](#--foot)
+| [width](#--width)<br>[surface](#--surface)<br>[incline](#--incline)<br>[length](#--length)<br>[description](#--description)<br>[name](#--name)<br>[foot](#--foot)
 
 </details>
 
 <details>
-  <summary><h3><a name="edge-sidewalk"></a> Sidewalk</h3></summary>
+  <summary><b><a name="-sidewalk"></a> Sidewalk</b></summary>
 
 |   |
 |:- |
@@ -475,12 +475,12 @@ edges must have a unique `_id` field.
 | **Identifying fields**
 | `highway=footway`, `footway=sidewalk`
 | **Optional Fields**
-| All [optional fields of footway](#-footway-plain)<br>[description](#field-description): Sidewalk-specific usage note: OpenSidewalks data will often infer a 'description' property that states where the sidewalk is in relation to its associated street. Example: "NW side of 5th Ave".
+| All [optional fields of footway](#-footway-plain)<br>[description](#--description): Sidewalk-specific usage note: OpenSidewalks data will often infer a 'description' property that states where the sidewalk is in relation to its associated street. Example: "NW side of 5th Ave".
 
 </details>
 
 <details>
-  <summary><h3><a name="edge-crossing"></a> Crossing</h3></summary>
+  <summary><b><a name="-crossing"></a> Crossing</b></summary>
 
 |   |
 |:- |
@@ -493,12 +493,12 @@ edges must have a unique `_id` field.
 | **Identifying fields**
 | `highway=footway`, `footway=crossing`
 | **Optional Fields**
-| All [optional fields of footway](#-footway-plain)<br>[crossing:markings](#field-crossing_markings)
+| All [optional fields of footway](#-footway-plain)<br>[crossing:markings](#--crossing_markings)
 
 </details>
 
 <details>
-  <summary><h3><a name="edge-traffic_island"></a> Traffic Island</h3></summary>
+  <summary><b><a name="-traffic-island"></a> Traffic Island</b></summary>
 
 |   |
 |:- |
@@ -516,7 +516,7 @@ edges must have a unique `_id` field.
 </details>
 
 <details>
-  <summary><h3><a name="edge-pedestrian"></a> Pedestrian Road</h3></summary>
+  <summary><b><a name="-pedestrian-road"></a> Pedestrian Road</b></summary>
 
 |   |
 |:- |
@@ -529,12 +529,12 @@ edges must have a unique `_id` field.
 | **Identifying fields**
 | `highway=pedestrian`
 | **Optional Fields**
-| [width](#field-width)<br>[surface](#field-surface)<br>[incline](#field-incline)<br>[length](#field-length)<br>[description](#field-description)<br>[name](#field-name)<br>[foot](#--foot)
+| [width](#--width)<br>[surface](#--surface)<br>[incline](#--incline)<br>[length](#--length)<br>[description](#--description)<br>[name](#--name)<br>[foot](#--foot)
 
 </details>
 
 <details>
-  <summary><h3><a name="edge-steps"></a> Steps</h3></summary>
+  <summary><b><a name="-steps"></a> Steps</b></summary>
 
 |   |
 |:- |
@@ -547,12 +547,12 @@ edges must have a unique `_id` field.
 | **Identifying fields**
 | `highway=steps`
 | **Optional Fields**
-| [width](#field-width)<br>[surface](#field-surface)<br>[incline](#field-incline)<br>[length](#field-length)<br>[description](#field-description)<br>[name](#field-name)<br>[step_count](#field-step_count)<br>[climb](#field-climb)<br>[foot](#--foot)
+| [width](#--width)<br>[surface](#--surface)<br>[incline](#--incline)<br>[length](#--length)<br>[description](#--description)<br>[name](#--name)<br>[step_count](#--step_count)<br>[climb](#--climb)<br>[foot](#--foot)
 
 </details>
 
 <details>
-  <summary><h3><a name="edge-living-street"></a> Living Street</h3></summary>
+  <summary><b><a name="-living-street"></a> Living Street</b></summary>
 
 |   |
 |:- |
@@ -565,12 +565,12 @@ edges must have a unique `_id` field.
 | **Identifying fields**
 | `highway=living_street`
 | **Optional Fields**
-| [width](#field-width)<br>[surface](#field-surface)<br>[incline](#field-incline)<br>[length](#field-length)<br>[description](#field-description)<br>[name](#field-name)<br>[foot](#--foot)
+| [width](#--width)<br>[surface](#--surface)<br>[incline](#--incline)<br>[length](#--length)<br>[description](#--description)<br>[name](#--name)<br>[foot](#--foot)
 
 </details>
 
 <details>
-  <summary><h3><a name="edge-motor-vehicle-roads"></a> Motor Vehicle Roads</h3></summary>
+  <summary><b><a name="-motor-vehicle-roads"></a> Motor Vehicle Roads</b></summary>
 
 While OpenSidewalks schema is centered around the pedestrian experience and accessibility within the pedestrian network, the inclusion of roads as core entities in the schema is justified because:
 1) In some areas due to the lack of sidewalks, a pedestrian has to use a road to reach her destination.
@@ -581,7 +581,7 @@ In order to simplify the job of OpenSidewalks consuming applications when attemp
 pedestrian. We recommend applications clearly communicate the risk to pedestrians if they route users on entities with missing [foot](#--foot) field or with `foot=no`. 
 
 <details>
-  <summary><h3><a name="edge-primary-street"></a> Primary Street</h3></summary>
+  <summary><b><a name="-primary-street"></a> Primary Street</b></summary>
 
 |   |
 |:- |
@@ -594,12 +594,12 @@ pedestrian. We recommend applications clearly communicate the risk to pedestrian
 | **Identifying fields**
 | `highway=primary`
 | **Optional Fields**
-| [width](#field-width)<br>[surface](#field-surface)<br>[incline](#field-incline)<br>[length](#field-length)<br>[description](#field-description)<br>[name](#field-name)<br>[foot](#--foot)
+| [width](#--width)<br>[surface](#--surface)<br>[incline](#--incline)<br>[length](#--length)<br>[description](#--description)<br>[name](#--name)<br>[foot](#--foot)
 
 </details>
 
 <details>
-  <summary><h3><a name="edge-secondary-street"></a> Secondary Street</h3></summary>
+  <summary><b><a name="-secondary-street"></a> Secondary Street</b></summary>
 
 |   |
 |:- |
@@ -617,7 +617,7 @@ pedestrian. We recommend applications clearly communicate the risk to pedestrian
 </details>
 
 <details>
-  <summary><h3><a name="edge-tertiary-street"></a> Tertiary Street</h3></summary>
+  <summary><b><a name="-tertiary-street"></a> Tertiary Street</b></summary>
 
 |   |
 |:- |
@@ -635,7 +635,7 @@ pedestrian. We recommend applications clearly communicate the risk to pedestrian
 </details>
 
 <details>
-  <summary><h3><a name="edge-residential-street"></a> Residential Street</h3></summary>
+  <summary><b><a name="-residential-street"></a> Residential Street</b></summary>
 
 |   |
 |:- |
@@ -653,7 +653,7 @@ pedestrian. We recommend applications clearly communicate the risk to pedestrian
 </details>
 
 <details>
-  <summary><h3><a name="edge-service-road"></a> Service Road</h3></summary>
+  <summary><b><a name="-service-road"></a> Service Road</b></summary>
 
 |   |
 |:- |
@@ -671,7 +671,7 @@ pedestrian. We recommend applications clearly communicate the risk to pedestrian
 </details>
 
 <details>
-  <summary><h3><a name="edge-driveway"></a> Driveway</h3></summary>
+  <summary><b><a name="-driveway"></a> Driveway</b></summary>
 
 |   |
 |:- |
@@ -689,7 +689,7 @@ pedestrian. We recommend applications clearly communicate the risk to pedestrian
 </details>
 
 <details>
-  <summary><h3><a name="edge-alley"></a> Alley</h3></summary>
+  <summary><b><a name="-alley"></a> Alley</b></summary>
 
 |   |
 |:- |
@@ -707,7 +707,7 @@ pedestrian. We recommend applications clearly communicate the risk to pedestrian
 </details>
 
 <details>
-  <summary><h3><a name="edge-parking-aisle"></a> Parking Aisle</h3></summary>
+  <summary><b><a name="-parking-aisle"></a> Parking Aisle</b></summary>
 
 |   |
 |:- |
@@ -725,7 +725,7 @@ pedestrian. We recommend applications clearly communicate the risk to pedestrian
 </details>
 
 <details>
-  <summary><h3><a name="edge-unclassified-road"></a> Unclassified Road</h3></summary>
+  <summary><b><a name="-unclassified-road"></a> Unclassified Road</b></summary>
 
 |   |
 |:- |
@@ -743,7 +743,7 @@ pedestrian. We recommend applications clearly communicate the risk to pedestrian
 </details>
 
 <details>
-  <summary><h3><a name="edge-trunk-road"></a> Trunk Road</h3></summary>
+  <summary><b><a name="-trunk-road"></a> Trunk Road</b></summary>
 
 |   |
 |:- |
@@ -769,7 +769,7 @@ Polygons) intended to represent areas where pedestrians can travel freely in
 all directions. They are part of the pedestrian network: each zone contains a list (`_w_id`) of node `_id`'s. All zones must have a unique `_id` field.
 
 <details>
-  <summary><h3><a name="zone-pedestrian"></a> Pedestrian Zone</h3></summary>
+  <summary><b><a name="-pedestrian-zone"></a> Pedestrian Zone</b></summary>
 
 |   |
 |:- |
@@ -782,7 +782,7 @@ all directions. They are part of the pedestrian network: each zone contains a li
 | **Identifying fields**
 | `highway=pedestrian`
 | **Optional Fields**
-| [surface](#field-surface)<br>[description](#field-description)<br>[name](#field-name)<br>[foot](#--foot)
+| [surface](#--surface)<br>[description](#--description)<br>[name](#--name)<br>[foot](#--foot)
 
 </details>
 
@@ -799,7 +799,7 @@ pedestrian network, but aren't appropriate as elements of the network
 described by the OpenSidewalks Schema. All points must have a unique `_id` field.
 
 <details>
-  <summary><h3><a name="point-power_pole"></a> Power pole</h3></summary>
+  <summary><b><a name="-power-pole"></a> Power pole</b></summary>
 
 |   |
 |:- |
@@ -817,7 +817,7 @@ described by the OpenSidewalks Schema. All points must have a unique `_id` field
 </details>
 
 <details>
-  <summary><h3><a name="point-fire_hydrant"></a> Fire hydrant</h3></summary>
+  <summary><b><a name="-fire-hydrant"></a> Fire hydrant</b></summary>
 
 |   |
 |:- |
@@ -835,7 +835,7 @@ described by the OpenSidewalks Schema. All points must have a unique `_id` field
 </details>
 
 <details>
-  <summary><h3><a name="point-bench"></a> Bench</h3></summary>
+  <summary><b><a name="-bench"></a> Bench</b></summary>
 
 |   |
 |:- |
@@ -853,7 +853,7 @@ described by the OpenSidewalks Schema. All points must have a unique `_id` field
 </details>
 
 <details>
-  <summary><h3><a name="point-bollard"></a> Bollard</h3></summary>
+  <summary><b><a name="-bollard"></a> Bollard</b></summary>
 
 |   |
 |:- |
@@ -871,7 +871,7 @@ described by the OpenSidewalks Schema. All points must have a unique `_id` field
 </details>
 
 <details>
-  <summary><h3><a name="point-manhole"></a> Manhole</h3></summary>
+  <summary><b><a name="-manhole"></a> Manhole</b></summary>
 
 |   |
 |:- |
@@ -889,7 +889,7 @@ described by the OpenSidewalks Schema. All points must have a unique `_id` field
 </details>
 
 <details>
-  <summary><h3><a name="point-street_lamp"></a> Street Lamp</h3></summary>
+  <summary><b><a name="-street-lamp"></a> Street Lamp</b></summary>
 
 |   |
 |:- |
@@ -907,7 +907,7 @@ described by the OpenSidewalks Schema. All points must have a unique `_id` field
 </details>
 
 <details>
-  <summary><h3><a name="point-waste_basket"></a> Waste Basket</h3></summary>
+  <summary><b><a name="-waste-basket"></a> Waste Basket</b></summary>
 
 |   |
 |:- |
@@ -932,7 +932,7 @@ the graph structure described by Nodes, Edges and Zones), but they are still hig
 to the physical pedestrian network. All lines must have a unique `_id` field.
 
 <details>
-  <summary><h3><a name="line-fence"></a> Fence</h3></summary>
+  <summary><b><a name="-fence"></a> Fence</b></summary>
 
 |   |
 |:- |
@@ -945,7 +945,7 @@ to the physical pedestrian network. All lines must have a unique `_id` field.
 | **Identifying fields**
 | `barrier=fence`
 | **Optional Fields**
-| [length](#field-length)
+| [length](#--length)
 
 </details>
 
@@ -956,7 +956,7 @@ the graph structure described by Nodes, Edges and Zones), but they are still hig
 to the physical pedestrian network. All polygons must have a unique `_id` field.
 
 <details>
-  <summary><h3><a name="polygon-building"></a> Building</h3></summary>
+  <summary><b><a name="-building"></a> Building</b></summary>
 
 |   |
 |:- |
@@ -967,9 +967,9 @@ to the physical pedestrian network. All polygons must have a unique `_id` field.
 | **Geometry**
 | Polygon
 | **Identifying fields**
-| [building](#field-building)=*
+| [building](#--building)=*
 | **Optional Fields**
-| [name](#field-name)<br>[opening_hours](#--opening_hours)
+| [name](#--name)<br>[opening_hours](#--opening_hours)
 
 </details>
 
@@ -996,7 +996,7 @@ when a facility or asset is "open", as in accessible to the public.
 ## List of fields
 
 <details>
-  <summary><h5> <a name="field-description"></a> description</h5></summary>
+  <summary><b> <a name="--description"></a> description</b></summary>
 
 *From OpenStreetMap*
 
@@ -1017,7 +1017,7 @@ for "extra data".
 
 </details>
 <details>
-  <summary><h5> <a name="field-name"></a> name</h5></summary>
+  <summary><b> <a name="--name"></a> name</b></summary>
 
 *From OpenStreetMap*
 
@@ -1030,7 +1030,7 @@ street path or a specially-designated name for a famous footpath.
 
 </details>
 <details>
-  <summary><h5> <a name="field-incline"></a> incline</h5></summary>
+  <summary><b> <a name="--incline"></a> incline</b></summary>
 
 *From OpenStreetMap*
 
@@ -1046,7 +1046,7 @@ to indicate the direction of the climb relative to the direction of the edge.
 
 </details>
 <details>
-  <summary><h5> <a name="field-surface"></a> surface</h5></summary>
+  <summary><b> <a name="--surface"></a> surface</b></summary>
 
 *From OpenStreetMap*
 
@@ -1077,7 +1077,7 @@ from OpenStreetMap.
 
 </details>
 <details>
-  <summary><h5> <a name="field-length"></a> length</h5></summary>
+  <summary><b> <a name="--length"></a> length</b></summary>
 
 *From OpenStreetMap*
 
@@ -1091,7 +1091,7 @@ also handle these data, but for now length is precalculated.
 
 </details>
 <details>
-  <summary><h5> <a name="field-width"></a> width</h5></summary>
+  <summary><b> <a name="--width"></a> width</b></summary>
 
 *From OpenStreetMap*
 
@@ -1101,7 +1101,7 @@ The width of an Edge in meters.
 
 </details>
 <details>
-  <summary><h5> <a name="field-tactile_paving"></a> tactile_paving</h5></summary>
+  <summary><b> <a name="--tactile_paving"></a> tactile_paving</b></summary>
 
 *From OpenStreetMap*
 
@@ -1121,7 +1121,7 @@ A field for whether a curb has a tactile (textured) surface. Tactile paving is a
 
 </details>
 <details>
-  <summary><h5> <a name="field-crossing_markings"></a> crossing:markings</h5></summary>
+  <summary><b> <a name="--crossing_markings"></a> crossing:markings</b></summary>
 
 *From OpenStreetMap*
 
@@ -1189,7 +1189,7 @@ bars are actually made up of two very-close smaller bars.
 
 </details>
 <details>
-  <summary><h5> <a name="field-step_count"></a> step_count</h5></summary>
+  <summary><b> <a name="--step_count"></a> step_count</b></summary>
 
 *From OpenStreetMap*
 
@@ -1199,7 +1199,7 @@ Can be added to indicate the number of steps
 
 </details>
 <details>
-  <summary><h5> <a name="field-climb"></a> climb</h5></summary>
+  <summary><b> <a name="--climb"></a> climb</b></summary>
 
 *From OpenStreetMap*
 
@@ -1215,7 +1215,7 @@ For steps, can be used to indicate the direction of the climb relative to the di
 
 </details>
 <details>
-  <summary><h5> <a name="field-building"></a> building</h5></summary>
+  <summary><b> <a name="--building"></a> building</b></summary>
 
 *From OpenStreetMap*
 
@@ -1346,7 +1346,7 @@ Other buildings
 
 </details>
 <details>
-  <summary><h5> <a name="field-opening_hours"></a> opening_hours</h5></summary>
+  <summary><b> <a name="--opening_hours"></a> opening_hours</b></summary>
 
 *From OpenStreetMap*
 
@@ -1360,7 +1360,7 @@ on the formatting for this field.
 
 </details>
 <details>
-  <summary><h5> <a name="field-foot"></a> foot</h5></summary>
+  <summary><b> <a name="--foot"></a> foot</b></summary>
 
 *From OpenStreetMap*
 
