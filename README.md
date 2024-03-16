@@ -26,7 +26,7 @@
     * [Curb ramp](#-curb-ramp)
     * [Flush curb](#-flush-curb)
   * [Edges](#-edges)
-    * [Footway (plain)](#-footway-plain)
+    * [Footway (plain)](#-footway)
     * [Sidewalk](#-sidewalk)
     * [Crossing](#-crossing)
     * [Traffic Island](#-traffic-island)
@@ -246,12 +246,12 @@ should be split such that endpoints are shared.
 
 ### Crossings do not connect to sidewalk centerlines
 
-The OpenSidewalks Schema defines [Crossings](#edge-crossing) as
+The OpenSidewalks Schema defines [Crossings](#-crossing) as
 existing only on the street surface and
 [Sidewalks](#-sidewalk) as describing only
 the sidewalk centerline. There must therefore always be space between a
 Sidewalk and a Crossing. A Sidewalk and Crossing should be connected by
-a plain [Footway](#edge-footway).
+a plain [Footway](#-footway).
 
 ### Curb interfaces and curb ramps are mapped at Edge endpoints
 
@@ -469,13 +469,13 @@ edges must have a unique `_id` field.
 | **Description**
 | The centerline of a sidewalk, a designated pedestrian path to the side of a street.
 | **Subtype of**
-| [Footway](#edge-footway)
+| [Footway](#-footway)
 | **Geometry**
 | LineString
 | **Identifying fields**
 | `highway=footway`, `footway=sidewalk`
 | **Optional Fields**
-| All [optional fields of footway](#-footway-plain)<br>[description](#--description): Sidewalk-specific usage note: OpenSidewalks data will often infer a 'description' property that states where the sidewalk is in relation to its associated street. Example: "NW side of 5th Ave".
+| All [optional fields of footway](#-footway)<br>[description](#--description): Sidewalk-specific usage note: OpenSidewalks data will often infer a 'description' property that states where the sidewalk is in relation to its associated street. Example: "NW side of 5th Ave".
 
 </details>
 
@@ -487,13 +487,13 @@ edges must have a unique `_id` field.
 | **Description**
 | (Part of) the centerline of a pedestrian street crossing. A crossing exists only on the road surface itself, i.e. "from curb to curb".<br><br>Because crossings should be connected to the street network, they should be represented by at least two Edges: one from the first curb interface to the street centerline and one from the street centerline to the second curb interface, e.g..<br><br>Crossings should not be connected directly to sidewalk centerlines, as the sidewalk centerline is never the curb interface. Instead, a short footway should connect the two together.
 | **Subtype of**
-| [Footway](#edge-footway)
+| [Footway](#-footway)
 | **Geometry**
 | LineString
 | **Identifying fields**
 | `highway=footway`, `footway=crossing`
 | **Optional Fields**
-| All [optional fields of footway](#-footway-plain)<br>[crossing:markings](#--crossing_markings)
+| All [optional fields of footway](#-footway)<br>[crossing:markings](#--crossing_markings)
 
 </details>
 
@@ -505,13 +505,13 @@ edges must have a unique `_id` field.
 | **Description**
 | The centerline of a footway traversing a traffic island. Some complex, long, or busy pedestrian crossings have a built-up "island" to protect pedestrians, splitting up the crossing of the street into two or more crossings. As a pedestrian uses this crossing, they will transition across these Edge elements: sidewalk → footway → crossing → traffic island → crossing → footway → sidewalk.
 | **Subtype of**
-| [Footway](#edge-footway)
+| [Footway](#-footway)
 | **Geometry**
 | LineString
 | **Identifying fields**
 | `highway=footway`, `footway=traffic_island`
 | **Optional Fields**
-| All [optional fields of footway](#-footway-plain)
+| All [optional fields of footway](#-footway)
 
 </details>
 
