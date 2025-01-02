@@ -108,7 +108,7 @@ There are three types of core entity models:
 * Edges
 * Zones
 
-Nodes, Edges and Zones are geometrical features (OGC Points, LineStrings and Polygons,
+Nodes, Edges, and Zones are geometrical features (OGC Points, LineStrings and Polygons,
 respectively) with network primitives defined such that a network (or graph)
 can be constructed purely from their metadata. Examples of each entity model:
 
@@ -165,7 +165,7 @@ There are three types of extension entity models:
 * Lines
 * Polygons
 
-Points, Lines and Polygons are solely geometrical OGC features and they lack
+Points, Lines, and Polygons are solely geometrical OGC features and they lack
 network metadata: their relationship to other members of the dataset are spatial.
 Extensions are features relevant to the pedestrian network that are nevertheless not 
 represented as elements of it: they are nearby and useful for producing 
