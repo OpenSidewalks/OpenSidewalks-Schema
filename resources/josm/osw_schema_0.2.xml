@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<presets xmlns="http://josm.openstreetmap.de/tagging-preset-1.0">
+	<group name="Roads" >
+		<item name="Alley" icon="" type="">
+			<label text="" />
+			
+		</item>
+		<item name="Driveway" icon="" type="">
+			<label text="" />
+			
+		</item>
+		<item name="Parking Aisle" icon="" type="">
+			<label text="" />
+			
+		</item>
+		<item name="Primary Street" icon="" type="">
+			<label text="" />
+			
+		</item>
+		<item name="Residential Street" icon="" type="">
+			<label text="" />
+			
+		</item>
+		<item name="Road" icon="" type="">
+			<label text="" />
+			
+		</item>
+		<item name="Secondary Street" icon="" type="">
+			<label text="" />
+			
+		</item>
+		<item name="Service Road" icon="" type="">
+			<label text="" />
+			
+		</item>
+		<item name="Tertiary Street" icon="" type="">
+			<label text="" />
+			
+		</item>
+		<item name="Trunk Road" icon="" type="">
+			<label text="" />
+			
+		</item>
+		<item name="Unclassified Road" icon="" type="">
+			<label text="" />
+			
+		</item>
+	</group>
+	<group name="Edges" >
+		<item name="Crossing" icon="" type="">
+			<label text="" />
+			
+		</item>
+		<item name="Footway" icon="" type="">
+			<label text="" />
+			
+		</item>
+		<item name="Living Street" icon="" type="">
+			<label text="" />
+			
+		</item>
+		<item name="Pedestrian" icon="" type="">
+			<label text="" />
+			
+		</item>
+		<item name="Sidewalk" icon="" type="">
+			<label text="" />
+			
+		</item>
+		<item name="Steps" icon="" type="">
+			<label text="" />
+			
+		</item>
+		<item name="Traffic Island" icon="" type="">
+			<label text="" />
+			
+		</item>
+	</group>
+	<group name="Lines" >
+		<item name="Fence" icon="" type="">
+			<label text="" />
+			
+		</item>
+	</group>
+	<group name="Nodes" >
+		<item name="Bare Node" icon="" type="">
+			<label text="" />
+			
+		</item>
+		<item name="Curb Ramp" icon="" type="">
+			<label text="" />
+			
+		</item>
+		<item name="Flush Curb" icon="" type="">
+			<label text="" />
+			
+		</item>
+		<item name="Generic Curb" icon="" type="">
+			<label text="" />
+			
+		</item>
+		<item name="Raised Curb" icon="" type="">
+			<label text="" />
+			
+		</item>
+		<item name="Rolled Curb" icon="" type="">
+			<label text="" />
+			
+		</item>
+	</group>
+	<group name="Points" >
+		<item name="Bench" icon="" type="">
+			<label text="" />
+			
+		</item>
+		<item name="Bollard" icon="" type="">
+			<label text="" />
+			
+		</item>
+		<item name="Fire Hydrant" icon="" type="">
+			<label text="" />
+			
+		</item>
+		<item name="Manhole" icon="" type="">
+			<label text="" />
+			
+		</item>
+		<item name="Power Pole" icon="" type="node">
+			<label text="A power pole. Often made of wood or metal, they hold power lines." />
+			<combo key="power" text="Feature Type" values="pole" display_values="Power Pole" default="pole" editable="false" />
+		</item>
+		<item name="Street Lamp" icon="" type="node">
+			<label text="A street lamp - a street light, lamppost, street lamp, light standard, or lamp standard: a raised source of light above a road, which is turned on or lit at night." />
+			<combo key="highway" text="Feature Type" values="street_lamp" display_values="Street Lamp" default="street_lamp" editable="false" />
+		</item>
+		<item name="Waste Basket" icon="" type="node">
+			<label text="A waste basket - a single small container for depositing garbage that is easily accessible for pedestrians." />
+			<combo key="amenity" text="Feature Type" values="waste_basket" display_values="Waste Basket" default="waste_basket" editable="false" />
+		</item>
+	</group>
+	<group name="Polygons" >
+		<item name="Building" icon="" type="closedway">
+			<label text="" />
+			<combo key="building" text="Building Type" values="apartments,barracks,bungalow,cabin,detached,dormitory,farm,ger,hotel,house,houseboat,residential,semidetached_house,static_caravan,stilt_house,terrace,tree_house,trullo,commercial,industrial,kiosk,office,retail,supermarket,warehouse,cathedral,chapel,church,kingdom_hall,monastery,mosque,presbytery,religious,shrine,synagogue,temple,bakehouse,bridge,civic,college,fire_station,government,gatehouse,hospital,kindergarten,museum,public,school,toilets,train_station,transportation,university,barn,conservatory,cowshed,farm_auxiliary,greenhouse,slurry_tank,stable,sty,livestock,grandstand,pavilion,riding_hall,sports_hall,sports_centre,stadium,allotment_house,boathouse,hangar,hut,shed,carport,garage,garages,parking,digester,service,tech_cab,transformer_tower,water_tower,storage_tank,silo,beach_hut,bunker,castle,construction,container,guardhouse,military,outbuilding,pagoda,quonset_hut,roof,ruins,tent,tower,windmill,yes" <display_values="Apartments,Barracks,Bungalow,Cabin,Detached,Dormitory,Farm,Ger,Hotel,House,Houseboat,Residential,Semidetached House,Static Caravan,Stilt House,Terrace,Tree House,Trullo,Commercial,Industrial,Kiosk,Office,Retail,Supermarket,Warehouse,Cathedral,Chapel,Church,Kingdom Hall,Monastery,Mosque,Presbytery,Religious,Shrine,Synagogue,Temple,Bakehouse,Bridge,Civic,College,Fire Station,Government,Gatehouse,Hospital,Kindergarten,Museum,Public,School,Toilets,Train Station,Transportation,University,Barn,Conservatory,Cowshed,Farm Auxiliary,Greenhouse,Slurry Tank,Stable,Sty,Livestock,Grandstand,Pavilion,Riding Hall,Sports Hall,Sports Centre,Stadium,Allotment House,Boathouse,Hangar,Hut,Shed,Carport,Garage,Garages,Parking,Digester,Service,Tech Cab,Transformer Tower,Water Tower,Storage Tank,Silo,Beach Hut,Bunker,Castle,Construction,Container,Guardhouse,Military,Outbuilding,Pagoda,Quonset Hut,Roof,Ruins,Tent,Tower,Windmill,(Unspecified)" default="yes" editable="false" />
+			<text key="name" text="Name" default="" />
+			<text key="opening_hours" text="Opening Hours" default="" />
+		</item>
+	</group>
+	<group name="Zones" >
+		<item name="Pedestrian Zone" icon="" type="closedway">
+			<label text="Pedestrian Zone: An area where pedestrians can travel freely in all directions." />
+			<combo key="highway" text="Highway Type" values="pedestrian" display_values="Pedestrian" default="pedestrian" editable="false" />
+			<text key="name" text="Name" default="" />
+			<combo key="surface" text="Surface Type" values="asphalt,concrete,gravel,grass,paved,paving_stones,unpaved,dirt,grass_paver" <display_values="Asphalt,Concrete,Gravel,Grass,Paved,Paving Stones,Unpaved,Dirt,Grass Paver" editable="false" />
+		</item>
+	</group>
+</presets>
