@@ -29,6 +29,52 @@
 			<label text="" />
 			
 		</item>
+		<group name="Roads" >
+			<item name="Alley" icon="" type="">
+				<label text="" />
+				
+			</item>
+			<item name="Driveway" icon="" type="">
+				<label text="" />
+				
+			</item>
+			<item name="Parking Aisle" icon="" type="">
+				<label text="" />
+				
+			</item>
+			<item name="Primary Street" icon="" type="">
+				<label text="" />
+				
+			</item>
+			<item name="Residential Street" icon="" type="">
+				<label text="" />
+				
+			</item>
+			<item name="Road" icon="" type="">
+				<label text="" />
+				
+			</item>
+			<item name="Secondary Street" icon="" type="">
+				<label text="" />
+				
+			</item>
+			<item name="Service Road" icon="" type="">
+				<label text="" />
+				
+			</item>
+			<item name="Tertiary Street" icon="" type="">
+				<label text="" />
+				
+			</item>
+			<item name="Trunk Road" icon="" type="">
+				<label text="" />
+				
+			</item>
+			<item name="Unclassified Road" icon="" type="">
+				<label text="" />
+				
+			</item>
+		</group>
 	</group>
 	<group name="Lines" >
 		<item name="Fence" icon="" type="">
