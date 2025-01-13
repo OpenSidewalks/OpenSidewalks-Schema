@@ -4,7 +4,7 @@ meta {
     version: "0.1.0";
     description: "Styles to elevate pedestrian sidewalk, crossing, and curb data edited for the OpenSidewalks schema: https://www.opensidewalks.com and also to visualize some common semantic erros when mapping pedestrian data";
     author: "Lane Felker and Nick Bolten";
-    link: "https://github.com/OpenSidewalks/open_sidewalks.mapcss";
+    link: "https://github.com/OpenSidewalks/OpenSidewalks-Schema/blob/main/resources/josm/styles/opensidewalks.mapcss";
     min-josm-version: 8000;
 }
 
