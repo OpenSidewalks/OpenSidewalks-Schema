@@ -63,6 +63,7 @@
   * [building](#--building)
   * [opening_hours](#--opening_hours)
   * [foot](#--foot)
+* [Resources](#resources)
 * [Schema Versions](#schema-versions)
 
 # Introduction
@@ -1385,6 +1386,10 @@ A field that indicates whether an edge can be used by pedestrians.
 -   destination: Transit traffic forbidden for pedestrians, non-transit to a local destination allowed.
 
 </details>
+
+## Resources
+
+Mapping guides and resources for use in JOSM including a map style and presets are made available in the [resources](https://github.com/OpenSidewalks/OpenSidewalks-Schema/tree/main/resources) directory.
 
 ## Schema Versions
 | Version | Release Date | Link | Notes |
