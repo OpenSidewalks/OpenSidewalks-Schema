@@ -6,7 +6,7 @@ Repository for resources related to OpenSidewalks
 
 OpenSidewalks mapping guides
 
-* **[OpenSidewalks Mapping Guide Phase 1](https://github.com/OpenSidewalks/OpenSidewalks-Schema/tree/main/resources/guides/OpenSidewalks_Mapping_Guide_P1.pdf)** | *(OpenSidewalks_Mapping_Guide_P1.pdf)*
+* **[OpenSidewalks Mapping Guide](https://github.com/UW-Amy-Bordenave/OpenSidewalks-Schema/blob/resources/resources/guides/OpenSidewalks%20Mapping%20Guide.pdf)** | *(OpenSidewalks Mapping Guide.pdf)*
 
 ## [JOSM](https://github.com/OpenSidewalks/OpenSidewalks-Schema/tree/main/resources/josm)
 
