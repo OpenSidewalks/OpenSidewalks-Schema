@@ -1,0 +1,80 @@
+meta {
+    title: "OpenSidewalks";
+    icon: "https://github.com/species/josm-preset-wheelchair/raw/master/footway-wheelchair.png";
+    version: "0.1.0";
+    description: "Styles to elevate pedestrian sidewalk, crossing, and curb data edited for the OpenSidewalks schema: https://www.opensidewalks.com and also to visualize some common semantic erros when mapping pedestrian data";
+    author: "Lane Felker and Nick Bolten";
+    link: "https://github.com/OpenSidewalks/OpenSidewalks-Schema/blob/main/resources/josm/styles/opensidewalks.mapcss";
+    min-josm-version: 8000;
+}
+
+way[footway=crossing] {
+    width: 5;
+    color: blue;
+}
+
+way[footway=sidewalk] {
+    width: 5;
+    color: green;
+}
+
+node[kerb=lowered] {
+    symbol-shape: triangle;
+    symbol-size: 16;
+    symbol-fill-color: #11ff00;
+    symbol-stroke-color: #000000;
+    symbol-stroke-width: 1;
+}
+
+node[kerb=flush] {
+    symbol-shape: circle;
+    symbol-size: 14;
+    symbol-fill-color: #11ff00;
+    symbol-stroke-color: #000000;
+    symbol-stroke-width: 1;
+}
+
+node[kerb=raised] {
+    symbol-shape: square;
+    symbol-size: 10;
+    symbol-fill-color: #f44e42;
+    symbol-stroke-color: #000000;
+    symbol-stroke-width: 1;
+}
+
+node[tactile_paving=yes] {
+    symbol-fill-color: #f4eb41;
+}
+
+/* TODO: use a regex to find semicolon-delimited options? */
+way[crossing~=zebra],
+way[crossing=marked],
+way[crossing~=uncontrolled] {
+    color: blue;
+    dashes: 15,9;
+    dashes-background-color: #41f1f4;
+}
+
+node[highway=crossing] {
+    symbol-shape: circle;
+    symbol-size: 8;
+    symbol-fill-color: #f44141;
+}
+
+way[highway=footway][footway=sidewalk][sidewalk=link] {
+    width: 5;
+    color: #f4a442;
+}
+
+/* set nodes on any crossing way as road crossing candidate */
+way[highway=footway][footway=crossing] > node {set node_on_crossing}
+/* set nodes on any non-footway non-cycleway as road crossing candidate */
+way[highway!=footway][highway!=cycleway] > node {set node_on_highway}
+/* set nodes on any cycleway without foot or foot set to no as road crossing candidate */
+way[highway=cycleway][!foot] > node {set node_on_highway}
+/* flag error on any road and crossing intersection nodes without highway=crossing on the node */
+node[crossing!=highway].node_on_crossing.node_on_highway {
+    symbol-shape: circle;
+    symbol-size: 20;
+    symbol-fill-color: #ef0017;
+}
