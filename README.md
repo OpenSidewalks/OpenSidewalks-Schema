@@ -1389,7 +1389,7 @@ A field that indicates whether an edge can be used by pedestrians.
 
 ## Resources
 
-Mapping guides and resources for use in JOSM including a map style and presets are made available in the [resources](https://github.com/OpenSidewalks/OpenSidewalks-Schema/tree/main/resources) directory.
+Mapping guides and resources for use in JOSM including a map style and presets are made available in the [resources](resources) directory.
 
 ## Schema Versions
 | Version | Release Date | Link | Notes |
