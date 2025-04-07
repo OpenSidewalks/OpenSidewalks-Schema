@@ -12,7 +12,7 @@ OpenSidewalks mapping guides
 
 OpenSidewalks resources for use in [JOSM](https://josm.openstreetmap.de/)
 
-### [Presets]resources/josm/presets)
+### [Presets](resources/josm/presets)
 
 [JOSM Presets](https://josm.openstreetmap.de/wiki/Presets) for OpenSidewalks-Schema tagging
 
