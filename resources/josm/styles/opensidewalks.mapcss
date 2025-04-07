@@ -1,6 +1,6 @@
 meta {
     title: "OpenSidewalks";
-    icon: "https://raw.githubusercontent.com/OpenSidewalks/OpenSidewalks-Schema/refs/heads/main/resources/josm/icons/footway-wheelchair.png";
+    icon: "https://github.com/OpenSidewalks/OpenSidewalks-Schema/raw/main/resources/josm/icons/footway-wheelchair.png"
     version: "0.1.0";
     description: "Styles to elevate pedestrian sidewalk, crossing, and curb data edited for the OpenSidewalks schema: https://www.opensidewalks.com and also to visualize some common semantic erros when mapping pedestrian data";
     author: "Lane Felker and Nick Bolten";
