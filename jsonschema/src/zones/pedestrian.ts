@@ -24,6 +24,6 @@ interface PedestrianZoneFields extends PedestrianZoneIdentifyingFields {
 }
 
 /**
- * An areas where pedestrians can travel freely in all directions.
+ * An area where pedestrians can travel freely in all directions.
  */
 export type PedestrianZone = Feature<Polygon, PedestrianZoneFields>;
