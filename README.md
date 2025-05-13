@@ -9,7 +9,7 @@
       * [Nodes](#nodes)
       * [Edges](#edges)
       * [Zones](#zones)
-    * [2) Extensions](#2-extensions)
+    * [2) Adjacent Entities](#2-adjacent-entities)
   * [Entity attributes](#entity-attributes)
   * [Entity type inference](#entity-type-inference)
   * [Metadata fields](#metadata-fields)
@@ -36,7 +36,7 @@
     * [Motor Vehicle Roads](#-motor-vehicle-roads)
   * [Zones](#-zones)
     * [Pedestrian Zone](#-pedestrian-zone)
-* [List of Extensions](#list-of-extensions)
+* [List of Adjacent Entities](#list-of-adjacent-entities)
   * [Points](#-points)
     * [Power pole](#-power-pole)
     * [Fire hydrant](#-fire-hydrant)
@@ -153,34 +153,34 @@ of node references: `_w_id`, which mean "this 2-dimensional polygon feature cons
 of a complete graph with every pair of distinct nodes in `_w_id` connected by a unique edge.
 Note that this would yield $k(k-1)/2$ edges for a zone comprised of $k$ nodes.
 
-### 2. Extensions
-Extensions are pedestrian network-adjacent entities which help describe the surrounding
+### 2. Adjacent entities
+Adjacent entities are pedestrian network-adjacent entities which help describe the surrounding
 environment of the pedestrian network and can be used to amend the traversable network
 with important information. For example, a blind user would benefit from knowing the
 footway he is using is adjacent to vegetation on his right side and a lake on his left
 side, or a park visitor would want to know where benches are located along his walk.
-Extensions are not required for producing a valid OpenSidewalks dataset.
+Adjacent entities are not required for producing a valid OpenSidewalks dataset.
 
-There are three types of extension entity models:
+There are three types of adjacent entity models:
 * Points
 * Lines
 * Polygons
 
 Points, Lines, and Polygons are solely geometrical OGC features and they lack
 network metadata: their relationship to other members of the dataset are spatial.
-Extensions are features relevant to the pedestrian network that are nevertheless not 
+Adjacent entities are features relevant to the pedestrian network that are nevertheless not 
 represented as elements of it: they are nearby and useful for producing 
 descriptions, flagging potential barriers, etc.
 
-Examples of each extension entity model:
+Examples of each adjacent entity model:
 - Point: a fire hydrant.
 - Line: a wall or a fence.
 - Polygon: a planter.
 
-OpenSidewalks schema includes some extensions (i.e. internal extensions) which
+OpenSidewalks schema includes some adjacent entities (i.e. internal adjacent entities) which
 we found valuable to the pedestrian experience and are readily available
-through community contributions on OpenStreetMap. Other extensions (i.e. external
-extensions) can similarly be included in an OpenSidewalks dataset and subsequently spatially
+through community contributions on OpenStreetMap. Other adjacent entities (i.e. external
+adjacent entities) can similarly be included in an OpenSidewalks dataset and subsequently spatially
 merged with the core entities (i.e. the pedestrian network entities).
 
 ### Entity attributes
@@ -787,7 +787,7 @@ all directions. They are part of the pedestrian network: each zone contains a li
 
 </details>
 
-# <a name="list-of-extensions"></a> List of Extensions
+# <a name="list-of-adjacent-entities"></a> List of Adjacent Entities
 
 ## <a name="points"></a> Points
 
@@ -1395,4 +1395,4 @@ Mapping guides and resources for use in JOSM including a map style and presets a
 | Version | Release Date | Link | Notes |
 | ------ | ------ | ------ | ------ |
 | 0.1 | 8/11/2023 | [GitHub](https://github.com/OpenSidewalks/OpenSidewalks-Schema/tree/32dad18bb303289f660fd8d26f02f5e301d0a9d1) | Minimal initial beta release of schema to unblock development of schema consuming applications |
-| 0.2 | 1/30/2024 | [GitHub](https://github.com/OpenSidewalks/OpenSidewalks-Schema)| - Add required `_id` field to edges <br>- Update the documentation with regards to the [coordinate reference system](#coordinate-reference-system) <br>- Introduce the concept of [core entities](#1-core-entities) and [extensions](#2-extensions) <br>- Add [zones](#zones) to [core entities](#1-core-entities) <br>- Add [lines](#lines) and [polygons](#-polygons) to [extensions](#2-extensions) <br>- Add [schema versions](#schema-versions) and [OpenSidewalks dataset metadata](#opensidewalks-dataset-metadata) <br>- Add [pedestrian zone](#-pedestrian-zone) to [zones](#zones) <br>- Add [fence](#-fence) to [lines](#lines) <br>- Add [building](#-building) to [polygons](#-polygons) <br>- Add *additional fields* to [entity attributes](#entity-attributes) <br>- Add [motor vehicle roads](#-motor-vehicle-roads) to [edges](#-edges) with justification <br>- Add [climb](#--climb) field to [steps](#-steps) edge in addition to the existing [incline](#--incline) field to prevent mixed data types <br>- Add [opening_hours](#--opening_hours) field and include it in [building](#-building) entity fields <br>- Add [generic curb](#-generic-curb) entity to [nodes](#-nodes) <br>- Add [foot](#--foot) field to all [edges](#-edges) and [zones](#-zones) <br>- Change [entity type inference](#entity-type-inference) to include the *geometry type* in addition to the *identifying fields* <br>- Fix lossiness of [tactile_paving](#--tactile_paving) field<br>- Remove *crossing* field in favor of [crossing:markings](#--crossingmarkings) field<br>- Add [living street](#-living-street) to [edges](#-edges)<br>- Add *unclassified road* to [motor vehicle roads](#-motor-vehicle-roads)<br>- Add *trunk road* to [motor vehicle roads](#-motor-vehicle-roads)<br>- Require that the `_id` field for all entities has at least one character to ensure it is not left as an empty string    |        |
+| 0.2 | 1/30/2024 | [GitHub](https://github.com/OpenSidewalks/OpenSidewalks-Schema)| - Add required `_id` field to edges <br>- Update the documentation with regards to the [coordinate reference system](#coordinate-reference-system) <br>- Introduce the concept of [core entities](#1-core-entities) and [adjacent entities](#2-adjacent-entities) (formerly called "extensions") <br>- Add [zones](#zones) to [core entities](#1-core-entities) <br>- Add [lines](#lines) and [polygons](#-polygons) to [adjacent entities](#2-adjacent-entities) (formerly called "extensions") <br>- Add [schema versions](#schema-versions) and [OpenSidewalks dataset metadata](#opensidewalks-dataset-metadata) <br>- Add [pedestrian zone](#-pedestrian-zone) to [zones](#zones) <br>- Add [fence](#-fence) to [lines](#lines) <br>- Add [building](#-building) to [polygons](#-polygons) <br>- Add *additional fields* to [entity attributes](#entity-attributes) <br>- Add [motor vehicle roads](#-motor-vehicle-roads) to [edges](#-edges) with justification <br>- Add [climb](#--climb) field to [steps](#-steps) edge in addition to the existing [incline](#--incline) field to prevent mixed data types <br>- Add [opening_hours](#--opening_hours) field and include it in [building](#-building) entity fields <br>- Add [generic curb](#-generic-curb) entity to [nodes](#-nodes) <br>- Add [foot](#--foot) field to all [edges](#-edges) and [zones](#-zones) <br>- Change [entity type inference](#entity-type-inference) to include the *geometry type* in addition to the *identifying fields* <br>- Fix lossiness of [tactile_paving](#--tactile_paving) field<br>- Remove *crossing* field in favor of [crossing:markings](#--crossingmarkings) field<br>- Add [living street](#-living-street) to [edges](#-edges)<br>- Add *unclassified road* to [motor vehicle roads](#-motor-vehicle-roads)<br>- Add *trunk road* to [motor vehicle roads](#-motor-vehicle-roads)<br>- Require that the `_id` field for all entities has at least one character to ensure it is not left as an empty string    |        |
