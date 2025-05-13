@@ -156,9 +156,9 @@ Note that this would yield $k(k-1)/2$ edges for a zone comprised of $k$ nodes.
 ### 2. Adjacent entities
 Adjacent entities are pedestrian network-adjacent entities which help describe the surrounding
 environment of the pedestrian network and can be used to amend the traversable network
-with important information. For example, a blind user would benefit from knowing the
-footway he is using is adjacent to vegetation on his right side and a lake on his left
-side, or a park visitor would want to know where benches are located along his walk.
+with important information. For example, a blind user would benefit from knowing that the
+footway they are using is adjacent to vegetation on their right side and a lake on their left
+side, or a park visitor would want to know where benches are located along their walk.
 Adjacent entities are not required for producing a valid OpenSidewalks dataset.
 
 There are three types of adjacent entity models:
@@ -574,9 +574,9 @@ edges must have a unique `_id` field.
   <summary><b><a name="-motor-vehicle-roads"></a> Motor Vehicle Roads</b></summary>
 
 While OpenSidewalks schema is centered around the pedestrian experience and accessibility within the pedestrian network, the inclusion of roads as core entities in the schema is justified because:
-1) In some areas due to the lack of sidewalks, a pedestrian has to use a road to reach her destination.
+1) In some areas due to the lack of sidewalks, a pedestrian has to use a road to reach their destination.
 2) Sidewalks and crossings are typically referenced by pedestrians in relation to roads, i.e. "Use the Sidewalk East of Main St.", "Turn left and cross Broadway".
-3) A pedestrian's safety and environemnt is greatly impacted by her adjacency to a particular road. For example, a wheelchair user may choose to avoid crossing busy roads for her safety unless she has to.
+3) A pedestrian's safety and environemnt is greatly impacted by their adjacency to a particular road. For example, a wheelchair user may choose to avoid crossing busy roads for their safety unless they have to.
 
 In order to simplify the job of OpenSidewalks consuming applications when attempting to route pedestrians, we have included a [foot](#--foot) field in all edges and zones to indicate whether an entity is safe to traverse by a
 pedestrian. We recommend applications clearly communicate the risk to pedestrians if they route users on entities with missing [foot](#--foot) field or with `foot=no`. 
