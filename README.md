@@ -757,7 +757,7 @@ OpenSidewalks Schema fields are typed key-value pairs. Keys are always strings a
 |                        |          |
 | ---------------------- | -------- |
 | **Description**        | For steps, can be used to indicate the direction of the climb relative to the direction of the edge |
-| **Value type**         | xxxxxxxx |
+| **Value type**         | enum |
 | **Enumerated Values**  | - up: when a way rises upward _in the direction_ of the edge.<br>- down: when a way rises upward _against the direction_ of the edge. |
 
 </details>
