@@ -701,7 +701,15 @@ OpenSidewalks Schema fields are typed key-value pairs. Keys are always strings a
 | **Description**        | The surface material of the path. Derived directly from the surface tag from OpenStreetMap. |
 | **Value type**         | enum |
 | **Enumerated Values**  | 
-- asphalt<br>- concrete<br>- gravel<br>- grass<br>- paved<br>- paving_stones<br>- unpaved<br>- dirt<br>- grass_paver |
+- *asphalt*
+- *concrete*
+- *gravel*
+- *grass*
+- *paved*
+- *paving_stones*
+- *unpaved*
+- *dirt*
+- *grass_paver* |
 
 </details>
 
@@ -729,7 +737,11 @@ OpenSidewalks Schema fields are typed key-value pairs. Keys are always strings a
 | ---------------------- | -------- |
 | **Description**        | A field for whether a curb has a tactile (textured) surface. Tactile paving is a system of textured ground surface indicators found on footpaths, stairs and public transportation platforms to assist pedestrians who are blind or visually impaired. A tactile paving area has a surface that is easy to detect using a long cane, typically because it is rougher than the surrounding surface area or has an embossed pattern. |
 | **Value type**         | enum |
-| **Enumerated Values**  | - *yes*<br>- *no*<br>- *contrasted*: Where there is a tactile paving which contrast is at least 70% the colour of the ground (white if the ground is black and vice-versa).<br>- *primitive*: Where any water drain or decorative tactile element can be used for orientation accidentally, but no typical tactile ground elements are used. |
+| **Enumerated Values**  | 
+- *yes*
+- *no*
+- *contrasted*: Where there is a tactile paving which contrast is at least 70% the colour of the ground (white if the ground is black and vice-versa).
+- *primitive*: Where any water drain or decorative tactile element can be used for orientation accidentally, but no typical tactile ground elements are used. |
 
 </details>
 
@@ -739,7 +751,25 @@ OpenSidewalks Schema fields are typed key-value pairs. Keys are always strings a
 | ---------------------- | -------- |
 | **Description**        | Whether a pedestrian street crossing has ground markings (and, optionally, what type of markings exist). When derived from OpenStreetMap data, the crossing:markings field may be derived not only from the identical `crossing:markings` tag in OpenStreetMap, but from any unambiguous tags in the problematic `crossing=*` tag, such as `crossing=marked` --> `crossing:markings=yes` and `crossing=unmarked` --> `crossing:markings=no`, and `crossing=zebra` --> `crossing:markings=yes`. |
 | **Value type**         | enum |
-| **Enumerated Values**  | - yes: The crossing has surface markings but the type is unspecified.<br>- no: The crossing has no surface markings.<br>- surface: There is a surface change but no distinct markings.<br>- lines: There are only two parallel lines to indicate the outline of the crossing.<br>- lines:paired: The same as `crossing:markings=lines` but each line is actually two very-close parallel lines (for a total of 4 lines).<br>- dashes: There are only two parallel dashed lines to indicate the outline of the crossing.<br>- dots: There are only two parallel dotted lines (square/round markings with significant distance between them) to indicate the outline of the crossing.<br>- zebra: The crossing is only marked by regularly spaced bars along its length.<br>-zebra:double: The same as `crossing:markings=zebra` but there are two sets of regularly spaced bars with a small gap between them.<br>- zebra:paired: The same as `crossing:markings=zebra` but each bar is made up of two smaller bars (i.e. there's a small gap between smaller bars).<br>- zebra:bicolour: The same as `crossing:markings=zebra` but there are the bars and gaps are made of two alternating colors.<br>- ladder: The same as combining `crossing:markings=zebra` and `crossing:markings=lines`: horizontal bars but with linear outlines enclosing the crossing.<br>- skewed: The same as `crossing:markings=ladder` but the horizontal bars are at a slight diagonal (~30 degree shift) - they're skewed.<br>- ladder:paired: The same as `crossing:markings=ladder` but the horizontal bars are actually made up of two very-close smaller bars.<br>- rainbow: A crossing with rainbow colors, other than in zebra pattern or lines along the crossing.<br>- "lines:rainbow": Rainbow colored lines along the crossing.<br>- "zebra:rainbow": A zebra crossing with rainbow colors.<br>- ladder:skewed: Two lines orthogonal to the direction of the roadway with diagonal bars connecting the two lines.<br>- pictograms: Painted pictogram(s) of pedestrian and/or bicycle (with or without arrows) |
+| **Enumerated Values**  | 
+- *yes*: The crossing has surface markings but the type is unspecified.
+- *no*: The crossing has no surface markings.
+- *surface*: There is a surface change but no distinct markings.
+- *lines*: There are only two parallel lines to indicate the outline of the crossing.
+- *lines:paired*: The same as `crossing:markings=lines` but each line is actually two very-close parallel lines (for a total of 4 lines).
+- *dashes*: There are only two parallel dashed lines to indicate the outline of the crossing.
+- *dots*: There are only two parallel dotted lines (square/round markings with significant distance between them) to indicate the outline of the crossing.
+- *zebra*: The crossing is only marked by regularly spaced bars along its length.<br>-zebra:double: The same as `crossing:markings=zebra` but there are two sets of regularly spaced bars with a small gap between them.
+- *zebra:paired*: The same as `crossing:markings=zebra` but each bar is made up of two smaller bars (i.e. there's a small gap between smaller bars).
+- *zebra:bicolour*: The same as `crossing:markings=zebra` but there are the bars and gaps are made of two alternating colors.
+- *ladder*: The same as combining `crossing:markings=zebra` and `crossing:markings=lines`: horizontal bars but with linear outlines enclosing the crossing.
+- *skewed*: The same as `crossing:markings=ladder` but the horizontal bars are at a slight diagonal (~30 degree shift) - they're skewed.
+- *ladder:paired*: The same as `crossing:markings=ladder` but the horizontal bars are actually made up of two very-close smaller bars.
+- *rainbow*: A crossing with rainbow colors, other than in zebra pattern or lines along the crossing.
+- *lines:rainbow*: Rainbow colored lines along the crossing.
+- *zebra:rainbow*: A zebra crossing with rainbow colors.
+- *ladder:skewed*: Two lines orthogonal to the direction of the roadway with diagonal bars connecting the two lines.
+- *pictograms*: Painted pictogram(s) of pedestrian and/or bicycle (with or without arrows) |
 
 </details>
 
@@ -758,7 +788,9 @@ OpenSidewalks Schema fields are typed key-value pairs. Keys are always strings a
 | ---------------------- | -------- |
 | **Description**        | For steps, can be used to indicate the direction of the climb relative to the direction of the edge |
 | **Value type**         | enum |
-| **Enumerated Values**  | - up: when a way rises upward _in the direction_ of the edge.<br>- down: when a way rises upward _against the direction_ of the edge. |
+| **Enumerated Values**  | 
+- *up*: when a way rises upward *in the direction* of the edge.
+- *down*: when a way rises upward *against the direction* of the edge. |
 
 </details>
 
@@ -772,150 +804,150 @@ OpenSidewalks Schema fields are typed key-value pairs. Keys are always strings a
 
 <details><summary><b>Accommodation</b></summary>
 
-- apartments: A building arranged into individual dwellings, often on separate floors. May also have retail outlets on the ground floor.
-- barracks: Buildings built to house military personnel or laborers.
-- bungalow: A single-storey detached small house, Dacha.
-- cabin: A cabin is a small, roughly built house usually with a wood exterior and typically found in rural areas.
-- detached: A detached house, a free-standing residential building usually housing a single family.
-- dormitory: A shared building intended for college/university students (not a share room for multiple occupants as implied by the term in British English).
-- farm: A residential building on a farm (farmhouse). For other buildings see below building=farm_auxiliary, building=barn, …
-- ger: A permanent or seasonal round yurt or ger.
-- hotel: A building designed with separate rooms available for overnight accommodation.
-- house: A dwelling unit inhabited by a single household (a family or small group sharing facilities such as a kitchen). Houses forming half of a semi-detached pair, or one of a row of terraced houses, should share at least two nodes with joined neighbours, thereby defining the party wall between the properties.
-- houseboat: A boat used primarily as a home
-- residential: A general tag for a building used primarily for residential purposes. Where additional detail is available consider using 'apartments', 'terrace', 'house', 'detached' or 'semidetached_house'.
-- semidetached_house: A residential house that shares a common wall with another on one side. Typically called a "duplex" in American English.
-- static_caravan: A mobile home (semi)permanently left on a single site
-- stilt_house: A building raised on piles over the surface of the soil or a body of water
-- terrace: A single way used to define the outline of a linear row of residential dwellings, each of which normally has its own entrance, which form a terrace ("row-house" or "townhouse" in North American English). Consider defining each dwelling separately using 'house'.
-- tree_house: An accommodation, often designed as a small hut, sometimes also as a room or small apartment. Built on tree posts or on a natural tree. A tree house has no contact with the ground. Access via ladders, stairs or bridgeways.
-- trullo: A stone hut with a conical roof.
+- *apartments*: A building arranged into individual dwellings, often on separate floors. May also have retail outlets on the ground floor.
+- *barracks*: Buildings built to house military personnel or laborers.
+- *bungalow*: A single-storey detached small house, Dacha.
+- *cabin*: A cabin is a small, roughly built house usually with a wood exterior and typically found in rural areas.
+- *detached*: A detached house, a free-standing residential building usually housing a single family.
+- *dormitory*: A shared building intended for college/university students (not a share room for multiple occupants as implied by the term in British English).
+- *farm*: A residential building on a farm (farmhouse). For other buildings see below building=farm_auxiliary, building=barn, …
+- *ger*: A permanent or seasonal round yurt or ger.
+- *hotel*: A building designed with separate rooms available for overnight accommodation.
+- *house*: A dwelling unit inhabited by a single household (a family or small group sharing facilities such as a kitchen). Houses forming half of a semi-detached pair, or one of a row of terraced houses, should share at least two nodes with joined neighbours, thereby defining the party wall between the properties.
+- *houseboat*: A boat used primarily as a home
+- *residential*: A general tag for a building used primarily for residential purposes. Where additional detail is available consider using 'apartments', 'terrace', 'house', 'detached' or 'semidetached_house'.
+- *semidetached_house*: A residential house that shares a common wall with another on one side. Typically called a "duplex" in American English.
+- *static_caravan*: A mobile home (semi)permanently left on a single site
+- *stilt_house*: A building raised on piles over the surface of the soil or a body of water
+- *terrace*: A single way used to define the outline of a linear row of residential dwellings, each of which normally has its own entrance, which form a terrace ("row-house" or "townhouse" in North American English). Consider defining each dwelling separately using 'house'.
+- *tree_house*: An accommodation, often designed as a small hut, sometimes also as a room or small apartment. Built on tree posts or on a natural tree. A tree house has no contact with the ground. Access via ladders, stairs or bridgeways.
+- *trullo*: A stone hut with a conical roof.
 
 </details>
 
 <details><summary><b>Commercial</b></summary>
 
-- commercial: A building for non-specific commercial activities, not necessarily an office building. Use 'retail' if the building consists primarily of shops.
-- industrial: A building for industrial purposes. Use warehouse if the purpose is known to be primarily for storage/distribution.
-- kiosk: A small one-room retail building.
-- office: An office building.
-- retail: A building primarily used for selling goods that are sold to the public.
-- supermarket: A building constructed to house a self-service large-area store.
-- warehouse: A building primarily intended for the storage or goods or as part of a distribution system.
+- *commercial*: A building for non-specific commercial activities, not necessarily an office building. Use 'retail' if the building consists primarily of shops.
+- *industrial*: A building for industrial purposes. Use warehouse if the purpose is known to be primarily for storage/distribution.
+- *kiosk*: A small one-room retail building.
+- *office*: An office building.
+- *retail*: A building primarily used for selling goods that are sold to the public.
+- *supermarket*: A building constructed to house a self-service large-area store.
+- *warehouse*: A building primarily intended for the storage or goods or as part of a distribution system.
 
 </details>
 
 <details><summary><b>Religious</b></summary>
 
-- cathedral: A building that was built as a cathedral.
-- chapel: A building that was built as a chapel.
-- church: A building that was built as a church.
-- kingdom_hall: A building that was built as a Kingdom Hall.
-- monastery: A building constructed as [W] monastery. Often, monasteries consist of several distinct buildings with specific functions.
-- mosque: A building errected as mosque.
-- presbytery: A building where priests live and work.
-- religious: Unspecific building related to religion. Prefer more specific values if possible.
-- shrine: A building that was built as a shrine.
-- synagogue: A building that was built as a synagogue.
-- temple: A building that was built as a temple.
+- *cathedral*: A building that was built as a cathedral.
+- *chapel*: A building that was built as a chapel.
+- *church*: A building that was built as a church.
+- *kingdom_hall*: A building that was built as a Kingdom Hall.
+- *monastery*: A building constructed as [W] monastery. Often, monasteries consist of several distinct buildings with specific functions.
+- *mosque*: A building errected as mosque.
+- *presbytery*: A building where priests live and work.
+- *religious*: Unspecific building related to religion. Prefer more specific values if possible.
+- *shrine*: A building that was built as a shrine.
+- *synagogue*: A building that was built as a synagogue.
+- *temple*: A building that was built as a temple.
 
 </details>
 
 <details><summary><b>Civic/amenity</b></summary>
 
-- bakehouse: A building that was built as a bakehouse (i.e. for baking bread).
-- bridge: A building used as a bridge (skyway). To map a gatehouse use building=gatehouse. Don't use this tag just for marking bridges (their outlines).
-- civic: A generic tag for a building created to house some civic amenity, for example community centre, library, toilets, sports centre, swimming pool, townhall etc. See building=public and more specific tags like building=library as well.
-- college: A college building.
-- fire_station: A building constructed as fire station, i.e. to house fire fighting equipment and officers, regardless of current use.
-- government: For government buildings in general, including municipal, provincial and divisional secretaries, government agencies and departments, town halls, (regional) parliaments and court houses.
-- gatehouse: An entry control point building, spanning over a highway that enters a city or compound.
-- hospital: A building errected for a hospital.
-- kindergarten: For any generic kindergarten buildings. Buildings for specific uses (sports halls etc.) should be tagged for their purpose.
-- museum: A building which was designed as a museum.
-- public: A building constructed as accessible to the general public (a town hall, police station, court house, etc.).
-- school: A building errected as school. Buildings for specific uses (sports halls etc.) should be tagged for their purpose.
-- toilets: A toilet block.
-- train_station: A building constructed to be a train station building, including buildings that are abandoned and used nowadays for a different purpose.
-- transportation: A building related to public transport. Note that there is a special tag for train station buildings - building=train_station.
-- university: A university building.
+- *bakehouse*: A building that was built as a bakehouse (i.e. for baking bread).
+- *bridge*: A building used as a bridge (skyway). To map a gatehouse use building=gatehouse. Don't use this tag just for marking bridges (their outlines).
+- *civic*: A generic tag for a building created to house some civic amenity, for example community centre, library, toilets, sports centre, swimming pool, townhall etc. See building=public and more specific tags like building=library as well.
+- *college*: A college building.
+- *fire_station*: A building constructed as fire station, i.e. to house fire fighting equipment and officers, regardless of current use.
+- *government*: For government buildings in general, including municipal, provincial and divisional secretaries, government agencies and departments, town halls, (regional) parliaments and court houses.
+- *gatehouse*: An entry control point building, spanning over a highway that enters a city or compound.
+- *hospital*: A building errected for a hospital.
+- *kindergarten*: For any generic kindergarten buildings. Buildings for specific uses (sports halls etc.) should be tagged for their purpose.
+- *museum*: A building which was designed as a museum.
+- *public*: A building constructed as accessible to the general public (a town hall, police station, court house, etc.).
+- *school*: A building errected as school. Buildings for specific uses (sports halls etc.) should be tagged for their purpose.
+- *toilets*: A toilet block.
+- *train_station*: A building constructed to be a train station building, including buildings that are abandoned and used nowadays for a different purpose.
+- *transportation*: A building related to public transport. Note that there is a special tag for train station buildings - building=train_station.
+- *university*: A university building.
 
 </details>
 
 <details><summary><b>Agricultural/plant production</b></summary>
 
-- barn: An agricultural building that can be used for storage and as a covered workplace.
-- conservatory: A building or room having glass or tarpaulin roofing and walls used as an indoor garden or a sunroom (winter garden).
-- cowshed: A cowshed (cow barn, cow house) is a building for housing cows, usually found on farms.
-- farm_auxiliary: A building on a farm that is not a dwelling (use 'farm' or 'house' for the farm house).
-- greenhouse: A greenhouse is a glass or plastic covered building used to grow plants.
-- slurry_tank: A circular building built to hold a liquid mix of primarily animal excreta (also known as slurry).
-- stable: A building constructed as a stable for horses.
-- sty: A sty (pigsty, pig ark, pig-shed) is a building for raising domestic pigs, usually found on farms.
-- livestock: A building for housing/rising other livestock (apart from cows, horses or pigs covered above), or when the livestock changes.
+- *barn*: An agricultural building that can be used for storage and as a covered workplace.
+- *conservatory*: A building or room having glass or tarpaulin roofing and walls used as an indoor garden or a sunroom (winter garden).
+- *cowshed*: A cowshed (cow barn, cow house) is a building for housing cows, usually found on farms.
+- *farm_auxiliary*: A building on a farm that is not a dwelling (use 'farm' or 'house' for the farm house).
+- *greenhouse*: A greenhouse is a glass or plastic covered building used to grow plants.
+- *slurry_tank*: A circular building built to hold a liquid mix of primarily animal excreta (also known as slurry).
+- *stable*: A building constructed as a stable for horses.
+- *sty*: A sty (pigsty, pig ark, pig-shed) is a building for raising domestic pigs, usually found on farms.
+- *livestock*: A building for housing/rising other livestock (apart from cows, horses or pigs covered above), or when the livestock changes.
 
 </details>
 
 <details><summary><b>Sports</b></summary>
 
-- grandstand: The main stand, usually roofed, commanding the best view for spectators at racecourses or sports grounds.
-- pavilion: A sports pavilion usually with changing rooms, storage areas and possibly an space for functions & events. Avoid using this term for other structures called pavilions by architects (see [W] Pavilion).
-- riding_hall: A building that was built as a riding hall.
-- sports_hall: A building that was built as a sports hall.
-- sports_centre: A building that was built as a sports centre.
-- stadium: A building constructed to be a stadium building, including buildings that are abandoned and used nowadays for a different purpose.
+- *grandstand*: The main stand, usually roofed, commanding the best view for spectators at racecourses or sports grounds.
+- *pavilion*: A sports pavilion usually with changing rooms, storage areas and possibly an space for functions & events. Avoid using this term for other structures called pavilions by architects (see [W] Pavilion).
+- *riding_hall*: A building that was built as a riding hall.
+- *sports_hall*: A building that was built as a sports hall.
+- *sports_centre*: A building that was built as a sports centre.
+- *stadium*: A building constructed to be a stadium building, including buildings that are abandoned and used nowadays for a different purpose.
 
 </details>
 
 <details><summary><b>Storage</b></summary>
 
-- allotment_house: A small outbuilding for short visits in a allotment garden.
-- boathouse: A boathouse is a building used for the storage of boats.
-- hangar: A hangar is a building used for the storage of airplanes, helicopters or space-craft.
-- hut: A hut is a small and crude shelter. Note that this word has two meanings - it may be synonym of building=shed, it may be a residential building of low quality.
-- shed: A shed is a simple, single-storey structure in a back garden or on an allotment that is used for storage, hobbies, or as a workshop.
+- *allotment_house*: A small outbuilding for short visits in a allotment garden.
+- *boathouse*: A boathouse is a building used for the storage of boats.
+- *hangar*: A hangar is a building used for the storage of airplanes, helicopters or space-craft.
+- *hut*: A hut is a small and crude shelter. Note that this word has two meanings - it may be synonym of building=shed, it may be a residential building of low quality.
+- *shed*: A shed is a simple, single-storey structure in a back garden or on an allotment that is used for storage, hobbies, or as a workshop.
 
 </details>
 
 <details><summary><b>Cars</b></summary>
 
-- carport: A carport is a covered structure used to offer limited protection to vehicles, primarily cars, from the elements. Unlike most structures a carport does not have four walls, and usually has one or two.
-- garage: A garage is a building suitable for the storage of one or possibly more motor vehicle or similar. See building=garages for larger shared buildings. For an aircraft garage, see building=hangar.
-- garages: A building that consists of a number of discrete storage spaces for different owners/tenants. See also building=garage.
-- parking: Structure purpose-built for parking cars.
+- *carport*: A carport is a covered structure used to offer limited protection to vehicles, primarily cars, from the elements. Unlike most structures a carport does not have four walls, and usually has one or two.
+- *garage*: A garage is a building suitable for the storage of one or possibly more motor vehicle or similar. See building=garages for larger shared buildings. For an aircraft garage, see building=hangar.
+- *garages*: A building that consists of a number of discrete storage spaces for different owners/tenants. See also building=garage.
+- *parking*: Structure purpose-built for parking cars.
 
 </details>
 
 <details><summary><b>Power/technical buildingsrs</b></summary>
 
-- digester: A digester is a bioreactor for the production of biogas from biomass.
-- service: Service building usually is a small unmanned building with certain machinery (like pumps or transformers).
-- tech_cab: Small prefabricated cabin structures for the air-conditioned accommodation of different technology.
-- transformer_tower: A transformer tower is a characteristic tall building comprising a distribution transformer and constructed to connect directly to a medium voltage overhead power line. Quite often the power line has since been undergrounded but the building may still serve as a substation.
-- water_tower: A water tower.
-- storage_tank: Storage tanks are containers that hold liquids.
-- silo: A silo is a building for storing bulk materials.
+- *digester*: A digester is a bioreactor for the production of biogas from biomass.
+- *service*: Service building usually is a small unmanned building with certain machinery (like pumps or transformers).
+- *tech_cab*: Small prefabricated cabin structures for the air-conditioned accommodation of different technology.
+- *transformer_tower*: A transformer tower is a characteristic tall building comprising a distribution transformer and constructed to connect directly to a medium voltage overhead power line. Quite often the power line has since been undergrounded but the building may still serve as a substation.
+- *water_tower*: A water tower.
+- *storage_tank*: Storage tanks are containers that hold liquids.
+- *silo*: A silo is a building for storing bulk materials.
 
 </details>
 
 <details><summary><b>Other buildings</b></summary>
 
-- beach_hut: A small, usually wooden, and often brightly coloured cabin or shelter above the high tide mark on popular bathing beaches.
-- bunker: A hardened military building.
-- castle: A building constructed as a castle.
-- construction: Used for buildings under construction.
-- container: For a container used as a permanent building. Do not map containers placed temporarily, for example used in shipping or construction.
-- guardhouse: A small building constructed to house guard(s).
-- military: A military building.
-- outbuilding: A less important building near to and on the same piece of land as a larger building.
-- pagoda: A building constructed as a pagoda.
-- quonset_hut: A lightweight prefabricated structure in the shape of a semicircle.
-- roof: A structure that consists of a roof with open sides, such as a rain shelter, and also gas stations.
-- ruins: Frequently used for a house or other building that is abandoned and in poor repair. However, some believe this usage is incorrect, and the tag should only be used for buildings constructed as fake ruins (for example sham ruins in an English landscape garden). See also lifecycle tagging.
-- tent: For a permanently placed tent. Do not map tents placed temporarily.
-- tower: A tower-building.
-- windmill: A building constructed as a traditional windmill, historically used to mill grain with wind power.
-- yes: Use this value where it is not possible to determine a more specific value. |
+- *beach_hut*: A small, usually wooden, and often brightly coloured cabin or shelter above the high tide mark on popular bathing beaches.
+- *bunker*: A hardened military building.
+- *castle*: A building constructed as a castle.
+- *construction*: Used for buildings under construction.
+- *container*: For a container used as a permanent building. Do not map containers placed temporarily, for example used in shipping or construction.
+- *guardhouse*: A small building constructed to house guard(s).
+- *military*: A military building.
+- *outbuilding*: A less important building near to and on the same piece of land as a larger building.
+- *pagoda*: A building constructed as a pagoda.
+- *quonset_hut*: A lightweight prefabricated structure in the shape of a semicircle.
+- *roof*: A structure that consists of a roof with open sides, such as a rain shelter, and also gas stations.
+- *ruins*: Frequently used for a house or other building that is abandoned and in poor repair. However, some believe this usage is incorrect, and the tag should only be used for buildings constructed as fake ruins (for example sham ruins in an English landscape garden). See also lifecycle tagging.
+- *tent*: For a permanently placed tent. Do not map tents placed temporarily.
+- *tower*: A tower-building.
+- *windmill*: A building constructed as a traditional windmill, historically used to mill grain with wind power.
+- *yes*: Use this value where it is not possible to determine a more specific value. |
 
 </details>
 
@@ -935,13 +967,13 @@ OpenSidewalks Schema fields are typed key-value pairs. Keys are always strings a
 | **Description**        | A field that indicates whether an edge can be used by pedestrians. |
 | **Value type**         | enum |
 | **Enumerated Values**  | 
-- yes: Roads and other objects where the public has a legally-enshrined right for access on foot
-- no: Access on foot or by pedestrians is prohibited.
-- designated: A preferred or designated route for pedestrians.
-- permissive: Access by pedestrians is permitted but permission may be withdrawn at any time.
-- use_sidepath: Use compulsory parallel footpath instead.
-- private: indicates that walking is not allowed for general public, but the owner may make exceptions at will.
-- destination: Transit traffic forbidden for pedestrians, non-transit to a local destination allowed. |
+- *yes*: Roads and other objects where the public has a legally-enshrined right for access on foot
+- *no*: Access on foot or by pedestrians is prohibited.
+- *designated*: A preferred or designated route for pedestrians.
+- *permissive*: Access by pedestrians is permitted but permission may be withdrawn at any time.
+- *use_sidepath*: Use compulsory parallel footpath instead.
+- *private*: indicates that walking is not allowed for general public, but the owner may make exceptions at will.
+- *destination*: Transit traffic forbidden for pedestrians, non-transit to a local destination allowed. |
 </details>
 
 # Resources
@@ -953,5 +985,27 @@ Mapping guides and resources for use in JOSM including a map style and presets a
 | Version | Release Date | Link | Notes |
 | ------- | ------------ | ---- | ----- |
 | 0.1 | 2023-08-11 | [GitHub](https://github.com/OpenSidewalks/OpenSidewalks-Schema/tree/32dad18bb303289f660fd8d26f02f5e301d0a9d1) | Minimal initial beta release of schema to unblock development of schema consuming applications |
-| 0.2 | 2024-01-30 | [GitHub](https://github.com/OpenSidewalks/OpenSidewalks-Schema) | - Add required `_id` field to edges <br>- Update the documentation with regards to the [coordinate reference system](#coordinate-reference-system) <br>- Introduce the concept of [core entities](#1-core-entities) and [adjacent entities](#2-adjacent-entities) (formerly called "extensions") <br>- Add [zones](#zones) to [core entities](#1-core-entities) <br>- Add [lines](#lines) and [polygons](#-polygons) to [adjacent entities](#2-adjacent-entities) (formerly called "extensions") <br>- Add [schema versions](#schema-versions) and [OpenSidewalks dataset metadata](#opensidewalks-dataset-metadata) <br>- Add [pedestrian zone](#-pedestrian-zone) to [zones](#zones) <br>- Add [fence](#-fence) to [lines](#lines) <br>- Add [building](#-building) to [polygons](#-polygons) <br>- Add _additional fields_ to [entity attributes](#entity-attributes) <br>- Add [motor vehicle roads](#-motor-vehicle-roads) to [edges](#-edges) with justification <br>- Add [climb](#--climb) field to [steps](#-steps) edge in addition to the existing [incline](#--incline) field to prevent mixed data types <br>- Add [opening_hours](#--opening_hours) field and include it in [building](#-building) entity fields <br>- Add [generic curb](#-generic-curb) entity to [nodes](#-nodes) <br>- Add [foot](#--foot) field to all [edges](#-edges) and [zones](#-zones) <br>- Change [entity type inference](#entity-type-inference) to include the *geometry type* in addition to the *identifying fields* <br>- Fix lossiness of [tactile_paving](#--tactile_paving) field<br>- Remove _crossing_ field in favor of [crossing:markings](#--crossingmarkings) field<br>- Add [living street](#-living-street) to [edges](#-edges)<br>- Add _unclassified road_ to [motor vehicle roads](#-motor-vehicle-roads)<br>- Add _trunk road_ to [motor vehicle roads](#-motor-vehicle-roads)<br>- Require that the `_id` field for all entities has at least one character to ensure it is not left as an empty string | |
+| 0.2 | 2024-01-30 | [GitHub](https://github.com/OpenSidewalks/OpenSidewalks-Schema) | 
+- Add required `_id` field to edges 
+- Update the documentation with regards to the [coordinate reference system](#coordinate-reference-system) 
+- Introduce the concept of [core entities](#1-core-entities) and [adjacent entities](#2-adjacent-entities) (formerly called "extensions") 
+- Add [zones](#zones) to [core entities](#1-core-entities) 
+- Add [lines](#lines) and [polygons](#-polygons) to [adjacent entities](#2-adjacent-entities) (formerly called "extensions") 
+- Add [schema versions](#schema-versions) and [OpenSidewalks dataset metadata](#opensidewalks-dataset-metadata) 
+- Add [pedestrian zone](#-pedestrian-zone) to [zones](#zones) 
+- Add [fence](#-fence) to [lines](#lines) 
+- Add [building](#-building) to [polygons](#-polygons) 
+- Add _additional fields_ to [entity attributes](#entity-attributes) 
+- Add [motor vehicle roads](#-motor-vehicle-roads) to [edges](#-edges) with justification 
+- Add [climb](#--climb) field to [steps](#-steps) edge in addition to the existing [incline](#--incline) field to prevent mixed data types 
+- Add [opening_hours](#--opening_hours) field and include it in [building](#-building) entity fields 
+- Add [generic curb](#-generic-curb) entity to [nodes](#-nodes) 
+- Add [foot](#--foot) field to all [edges](#-edges) and [zones](#-zones) 
+- Change [entity type inference](#entity-type-inference) to include the *geometry type* in addition to the *identifying fields* 
+- Fix lossiness of [tactile_paving](#--tactile_paving) field
+- Remove _crossing_ field in favor of [crossing:markings](#--crossingmarkings) field
+- Add [living street](#-living-street) to [edges](#-edges)
+- Add _unclassified road_ to [motor vehicle roads](#-motor-vehicle-roads)
+- Add _trunk road_ to [motor vehicle roads](#-motor-vehicle-roads)
+- Require that the `_id` field for all entities has at least one character to ensure it is not left as an empty string | |
 | 0.3 | 2025-06-16 | [GitHub](https://github.com/OpenSidewalks/OpenSidewalks-Schema) | - |
