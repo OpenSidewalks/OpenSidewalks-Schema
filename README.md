@@ -951,6 +951,8 @@ OpenSidewalks Schema fields are typed key-value pairs. Keys are always strings a
 
 </details>
 
+</details>
+
 <details><summary><b>opening_hours</b></summary>
 
 |                        |          |
