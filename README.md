@@ -769,7 +769,8 @@ OpenSidewalks Schema fields are typed key-value pairs. Keys are always strings a
 | **Description**        | This field is used to mark a given entity as a building |
 | **Value type**         | enum |
 | **Enumerated Values**  | 
-Accommodation
+
+<details><summary><b>Accommodation</b></summary>
 
 - apartments: A building arranged into individual dwellings, often on separate floors. May also have retail outlets on the ground floor.
 - barracks: Buildings built to house military personnel or laborers.
@@ -790,7 +791,9 @@ Accommodation
 - tree_house: An accommodation, often designed as a small hut, sometimes also as a room or small apartment. Built on tree posts or on a natural tree. A tree house has no contact with the ground. Access via ladders, stairs or bridgeways.
 - trullo: A stone hut with a conical roof.
 
-Commercial
+</details>
+
+<details><summary><b>Commercial</b></summary>
 
 - commercial: A building for non-specific commercial activities, not necessarily an office building. Use 'retail' if the building consists primarily of shops.
 - industrial: A building for industrial purposes. Use warehouse if the purpose is known to be primarily for storage/distribution.
@@ -800,7 +803,9 @@ Commercial
 - supermarket: A building constructed to house a self-service large-area store.
 - warehouse: A building primarily intended for the storage or goods or as part of a distribution system.
 
-Religious
+</details>
+
+<details><summary><b>Religious</b></summary>
 
 - cathedral: A building that was built as a cathedral.
 - chapel: A building that was built as a chapel.
@@ -814,7 +819,9 @@ Religious
 - synagogue: A building that was built as a synagogue.
 - temple: A building that was built as a temple.
 
-Civic/amenity
+</details>
+
+<details><summary><b>Civic/amenity</b></summary>
 
 - bakehouse: A building that was built as a bakehouse (i.e. for baking bread).
 - bridge: A building used as a bridge (skyway). To map a gatehouse use building=gatehouse. Don't use this tag just for marking bridges (their outlines).
@@ -833,7 +840,9 @@ Civic/amenity
 - transportation: A building related to public transport. Note that there is a special tag for train station buildings - building=train_station.
 - university: A university building.
 
-Agricultural/plant production
+</details>
+
+<details><summary><b>Agricultural/plant production</b></summary>
 
 - barn: An agricultural building that can be used for storage and as a covered workplace.
 - conservatory: A building or room having glass or tarpaulin roofing and walls used as an indoor garden or a sunroom (winter garden).
@@ -845,7 +854,9 @@ Agricultural/plant production
 - sty: A sty (pigsty, pig ark, pig-shed) is a building for raising domestic pigs, usually found on farms.
 - livestock: A building for housing/rising other livestock (apart from cows, horses or pigs covered above), or when the livestock changes.
 
-Sports
+</details>
+
+<details><summary><b>Sports</b></summary>
 
 - grandstand: The main stand, usually roofed, commanding the best view for spectators at racecourses or sports grounds.
 - pavilion: A sports pavilion usually with changing rooms, storage areas and possibly an space for functions & events. Avoid using this term for other structures called pavilions by architects (see [W] Pavilion).
@@ -854,7 +865,9 @@ Sports
 - sports_centre: A building that was built as a sports centre.
 - stadium: A building constructed to be a stadium building, including buildings that are abandoned and used nowadays for a different purpose.
 
-Storage
+</details>
+
+<details><summary><b>Storage</b></summary>
 
 - allotment_house: A small outbuilding for short visits in a allotment garden.
 - boathouse: A boathouse is a building used for the storage of boats.
@@ -862,14 +875,18 @@ Storage
 - hut: A hut is a small and crude shelter. Note that this word has two meanings - it may be synonym of building=shed, it may be a residential building of low quality.
 - shed: A shed is a simple, single-storey structure in a back garden or on an allotment that is used for storage, hobbies, or as a workshop.
 
-Cars
+</details>
+
+<details><summary><b>Cars</b></summary>
 
 - carport: A carport is a covered structure used to offer limited protection to vehicles, primarily cars, from the elements. Unlike most structures a carport does not have four walls, and usually has one or two.
 - garage: A garage is a building suitable for the storage of one or possibly more motor vehicle or similar. See building=garages for larger shared buildings. For an aircraft garage, see building=hangar.
 - garages: A building that consists of a number of discrete storage spaces for different owners/tenants. See also building=garage.
 - parking: Structure purpose-built for parking cars.
 
-Power/technical buildings
+</details>
+
+<details><summary><b>Power/technical buildingsrs</b></summary>
 
 - digester: A digester is a bioreactor for the production of biogas from biomass.
 - service: Service building usually is a small unmanned building with certain machinery (like pumps or transformers).
@@ -879,7 +896,9 @@ Power/technical buildings
 - storage_tank: Storage tanks are containers that hold liquids.
 - silo: A silo is a building for storing bulk materials.
 
-Other buildings
+</details>
+
+<details><summary><b>Other buildings</b></summary>
 
 - beach_hut: A small, usually wooden, and often brightly coloured cabin or shelter above the high tide mark on popular bathing beaches.
 - bunker: A hardened military building.
@@ -897,6 +916,8 @@ Other buildings
 - tower: A tower-building.
 - windmill: A building constructed as a traditional windmill, historically used to mill grain with wind power.
 - yes: Use this value where it is not possible to determine a more specific value. |
+
+</details>
 
 <details><summary><b>opening_hours</b></summary>
 
