@@ -1,5 +1,7 @@
 # _The OpenSidewalks Schema_<!-- omit from toc -->
 
+<a id="table-of-contents"></a>
+
 Table of Contents<!-- omit from toc -->
 
 - [Introduction](#introduction)
@@ -9,7 +11,7 @@ Table of Contents<!-- omit from toc -->
       - [Nodes](#nodes)
       - [Edges](#edges)
       - [Zones](#zones)
-    - [Adjacent Eentities](#adjacent-eentities)
+    - [Adjacent Entities](#adjacent-entities)
       - [Points](#points)
       - [Lines](#lines)
       - [Polygons](#polygons)
@@ -34,10 +36,12 @@ Table of Contents<!-- omit from toc -->
     - [Lines](#lines-1)
     - [Polygons](#polygons-1)
   - [Fields](#fields)
-    - [Overview](#overview)
+    - [Fields Overview](#fields-overview)
     - [List of fields](#list-of-fields)
 - [Resources](#resources)
 - [Schema Versions](#schema-versions)
+
+<a id="introduction"></a>
 
 # Introduction
 
@@ -49,13 +53,19 @@ The OpenSidewalks Schema is explicitly a _network schema_: its primary features 
 
 The OpenSidewalks Schema draws from and is intended to be largely compatible with OpenStreetMap data, though it is possible to create OpenSidewalks Schema data not derived from OpenStreetMap.
 
+<a id="opensidewalks-schema-entities"></a>
+
 # OpenSidewalks Schema Entities
 
 The OpenSidewalks Schema defines network and non-network data using a set of vector geometrical entity types, each of which has an associated geometry type compatible with either the Point, LineString or Polygon specification of [Simple Feature Access](https://www.ogc.org/standards/sfa), fields that uniquely define the entity type (in combination), optional topological information, and optional key-value pair metadata fields defined on a per-type basis.
 
+<a id="entity-categories"></a>
+
 ## Entity Categories
 
 There are currently two major categories of OpenSidewalks Schema entities: Core Entities and Adjacent Entities.
+
+<a id="core-entities"></a>
 
 ### Core Entities
 
@@ -73,9 +83,13 @@ Nodes, Edges, and Zones are geometrical features (OGC Points, LineStrings and Po
 - Edge: a sidewalk.
 - Zones: a square or plaza.
 
+<a id="nodes"></a>
+
 #### Nodes
 
 Nodes are point features that also contain metadata to identify them as network (graph) vertices. They must have a unique (within the dataset) `_id` field. Therefore, the set of network vertices in the dataset could be summarized as a set of these `_id` field values, consistent with the definition of vertices within a graph in graph theory. As a result of storing these vertex identifiers, Nodes may be placed within a traversable graph using only metadata, not spatial inference.
+
+<a id="edges"></a>
 
 #### Edges
 
@@ -83,13 +97,17 @@ Edges are linear features that also contain metadata to identify them as network
 
 Note that Edges are directional features: they start at one node and end at one node. The data they represent is directional as well: their geospatial data must start at one location and end at another and Edges often have fields like `incline` that only have meaning when direction is understood: a positive incline value is uphill while a negative incline value is downhill. However, this does not mean that datasets must be curated with both "forward" (`u` to `v`) Edges and "reverse" (`v` to `u`) Edges: any "reverse" edge can be inferred during graph creation.
 
+<a id="zones"></a>
+
 #### Zones
 
 Zones are polygon features that also contain metadata to identify them as network (graph) edges. They must have a list of node references: `_w_id`, which mean "this 2-dimensional polygon feature consists of a complete graph with every pair of distinct nodes in `_w_id` connected by a unique edge.
 
 Note that this would yield $k(k-1)/2$ edges for a zone comprised of $k$ nodes.
 
-### Adjacent Eentities
+<a id="adjacent-entities"></a>
+
+### Adjacent Entities
 
 Adjacent Entities are pedestrian network-adjacent entities which help describe the surrounding environment of the pedestrian network and can be used to amend the traversable network with important information. For example, a blind user would benefit from knowing that the footway they are using is adjacent to vegetation on their right side and a lake on their left side, or a park visitor would want to know where benches are located along their walk. Adjacent entities are not required for producing a valid OpenSidewalks dataset.
 
@@ -109,11 +127,19 @@ Examples of each adjacent entity model:
 
 OpenSidewalks schema includes some Adjacent Entities (i.e. internal adjacent entities) which we found valuable to the pedestrian experience and are readily available through community contributions on OpenStreetMap. Other Adjacent Entities (i.e. external adjacent entities) can similarly be included in an OpenSidewalks dataset and subsequently spatially merged with the Core Entities (i.e. the pedestrian network entities).
 
+<a id="points"></a>
+
 #### Points
+
+<a id="lines"></a>
 
 #### Lines
 
+<a id="polygons"></a>
+
 #### Polygons
+
+<a id="entity-attributes"></a>
 
 ## Entity Attributes
 
@@ -124,19 +150,25 @@ Every entity has a set of defining attributes:
 - **_optional fields_** that describe additional attributes of the entity.
 - **_additional fields_** that describe attributes of the entity which have not been captured by the OpenSidewalks schema. Any _additional fields_ must be prefixed with `ext:`.
 
+<a id="entity-type-interference"></a>
+
 ## Entity Type Inference
 
 Intended to closely mirror OpenStreetMap entities, OpenSidewalks Schema entities are identified by their set of attributes. Fields that uniquely identify an entity type are called _identifying fields_. In most cases, if an entity has all of the _identifying fields_ specified and a matching _geometry type_, its type is matched. The only exception is for entities whose _identifying fields_ are also a subset of other entities' _identifying fields_, in which case they are identified by (1) having all of the _identifying fields_ listed and a matching _geometry type_ and also (2) **not** any of the _identifying fields_ of subtypes.
 
+<a id="metadata-fields"></a>
+
 ## Metadata Fields
 
-The optional metadata [fields](#fields) that may be populated for OpenSidewalks Schema entities are largely inspired by and compatible with (reading from) OpenStreetMap data.
+The optional metadata fields that may be populated for OpenSidewalks Schema entities are largely inspired by and compatible with (reading from) OpenStreetMap data.
 
 OpenStreetMap-derived fields represent a standardized and constrained interpretation of OpenStreetMap tags that often represent boolean values as yes/no strings, have unclear enumerated value tags, or allow the use of many different units for distances (e.g., a path's width may be described in meters, centimeters, feet, or other units in OpenStreetMap). The standardization of field types is itself inspired by the OpenMapTiles standard, which is optimized for protobuf-based serialization.
 
 The combination of metadata standardization and network structures make OpenSidewalks data machine-readable and amenable to standardized analysis pipelines.
 
 Additional information on field types can be found in the overview subsection of the fields section.
+
+<a id="network-topologies"></a>
 
 ## Network Topologies
 
@@ -160,15 +192,21 @@ The OpenSidewalks Schema defines [Crossings](#-crossing) as existing only on the
 
 Curb Nodes should be mapped directly at the endpoint(s) of one or more Edge(s): they are potential barriers or accessible infrastructure encountered along a path, so they should be available for inspection during network traversals. In other words, they are often important decision points when simulating a pedestrian moving through the network.
 
+<a id="serialization-formats"></a>
+
 ## Serialization Formats
 
 OpenSidewalks data entities are vector geometries with optional topological data along with metadata that defines the entity type and optional metadata fields that are mappable to non-nested key-value pairs. As such, OpenSidewalks Schema data can be (de)serialized into a number of tabular and non-tabular GIS and graph formats. There exists both a [reference JSON Schema for a GeoJSON serialization](./opensidewalks.schema.json) codebase for the OpenSidewalks Schema as well as a PostgreSQL schema.
+
+<a id="coordinate-reference-system"></a>
 
 ## Coordinate Reference System
 
 OpenSidewalks uses the the World Geodetic System 1984 (WGS-84) coordinate system. WGS-84 is a geographic coordinate reference system with longitude and latitude units of decimal degrees.
 
 In compliance with the RFC 7946 GeoJSON, a crs member will not be included in the OpenSidewalks datasets.
+
+<a id="opensidewalks-dataset-metadata"></a>
 
 ## OpenSidewalks Dataset Metadata
 
@@ -213,7 +251,11 @@ The following is a sample snippet demonstrating the use of these metadata fields
 }
 ```
 
+<a id="list-of-core-entities"></a>
+
 ## List of Core Entities
+
+<a id="core-nodes"></a>
 
 ### Nodes
 
@@ -290,6 +332,8 @@ Nodes are features that are geometrically defined by a single latitude-longitude
 | **Optional Fields** | All [optional fields of generic curb](#-generic-curb) |
 
 </details>
+
+<a id="core-edges"></a>
 
 ### Edges
 
@@ -510,6 +554,8 @@ In order to simplify the job of OpenSidewalks consuming applications when attemp
 
 </details>
 
+<a id="core-zones"></a>
+
 ### Zones
 
 Zones are features that are geometrically defined by a Polygon (a closed ring of coordinates). They are also defined as a part of a pedestrian network: each Zone must define an `_id` string field, a unique identifier, and a list (`_w_id`) of node `_id`'s that define the zone's boundary.
@@ -526,7 +572,11 @@ Zones are features that are geometrically defined by a Polygon (a closed ring of
 
 </details>
 
+<a id="list-of-adjacent-entities"></a>
+
 ## List of Adjacent Entities
+
+<a id="adjacent-points"></a>
 
 ### Points
 
@@ -616,6 +666,8 @@ Points are features that are geometrically defined by a single latitude-longitud
 
 </details>
 
+<a id="adjacent-lines"></a>
+
 ### Lines
 
 Lines are features that are geometrically defined by a series of coordinates forming a LineString. They are explicitly not elements of the pedestrian network definition (i.e. the graph structure described by Nodes, Edges and Zones), but they are still highly relevant to the physical pedestrian network. All lines must have a unique `_id` field.
@@ -631,6 +683,8 @@ Lines are features that are geometrically defined by a series of coordinates for
 | **Optional Fields** | [length](#--length) |
 
 </details>
+
+<a id="adjacent-polygons"></a>
 
 ### Polygons
 
@@ -648,9 +702,13 @@ Polygons describe 2-dimensional areas which are adjacent to pedestrian paths. Th
 
 </details>
 
+<a id="fields"></a>
+
 ## Fields
 
-### Overview
+<a id="fields-overview"></a>
+
+### Fields Overview
 
 OpenSidewalks Schema fields are typed key-value pairs. Keys are always strings and values can be any of a specific set. Value types include:
 
@@ -660,6 +718,8 @@ OpenSidewalks Schema fields are typed key-value pairs. Keys are always strings a
 - `integer`: an integer
 - `numeric`: a number, either integer or decimal
 - `opening_hours`: serialized as a string, a specialized format for describing when a facility or asset is "open", as in accessible to the public.
+
+<a id="list-of-fields"></a>
 
 ### List of fields
 
@@ -711,10 +771,10 @@ OpenSidewalks Schema fields are typed key-value pairs. Keys are always strings a
 
 <details><summary><b>width</b></summary>
 
-|                 |                                 |
-| --------------- | ------------------------------- |
+|  |  |
+| --- | --- |
 | **Description** | The width of an Edge in meters. |
-| **Value type**  | numeric                         |
+| **Value type**  | numeric |
 
 </details>
 
@@ -740,10 +800,10 @@ OpenSidewalks Schema fields are typed key-value pairs. Keys are always strings a
 
 <details><summary><b>step_count</b></summary>
 
-|                 |                                              |
-| --------------- | -------------------------------------------- |
+|  |  |
+| --- | --- |
 | **Description** | Can be added to indicate the number of steps |
-| **Value type**  | integer                                      |
+| **Value type**  | integer |
 
 </details>
 
@@ -786,9 +846,13 @@ OpenSidewalks Schema fields are typed key-value pairs. Keys are always strings a
 
 </details>
 
+<a id="resources"></a>
+
 # Resources
 
 Mapping guides and resources for use in JOSM including a map style and presets are made available in the resources directory.
+
+<a id="schema-varsions"></a>
 
 # Schema Versions
 
