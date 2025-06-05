@@ -19,21 +19,21 @@
   - [Metadata Fields](#metadata-fields)
   - [Network Topologies](#network-topologies)
     - [Edges only connect end-to-end](#edges-only-connect-end-to-end)
-    - [A road entity and a crossing that intersects with it should share a location/node](#a-road-entity-and-a-crossing-that-intersects-with-it-should-share-a-locationnode)
+    - [A road entity and a crossing that intersects with it should share a Node](#a-road-entity-and-a-crossing-that-intersects-with-it-should-share-a-node)
     - [Crossings do not connect to sidewalk centerlines](#crossings-do-not-connect-to-sidewalk-centerlines)
     - [Curb interfaces and curb ramps are mapped at Edge endpoints](#curb-interfaces-and-curb-ramps-are-mapped-at-edge-endpoints)
   - [Serialization Formats](#serialization-formats)
   - [Coordinate Reference System](#coordinate-reference-system)
   - [OpenSidewalks Dataset Metadata](#opensidewalks-dataset-metadata)
   - [List of Core Entities](#list-of-core-entities)
-    - [Nodes](#nodes-1)
-    - [Edges](#edges-1)
+    - [Core Nodes](#core-nodes)
+    - [Core Edges](#core-edges)
       - [Motor Vehicle Roads](#motor-vehicle-roads)
-    - [Zones](#zones-1)
+    - [Core Zones](#core-zones)
   - [List of Adjacent Entities](#list-of-adjacent-entities)
-    - [Points](#points-1)
-    - [Lines](#lines-1)
-    - [Polygons](#polygons-1)
+    - [Adjacent Points](#adjacent-points)
+    - [Adjacent Lines](#adjacent-lines)
+    - [Adjacent Polygons](#adjacent-polygons)
   - [Fields](#fields)
     - [Fields Overview](#fields-overview)
     - [List of fields](#list-of-fields)
@@ -877,27 +877,5 @@ Mapping guides and resources for use in JOSM including a map style and presets a
 | Version | Release Date | Link | Notes |
 | --- | --- | --- | --- |
 | 0.1 | 2023-08-11 | [GitHub](https://github.com/OpenSidewalks/OpenSidewalks-Schema/tree/32dad18bb303289f660fd8d26f02f5e301d0a9d1) | - Minimal initial beta release of schema to unblock development of schema consuming applications |
-| 0.2 | 2024-01-30 | [GitHub](https://github.com/OpenSidewalks/OpenSidewalks-Schema) | 
-- Add required `_id` Field to [Edges](#edges)
-- Update the documentation with regards to the [coordinate reference system](#coordinate-reference-system)
-- Introduce the concept of [Core Entities](#core-entities) and [Adjacent Entities](#adjacent-entities) (formerly called "Extensions")
-- Add [Zones](#zones) to [Core Entities](#core-entities)
-- Add [Lines](#lines) and [Polygons](#polygons) to [Adjacent Entities](#adjacent-entities)
-- Add [Schema Versions](#schema-versions) and [OpenSidewalks Dataset Metadata](#opensidewalks-dataset-metadata)
-- Add [Pedestrian Zone](#pedestrian-zone) to [Zones](#zones)
-- Add [Fence](#fence) to [Lines](#lines)
-- Add [Building](#building) to [Polygons](#polygons)
-- Add _additional fields_ to [Entity Attributes](#entity-attributes)
-- Add [Motor Vehicle Roads](#motor-vehicle-roads) to [Edges](#edges) with justification
-- Add [Climb](#climb) Field to [Steps](#steps) Edge in addition to the existing [Incline](#incline) Field
-- Add [Opening Hours](#opening-hours) Field and include it to the existing [Building](#building) Fields
-- Add [Generic Curb](#generic-curb) entity to [Nodes](#nodes)
-- Add [Foot](#foot) Field to all [Edges](#edges) and [Zones](#zones)
-- Change [Entity Type Inference](#entity-type-inference) to include the _geometry type_
-- Fix lossiness of [Tactile Paving](#tactile-paving) Field
-- Remove _crossing_ Field in favor of [crossing:markings](#crossingmarkings) Field
-- Add [Living Street](#living-street) to [Edges](#edges)
-- Add _unclassified road_ to [Motor Vehicle Roads](#motor-vehicle-roads)
-- Add _trunk road_ to [Motor Vhicle Roads](#motor-vehicle-roads)
-- Require that the `_id` Field for all entities has at least one character |
+| 0.2 | 2024-01-30 | [GitHub](https://github.com/OpenSidewalks/OpenSidewalks-Schema) | - Add required `_id` Field to [Edges](#edges)<br>- Update the documentation with regards to the [coordinate reference system](#coordinate-reference-system)<br>- Introduce the concept of [Core Entities](#core-entities) and [Adjacent Entities](#adjacent-entities) (formerly called "Extensions")<br>- Add [Zones](#zones) to [Core Entities](#core-entities)<br>- Add [Lines](#lines) and [Polygons](#polygons) to [Adjacent Entities](#adjacent-entities)<br>- Add [Schema Versions](#schema-versions) and [OpenSidewalks Dataset Metadata](#opensidewalks-dataset-metadata)<br>- Add [Pedestrian Zone](#pedestrian-zone) to [Zones](#zones)<br>- Add [Fence](#fence) to [Lines](#lines)<br>- Add [Building](#building) to [Polygons](#polygons)<br>- Add _additional fields_ to [Entity Attributes](#entity-attributes)<br>- Add [Motor Vehicle Roads](#motor-vehicle-roads) to [Edges](#edges) with justification<br>- Add [Climb](#climb) Field to [Steps](#steps) Edge in addition to the existing [Incline](#incline) Field<br>- Add [Opening Hours](#opening-hours) Field and include it to the existing [Building](#building) Fields<br>- Add [Generic Curb](#generic-curb) entity to [Nodes](#nodes)<br>- Add [Foot](#foot) Field to all [Edges](#edges) and [Zones](#zones)<br>- Change [Entity Type Inference](#entity-type-inference) to include the _geometry type_<br>- Fix lossiness of [Tactile Paving](#tactile-paving) Field<br>- Remove _crossing_ Field in favor of [crossing:markings](#crossingmarkings) Field<br>- Add [Living Street](#living-street) to [Edges](#edges)<br>- Add _unclassified road_ to [Motor Vehicle Roads](#motor-vehicle-roads)<br>- Add _trunk road_ to [Motor Vhicle Roads](#motor-vehicle-roads)<br>- Require that the `_id` Field for all entities has at least one character |
 | 0.3 | 2025-06-16 | [GitHub](https://github.com/OpenSidewalks/OpenSidewalks-Schema) | - |
