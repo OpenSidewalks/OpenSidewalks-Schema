@@ -1,8 +1,7 @@
 # _The OpenSidewalks Schema_<!-- omit from toc -->
 
-<a id="table-of-contents"></a>
-
 ## Table of Contents<!-- omit from toc -->
+<a id="table-of-contents"></a>
 
 - [Introduction](#introduction)
 - [OpenSidewalks Schema Entities](#opensidewalks-schema-entities)
@@ -41,9 +40,8 @@
 - [Resources](#resources)
 - [Schema Versions](#schema-versions)
 
-<a id="introduction"></a>
-
 # Introduction
+<a id="introduction"></a>
 
 The OpenSidewalks Schema is an open pedestrian transportation network data standard for describing and sharing pedestrian network and pedestrian network-adjacent data. The OpenSidewalks Schema promotes an explicit network (graph) model wherein its primary data entities can be deterministically transformed into graph Edges and graph Nodes.
 
@@ -53,21 +51,18 @@ The OpenSidewalks Schema is explicitly a _network schema_: its primary features 
 
 The OpenSidewalks Schema draws from and is intended to be largely compatible with OpenStreetMap data, though it is possible to create OpenSidewalks Schema data not derived from OpenStreetMap.
 
-<a id="opensidewalks-schema-entities"></a>
-
 # OpenSidewalks Schema Entities
+<a id="opensidewalks-schema-entities"></a>
 
 The OpenSidewalks Schema defines network and non-network data using a set of vector geometrical entity types, each of which has an associated geometry type compatible with either the Point, LineString or Polygon specification of [Simple Feature Access](https://www.ogc.org/standards/sfa), fields that uniquely define the entity type (in combination), optional topological information, and optional key-value pair metadata fields defined on a per-type basis.
 
-<a id="entity-categories"></a>
-
 ## Entity Categories
+<a id="entity-categories"></a>
 
 There are currently two major categories of OpenSidewalks Schema entities: Core Entities and Adjacent Entities.
 
-<a id="core-entities"></a>
-
 ### Core Entities
+<a id="core-entities"></a>
 
 Core Entities are the traversable entities which make up the OpenSidewalks pedestrian network.
 
@@ -83,31 +78,27 @@ Nodes, Edges, and Zones are geometrical features (OGC Points, LineStrings and Po
 - Edge: a sidewalk.
 - Zones: a square or plaza.
 
-<a id="nodes"></a>
-
 #### Nodes
+<a id="nodes"></a>
 
 Nodes are Point features that also contain metadata to identify them as network (graph) vertices. They must have a unique (within the dataset) `_id` field. Therefore, the set of network vertices in the dataset could be summarized as a set of these `_id` field values, consistent with the definition of vertices within a graph in graph theory. As a result of storing these vertex identifiers, Nodes may be placed within a traversable graph using only metadata, not spatial inference.
 
-<a id="edges"></a>
-
 #### Edges
+<a id="edges"></a>
 
 Edges are linear features that also contain metadata to identify them as network (graph) Edges. They must have two Node-referencing fields: `_u_id` and `_v_id`, which mean "this linear feature begins at the Node with `_id` of `_u_id` and ends at the Node with `_id` of `_v_id`. Therefore, a network (graph) may be constructed from a set of Nodes and Edges directly from metadata. Outside of the graph representation, Edges must have a unique (within the dataset) `_id` field.
 
 Note that Edges are directional features: they start at one Node and end at one Node. The data they represent is directional as well: their geospatial data must start at one location and end at another and Edges often have fields like `incline` that only have meaning when direction is understood: a positive incline value is uphill while a negative incline value is downhill. However, this does not mean that datasets must be curated with both "forward" (`u` to `v`) Edges and "reverse" (`v` to `u`) Edges: any "reverse" Edge can be inferred during graph creation.
 
-<a id="zones"></a>
-
 #### Zones
+<a id="zones"></a>
 
 Zones are Polygon features that also contain metadata to identify them as network (graph) Edges. They must have a list of Node references: `_w_id`, which mean "this 2-dimensional Polygon feature consists of a complete graph with every pair of distinct Nodes in `_w_id` connected by a unique Edge.
 
 Note that this would yield $k(k-1)/2$ Edges for a Zone comprised of $k$ Nodes.
 
-<a id="adjacent-entities"></a>
-
 ### Adjacent Entities
+<a id="adjacent-entities"></a>
 
 Adjacent Entities are pedestrian network-adjacent entities that help describe the surrounding environment of the pedestrian network and can be used to augment the traversable network with important information. For example, a blind user would benefit from knowing that the footway they are using is adjacent to vegetation on their right side and a lake on their left side, or a park visitor would want to know where benches are located along their walk. Adjacent entities are not required for producing a valid OpenSidewalks dataset.
 
@@ -127,21 +118,17 @@ Examples of each adjacent entity model:
 
 OpenSidewalks schema includes some Adjacent Entities (i.e. internal adjacent entities) which we found valuable to the pedestrian experience and are readily available through community contributions on OpenStreetMap. Other Adjacent Entities (i.e. external adjacent entities) can similarly be included in an OpenSidewalks dataset and subsequently spatially merged with the Core Entities (i.e. the pedestrian network entities).
 
+#### Points
 <a id="points"></a>
 
-#### Points
-
+#### Lines
 <a id="lines"></a>
 
-#### Lines
-
+#### Polygons
 <a id="polygons"></a>
 
-#### Polygons
-
-<a id="entity-attributes"></a>
-
 ## Entity Attributes
+<a id="entity-attributes"></a>
 
 Every entity has a set of defining attributes:
 
@@ -150,15 +137,13 @@ Every entity has a set of defining attributes:
 - **_optional fields_** that describe additional attributes of the entity.
 - **_additional fields_** that describe attributes of the entity which have not been captured by the OpenSidewalks schema. Any _additional fields_ must be prefixed with `ext:`.
 
-<a id="entity-type-interference"></a>
-
 ## Entity Type Inference
+<a id="entity-type-inference"></a>
 
 Intended to closely mirror OpenStreetMap entities, OpenSidewalks Schema entities are identified by their set of attributes. Fields that uniquely identify an entity type are called _identifying fields_. In most cases, if an entity has all of the _identifying fields_ specified and a matching _geometry type_, its type is matched. The only exception is for entities whose _identifying fields_ are also a subset of other entities' _identifying fields_, in which case they are identified by (1) having all of the _identifying fields_ listed and a matching _geometry type_ and also (2) **not** any of the _identifying fields_ of subtypes.
 
-<a id="metadata-fields"></a>
-
 ## Metadata Fields
+<a id="metadata-fields"></a>
 
 The optional metadata fields that may be populated for OpenSidewalks Schema entities are largely inspired by and compatible with (reading from) OpenStreetMap data.
 
@@ -168,47 +153,47 @@ The combination of metadata standardization and network structures make OpenSide
 
 Additional information on field types can be found in the overview subsection of the fields section.
 
-<a id="network-topologies"></a>
-
 ## Network Topologies
+<a id="network-topologies"></a>
 
 The OpenSidewalks Schema includes network topological rules for the ways in which network-mappable entities can be connected.
 
 ### Edges only connect end-to-end
+<a id="edges-only-connect-end-to-end"></a>
 
 While a graph structure may be inferred from Edges via their endpoints, the use of `_u_id` and `_v_id` are preferred. However, Edge entities should still meet end-to-end as they are intended to represent a physically-connected space.
 
 Similarly, no connection is implied when the linear geometries of Edges cross.
 
 ### A road entity and a crossing that intersects with it should share a Node
+<a id="a-road-entity-and-a-crossing-that-intersects-with-it-should-share-a-node"></a>
 
 In addition to the above rule about Edge entities connecting end-to-end, it is considered incorrect for a street crossing to intersect with (cross) associated road entities. Instead, both the road and crossing entities should be split such that endpoints are shared.
 
 ### Crossings do not connect to sidewalk centerlines
+<a id="crossings-do-not-connect-to-sidewalk-centerlines"></a>
 
-The OpenSidewalks Schema defines [Crossings](#-crossing) as existing only on the street surface and [Sidewalks](#-sidewalk) as describing only the sidewalk centerline. There must therefore always be space between a Sidewalk and a Crossing. A Sidewalk and Crossing should be connected by a plain [Footway](#-footway).
+The OpenSidewalks Schema defines [Crossings](#crossing) as existing only on the street surface and [Sidewalks](#sidewalk) as describing only the sidewalk centerline. There must therefore always be space between a Sidewalk and a Crossing. A Sidewalk and Crossing should be connected by a plain [Footway](#footway).
 
 ### Curb interfaces and curb ramps are mapped at Edge endpoints
+<a id="curb-interfaces-and-curb-ramps-are-mapped-at-edge-endpoints"></a>
 
 Curb Nodes should be mapped directly at the endpoint(s) of one or more Edge(s): they are potential barriers or accessible infrastructure encountered along a path, so they should be available for inspection during network traversals. In other words, they are often important decision points when simulating a pedestrian moving through the network.
 
-<a id="serialization-formats"></a>
-
 ## Serialization Formats
+<a id="serialization-formats"></a>
 
 OpenSidewalks data entities are vector geometries with optional topological data along with metadata that defines the entity type and optional metadata fields that are mappable to non-nested key-value pairs. As such, OpenSidewalks Schema data can be (de)serialized into a number of tabular and non-tabular GIS and graph formats. There exists both a [reference JSON Schema for a GeoJSON serialization](./opensidewalks.schema.json) codebase for the OpenSidewalks Schema as well as a PostgreSQL schema.
 
-<a id="coordinate-reference-system"></a>
-
 ## Coordinate Reference System
+<a id="coordinate-reference-system"></a>
 
 OpenSidewalks uses the World Geodetic System 1984 (WGS-84) coordinate system. WGS-84 is a geographic coordinate reference system (CRS) with longitude and latitude units of decimal degrees.
 
 In compliance with the RFC 7946 GeoJSON, a CRS member will not be included in the OpenSidewalks datasets.
 
-<a id="opensidewalks-dataset-metadata"></a>
-
 ## OpenSidewalks Dataset Metadata
+<a id="opensidewalks-dataset-metadata"></a>
 
 Each file in the OpenSidewalks dataset will contain the following metadata fields:
 
@@ -251,21 +236,20 @@ The following is a sample snippet demonstrating the use of these metadata fields
 }
 ```
 
+## List of Core Entities
 <a id="list-of-core-entities"></a>
 
-## List of Core Entities
-
+### Core Nodes
 <a id="core-nodes"></a>
-
-### Nodes
 
 Nodes are features that are geometrically defined by a single latitude-longitude pair: a point on the planet. They are also defined as a part of a pedestrian network: each Node must define an `_id` string field, a unique identifier to which Edges and Zones may refer using their `_u_id`, `_v_id` or `_w_id` fields.
 
 <details><summary><b>Bare Node</b></summary>
+<a id="bare-node"></a>
 
 |  |  |
 | --- | --- |
-| **Description** | A special case of an abstract Node: this is a network (graph) Node description that does not have any special metadata beyond location and the `_id` field. A Bare Node exists when two Edges meet at a location that is not one of the other Node types. For example, a single sidewalk may be represented by two [Sidewalk](#-sidewalk) Edges with different `width` values, split where the width changes. There is no physical feature within the OpenSidewalks Schema at that split Point: it is just a Bare Node that connects the two Edges together.<br><br>Another way to interpret a Bare Node is in terms of the Edge definition rules: the Nodes referenced by `_u_id` and `_v_id` must exist within the dataset, so we must define Nodes wherever Edges meet regardless of whether that point in space has additional metadata. |
+| **Description** | A special case of an abstract Node: this is a network (graph) Node description that does not have any special metadata beyond location and the `_id` field. A Bare Node exists when two Edges meet at a location that is not one of the other Node types. For example, a single sidewalk may be represented by two [Sidewalk](#sidewalk) Edges with different `width` values, split where the width changes. There is no physical feature within the OpenSidewalks Schema at that split Point: it is just a Bare Node that connects the two Edges together.<br><br>Another way to interpret a Bare Node is in terms of the Edge definition rules: the Nodes referenced by `_u_id` and `_v_id` must exist within the dataset, so we must define Nodes wherever Edges meet regardless of whether that point in space has additional metadata. |
 | **Subtype of** | _None_ |
 | **Geometry** | Point |
 | **Identifying Fields** | (must have the `_id` field, like all Nodes) |
@@ -274,6 +258,7 @@ Nodes are features that are geometrically defined by a single latitude-longitude
 </details>
 
 <details><summary><b>Generic Curb</b></summary>
+<a id="generic-curb"></a>
 
 |  |  |
 | --- | --- |
@@ -286,6 +271,7 @@ Nodes are features that are geometrically defined by a single latitude-longitude
 </details>
 
 <details><summary><b>Raised Curb</b></summary>
+<a id="raised-curb"></a>
 
 |  |  |
 | --- | --- |
@@ -293,11 +279,12 @@ Nodes are features that are geometrically defined by a single latitude-longitude
 | **Subtype of** | Generic Curb |
 | **Geometry** | Point |
 | **Identifying Fields** | `barrier=kerb`, `kerb=raised` |
-| **Optional Fields** | All [optional fields of generic curb](#-generic-curb) |
+| **Optional Fields** | All [optional fields of generic curb](#generic-curb) |
 
 </details>
 
 <details><summary><b>Rolled Curb</b></summary>
+<a id="rolled-curb"></a>
 
 |  |  |
 | --- | --- |
@@ -305,11 +292,12 @@ Nodes are features that are geometrically defined by a single latitude-longitude
 | **Subtype of** |  |
 | **Geometry** | Point |
 | **Identifying Fields** | `barrier=kerb`, `kerb=rolled` |
-| **Optional Fields** | All [optional fields of generic curb](#-generic-curb) |
+| **Optional Fields** | All [optional fields of generic curb](#generic-curb) |
 
 </details>
 
 <details><summary><b>Curb Ramp</b></summary>
+<a id="curb-ramp"></a>
 
 |  |  |
 | --- | --- |
@@ -317,11 +305,12 @@ Nodes are features that are geometrically defined by a single latitude-longitude
 | **Subtype of** | Generic Curb |
 | **Geometry** | Point |
 | **Identifying Fields** | `barrier=kerb`, `kerb=lowered` |
-| **Optional Fields** | All [optional fields of generic curb](#-generic-curb) |
+| **Optional Fields** | All [optional fields of generic curb](#generic-curb) |
 
 </details>
 
 <details><summary><b>Flush Curb</b></summary>
+<a id="flush-curb"></a>
 
 |  |  |
 | --- | --- |
@@ -329,17 +318,17 @@ Nodes are features that are geometrically defined by a single latitude-longitude
 | **Subtype of** | Generic Curb |
 | **Geometry** | Point |
 | **Identifying Fields** | `barrier=kerb`, `kerb=flush` |
-| **Optional Fields** | All [optional fields of generic curb](#-generic-curb) |
+| **Optional Fields** | All [optional fields of generic curb](#generic-curb) |
 
 </details>
 
+### Core Edges
 <a id="core-edges"></a>
-
-### Edges
 
 Edges are Lines (their serializable geometries are representable by LineStrings) intended to represent pedestrian network connections. Edges are often derived from topological data like that stored in OpenStreetMap. All Edges must have a unique `_id` field.
 
 <details><summary><b>Footway (plain)</b></summary>
+<a id="footway"></a>
 
 |  |  |
 | --- | --- |
@@ -347,7 +336,7 @@ Edges are Lines (their serializable geometries are representable by LineStrings)
 | **Subtype of** | _None_ |
 | **Geometry** | LineString |
 | **Identifying Fields** | `highway=footway`<br>_(and no `footway=_` subtag)\_ |
-| **Optional Fields** | [width](#--width)<br>[surface](#--surface)<br>[incline](#--incline)<br>[length](#--length)<br>[description](#--description)<br>[name](#--name)<br>[foot](#--foot) |
+| **Optional Fields** | [width](#width)<br>[surface](#surface)<br>[incline](#incline)<br>[length](#length)<br>[description](#description)<br>[name](#name)<br>[foot](#foot) |
 
 </details>
 
@@ -356,39 +345,42 @@ Edges are Lines (their serializable geometries are representable by LineStrings)
 |  |  |
 | --- | --- |
 | **Description** | The centerline of a sidewalk, a designated pedestrian path to the side of a street. |
-| **Subtype of** | [Footway](#-footway) |
+| **Subtype of** | [Footway](#footway) |
 | **Geometry** | LineString |
 | **Identifying Fields** | `highway=footway`, `footway=sidewalk` |
-| **Optional Fields** | All [optional fields of footway](#-footway)<br>[description](#--description) |
+| **Optional Fields** | All [optional fields of footway](#footway)<br>[description](#description) |
 | Sidewalk-specific usage note: OpenSidewalks data may infer a 'description' property that states where the sidewalk is in relation to its associated street. Example: "NW side of 5th Ave". |
 
 </details>
 
 <details><summary><b>Crossing</b></summary>
+<a id="crossing"></a>
 
 |  |  |
 | --- | --- |
 | **Description** | (Part of) the centerline of a pedestrian street crossing. A crossing exists only on the road surface itself, i.e. "from curb to curb".<br><br>Because crossings should be connected to the street network, they should be represented by at least two Edges: one from the first curb interface to the street centerline and one from the street centerline to the second curb interface, e.g..<br><br>Crossings should not be connected directly to sidewalk centerlines, as the sidewalk centerline is never the curb interface. Instead, a short footway should connect the two together. |
-| **Subtype of** | [Footway](#-footway) |
+| **Subtype of** | [Footway](#footway) |
 | **Geometry** | LineString |
 | **Identifying Fields** | `highway=footway`, `footway=crossing` |
-| **Optional Fields** | All [optional fields of footway](#-footway)<br>[crossing:markings](#--crossing_markings) |
+| **Optional Fields** | All [optional fields of footway](#footway)<br>[crossing:markings](#crossingmarkings) |
 
 </details>
 
 <details><summary><b>Traffic Island</b></summary>
+<a id="traffic-island"></a>
 
 |  |  |
 | --- | --- |
 | **Description** | The centerline of a footway traversing a traffic island. Some complex, long, or busy pedestrian crossings have a built-up "island" to protect pedestrians, splitting up the crossing of the street into two or more crossings. As a pedestrian uses this crossing, they will transition across these Edge elements: sidewalk → footway → crossing → traffic island → crossing → footway → sidewalk. |
-| **Subtype of** | [Footway](#-footway) |
+| **Subtype of** | [Footway](#footway) |
 | **Geometry** | LineString |
 | **Identifying Fields** | `highway=footway`, `footway=traffic_island` |
-| **Optional Fields** | All [optional fields of footway](#-footway) |
+| **Optional Fields** | All [optional fields of footway](#footway) |
 
 </details>
 
 <details><summary><b>Pedestrian Road</b></summary>
+<a id="pedestrian-road"></a>
 
 |  |  |
 | --- | --- |
@@ -396,11 +388,12 @@ Edges are Lines (their serializable geometries are representable by LineStrings)
 | **Subtype of** | _None_ |
 | **Geometry** | LineString |
 | **Identifying Fields** | `highway=pedestrian` |
-| **Optional Fields** | [width](#--width)<br>[surface](#--surface)<br>[incline](#--incline)<br>[length](#--length)<br>[description](#--description)<br>[name](#--name)<br>[foot](#--foot) |
+| **Optional Fields** | [width](#width)<br>[surface](#surface)<br>[incline](#incline)<br>[length](#length)<br>[description](#description)<br>[name](#name)<br>[foot](#foot) |
 
 </details>
 
 <details><summary><b>Steps</b></summary>
+<a id="steps"></a>
 
 |  |  |
 | --- | --- |
@@ -408,11 +401,12 @@ Edges are Lines (their serializable geometries are representable by LineStrings)
 | **Subtype of** | _None_ |
 | **Geometry** | LineString |
 | **Identifying Fields** | `highway=steps` |
-| **Optional Fields** | [width](#--width)<br>[surface](#--surface)<br>[incline](#--incline)<br>[length](#--length)<br>[description](#--description)<br>[name](#--name)<br>[step_count](#--step_count)<br>[climb](#--climb)<br>[foot](#--foot) |
+| **Optional Fields** | [width](#width)<br>[surface](#surface)<br>[incline](#incline)<br>[length](#length)<br>[description](#description)<br>[name](#name)<br>[step_count](#stepcount)<br>[climb](#climb)<br>[foot](#foot) |
 
 </details>
 
 <details><summary><b>Living Street</b></summary>
+<a id="living-street"></a>
 
 |  |  |
 | --- | --- |
@@ -420,11 +414,12 @@ Edges are Lines (their serializable geometries are representable by LineStrings)
 | **Subtype of** | _None_ |
 | **Geometry** | LineString |
 | **Identifying Fields** | `highway=living_street` |
-| **Optional Fields** | [width](#--width)<br>[surface](#--surface)<br>[incline](#--incline)<br>[length](#--length)<br>[description](#--description)<br>[name](#--name)<br>[foot](#--foot) |
+| **Optional Fields** | [width](#width)<br>[surface](#surface)<br>[incline](#incline)<br>[length](#length)<br>[description](#description)<br>[name](#name)<br>[foot](#foot) |
 
 </details>
 
 #### Motor Vehicle Roads
+<a id="motor-vehicle-roads"></a>
 
 While OpenSidewalks schema is centered around the pedestrian experience and accessibility within the pedestrian network, the inclusion of roads as core entities in the schema is justified because:
 
@@ -432,9 +427,10 @@ While OpenSidewalks schema is centered around the pedestrian experience and acce
 2. Sidewalks and crossings are typically referenced by pedestrians in relation to roads, i.e. "Use the Sidewalk East of Main St.", "Turn left and cross Broadway".
 3. A pedestrian's safety and environment is greatly impacted by their adjacency to a particular road. For example, a wheelchair user may choose to avoid crossing busy roads for their safety unless they have to.
 
-In order to simplify the job of OpenSidewalks consuming applications when attempting to route pedestrians, we have included a [foot](#--foot) field in all Edges and Zones to indicate whether an entity is safe to traverse by a pedestrian. We recommend applications clearly communicate the risk to pedestrians if they route users on entities with missing [foot](#--foot) field or with `foot=no`.
+In order to simplify the job of OpenSidewalks consuming applications when attempting to route pedestrians, we have included a [foot](#foot) field in all Edges and Zones to indicate whether an entity is safe to traverse by a pedestrian. We recommend applications clearly communicate the risk to pedestrians if they route users on entities with missing [foot](#foot) field or with `foot=no`.
 
 <details><summary><b>Primary Street</b></summary>
+<a id="primary-street"></a>
 
 |  |  |
 | --- | --- |
@@ -442,11 +438,12 @@ In order to simplify the job of OpenSidewalks consuming applications when attemp
 | **Subtype of** | _None_ |
 | **Geometry** | LineString |
 | **Identifying Fields** | `highway=primary` |
-| **Optional Fields** | [width](#--width)<br>[surface](#--surface)<br>[incline](#--incline)<br>[length](#--length)<br>[description](#--description)<br>[name](#--name)<br>[foot](#--foot) |
+| **Optional Fields** | [width](#width)<br>[surface](#surface)<br>[incline](#incline)<br>[length](#length)<br>[description](#description)<br>[name](#name)<br>[foot](#foot) |
 
 </details>
 
 <details><summary><b>Secondary Street</b></summary>
+<a id="secondary-street"></a>
 
 |  |  |
 | --- | --- |
@@ -454,11 +451,12 @@ In order to simplify the job of OpenSidewalks consuming applications when attemp
 | **Subtype of** | _None_ |
 | **Geometry** | LineString |
 | **Identifying Fields** | `highway=secondary` |
-| **Optional Fields** | All [optional fields of a primary street](#-primary-street). |
+| **Optional Fields** | All [optional fields of a primary street](#primary-street). |
 
 </details>
 
 <details><summary><b>Tertiary Street</b></summary>
+<a id="tertiary-street"></a>
 
 |  |  |
 | --- | --- |
@@ -466,11 +464,12 @@ In order to simplify the job of OpenSidewalks consuming applications when attemp
 | **Subtype of** | _None_ |
 | **Geometry** | LineString |
 | **Identifying Fields** | `highway=tertiary` |
-| **Optional Fields** | All [optional fields of a primary street](#-primary-street). |
+| **Optional Fields** | All [optional fields of a primary street](#primary-street). |
 
 </details>
 
 <details><summary><b>Residential Street</b></summary>
+<a id="residential-street"></a>
 
 |  |  |
 | --- | --- |
@@ -478,11 +477,12 @@ In order to simplify the job of OpenSidewalks consuming applications when attemp
 | **Subtype of** | _None_ |
 | **Geometry** | LineString |
 | **Identifying Fields** | `highway=residential` |
-| **Optional Fields** | All [optional fields of a primary street](#-primary-street). |
+| **Optional Fields** | All [optional fields of a primary street](#primary-street). |
 
 </details>
 
 <details><summary><b>Service Road</b></summary>
+<a id="service-road"></a>
 
 |  |  |
 | --- | --- |
@@ -490,47 +490,51 @@ In order to simplify the job of OpenSidewalks consuming applications when attemp
 | **Subtype of** | _None_ |
 | **Geometry** | LineString |
 | **Identifying Fields** | `highway=service` |
-| **Optional Fields** | All [optional fields of a primary street](#-primary-street). |
+| **Optional Fields** | All [optional fields of a primary street](#primary-street). |
 
 </details>
 
 <details><summary><b>Driveway</b></summary>
+<a id="driveway"></a>
 
 |  |  |
 | --- | --- |
 | **Description** | The centerline of a driveway. Typically connects a residence or business to another road. |
-| **Subtype of** | [Service road](#-service-road) |
+| **Subtype of** | [Service road](#service-road) |
 | **Geometry** | LineString |
 | **Identifying Fields** | `highway=service`, `service=driveway` |
-| **Optional Fields** | All [optional fields of a primary street](#-primary-street). |
+| **Optional Fields** | All [optional fields of a primary street](#primary-street). |
 
 </details>
 
 <details><summary><b>Alley</b></summary>
+<a id="alley"></a>
 
 |  |  |
 | --- | --- |
 | **Description** | The centerline of an alley. An alley is usually located between properties and provides access to utilities and private entrances. |
-| **Subtype of** | [Service road](#-service-road) |
+| **Subtype of** | [Service road](#service-road) |
 | **Geometry** | LineString |
 | **Identifying Fields** | `highway=service`, `service=alley` |
-| **Optional Fields** | All [optional fields of a primary street](#-primary-street). |
+| **Optional Fields** | All [optional fields of a primary street](#primary-street). |
 
 </details>
 
 <details><summary><b>Parking Aisle</b></summary>
+<a id="parking-aisle"></a>
 
 |  |  |
 | --- | --- |
 | **Description** | The centerline of a subordinated way in a parking lot: vehicles drive on parking aisles to reach parking spaces in a parking lot. |
-| **Subtype of** | [Service road](#-service-road) |
+| **Subtype of** | [Service road](#service-road) |
 | **Geometry** | LineString |
 | **Identifying Fields** | `highway=service`, `service=parking_aisle` |
-| **Optional Fields** | All [optional fields of a primary street](#-primary-street). |
+| **Optional Fields** | All [optional fields of a primary street](#primary-street). |
 
 </details>
 
 <details><summary><b>Unclassified Road</b></summary>
+<a id="unclassified-road"></a>
 
 |  |  |
 | --- | --- |
@@ -538,11 +542,12 @@ In order to simplify the job of OpenSidewalks consuming applications when attemp
 | **Subtype of** | _None_ |
 | **Geometry** | LineString |
 | **Identifying Fields** | `highway=unclassified` |
-| **Optional Fields** | All [optional fields of a primary street](#-primary-street). |
+| **Optional Fields** | All [optional fields of a primary street](#primary-street). |
 
 </details>
 
 <details><summary><b>Trunk Road</b></summary>
+<a id="trunk-road"></a>
 
 |  |  |
 | --- | --- |
@@ -550,17 +555,17 @@ In order to simplify the job of OpenSidewalks consuming applications when attemp
 | **Subtype of** | _None_ |
 | **Geometry** | LineString |
 | **Identifying Fields** | `highway=trunk` |
-| **Optional Fields** | All [optional fields of a primary street](#-primary-street). |
+| **Optional Fields** | All [optional fields of a primary street](#primary-street). |
 
 </details>
 
+### Core Zones
 <a id="core-zones"></a>
-
-### Zones
 
 Zones are features that are geometrically defined by a Polygon (a closed ring of coordinates). They are also defined as a part of a pedestrian network: each Zone must define an `_id` string field, a unique identifier, and a list (`_w_id`) of Node `_id`s that define the Zone's boundary.
 
 <details><summary><b>Pedestrian Zone</b></summary>
+<a id="pedestrian-zone"></a>
 
 |  |  |
 | --- | --- |
@@ -568,21 +573,20 @@ Zones are features that are geometrically defined by a Polygon (a closed ring of
 | **Subtype of** | _None_ |
 | **Geometry** | Polygon |
 | **Identifying Fields** | `highway=pedestrian` |
-| **Optional Fields** | [surface](#--surface)<br>[description](#--description)<br>[name](#--name)<br>[foot](#--foot) |
+| **Optional Fields** | [surface](#surface)<br>[description](#description)<br>[name](#name)<br>[foot](#foot) |
 
 </details>
 
+## List of Adjacent Entities
 <a id="list-of-adjacent-entities"></a>
 
-## List of Adjacent Entities
-
+### Adjacent Points
 <a id="adjacent-points"></a>
-
-### Points
 
 Points are features that are geometrically defined by a single latitude-longitude pair: a point on the planet. They are explicitly not elements of the pedestrian network definition (i.e. the graph structure described by Nodes and Edges), but they are still highly relevant to the physical pedestrian network. Points may be considered part of the real physical pedestrian network, but aren't appropriate as elements of the network described by the OpenSidewalks Schema. All Points must have a unique `_id` field.
 
 <details><summary><b>Power Pole</b></summary>
+<a id="power-pole"></a>
 
 |  |  |
 | --- | --- |
@@ -595,6 +599,7 @@ Points are features that are geometrically defined by a single latitude-longitud
 </details>
 
 <details><summary><b>Fire Hydrant</b></summary>
+<a id="fire-hydrant"></a>
 
 |  |  |
 | --- | --- |
@@ -607,6 +612,7 @@ Points are features that are geometrically defined by a single latitude-longitud
 </details>
 
 <details><summary><b>Bench</b></summary>
+<a id="bench"></a>
 
 |  |  |
 | --- | --- |
@@ -619,6 +625,7 @@ Points are features that are geometrically defined by a single latitude-longitud
 </details>
 
 <details><summary><b>Bollard</b></summary>
+<a id="bollard"></a>
 
 |  |  |
 | --- | --- |
@@ -631,6 +638,7 @@ Points are features that are geometrically defined by a single latitude-longitud
 </details>
 
 <details><summary><b>Manhole</b></summary>
+<a id="manhole"></a>
 
 |  |  |
 | --- | --- |
@@ -643,6 +651,7 @@ Points are features that are geometrically defined by a single latitude-longitud
 </details>
 
 <details><summary><b>Street Lamp</b></summary>
+<a id="street-lamp"></a>
 
 |  |  |
 | --- | --- |
@@ -655,6 +664,7 @@ Points are features that are geometrically defined by a single latitude-longitud
 </details>
 
 <details><summary><b>Waste Basket</b></summary>
+<a id="waste-basket"></a>
 
 |  |  |
 | --- | --- |
@@ -666,13 +676,13 @@ Points are features that are geometrically defined by a single latitude-longitud
 
 </details>
 
+### Adjacent Lines
 <a id="adjacent-lines"></a>
-
-### Lines
 
 Lines are features that are geometrically defined by a series of coordinates forming a LineString. They are explicitly not elements of the pedestrian network definition (i.e. the graph structure described by Nodes, Edges and Zones), but they are still highly relevant to the physical pedestrian network. All Lines must have a unique `_id` field.
 
 <details><summary><b>Fence</b></summary>
+<a id="fence"></a>
 
 |  |  |
 | --- | --- |
@@ -680,35 +690,33 @@ Lines are features that are geometrically defined by a series of coordinates for
 | **Subtype of** | _None_ |
 | **Geometry** | LineString |
 | **Identifying Fields** | `barrier=fence` |
-| **Optional Fields** | [length](#--length) |
+| **Optional Fields** | [length](#length) |
 
 </details>
 
+### Adjacent Polygons
 <a id="adjacent-polygons"></a>
-
-### Polygons
 
 Polygons describe 2-dimensional areas which are adjacent to pedestrian paths. They are explicitly not elements of the pedestrian network definition (i.e. the graph structure described by Nodes, Edges and Zones), but they are still highly relevant to the physical pedestrian network. All Polygons must have a unique `_id` field.
 
 <details><summary><b>Building</b></summary>
+<a id="building"></a>
 
 |  |  |
 | --- | --- |
 | **Description** | A building is a man-made structure with a roof, standing more or less permanently in one place. |
 | **Subtype of** | _None_ |
 | **Geometry** | Polygon |
-| **Identifying Fields** | [building](#--building)=\* |
-| **Optional Fields** | [name](#--name)<br>[opening_hours](#--opening_hours) |
+| **Identifying Fields** | [building](#building)=\* |
+| **Optional Fields** | [name](#name)<br>[opening_hours](#openinghours) |
 
 </details>
 
+## Fields
 <a id="fields"></a>
 
-## Fields
-
-<a id="fields-overview"></a>
-
 ### Fields Overview
+<a id="fields-overview"></a>
 
 OpenSidewalks Schema fields are typed key-value pairs. Keys are always strings and values can be any of a specific set. Value types include:
 
@@ -719,11 +727,11 @@ OpenSidewalks Schema fields are typed key-value pairs. Keys are always strings a
 - `numeric`: a number, either integer or decimal
 - `opening_hours`: serialized as a string, a specialized format for describing when a facility or asset is "open", as in accessible to the public.
 
+### List of fields
 <a id="list-of-fields"></a>
 
-### List of fields
-
 <details><summary><b>description</b></summary>
+<a id="description"></a>
 
 |  |  |
 | --- | --- |
@@ -733,6 +741,7 @@ OpenSidewalks Schema fields are typed key-value pairs. Keys are always strings a
 </details>
 
 <details><summary><b>name</b></summary>
+<a id="name"></a>
 
 |  |  |
 | --- | --- |
@@ -742,6 +751,7 @@ OpenSidewalks Schema fields are typed key-value pairs. Keys are always strings a
 </details>
 
 <details><summary><b>incline</b></summary>
+<a id="incline"></a>
 
 |  |  |
 | --- | --- |
@@ -751,6 +761,7 @@ OpenSidewalks Schema fields are typed key-value pairs. Keys are always strings a
 </details>
 
 <details><summary><b>surface</b></summary>
+<a id="surface"></a>
 
 |  |  |
 | --- | --- |
@@ -761,6 +772,7 @@ OpenSidewalks Schema fields are typed key-value pairs. Keys are always strings a
 </details>
 
 <details><summary><b>length</b></summary>
+<a id="length"></a>
 
 |  |  |
 | --- | --- |
@@ -770,6 +782,7 @@ OpenSidewalks Schema fields are typed key-value pairs. Keys are always strings a
 </details>
 
 <details><summary><b>width</b></summary>
+<a id="width"></a>
 
 |  |  |
 | --- | --- |
@@ -779,6 +792,7 @@ OpenSidewalks Schema fields are typed key-value pairs. Keys are always strings a
 </details>
 
 <details><summary><b>tactile_paving</b></summary>
+<a id="tactile-paving"></a>
 
 |  |  |
 | --- | --- |
@@ -789,6 +803,7 @@ OpenSidewalks Schema fields are typed key-value pairs. Keys are always strings a
 </details>
 
 <details><summary><b>crossing:markings</b></summary>
+<a id="crossing-markings"></a>
 
 |  |  |
 | --- | --- |
@@ -799,6 +814,7 @@ OpenSidewalks Schema fields are typed key-value pairs. Keys are always strings a
 </details>
 
 <details><summary><b>step_count</b></summary>
+<a id="step-count"></a>
 
 |  |  |
 | --- | --- |
@@ -808,6 +824,7 @@ OpenSidewalks Schema fields are typed key-value pairs. Keys are always strings a
 </details>
 
 <details><summary><b>climb</b></summary>
+<a id="climb"></a>
 
 |  |  |
 | --- | --- |
@@ -818,6 +835,7 @@ OpenSidewalks Schema fields are typed key-value pairs. Keys are always strings a
 </details>
 
 <details><summary><b>building</b></summary>
+<a id="building"></a>
 
 |  |  |
 | --- | --- |
@@ -828,6 +846,7 @@ OpenSidewalks Schema fields are typed key-value pairs. Keys are always strings a
 </details>
 
 <details><summary><b>opening_hours</b></summary>
+<a id="opening-hours"></a>
 
 |  |  |
 | --- | --- |
@@ -837,6 +856,7 @@ OpenSidewalks Schema fields are typed key-value pairs. Keys are always strings a
 </details>
 
 <details><summary><b>foot</b></summary>
+<a id="foot"></a>
 
 |  |  |
 | --- | --- |
@@ -846,18 +866,38 @@ OpenSidewalks Schema fields are typed key-value pairs. Keys are always strings a
 
 </details>
 
-<a id="resources"></a>
-
 # Resources
+<a id="resources"></a>
 
 Mapping guides and resources for use in JOSM including a map style and presets are made available in the resources directory.
 
-<a id="schema-versions"></a>
-
 # Schema Versions
+<a id="schema-versions"></a>
 
 | Version | Release Date | Link | Notes |
 | --- | --- | --- | --- |
 | 0.1 | 2023-08-11 | [GitHub](https://github.com/OpenSidewalks/OpenSidewalks-Schema/tree/32dad18bb303289f660fd8d26f02f5e301d0a9d1) | - Minimal initial beta release of schema to unblock development of schema consuming applications |
-| 0.2 | 2024-01-30 | [GitHub](https://github.com/OpenSidewalks/OpenSidewalks-Schema) | - Add required `_id` field to Edges<br>- Update the documentation with regards to the [coordinate reference system](#coordinate-reference-system)<br>- Introduce the concept of [core entities](#1-core-entities) and [adjacent entities](#2-adjacent-entities) (formerly called "extensions")<br>- Add [zones](#zones) to [core entities](#1-core-entities)<br>- Add [lines](#lines) and [polygons](#-polygons) to [adjacent entities](#2-adjacent-entities)<br>- Add [schema versions](#schema-versions) and [OpenSidewalks dataset metadata](#opensidewalks-dataset-metadata)<br>- Add [Pedestrian Zone](#-pedestrian-zone) to [zones](#zones)<br>- Add [fence](#-fence) to [lines](#lines)<br>- Add [building](#-building) to [polygons](#-polygons)<br>- Add _additional fields_ to [entity attributes](#entity-attributes)<br>- Add [motor vehicle roads](#-motor-vehicle-roads) to [edges](#-edges) with justification<br>- Add [climb](#--climb) field to [steps](#-steps) Edge in addition to the existing [incline](#--incline) field<br>- Add [opening_hours](#--opening_hours) field and include it in [building](#-building) entity fields<br>- Add [generic curb](#-generic-curb) entity to [nodes](#-nodes)<br>- Add [foot](#--foot) field to all [edges](#-edges) and [zones](#-zones)<br>- Change [entity type inference](#entity-type-inference) to include the _geometry type_<br>- Fix lossiness of [tactile_paving](#--tactile_paving) field<br>- Remove _crossing_ field in favor of [crossing:markings](#--crossingmarkings) field<br>- Add [living street](#-living-street) to [edges](#-edges)<br>- Add _unclassified road_ to [motor vehicle roads](#-motor-vehicle-roads)<br>- Add _trunk road_ to [motor vehicle roads](#-motor-vehicle-roads)<br>- Require that the `_id` field for all entities has at least one character |
+| 0.2 | 2024-01-30 | [GitHub](https://github.com/OpenSidewalks/OpenSidewalks-Schema) | 
+- Add required `_id` Field to [Edges](#edges)
+- Update the documentation with regards to the [coordinate reference system](#coordinate-reference-system)
+- Introduce the concept of [Core Entities](#core-entities) and [Adjacent Entities](#adjacent-entities) (formerly called "Extensions")
+- Add [Zones](#zones) to [Core Entities](#core-entities)
+- Add [Lines](#lines) and [Polygons](#polygons) to [Adjacent Entities](#adjacent-entities)
+- Add [Schema Versions](#schema-versions) and [OpenSidewalks Dataset Metadata](#opensidewalks-dataset-metadata)
+- Add [Pedestrian Zone](#pedestrian-zone) to [Zones](#zones)
+- Add [Fence](#fence) to [Lines](#lines)
+- Add [Building](#building) to [Polygons](#polygons)
+- Add _additional fields_ to [Entity Attributes](#entity-attributes)
+- Add [Motor Vehicle Roads](#motor-vehicle-roads) to [Edges](#edges) with justification
+- Add [Climb](#climb) Field to [Steps](#steps) Edge in addition to the existing [Incline](#incline) Field
+- Add [Opening Hours](#opening-hours) Field and include it to the existing [Building](#building) Fields
+- Add [Generic Curb](#generic-curb) entity to [Nodes](#nodes)
+- Add [Foot](#foot) Field to all [Edges](#edges) and [Zones](#zones)
+- Change [Entity Type Inference](#entity-type-inference) to include the _geometry type_
+- Fix lossiness of [Tactile Paving](#tactile-paving) Field
+- Remove _crossing_ Field in favor of [crossing:markings](#crossingmarkings) Field
+- Add [Living Street](#living-street) to [Edges](#edges)
+- Add _unclassified road_ to [Motor Vehicle Roads](#motor-vehicle-roads)
+- Add _trunk road_ to [Motor Vhicle Roads](#motor-vehicle-roads)
+- Require that the `_id` Field for all entities has at least one character |
 | 0.3 | 2025-06-16 | [GitHub](https://github.com/OpenSidewalks/OpenSidewalks-Schema) | - |
