@@ -32,9 +32,9 @@
       - [Motor Vehicle Roads](#motor-vehicle-roads)
     - [Zones](#zones-1)
   - [List of Adjacent Entities](#list-of-adjacent-entities)
-    - [Adjacent Points](#adjacent-points)
-    - [Adjacent Lines](#adjacent-lines)
-    - [Adjacent Polygons](#adjacent-polygons)
+    - [Points](#points-1)
+    - [Lines](#lines-1)
+    - [Polygons](#polygons-1)
   - [Fields](#fields)
     - [Fields Overview](#fields-overview)
     - [List of fields](#list-of-fields)
@@ -57,7 +57,7 @@ The OpenSidewalks Schema draws from and is intended to be largely compatible wit
 
 <a id="opensidewalks-schema-entities"></a>
 
-The OpenSidewalks Schema defines network and non-network data using a set of vector geometrical entity types, each of which has an associated geometry type compatible with either the Point, LineString or Polygon specification of [Simple Feature Access](https://www.ogc.org/standards/sfa), fields that uniquely define the entity type (in combination), optional topological information, and optional key-value pair metadata fields defined on a per-type basis.
+The OpenSidewalks Schema defines network and non-network data using a set of vector geometrical entity types, each of which has an associated geometry type compatible with either the Point, LineString, or Polygon specification of [Simple Feature Access](https://www.ogc.org/standards/sfa), fields that uniquely define the entity type (in combination), optional topological information, and optional key-value pair [metadata fields](#metadata-fields) defined on a per-type basis.
 
 ## Entity Categories
 
@@ -204,7 +204,7 @@ Curb Nodes should be mapped directly at the endpoint(s) of one or more Edge(s): 
 
 <a id="serialization-formats"></a>
 
-OpenSidewalks data entities are vector geometries with optional topological data along with metadata that defines the entity type and optional metadata fields that are mappable to non-nested key-value pairs. As such, OpenSidewalks Schema data can be (de)serialized into a number of tabular and non-tabular GIS and graph formats. There exists both a [reference JSON Schema for a GeoJSON serialization](./opensidewalks.schema.json) codebase for the OpenSidewalks Schema as well as a PostgreSQL schema.
+OpenSidewalks data entities are vector geometries with optional topological data along with metadata that defines the entity type and optional [metadata fields](#metadata-fields) that are mappable to non-nested key-value pairs. As such, OpenSidewalks Schema data can be (de)serialized into a number of tabular and non-tabular GIS and graph formats. There exists both a [reference JSON Schema for a GeoJSON serialization](./opensidewalks.schema.json) codebase for the OpenSidewalks Schema as well as a PostgreSQL schema.
 
 ## Coordinate Reference System
 
