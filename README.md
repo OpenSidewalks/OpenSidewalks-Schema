@@ -27,10 +27,10 @@
   - [Coordinate Reference System](#coordinate-reference-system)
   - [OpenSidewalks Dataset Metadata](#opensidewalks-dataset-metadata)
   - [List of Core Entities](#list-of-core-entities)
-    - [Core Nodes](#core-nodes)
-    - [Core Edges](#core-edges)
+    - [Nodes](#nodes-1)
+    - [Edges](#edges-1)
       - [Motor Vehicle Roads](#motor-vehicle-roads)
-    - [Core Zones](#core-zones)
+    - [Zones](#zones-1)
   - [List of Adjacent Entities](#list-of-adjacent-entities)
     - [Adjacent Points](#adjacent-points)
     - [Adjacent Lines](#adjacent-lines)
@@ -263,7 +263,7 @@ The following is a sample snippet demonstrating the use of these metadata fields
 
 <a id="list-of-core-entities"></a>
 
-### Core Nodes
+### Nodes
 
 <a id="core-nodes"></a>
 
@@ -353,7 +353,7 @@ Nodes are features that are geometrically defined by a single latitude-longitude
 
 </details>
 
-### Core Edges
+### Edges
 
 <a id="core-edges"></a>
 
@@ -610,7 +610,7 @@ In order to simplify the job of OpenSidewalks consuming applications when attemp
 
 </details>
 
-### Core Zones
+### Zones
 
 <a id="core-zones"></a>
 
@@ -634,7 +634,7 @@ Zones are features that are geometrically defined by a Polygon (a closed ring of
 
 <a id="list-of-adjacent-entities"></a>
 
-### Adjacent Points
+### Points
 
 <a id="adjacent-points"></a>
 
@@ -738,7 +738,7 @@ Points are features that are geometrically defined by a single latitude-longitud
 
 </details>
 
-### Adjacent Lines
+### Lines
 
 <a id="adjacent-lines"></a>
 
@@ -758,7 +758,7 @@ Lines are features that are geometrically defined by a series of coordinates for
 
 </details>
 
-### Adjacent Polygons
+### Polygons
 
 <a id="adjacent-polygons"></a>
 
