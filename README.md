@@ -65,7 +65,7 @@ The OpenSidewalks Schema defines network and non-network data using a set of vec
 
 There are currently two major categories of OpenSidewalks Schema entities: Core Entities and Adjacent Entities.
 
-### Core Entities
+### 1. Core Entities
 
 <a id="core-entities"></a>
 
@@ -87,7 +87,7 @@ Nodes, Edges, and Zones are geometrical features (OGC Points, LineStrings and Po
 
 <a id="nodes"></a>
 
-Nodes are Point features that also contain metadata to identify them as network (graph) vertices. They must have a unique (within the dataset) `_id` field. Therefore, the set of network vertices in the dataset could be summarized as a set of these `_id` field values, consistent with the definition of vertices within a graph in graph theory. As a result of storing these vertex identifiers, Nodes may be placed within a traversable graph using only metadata, not spatial inference.
+Nodes are Point features (as defined in [Simple Feature Access](https://www.ogc.org/standards/sfa)) that also contain metadata to identify them as network (graph) vertices. They must have a unique (within the dataset) `_id` field. Therefore, the set of network vertices in the dataset could be summarized as a set of these `_id` field values, consistent with the definition of vertices within a graph in graph theory. As a result of storing these vertex identifiers, Nodes may be placed within a traversable graph using only metadata, not spatial inference.
 
 #### Edges
 
@@ -105,7 +105,7 @@ Zones are Polygon features that also contain metadata to identify them as networ
 
 Note that this would yield $k(k-1)/2$ Edges for a Zone comprised of $k$ Nodes.
 
-### Adjacent Entities
+### 2. Adjacent Entities
 
 <a id="adjacent-entities"></a>
 
