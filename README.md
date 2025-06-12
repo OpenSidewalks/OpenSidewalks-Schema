@@ -125,19 +125,25 @@ Examples of each adjacent entity model:
 - Line: a wall or a fence.
 - Polygon: a planter.
 
-OpenSidewalks schema includes some Adjacent Entities (i.e. internal adjacent entities) which we found valuable to the pedestrian experience and are readily available through community contributions on OpenStreetMap. Other Adjacent Entities (i.e. external adjacent entities) can similarly be included in an OpenSidewalks dataset and subsequently spatially merged with the Core Entities (i.e. the pedestrian network entities).
+OpenSidewalks schema includes some Adjacent Entities which we found valuable to the pedestrian experience and are readily available through community contributions on OpenStreetMap. Other Custom Entities can also be included in an OpenSidewalks dataset and subsequently spatially merged with the Core Entities defined in the schema.
 
 #### Points
 
 <a id="points"></a>
 
+Points are features that are geometrically defined by a single latitude-longitude pair: a point on the planet. They are explicitly not elements of the pedestrian network definition (i.e. the graph structure described by Nodes and Edges), but they are still highly relevant to the physical pedestrian network. Points may be considered part of the real physical pedestrian network, but aren't appropriate as elements of the network described by the OpenSidewalks Schema. All Points must have a unique `_id` field.
+
 #### Lines
 
 <a id="lines"></a>
 
+Lines are features that are geometrically defined by a series of coordinates forming a LineString. They are explicitly not elements of the pedestrian network definition (i.e. the graph structure described by Nodes, Edges and Zones), but they are still highly relevant to the physical pedestrian network. All Lines must have a unique `_id` field.
+
 #### Polygons
 
 <a id="polygons"></a>
+
+Polygons describe 2-dimensional areas which are adjacent to pedestrian paths. They are explicitly not elements of the pedestrian network definition (i.e. the graph structure described by Nodes, Edges and Zones), but they are still highly relevant to the physical pedestrian network. All Polygons must have a unique `_id` field.
 
 ## Entity Attributes
 
