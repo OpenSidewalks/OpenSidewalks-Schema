@@ -131,19 +131,19 @@ OpenSidewalks schema includes some Adjacent Entities which we found valuable to 
 
 <a id="points"></a>
 
-Points are features that are geometrically defined by a single latitude-longitude pair: a point on the planet. They are explicitly not elements of the pedestrian network definition (i.e. the graph structure described by Nodes and Edges), but they are still highly relevant to the physical pedestrian network. Points may be considered part of the real physical pedestrian network, but aren't appropriate as elements of the network described by the OpenSidewalks Schema. All Points must have a unique `_id` field.
+Points are features that are geometrically defined by a single latitude-longitude pair: a point on the planet. They are explicitly **not** elements of the pedestrian network definition (i.e. the graph structure described by Nodes and Edges), but they are still highly relevant to the physical pedestrian network. Points may be considered part of the real physical pedestrian network, but aren't appropriate as elements of the network described by the OpenSidewalks Schema. All Points must have a unique `_id` field.
 
 #### Lines
 
 <a id="lines"></a>
 
-Lines are features that are geometrically defined by a series of coordinates forming a LineString. They are explicitly not elements of the pedestrian network definition (i.e. the graph structure described by Nodes, Edges and Zones), but they are still highly relevant to the physical pedestrian network. All Lines must have a unique `_id` field.
+Lines are features that are geometrically defined by a series of coordinates forming a LineString. They are explicitly **not** elements of the pedestrian network definition (i.e. the graph structure described by Nodes, Edges and Zones), but they are still highly relevant to the physical pedestrian network. All Lines must have a unique `_id` field.
 
 #### Polygons
 
 <a id="polygons"></a>
 
-Polygons describe 2-dimensional areas which are adjacent to pedestrian paths. They are explicitly not elements of the pedestrian network definition (i.e. the graph structure described by Nodes, Edges and Zones), but they are still highly relevant to the physical pedestrian network. All Polygons must have a unique `_id` field.
+Polygons describe 2-dimensional areas which are adjacent to pedestrian paths. They are explicitly **not** elements of the pedestrian network definition (i.e. the graph structure described by Nodes, Edges and Zones), but they are still highly relevant to the physical pedestrian network. All Polygons must have a unique `_id` field.
 
 ## Entity Attributes
 
@@ -218,7 +218,7 @@ OpenSidewalks data entities are vector geometries with optional topological data
 
 OpenSidewalks uses the World Geodetic System 1984 (WGS-84) coordinate system. WGS-84 is a geographic coordinate reference system (CRS) with longitude and latitude units of decimal degrees.
 
-In compliance with the RFC 7946 GeoJSON, a CRS member will not be included in the OpenSidewalks datasets.
+In compliance with the RFC 7946 GeoJSON, OpenSidewalks GeoJSON files will not include a `"crs":` element.
 
 ## OpenSidewalks Dataset Metadata
 
@@ -644,7 +644,7 @@ Zones are features that are geometrically defined by a Polygon (a closed ring of
 
 <a id="adjacent-points"></a>
 
-Points are features that are geometrically defined by a single latitude-longitude pair: a point on the planet. They are explicitly not elements of the pedestrian network definition (i.e. the graph structure described by Nodes and Edges), but they are still highly relevant to the physical pedestrian network. Points may be considered part of the real physical pedestrian network, but aren't appropriate as elements of the network described by the OpenSidewalks Schema. All Points must have a unique `_id` field.
+Points are features that are geometrically defined by a single latitude-longitude pair: a point on the planet. They are explicitly **not** elements of the pedestrian network definition (i.e. the graph structure described by Nodes and Edges), but they are still highly relevant to the physical pedestrian network. All Points must have a unique `_id` field.
 
 <a id="power-pole"></a>
 
@@ -748,7 +748,7 @@ Points are features that are geometrically defined by a single latitude-longitud
 
 <a id="adjacent-lines"></a>
 
-Lines are features that are geometrically defined by a series of coordinates forming a LineString. They are explicitly not elements of the pedestrian network definition (i.e. the graph structure described by Nodes, Edges and Zones), but they are still highly relevant to the physical pedestrian network. All Lines must have a unique `_id` field.
+Lines are features that are geometrically defined by a series of coordinates forming a LineString. They are explicitly **not** elements of the pedestrian network definition (i.e. the graph structure described by Nodes, Edges and Zones), but they are still highly relevant to the physical pedestrian network. All Lines must have a unique `_id` field.
 
 <a id="fence"></a>
 
@@ -768,7 +768,7 @@ Lines are features that are geometrically defined by a series of coordinates for
 
 <a id="adjacent-polygons"></a>
 
-Polygons describe 2-dimensional areas which are adjacent to pedestrian paths. They are explicitly not elements of the pedestrian network definition (i.e. the graph structure described by Nodes, Edges and Zones), but they are still highly relevant to the physical pedestrian network. All Polygons must have a unique `_id` field.
+Polygons describe 2-dimensional areas which are adjacent to pedestrian paths. They are explicitly **not** elements of the pedestrian network definition (i.e. the graph structure described by Nodes, Edges and Zones), but they are still highly relevant to the physical pedestrian network. All Polygons must have a unique `_id` field.
 
 <a id="building"></a>
 
