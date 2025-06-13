@@ -298,7 +298,7 @@ Nodes are features that are geometrically defined by a single latitude-longitude
 | **Subtype of** | _None_ |
 | **Geometry** | Point |
 | **Identifying Fields** | `barrier=kerb` |
-| **Optional Fields** | `tactile_paving` |
+| **Optional Fields** | [`tactile_paving`](#tactile_paving) |
 
 </details>
 
@@ -309,7 +309,7 @@ Nodes are features that are geometrically defined by a single latitude-longitude
 |  |  |
 | --- | --- |
 | **Description** | A single, designed vertical displacement that separates two Edges. A common example is the curb that separates a street crossing from a sidewalk. This is mapped at the Node where the two Edges meet - on top of the curb is physically located. |
-| **Subtype of** | Generic Curb |
+| **Subtype of** | [Generic Curb](#generic-curb) |
 | **Geometry** | Point |
 | **Identifying Fields** | `barrier=kerb`, `kerb=raised` |
 | **Optional Fields** | All [optional fields of generic curb](#generic-curb) |
@@ -323,7 +323,7 @@ Nodes are features that are geometrically defined by a single latitude-longitude
 |  |  |
 | --- | --- |
 | **Description** | A curb interface with a quarter-circle profile: traversing this curb is like going over half of a bump. Located where two Edges meet, physically at the location of the curb itself. |
-| **Subtype of** |  |
+| **Subtype of** | [Generic Curb](#generic-curb) |
 | **Geometry** | Point |
 | **Identifying Fields** | `barrier=kerb`, `kerb=rolled` |
 | **Optional Fields** | All [optional fields of generic curb](#generic-curb) |
@@ -337,7 +337,7 @@ Nodes are features that are geometrically defined by a single latitude-longitude
 |  |  |
 | --- | --- |
 | **Description** | A curb ramp (curb cut) mapped as a curb interface. Mapped at the location where the two Edges that it connects meet one another. |
-| **Subtype of** | Generic Curb |
+| **Subtype of** | [Generic Curb](#generic-curb) |
 | **Geometry** | Point |
 | **Identifying Fields** | `barrier=kerb`, `kerb=lowered` |
 | **Optional Fields** | All [optional fields of generic curb](#generic-curb) |
@@ -351,7 +351,7 @@ Nodes are features that are geometrically defined by a single latitude-longitude
 |  |  |
 | --- | --- |
 | **Description** | An indicator that there is no raised curb interface where two Edges meet - i.e. where someone might expect a curb interface, such as where a crossing and footway meet. |
-| **Subtype of** | Generic Curb |
+| **Subtype of** | [Generic Curb](#generic-curb) |
 | **Geometry** | Point |
 | **Identifying Fields** | `barrier=kerb`, `kerb=flush` |
 | **Optional Fields** | All [optional fields of generic curb](#generic-curb) |
@@ -373,7 +373,7 @@ Edges are Lines (their serializable geometries are representable by LineStrings)
 | **Description** | The centerline of a dedicated pedestrian path that does not fall into any other subcategories. |
 | **Subtype of** | _None_ |
 | **Geometry** | LineString |
-| **Identifying Fields** | `highway=footway`<br>_(and no `footway=_` subtag)\_ |
+| **Identifying Fields** | `highway=footway`<br>_(and no `footway=*` subtag)_ |
 | **Optional Fields** | [width](#width)<br>[surface](#surface)<br>[incline](#incline)<br>[length](#length)<br>[description](#description)<br>[name](#name)<br>[foot](#foot) |
 
 </details>
