@@ -298,7 +298,7 @@ Nodes are features that are geometrically defined by a single latitude-longitude
 | **Subtype of** | _None_ |
 | **Geometry** | Point |
 | **Identifying Fields** | `barrier=kerb` |
-| **Optional Fields** | [`tactile_paving`](#tactile_paving) |
+| **Optional Fields** | [`tactile_paving`](#tactile-paving) |
 
 </details>
 
