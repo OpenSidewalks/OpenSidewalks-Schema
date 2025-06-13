@@ -779,8 +779,8 @@ Polygons describe 2-dimensional areas which are adjacent to pedestrian paths. Th
 | **Description** | A building is a man-made structure with a roof, standing more or less permanently in one place. |
 | **Subtype of** | _None_ |
 | **Geometry** | Polygon |
-| **Identifying Fields** | [building](#building)=\* |
-| **Optional Fields** | [name](#name)<br>[opening_hours](#openinghours) |
+| **Identifying Fields** | [building](#building-1)=\* |
+| **Optional Fields** | [name](#name)<br>[opening_hours](#opening-hours) |
 
 </details>
 
@@ -919,7 +919,7 @@ OpenSidewalks Schema fields are typed key-value pairs. Keys are always strings a
 
 </details>
 
-<a id="building"></a>
+<a id="building-1"></a>
 
 <details><summary><b>building</b></summary>
 
@@ -937,7 +937,7 @@ OpenSidewalks Schema fields are typed key-value pairs. Keys are always strings a
 
 |  |  |
 | --- | --- |
-| **Description** | The opening hours of the entity. This may apply to, for example, a path that is inside a building or the building itself. The value is in OpenStreetMap syntax for the opening_hours tag. See [OpenStreetMap specification](https://wiki.openstreetmap.org/wiki/Key:opening_hours/specification) on the formatting for this field. |
+| **Description** | The opening hours of the entity. This may apply to, for example, a path that is inside a building or the building itself. The value is in OpenStreetMap syntax for the `opening_hours` tag. See [OpenStreetMap specification](https://wiki.openstreetmap.org/wiki/Key:opening_hours/specification) on the formatting for this field. |
 | **Value type** | opening_hours |
 
 </details>
