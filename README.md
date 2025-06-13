@@ -7,11 +7,11 @@
 - [Introduction](#introduction)
 - [OpenSidewalks Schema Entities](#opensidewalks-schema-entities)
   - [Entity Categories](#entity-categories)
-    - [Core Entities](#core-entities)
+    - [1. Core Entities](#1-core-entities)
       - [Nodes](#nodes)
       - [Edges](#edges)
       - [Zones](#zones)
-    - [Adjacent Entities](#adjacent-entities)
+    - [2. Adjacent Entities](#2-adjacent-entities)
       - [Points](#points)
       - [Lines](#lines)
       - [Polygons](#polygons)
@@ -27,14 +27,13 @@
   - [Coordinate Reference System](#coordinate-reference-system)
   - [OpenSidewalks Dataset Metadata](#opensidewalks-dataset-metadata)
   - [List of Core Entities](#list-of-core-entities)
-    - [Core Nodes](#core-nodes)
-    - [Core Edges](#core-edges)
-      - [Motor Vehicle Roads](#motor-vehicle-roads)
-    - [Core Zones](#core-zones)
+    - [Nodes](#nodes-1)
+    - [Edges](#edges-1)
+    - [Zones](#zones-1)
   - [List of Adjacent Entities](#list-of-adjacent-entities)
-    - [Adjacent Points](#adjacent-points)
-    - [Adjacent Lines](#adjacent-lines)
-    - [Adjacent Polygons](#adjacent-polygons)
+    - [Points](#points-1)
+    - [Lines](#lines-1)
+    - [Polygons](#polygons-1)
   - [Fields](#fields)
     - [Fields Overview](#fields-overview)
     - [List of fields](#list-of-fields)
@@ -57,7 +56,7 @@ The OpenSidewalks Schema draws from and is intended to be largely compatible wit
 
 <a id="opensidewalks-schema-entities"></a>
 
-The OpenSidewalks Schema defines network and non-network data using a set of vector geometrical entity types, each of which has an associated geometry type compatible with either the Point, LineString or Polygon specification of [Simple Feature Access](https://www.ogc.org/standards/sfa), fields that uniquely define the entity type (in combination), optional topological information, and optional key-value pair metadata fields defined on a per-type basis.
+The OpenSidewalks Schema defines network and non-network data using a set of vector geometrical entity types, each of which has an associated geometry type compatible with either the Point, LineString, or Polygon specification of [Simple Feature Access](https://www.ogc.org/standards/sfa), fields that uniquely define the entity type (in combination), optional topological information, and optional key-value pair [metadata fields](#metadata-fields) defined on a per-type basis.
 
 ## Entity Categories
 
@@ -65,7 +64,7 @@ The OpenSidewalks Schema defines network and non-network data using a set of vec
 
 There are currently two major categories of OpenSidewalks Schema entities: Core Entities and Adjacent Entities.
 
-### Core Entities
+### 1. Core Entities
 
 <a id="core-entities"></a>
 
@@ -87,7 +86,7 @@ Nodes, Edges, and Zones are geometrical features (OGC Points, LineStrings and Po
 
 <a id="nodes"></a>
 
-Nodes are Point features that also contain metadata to identify them as network (graph) vertices. They must have a unique (within the dataset) `_id` field. Therefore, the set of network vertices in the dataset could be summarized as a set of these `_id` field values, consistent with the definition of vertices within a graph in graph theory. As a result of storing these vertex identifiers, Nodes may be placed within a traversable graph using only metadata, not spatial inference.
+Nodes are Point features (as defined in [Simple Feature Access](https://www.ogc.org/standards/sfa)) that also contain metadata to identify them as network (graph) vertices. They must have a unique (within the dataset) `_id` field. Therefore, the set of network vertices in the dataset could be summarized as a set of these `_id` field values, consistent with the definition of vertices within a graph in graph theory. As a result of storing these vertex identifiers, Nodes may be placed within a traversable graph using only metadata, not spatial inference.
 
 #### Edges
 
@@ -105,7 +104,7 @@ Zones are Polygon features that also contain metadata to identify them as networ
 
 Note that this would yield $k(k-1)/2$ Edges for a Zone comprised of $k$ Nodes.
 
-### Adjacent Entities
+### 2. Adjacent Entities
 
 <a id="adjacent-entities"></a>
 
@@ -125,19 +124,25 @@ Examples of each adjacent entity model:
 - Line: a wall or a fence.
 - Polygon: a planter.
 
-OpenSidewalks schema includes some Adjacent Entities (i.e. internal adjacent entities) which we found valuable to the pedestrian experience and are readily available through community contributions on OpenStreetMap. Other Adjacent Entities (i.e. external adjacent entities) can similarly be included in an OpenSidewalks dataset and subsequently spatially merged with the Core Entities (i.e. the pedestrian network entities).
+OpenSidewalks schema includes some Adjacent Entities which we found valuable to the pedestrian experience and are readily available through community contributions on OpenStreetMap. Other Custom Entities can also be included in an OpenSidewalks dataset and subsequently spatially merged with the Core Entities defined in the schema.
 
 #### Points
 
 <a id="points"></a>
 
+Points are features that are geometrically defined by a single latitude-longitude pair: a point on the planet. They are explicitly **not** elements of the pedestrian network definition (i.e. the graph structure described by Nodes and Edges), but they are still highly relevant to the physical pedestrian network. Points may be considered part of the real physical pedestrian network, but aren't appropriate as elements of the network described by the OpenSidewalks Schema. All Points must have a unique `_id` field.
+
 #### Lines
 
 <a id="lines"></a>
 
+Lines are features that are geometrically defined by a series of coordinates forming a LineString. They are explicitly **not** elements of the pedestrian network definition (i.e. the graph structure described by Nodes, Edges and Zones), but they are still highly relevant to the physical pedestrian network. All Lines must have a unique `_id` field.
+
 #### Polygons
 
 <a id="polygons"></a>
+
+Polygons describe 2-dimensional areas which are adjacent to pedestrian paths. They are explicitly **not** elements of the pedestrian network definition (i.e. the graph structure described by Nodes, Edges and Zones), but they are still highly relevant to the physical pedestrian network. All Polygons must have a unique `_id` field.
 
 ## Entity Attributes
 
@@ -204,7 +209,7 @@ Curb Nodes should be mapped directly at the endpoint(s) of one or more Edge(s): 
 
 <a id="serialization-formats"></a>
 
-OpenSidewalks data entities are vector geometries with optional topological data along with metadata that defines the entity type and optional metadata fields that are mappable to non-nested key-value pairs. As such, OpenSidewalks Schema data can be (de)serialized into a number of tabular and non-tabular GIS and graph formats. There exists both a [reference JSON Schema for a GeoJSON serialization](./opensidewalks.schema.json) codebase for the OpenSidewalks Schema as well as a PostgreSQL schema.
+OpenSidewalks data entities are vector geometries with optional topological data along with metadata that defines the entity type and optional [metadata fields](#metadata-fields) that are mappable to non-nested key-value pairs. As such, OpenSidewalks Schema data can be (de)serialized into a number of tabular and non-tabular GIS and graph formats. There exists both a [reference JSON Schema for a GeoJSON serialization](./opensidewalks.schema.json) codebase for the OpenSidewalks Schema as well as a PostgreSQL schema.
 
 ## Coordinate Reference System
 
@@ -212,7 +217,7 @@ OpenSidewalks data entities are vector geometries with optional topological data
 
 OpenSidewalks uses the World Geodetic System 1984 (WGS-84) coordinate system. WGS-84 is a geographic coordinate reference system (CRS) with longitude and latitude units of decimal degrees.
 
-In compliance with the RFC 7946 GeoJSON, a CRS member will not be included in the OpenSidewalks datasets.
+In compliance with the RFC 7946 GeoJSON, OpenSidewalks GeoJSON files will not include a `"crs":` element.
 
 ## OpenSidewalks Dataset Metadata
 
@@ -263,7 +268,7 @@ The following is a sample snippet demonstrating the use of these metadata fields
 
 <a id="list-of-core-entities"></a>
 
-### Core Nodes
+### Nodes
 
 <a id="core-nodes"></a>
 
@@ -275,7 +280,7 @@ Nodes are features that are geometrically defined by a single latitude-longitude
 
 |  |  |
 | --- | --- |
-| **Description** | A special case of an abstract Node: this is a network (graph) Node description that does not have any special metadata beyond location and the `_id` field. A Bare Node exists when two Edges meet at a location that is not one of the other Node types. For example, a single sidewalk may be represented by two [Sidewalk](#sidewalk) Edges with different `width` values, split where the width changes. There is no physical feature within the OpenSidewalks Schema at that split Point: it is just a Bare Node that connects the two Edges together.<br><br>Another way to interpret a Bare Node is in terms of the Edge definition rules: the Nodes referenced by `_u_id` and `_v_id` must exist within the dataset, so we must define Nodes wherever Edges meet regardless of whether that point in space has additional metadata. |
+| **Description** | A special case of an abstract Node: this is a network (graph) Node description that does not have any special metadata beyond location and the `_id` field. A Bare Node exists when two Edges meet at a location that is not one of the other Node types. For example, a single sidewalk may be represented by two [Sidewalk](#sidewalk) Edges with different `width` values, split where the width changes. There is no physical feature within the OpenSidewalks Schema at the location of that split: it is just a Bare Node that connects the two Edges together.<br><br>Another way to interpret a Bare Node is in terms of the Edge definition rules: the Nodes referenced by `_u_id` and `_v_id` must exist within the dataset, so we must define Nodes wherever Edges meet regardless of whether that point in space has additional metadata. |
 | **Subtype of** | _None_ |
 | **Geometry** | Point |
 | **Identifying Fields** | (must have the `_id` field, like all Nodes) |
@@ -293,7 +298,7 @@ Nodes are features that are geometrically defined by a single latitude-longitude
 | **Subtype of** | _None_ |
 | **Geometry** | Point |
 | **Identifying Fields** | `barrier=kerb` |
-| **Optional Fields** | `tactile_paving` |
+| **Optional Fields** | [`tactile_paving`](#tactile-paving) |
 
 </details>
 
@@ -304,7 +309,7 @@ Nodes are features that are geometrically defined by a single latitude-longitude
 |  |  |
 | --- | --- |
 | **Description** | A single, designed vertical displacement that separates two Edges. A common example is the curb that separates a street crossing from a sidewalk. This is mapped at the Node where the two Edges meet - on top of the curb is physically located. |
-| **Subtype of** | Generic Curb |
+| **Subtype of** | [Generic Curb](#generic-curb) |
 | **Geometry** | Point |
 | **Identifying Fields** | `barrier=kerb`, `kerb=raised` |
 | **Optional Fields** | All [optional fields of generic curb](#generic-curb) |
@@ -318,7 +323,7 @@ Nodes are features that are geometrically defined by a single latitude-longitude
 |  |  |
 | --- | --- |
 | **Description** | A curb interface with a quarter-circle profile: traversing this curb is like going over half of a bump. Located where two Edges meet, physically at the location of the curb itself. |
-| **Subtype of** |  |
+| **Subtype of** | [Generic Curb](#generic-curb) |
 | **Geometry** | Point |
 | **Identifying Fields** | `barrier=kerb`, `kerb=rolled` |
 | **Optional Fields** | All [optional fields of generic curb](#generic-curb) |
@@ -332,7 +337,7 @@ Nodes are features that are geometrically defined by a single latitude-longitude
 |  |  |
 | --- | --- |
 | **Description** | A curb ramp (curb cut) mapped as a curb interface. Mapped at the location where the two Edges that it connects meet one another. |
-| **Subtype of** | Generic Curb |
+| **Subtype of** | [Generic Curb](#generic-curb) |
 | **Geometry** | Point |
 | **Identifying Fields** | `barrier=kerb`, `kerb=lowered` |
 | **Optional Fields** | All [optional fields of generic curb](#generic-curb) |
@@ -346,14 +351,14 @@ Nodes are features that are geometrically defined by a single latitude-longitude
 |  |  |
 | --- | --- |
 | **Description** | An indicator that there is no raised curb interface where two Edges meet - i.e. where someone might expect a curb interface, such as where a crossing and footway meet. |
-| **Subtype of** | Generic Curb |
+| **Subtype of** | [Generic Curb](#generic-curb) |
 | **Geometry** | Point |
 | **Identifying Fields** | `barrier=kerb`, `kerb=flush` |
 | **Optional Fields** | All [optional fields of generic curb](#generic-curb) |
 
 </details>
 
-### Core Edges
+### Edges
 
 <a id="core-edges"></a>
 
@@ -368,7 +373,7 @@ Edges are Lines (their serializable geometries are representable by LineStrings)
 | **Description** | The centerline of a dedicated pedestrian path that does not fall into any other subcategories. |
 | **Subtype of** | _None_ |
 | **Geometry** | LineString |
-| **Identifying Fields** | `highway=footway`<br>_(and no `footway=_` subtag)\_ |
+| **Identifying Fields** | `highway=footway`<br>_(and no `footway=*` subtag)_ |
 | **Optional Fields** | [width](#width)<br>[surface](#surface)<br>[incline](#incline)<br>[length](#length)<br>[description](#description)<br>[name](#name)<br>[foot](#foot) |
 
 </details>
@@ -384,7 +389,6 @@ Edges are Lines (their serializable geometries are representable by LineStrings)
 | **Geometry** | LineString |
 | **Identifying Fields** | `highway=footway`, `footway=sidewalk` |
 | **Optional Fields** | All [optional fields of footway](#footway)<br>[description](#description) |
-| Sidewalk-specific usage note: OpenSidewalks data may infer a 'description' property that states where the sidewalk is in relation to its associated street. Example: "NW side of 5th Ave". |
 
 </details>
 
@@ -398,7 +402,7 @@ Edges are Lines (their serializable geometries are representable by LineStrings)
 | **Subtype of** | [Footway](#footway) |
 | **Geometry** | LineString |
 | **Identifying Fields** | `highway=footway`, `footway=crossing` |
-| **Optional Fields** | All [optional fields of footway](#footway)<br>[crossing:markings](#crossingmarkings) |
+| **Optional Fields** | All [optional fields of footway](#footway)<br>[crossing:markings](#crossing-markings) |
 
 </details>
 
@@ -458,9 +462,9 @@ Edges are Lines (their serializable geometries are representable by LineStrings)
 
 </details>
 
-#### Motor Vehicle Roads
-
 <a id="motor-vehicle-roads"></a>
+
+<details><summary><b>Motor Vehicle Roads</b></summary>
 
 While OpenSidewalks schema is centered around the pedestrian experience and accessibility within the pedestrian network, the inclusion of roads as core entities in the schema is justified because:
 
@@ -610,7 +614,9 @@ In order to simplify the job of OpenSidewalks consuming applications when attemp
 
 </details>
 
-### Core Zones
+</details>
+
+### Zones
 
 <a id="core-zones"></a>
 
@@ -634,11 +640,11 @@ Zones are features that are geometrically defined by a Polygon (a closed ring of
 
 <a id="list-of-adjacent-entities"></a>
 
-### Adjacent Points
+### Points
 
 <a id="adjacent-points"></a>
 
-Points are features that are geometrically defined by a single latitude-longitude pair: a point on the planet. They are explicitly not elements of the pedestrian network definition (i.e. the graph structure described by Nodes and Edges), but they are still highly relevant to the physical pedestrian network. Points may be considered part of the real physical pedestrian network, but aren't appropriate as elements of the network described by the OpenSidewalks Schema. All Points must have a unique `_id` field.
+Points are features that are geometrically defined by a single latitude-longitude pair: a point on the planet. They are explicitly **not** elements of the pedestrian network definition (i.e. the graph structure described by Nodes and Edges), but they are still highly relevant to the physical pedestrian network. All Points must have a unique `_id` field.
 
 <a id="power-pole"></a>
 
@@ -738,11 +744,11 @@ Points are features that are geometrically defined by a single latitude-longitud
 
 </details>
 
-### Adjacent Lines
+### Lines
 
 <a id="adjacent-lines"></a>
 
-Lines are features that are geometrically defined by a series of coordinates forming a LineString. They are explicitly not elements of the pedestrian network definition (i.e. the graph structure described by Nodes, Edges and Zones), but they are still highly relevant to the physical pedestrian network. All Lines must have a unique `_id` field.
+Lines are features that are geometrically defined by a series of coordinates forming a LineString. They are explicitly **not** elements of the pedestrian network definition (i.e. the graph structure described by Nodes, Edges and Zones), but they are still highly relevant to the physical pedestrian network. All Lines must have a unique `_id` field.
 
 <a id="fence"></a>
 
@@ -758,11 +764,11 @@ Lines are features that are geometrically defined by a series of coordinates for
 
 </details>
 
-### Adjacent Polygons
+### Polygons
 
 <a id="adjacent-polygons"></a>
 
-Polygons describe 2-dimensional areas which are adjacent to pedestrian paths. They are explicitly not elements of the pedestrian network definition (i.e. the graph structure described by Nodes, Edges and Zones), but they are still highly relevant to the physical pedestrian network. All Polygons must have a unique `_id` field.
+Polygons describe 2-dimensional areas which are adjacent to pedestrian paths. They are explicitly **not** elements of the pedestrian network definition (i.e. the graph structure described by Nodes, Edges and Zones), but they are still highly relevant to the physical pedestrian network. All Polygons must have a unique `_id` field.
 
 <a id="building"></a>
 
@@ -773,8 +779,8 @@ Polygons describe 2-dimensional areas which are adjacent to pedestrian paths. Th
 | **Description** | A building is a man-made structure with a roof, standing more or less permanently in one place. |
 | **Subtype of** | _None_ |
 | **Geometry** | Polygon |
-| **Identifying Fields** | [building](#building)=\* |
-| **Optional Fields** | [name](#name)<br>[opening_hours](#openinghours) |
+| **Identifying Fields** | [building](#building-1)=\* |
+| **Optional Fields** | [name](#name)<br>[opening_hours](#opening-hours) |
 
 </details>
 
@@ -913,7 +919,7 @@ OpenSidewalks Schema fields are typed key-value pairs. Keys are always strings a
 
 </details>
 
-<a id="building"></a>
+<a id="building-1"></a>
 
 <details><summary><b>building</b></summary>
 
@@ -921,7 +927,7 @@ OpenSidewalks Schema fields are typed key-value pairs. Keys are always strings a
 | --- | --- |
 | **Description** | This field is used to mark a given entity as a building |
 | **Value type** | enum |
-| **Enumerated Values** | <details><summary><b>Accommodation</b></summary><b>- _apartments_: A building arranged into individual dwellings, often on separate floors. May also have retail outlets on the ground floor.<br>- _barracks_: Buildings built to house military personnel or laborers.<br>- _bungalow_: A single-storey detached small house, Dacha.<br>- _cabin_: A cabin is a small, roughly built house usually with a wood exterior and typically found in rural areas.<br>- _detached_: A detached house, a free-standing residential building usually housing a single family.<br>- _dormitory_: A shared building intended for college/university students (not a share room for multiple occupants as implied by the term in British English).<br>- _farm_: A residential building on a farm (farmhouse). For other buildings see below _building=farm_auxiliary_, building=barn, etc.<br>- _ger_: A permanent or seasonal round yurt or ger.<br>- _hotel_: A building designed with separate rooms available for overnight accommodation.<br>- _house_: A dwelling unit inhabited by a single household (a family or small group sharing facilities such as a kitchen). Houses forming half of a semi-detached pair, or one of a row of terraced houses, should share at least two Nodes with joined neighbours, thereby defining the party wall between the properties.<br>- _houseboat_: A boat used primarily as a home<br>- _residential_: A general tag for a building used primarily for residential purposes. Where additional detail is available consider using 'apartments', 'terrace', 'house', 'detached' or 'semidetached_house'.<br>- _semidetached_house_: A residential house that shares a common wall with another on one side. Typically called a "duplex" in American English.<br>- _static_caravan_: A mobile home (semi)permanently left on a single site<br>- _stilt_house_: A building raised on piles over the surface of the soil or a body of water<br>- _terrace_: A single way used to define the outline of a linear row of residential dwellings, each of which normally has its own entrance, which form a terrace ("row-house" or "townhouse" in North American English). Consider defining each dwelling separately using 'house'.<br>- _tree_house_: An accommodation, often designed as a small hut, sometimes also as a room or small apartment. Built on tree posts or on a natural tree. A tree house has no contact with the ground. Access via ladders, stairs or bridgeways.<br>- _trullo_: A stone hut with a conical roof.<br></details><br><details><summary><b>Commercial</b></summary><b>- _commercial_: A building for non-specific commercial activities, not necessarily an office building. Use 'retail' if the building consists primarily of shops.<br>- _industrial_: A building for industrial purposes. Use warehouse if the purpose is known to be primarily for storage/distribution.<br>- _kiosk_: A small one-room retail building.<br>- _office_: An office building.<br>- _retail_: A building primarily used for selling goods that are sold to the public.<br>- _supermarket_: A building constructed to house a self-service large-area store.<br>- _warehouse_: A building primarily intended for the storage or goods or as part of a distribution system.<br></details><br><details><summary><b>Religious</b></summary><b>- _cathedral_: A building that was built as a cathedral.<br>- _chapel_: A building that was built as a chapel.<br>- _church_: A building that was built as a church.<br>- _kingdom_hall_: A building that was built as a Kingdom Hall.<br>- _monastery_: A building constructed as monastery. Often, monasteries consist of several distinct buildings with specific functions.<br>- _mosque_: A building erected as mosque.<br>- _presbytery_: A building where priests live and work.<br>- _religious_: Unspecific building related to religion. Prefer more specific values if possible.<br>- _shrine_: A building that was built as a shrine.<br>- _synagogue_: A building that was built as a synagogue.<br>- _temple_: A building that was built as a temple.<br></details><br><details><summary><b>Civic/amenity</b></summary><b>- _bakehouse_: A building that was built as a bakehouse (i.e. for baking bread).<br>- _bridge_: A building used as a bridge (skyway). To map a gatehouse use building=gatehouse. Don't use this tag just for marking bridges (their outlines).<br>- _civic_: A generic tag for a building created to house some civic amenity, for example community centre, library, toilets, sports centre, swimming pool, townhall etc. See building=public and more specific tags like building=library as well.<br>- _college_: A college building.<br>- _fire_station_: A building constructed as fire station, i.e. to house fire fighting equipment and officers, regardless of current use.<br>- _government_: For government buildings in general, including municipal, provincial and divisional secretaries, government agencies and departments, town halls, (regional) parliaments and court houses.<br>- _gatehouse_: An entry control point building, spanning over a highway that enters a city or compound.<br>- _hospital_: A building erected for a hospital.<br>- _kindergarten_: For any generic kindergarten buildings. Buildings for specific uses (sports halls etc.) should be tagged for their purpose.<br>- _museum_: A building which was designed as a museum.<br>- _public_: A building constructed as accessible to the general public (a town hall, police station, court house, etc.).<br>- _school_: A building erected as school. Buildings for specific uses (sports halls etc.) should be tagged for their purpose.<br>- _toilets_: A toilet block.<br>- _train_station_: A building constructed to be a train station building, including buildings that are abandoned and used nowadays for a different purpose.<br>- _transportation_: A building related to public transport. Note that there is a special tag for train station buildings - _building=train_station_.<br>- _university_: A university building.<br></details><br><details><summary><b>Agricultural/plant production</b></summary><b>- _barn_: An agricultural building that can be used for storage and as a covered workplace.<br>- _conservatory_: A building or room having glass or tarpaulin roofing and walls used as an indoor garden or a sunroom (winter garden).<br>- _cowshed_: A cowshed (cow barn, cow house) is a building for housing cows, usually found on farms.<br>- _farm_auxiliary_: A building on a farm that is not a dwelling (use 'farm' or 'house' for the farm house).<br>- _greenhouse_: A greenhouse is a glass or plastic covered building used to grow plants.<br>- _slurry_tank_: A circular building built to hold a liquid mix of primarily animal excreta (also known as slurry).<br>- _stable_: A building constructed as a stable for horses.<br>- _sty_: A sty (pigsty, pig ark, pig-shed) is a building for raising domestic pigs, usually found on farms.<br>- _livestock_: A building for housing/rising other livestock (apart from cows, horses or pigs covered above), or when the livestock changes.<br></details><br><details><summary><b>Sports</b></summary><b>- _grandstand_: The main stand, usually roofed, commanding the best view for spectators at racecourses or sports grounds.<br>- _pavilion_: A sports pavilion usually with changing rooms, storage areas and possibly an space for functions & events. Avoid using this term for other structures called pavilions by architects.<br>- _riding_hall_: A building that was built as a riding hall.<br>- _sports_hall_: A building that was built as a sports hall.<br>- _sports_centre_: A building that was built as a sports centre.<br>- _stadium_: A building constructed to be a stadium building, including buildings that are abandoned and used nowadays for a different purpose.<br></details><br><details><summary><b>Storage</b></summary><b>- _allotment_house_: A small outbuilding for short visits in a allotment garden.<br>- _boathouse_: A boathouse is a building used for the storage of boats.<br>- _hangar_: A hangar is a building used for the storage of airplanes, helicopters or space-craft.<br>- _hut_: A hut is a small and crude shelter. Note that this word has two meanings - it may be synonym of building=shed, it may be a residential building of low quality.<br>- _shed_: A shed is a simple, single-storey structure in a back garden or on an allotment that is used for storage, hobbies, or as a workshop.<br></details><br><details><summary><b>Cars</b></summary><b>- _carport_: A carport is a covered structure used to offer limited protection to vehicles, primarily cars, from the elements. Unlike most structures a carport does not have four walls, and usually has one or two.<br>- _garage_: A garage is a building suitable for the storage of one or possibly more motor vehicle or similar. See building=garages for larger shared buildings. For an aircraft garage, see building=hangar.<br>- _garages_: A building that consists of a number of discrete storage spaces for different owners/tenants. See also building=garage.<br>- _parking_: Structure purpose-built for parking cars.<br></details><br><details><summary><b>Power/technical buildingsrs</b></summary><b>- _digester_: A digester is a bioreactor for the production of biogas from biomass.<br>- _service_: Service building usually is a small unmanned building with certain machinery (like pumps or transformers).<br>- _tech_cab_: Small prefabricated cabin structures for the air-conditioned accommodation of different technology.<br>- _transformer_tower_: A transformer tower is a characteristic tall building comprising a distribution transformer and constructed to connect directly to a medium voltage overhead power line. Quite often the power line has since been undergrounded but the building may still serve as a substation.<br>- _water_tower_: A water tower.<br>- _storage_tank_: Storage tanks are containers that hold liquids.<br>- _silo_: A silo is a building for storing bulk materials.<br></details><br><details><summary><b>Other buildings</b></summary><b>- _beach_hut_: A small, usually wooden, and often brightly coloured cabin or shelter above the high tide mark on popular bathing beaches.<br>- _bunker_: A hardened military building.<br>- _castle_: A building constructed as a castle.<br>- _construction_: Used for buildings under construction.<br>- _container_: For a container used as a permanent building. Do not map containers placed temporarily, for example used in shipping or construction.<br>- _guardhouse_: A small building constructed to house guard(s).<br>- _military_: A military building.<br>- _outbuilding_: A less important building near to and on the same piece of land as a larger building.<br>- _pagoda_: A building constructed as a pagoda.<br>- _quonset_hut_: A lightweight prefabricated structure in the shape of a semicircle.<br>- _roof_: A structure that consists of a roof with open sides, such as a rain shelter, and also gas stations.<br>- _ruins_: Frequently used for a house or other building that is abandoned and in poor repair. However, some believe this usage is incorrect, and the tag should only be used for buildings constructed as fake ruins (for example sham ruins in an English landscape garden). See also lifecycle tagging.<br>- _tent_: For a permanently placed tent. Do not map tents placed temporarily.<br>- _tower_: A tower-building.<br>- _windmill_: A building constructed as a traditional windmill, historically used to mill grain with wind power.<br>- _yes_: Use this value where it is not possible to determine a more specific value. | <br></details> |
+| **Enumerated Values** | <details><summary><b>Accommodation</b></summary>- _apartments_: A building arranged into individual dwellings, often on separate floors. May also have retail outlets on the ground floor.<br>- _barracks_: Buildings built to house military personnel or laborers.<br>- _bungalow_: A single-storey detached small house, Dacha.<br>- _cabin_: A cabin is a small, roughly built house usually with a wood exterior and typically found in rural areas.<br>- _detached_: A detached house, a free-standing residential building usually housing a single family.<br>- _dormitory_: A shared building intended for college/university students (not a share room for multiple occupants as implied by the term in British English).<br>- _farm_: A residential building on a farm (farmhouse). For other buildings see below _building=farm_auxiliary_, building=barn, etc.<br>- _ger_: A permanent or seasonal round yurt or ger.<br>- _hotel_: A building designed with separate rooms available for overnight accommodation.<br>- _house_: A dwelling unit inhabited by a single household (a family or small group sharing facilities such as a kitchen). Houses forming half of a semi-detached pair, or one of a row of terraced houses, should share at least two Nodes with joined neighbours, thereby defining the party wall between the properties.<br>- _houseboat_: A boat used primarily as a home<br>- _residential_: A general tag for a building used primarily for residential purposes. Where additional detail is available consider using 'apartments', 'terrace', 'house', 'detached' or 'semidetached_house'.<br>- _semidetached_house_: A residential house that shares a common wall with another on one side. Typically called a "duplex" in American English.<br>- _static_caravan_: A mobile home (semi)permanently left on a single site<br>- _stilt_house_: A building raised on piles over the surface of the soil or a body of water<br>- _terrace_: A single way used to define the outline of a linear row of residential dwellings, each of which normally has its own entrance, which form a terrace ("row-house" or "townhouse" in North American English). Consider defining each dwelling separately using 'house'.<br>- _tree_house_: An accommodation, often designed as a small hut, sometimes also as a room or small apartment. Built on tree posts or on a natural tree. A tree house has no contact with the ground. Access via ladders, stairs or bridgeways.<br>- _trullo_: A stone hut with a conical roof.<br></details><br><details><summary><b>Commercial</b></summary><b>- _commercial_: A building for non-specific commercial activities, not necessarily an office building. Use 'retail' if the building consists primarily of shops.<br>- _industrial_: A building for industrial purposes. Use warehouse if the purpose is known to be primarily for storage/distribution.<br>- _kiosk_: A small one-room retail building.<br>- _office_: An office building.<br>- _retail_: A building primarily used for selling goods that are sold to the public.<br>- _supermarket_: A building constructed to house a self-service large-area store.<br>- _warehouse_: A building primarily intended for the storage or goods or as part of a distribution system.<br></details><br><details><summary><b>Religious</b></summary><b>- _cathedral_: A building that was built as a cathedral.<br>- _chapel_: A building that was built as a chapel.<br>- _church_: A building that was built as a church.<br>- _kingdom_hall_: A building that was built as a Kingdom Hall.<br>- _monastery_: A building constructed as monastery. Often, monasteries consist of several distinct buildings with specific functions.<br>- _mosque_: A building erected as mosque.<br>- _presbytery_: A building where priests live and work.<br>- _religious_: Unspecific building related to religion. Prefer more specific values if possible.<br>- _shrine_: A building that was built as a shrine.<br>- _synagogue_: A building that was built as a synagogue.<br>- _temple_: A building that was built as a temple.<br></details><br><details><summary><b>Civic/amenity</b></summary><b>- _bakehouse_: A building that was built as a bakehouse (i.e. for baking bread).<br>- _bridge_: A building used as a bridge (skyway). To map a gatehouse use building=gatehouse. Don't use this tag just for marking bridges (their outlines).<br>- _civic_: A generic tag for a building created to house some civic amenity, for example community centre, library, toilets, sports centre, swimming pool, townhall etc. See building=public and more specific tags like building=library as well.<br>- _college_: A college building.<br>- _fire_station_: A building constructed as fire station, i.e. to house fire fighting equipment and officers, regardless of current use.<br>- _government_: For government buildings in general, including municipal, provincial and divisional secretaries, government agencies and departments, town halls, (regional) parliaments and court houses.<br>- _gatehouse_: An entry control point building, spanning over a highway that enters a city or compound.<br>- _hospital_: A building erected for a hospital.<br>- _kindergarten_: For any generic kindergarten buildings. Buildings for specific uses (sports halls etc.) should be tagged for their purpose.<br>- _museum_: A building which was designed as a museum.<br>- _public_: A building constructed as accessible to the general public (a town hall, police station, court house, etc.).<br>- _school_: A building erected as school. Buildings for specific uses (sports halls etc.) should be tagged for their purpose.<br>- _toilets_: A toilet block.<br>- _train_station_: A building constructed to be a train station building, including buildings that are abandoned and used nowadays for a different purpose.<br>- _transportation_: A building related to public transport. Note that there is a special tag for train station buildings - _building=train_station_.<br>- _university_: A university building.<br></details><br><details><summary><b>Agricultural/plant production</b></summary><b>- _barn_: An agricultural building that can be used for storage and as a covered workplace.<br>- _conservatory_: A building or room having glass or tarpaulin roofing and walls used as an indoor garden or a sunroom (winter garden).<br>- _cowshed_: A cowshed (cow barn, cow house) is a building for housing cows, usually found on farms.<br>- _farm_auxiliary_: A building on a farm that is not a dwelling (use 'farm' or 'house' for the farm house).<br>- _greenhouse_: A greenhouse is a glass or plastic covered building used to grow plants.<br>- _slurry_tank_: A circular building built to hold a liquid mix of primarily animal excreta (also known as slurry).<br>- _stable_: A building constructed as a stable for horses.<br>- _sty_: A sty (pigsty, pig ark, pig-shed) is a building for raising domestic pigs, usually found on farms.<br>- _livestock_: A building for housing/rising other livestock (apart from cows, horses or pigs covered above), or when the livestock changes.<br></details><br><details><summary><b>Sports</b></summary><b>- _grandstand_: The main stand, usually roofed, commanding the best view for spectators at racecourses or sports grounds.<br>- _pavilion_: A sports pavilion usually with changing rooms, storage areas and possibly an space for functions & events. Avoid using this term for other structures called pavilions by architects.<br>- _riding_hall_: A building that was built as a riding hall.<br>- _sports_hall_: A building that was built as a sports hall.<br>- _sports_centre_: A building that was built as a sports centre.<br>- _stadium_: A building constructed to be a stadium building, including buildings that are abandoned and used nowadays for a different purpose.<br></details><br><details><summary><b>Storage</b></summary><b>- _allotment_house_: A small outbuilding for short visits in a allotment garden.<br>- _boathouse_: A boathouse is a building used for the storage of boats.<br>- _hangar_: A hangar is a building used for the storage of airplanes, helicopters or space-craft.<br>- _hut_: A hut is a small and crude shelter. Note that this word has two meanings - it may be synonym of building=shed, it may be a residential building of low quality.<br>- _shed_: A shed is a simple, single-storey structure in a back garden or on an allotment that is used for storage, hobbies, or as a workshop.<br></details><br><details><summary><b>Cars</b></summary><b>- _carport_: A carport is a covered structure used to offer limited protection to vehicles, primarily cars, from the elements. Unlike most structures a carport does not have four walls, and usually has one or two.<br>- _garage_: A garage is a building suitable for the storage of one or possibly more motor vehicle or similar. See building=garages for larger shared buildings. For an aircraft garage, see building=hangar.<br>- _garages_: A building that consists of a number of discrete storage spaces for different owners/tenants. See also building=garage.<br>- _parking_: Structure purpose-built for parking cars.<br></details><br><details><summary><b>Power/technical buildingsrs</b></summary><b>- _digester_: A digester is a bioreactor for the production of biogas from biomass.<br>- _service_: Service building usually is a small unmanned building with certain machinery (like pumps or transformers).<br>- _tech_cab_: Small prefabricated cabin structures for the air-conditioned accommodation of different technology.<br>- _transformer_tower_: A transformer tower is a characteristic tall building comprising a distribution transformer and constructed to connect directly to a medium voltage overhead power line. Quite often the power line has since been undergrounded but the building may still serve as a substation.<br>- _water_tower_: A water tower.<br>- _storage_tank_: Storage tanks are containers that hold liquids.<br>- _silo_: A silo is a building for storing bulk materials.<br></details><br><details><summary><b>Other buildings</b></summary><b>- _beach_hut_: A small, usually wooden, and often brightly coloured cabin or shelter above the high tide mark on popular bathing beaches.<br>- _bunker_: A hardened military building.<br>- _castle_: A building constructed as a castle.<br>- _construction_: Used for buildings under construction.<br>- _container_: For a container used as a permanent building. Do not map containers placed temporarily, for example used in shipping or construction.<br>- _guardhouse_: A small building constructed to house guard(s).<br>- _military_: A military building.<br>- _outbuilding_: A less important building near to and on the same piece of land as a larger building.<br>- _pagoda_: A building constructed as a pagoda.<br>- _quonset_hut_: A lightweight prefabricated structure in the shape of a semicircle.<br>- _roof_: A structure that consists of a roof with open sides, such as a rain shelter, and also gas stations.<br>- _ruins_: Frequently used for a house or other building that is abandoned and in poor repair. However, some believe this usage is incorrect, and the tag should only be used for buildings constructed as fake ruins (for example sham ruins in an English landscape garden). See also lifecycle tagging.<br>- _tent_: For a permanently placed tent. Do not map tents placed temporarily.<br>- _tower_: A tower-building.<br>- _windmill_: A building constructed as a traditional windmill, historically used to mill grain with wind power.<br>- _yes_: Use this value where it is not possible to determine a more specific value. | <br></details> |
 
 </details>
 
@@ -931,7 +937,7 @@ OpenSidewalks Schema fields are typed key-value pairs. Keys are always strings a
 
 |  |  |
 | --- | --- |
-| **Description** | The opening hours of the entity. This may apply to, for example, a path that is inside a building or the building itself. The value is in OpenStreetMap syntax for the opening_hours tag. See [OpenStreetMap specification](https://wiki.openstreetmap.org/wiki/Key:opening_hours/specification) on the formatting for this field. |
+| **Description** | The opening hours of the entity. This may apply to, for example, a path that is inside a building or the building itself. The value is in OpenStreetMap syntax for the `opening_hours` tag. See [OpenStreetMap specification](https://wiki.openstreetmap.org/wiki/Key:opening_hours/specification) on the formatting for this field. |
 | **Value type** | opening_hours |
 
 </details>
@@ -952,7 +958,7 @@ OpenSidewalks Schema fields are typed key-value pairs. Keys are always strings a
 
 <a id="resources"></a>
 
-Mapping guides and resources for use in JOSM including a map style and presets are made available in the resources directory.
+Mapping guides, as well as resources for use in JOSM including a map style and presets, are made available in the [resources](./resources/) directory.
 
 # Schema Versions
 
@@ -961,5 +967,5 @@ Mapping guides and resources for use in JOSM including a map style and presets a
 | Version | Release Date | Link | Notes |
 | --- | --- | --- | --- |
 | 0.1 | 2023-08-11 | [GitHub](https://github.com/OpenSidewalks/OpenSidewalks-Schema/tree/32dad18bb303289f660fd8d26f02f5e301d0a9d1) | - Minimal initial beta release of schema to unblock development of schema consuming applications |
-| 0.2 | 2024-01-30 | [GitHub](https://github.com/OpenSidewalks/OpenSidewalks-Schema) | - Add required `_id` Field to [Edges](#edges)<br>- Update the documentation with regards to the [coordinate reference system](#coordinate-reference-system)<br>- Introduce the concept of [Core Entities](#core-entities) and [Adjacent Entities](#adjacent-entities) (formerly called "Extensions")<br>- Add [Zones](#zones) to [Core Entities](#core-entities)<br>- Add [Lines](#lines) and [Polygons](#polygons) to [Adjacent Entities](#adjacent-entities)<br>- Add [Schema Versions](#schema-versions) and [OpenSidewalks Dataset Metadata](#opensidewalks-dataset-metadata)<br>- Add [Pedestrian Zone](#pedestrian-zone) to [Zones](#zones)<br>- Add [Fence](#fence) to [Lines](#lines)<br>- Add [Building](#building) to [Polygons](#polygons)<br>- Add _additional fields_ to [Entity Attributes](#entity-attributes)<br>- Add [Motor Vehicle Roads](#motor-vehicle-roads) to [Edges](#edges) with justification<br>- Add [Climb](#climb) Field to [Steps](#steps) Edge in addition to the existing [Incline](#incline) Field<br>- Add [Opening Hours](#opening-hours) Field and include it to the existing [Building](#building) Fields<br>- Add [Generic Curb](#generic-curb) entity to [Nodes](#nodes)<br>- Add [Foot](#foot) Field to all [Edges](#edges) and [Zones](#zones)<br>- Change [Entity Type Inference](#entity-type-inference) to include the _geometry type_<br>- Fix lossiness of [Tactile Paving](#tactile-paving) Field<br>- Remove _crossing_ Field in favor of [crossing:markings](#crossingmarkings) Field<br>- Add [Living Street](#living-street) to [Edges](#edges)<br>- Add _unclassified road_ to [Motor Vehicle Roads](#motor-vehicle-roads)<br>- Add _trunk road_ to [Motor Vhicle Roads](#motor-vehicle-roads)<br>- Require that the `_id` Field for all entities has at least one character |
-| 0.3 | 2025-06-16 | [GitHub](https://github.com/OpenSidewalks/OpenSidewalks-Schema) | - Add _ |
+| 0.2 | 2024-01-30 | [GitHub](https://github.com/OpenSidewalks/OpenSidewalks-Schema) | - Add required `_id` Field to [Edges](#edges)<br>- Update the documentation with regards to the [coordinate reference system](#coordinate-reference-system)<br>- Introduce the concept of [Core Entities](#core-entities) and [Adjacent Entities](#adjacent-entities) (formerly called "Extensions")<br>- Add [Zones](#zones) to [Core Entities](#core-entities)<br>- Add [Lines](#lines) and [Polygons](#polygons) to [Adjacent Entities](#adjacent-entities)<br>- Add [Schema Versions](#schema-versions) and [OpenSidewalks Dataset Metadata](#opensidewalks-dataset-metadata)<br>- Add [Pedestrian Zone](#pedestrian-zone) to [Zones](#zones)<br>- Add [Fence](#fence) to [Lines](#lines)<br>- Add [Building](#building) to [Polygons](#polygons)<br>- Add _additional fields_ to [Entity Attributes](#entity-attributes)<br>- Add [Motor Vehicle Roads](#motor-vehicle-roads) to [Edges](#edges) with justification<br>- Add [Climb](#climb) Field to [Steps](#steps) Edge in addition to the existing [Incline](#incline) Field<br>- Add [Opening Hours](#opening-hours) Field and include it to the existing [Building](#building) Fields<br>- Add [Generic Curb](#generic-curb) entity to [Nodes](#nodes)<br>- Add [Foot](#foot) Field to all [Edges](#edges) and [Zones](#zones)<br>- Change [Entity Type Inference](#entity-type-inference) to include the _geometry type_<br>- Fix lossiness of [Tactile Paving](#tactile-paving) Field<br>- Remove _crossing_ Field in favor of [crossing:markings](#crossing-markings) Field<br>- Add [Living Street](#living-street) to [Edges](#edges)<br>- Add _unclassified road_ to [Motor Vehicle Roads](#motor-vehicle-roads)<br>- Add _trunk road_ to [Motor Vhicle Roads](#motor-vehicle-roads)<br>- Require that the `_id` Field for all entities has at least one character |
+| 0.3 | 2025-06-19 | [GitHub](https://github.com/OpenSidewalks/OpenSidewalks-Schema) | - |
