@@ -389,7 +389,6 @@ Edges are Lines (their serializable geometries are representable by LineStrings)
 | **Geometry** | LineString |
 | **Identifying Fields** | `highway=footway`, `footway=sidewalk` |
 | **Optional Fields** | All [optional fields of footway](#footway)<br>[description](#description) |
-| Sidewalk-specific usage note: OpenSidewalks data may infer a 'description' property that states where the sidewalk is in relation to its associated street. Example: "NW side of 5th Ave". |
 
 </details>
 
