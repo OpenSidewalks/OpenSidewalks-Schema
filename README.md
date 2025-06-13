@@ -29,7 +29,6 @@
   - [List of Core Entities](#list-of-core-entities)
     - [Nodes](#nodes-1)
     - [Edges](#edges-1)
-      - [Motor Vehicle Roads](#motor-vehicle-roads)
     - [Zones](#zones-1)
   - [List of Adjacent Entities](#list-of-adjacent-entities)
     - [Points](#points-1)
@@ -464,9 +463,9 @@ Edges are Lines (their serializable geometries are representable by LineStrings)
 
 </details>
 
-#### Motor Vehicle Roads
-
 <a id="motor-vehicle-roads"></a>
+
+<details><summary><b>Motor Vehicle Roads</b></summary>
 
 While OpenSidewalks schema is centered around the pedestrian experience and accessibility within the pedestrian network, the inclusion of roads as core entities in the schema is justified because:
 
@@ -613,6 +612,8 @@ In order to simplify the job of OpenSidewalks consuming applications when attemp
 | **Geometry** | LineString |
 | **Identifying Fields** | `highway=trunk` |
 | **Optional Fields** | All [optional fields of a primary street](#primary-street). |
+
+</details>
 
 </details>
 
