@@ -1,128 +1,162 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <presets xmlns="http://josm.openstreetmap.de/tagging-preset-1.0">
-	<group name="Edges" >
-		<item name="Crossing" icon="" type="">
-			<label text="" />
-		</item>
-		<item name="Footway" icon="" type="">
-			<label text="" />
-		</item>
-		<item name="Living Street" icon="" type="">
-			<label text="" />
-		</item>
-		<item name="Pedestrian" icon="" type="">
-			<label text="" />
-		</item>
-		<item name="Sidewalk" icon="" type="">
-			<label text="" />
-		</item>
-		<item name="Steps" icon="" type="">
-			<label text="" />
-		</item>
-		<item name="Traffic Island" icon="" type="">
-			<label text="" />
-		</item>
-		<group name="Roads" >
-			<item name="Alley" icon="" type="">
-				<label text="" />
-			</item>
-			<item name="Driveway" icon="" type="">
-				<label text="" />
-			</item>
-			<item name="Parking Aisle" icon="" type="">
-				<label text="" />
-			</item>
-			<item name="Primary Street" icon="" type="">
-				<label text="" />
-			</item>
-			<item name="Residential Street" icon="" type="">
-				<label text="" />
-			</item>
-			<item name="Road" icon="" type="">
-				<label text="" />
-			</item>
-			<item name="Secondary Street" icon="" type="">
-				<label text="" />
-			</item>
-			<item name="Service Road" icon="" type="">
-				<label text="" />
-			</item>
-			<item name="Tertiary Street" icon="" type="">
-				<label text="" />
-			</item>
-			<item name="Trunk Road" icon="" type="">
-				<label text="" />
-			</item>
-			<item name="Unclassified Road" icon="" type="">
-				<label text="" />
-			</item>
-		</group>
-	</group>
-	<group name="Lines" >
-		<item name="Fence" icon="" type="">
-			<label text="" />
-		</item>
-	</group>
-	<group name="Nodes" >
-		<item name="Bare Node" icon="" type="">
-			<label text="" />
-		</item>
-		<item name="Curb Ramp" icon="" type="">
-			<label text="" />
-		</item>
-		<item name="Flush Curb" icon="" type="">
-			<label text="" />
-		</item>
-		<item name="Generic Curb" icon="" type="">
-			<label text="" />
-		</item>
-		<item name="Raised Curb" icon="" type="">
-			<label text="" />
-		</item>
-		<item name="Rolled Curb" icon="" type="">
-			<label text="" />
-		</item>
-	</group>
-	<group name="Points" >
-		<item name="Bench" icon="" type="">
-			<label text="" />
-		</item>
-		<item name="Bollard" icon="" type="">
-			<label text="" />
-		</item>
-		<item name="Fire Hydrant" icon="" type="">
-			<label text="" />
-		</item>
-		<item name="Manhole" icon="" type="">
-			<label text="" />
-		</item>
-		<item name="Power Pole" icon="" type="node">
-			<label text="A power pole - often made of wood or metal, they hold power lines." />
-			<combo key="power" text="Feature Type" values="pole" display_values="Power Pole" default="pole" editable="false" />
-		</item>
-		<item name="Street Lamp" icon="" type="node">
-			<label text="A street lamp - a street light, lamppost, street lamp, light standard, or lamp standard: a raised source of light above a road, which is turned on or lit at night." />
-			<combo key="highway" text="Feature Type" values="street_lamp" display_values="Street Lamp" default="street_lamp" editable="false" />
-		</item>
-		<item name="Waste Basket" icon="" type="node">
-			<label text="A waste basket - a single small container for depositing garbage that is easily accessible for pedestrians." />
-			<combo key="amenity" text="Feature Type" values="waste_basket" display_values="Waste Basket" default="waste_basket" editable="false" />
-		</item>
-	</group>
-	<group name="Polygons" >
-		<item name="Building" icon="" type="closedway">
-			<label text="" />
-			<combo key="building" text="Building Type" values="apartments,barracks,bungalow,cabin,detached,dormitory,farm,ger,hotel,house,houseboat,residential,semidetached_house,static_caravan,stilt_house,terrace,tree_house,trullo,commercial,industrial,kiosk,office,retail,supermarket,warehouse,cathedral,chapel,church,kingdom_hall,monastery,mosque,presbytery,religious,shrine,synagogue,temple,bakehouse,bridge,civic,college,fire_station,government,gatehouse,hospital,kindergarten,museum,public,school,toilets,train_station,transportation,university,barn,conservatory,cowshed,farm_auxiliary,greenhouse,slurry_tank,stable,sty,livestock,grandstand,pavilion,riding_hall,sports_hall,sports_centre,stadium,allotment_house,boathouse,hangar,hut,shed,carport,garage,garages,parking,digester,service,tech_cab,transformer_tower,water_tower,storage_tank,silo,beach_hut,bunker,castle,construction,container,guardhouse,military,outbuilding,pagoda,quonset_hut,roof,ruins,tent,tower,windmill,yes" <display_values="Apartments,Barracks,Bungalow,Cabin,Detached,Dormitory,Farm,Ger,Hotel,House,Houseboat,Residential,Semidetached House,Static Caravan,Stilt House,Terrace,Tree House,Trullo,Commercial,Industrial,Kiosk,Office,Retail,Supermarket,Warehouse,Cathedral,Chapel,Church,Kingdom Hall,Monastery,Mosque,Presbytery,Religious,Shrine,Synagogue,Temple,Bakehouse,Bridge,Civic,College,Fire Station,Government,Gatehouse,Hospital,Kindergarten,Museum,Public,School,Toilets,Train Station,Transportation,University,Barn,Conservatory,Cowshed,Farm Auxiliary,Greenhouse,Slurry Tank,Stable,Sty,Livestock,Grandstand,Pavilion,Riding Hall,Sports Hall,Sports Centre,Stadium,Allotment House,Boathouse,Hangar,Hut,Shed,Carport,Garage,Garages,Parking,Digester,Service,Tech Cab,Transformer Tower,Water Tower,Storage Tank,Silo,Beach Hut,Bunker,Castle,Construction,Container,Guardhouse,Military,Outbuilding,Pagoda,Quonset Hut,Roof,Ruins,Tent,Tower,Windmill,(Unspecified)" default="yes" editable="false" />
-			<text key="name" text="Name" default="" />
-			<text key="opening_hours" text="Opening Hours" default="" />
-		</item>
-	</group>
-	<group name="Zones" >
-		<item name="Pedestrian Zone" icon="" type="closedway">
-			<label text="Pedestrian Zone: An area where pedestrians can travel freely in all directions." />
-			<combo key="highway" text="Highway Type" values="pedestrian" display_values="Pedestrian" default="pedestrian" editable="false" />
-			<text key="name" text="Name" default="" />
-			<combo key="surface" text="Surface Type" values="asphalt,concrete,gravel,grass,paved,paving_stones,unpaved,dirt,grass_paver" <display_values="Asphalt,Concrete,Gravel,Grass,Paved,Paving Stones,Unpaved,Dirt,Grass Paver" editable="false" />
-		</item>
-	</group>
+  <group name="OpenSidewalks 0.2">
+    <group name="Edges">
+      <item name="Crossing" icon="" type="way,closedway">
+        <label
+          text="* The centerline of a pedestrian street crossing. This path exists only on the road surface itself, i.e. &quot;from curb to curb&quot;. Crossings should not be connected directly to sidewalk centerlines - instead, a short footpath (this schema calls them &quot;links&quot;) should connect the two together." />
+        <combo key="highway" text="Highway" values="footway" display_values="Footway"
+          default="footway" editable="false" />
+        <combo key="footway" text="Footway" values="crossing" display_values="Crossing"
+          default="crossing" editable="false" />
+      </item>
+      <item name="Footway" icon="" type="way,closedway">
+        <label
+          text="* The centerline of a dedicated pedestrian pathway that does not fall into any other subcategories." />
+        <combo key="highway" text="Highway" values="footway" display_values="Footway"
+          default="footway" editable="false" />
+      </item>
+      <item name="Living Street" icon="" type="way,closedway">
+        <label
+          text="* A street designed with the interests of pedestrians and cyclists in mind by providing enriching and experiential spaces." />
+        <combo key="highway" text="Highway" values="living_street" display_values="Living_street"
+          default="living_street" editable="false" />
+      </item>
+      <item name="Pedestrian" icon="" type="way,closedway">
+        <label
+          text="* For a road or an area mainly or exclusively for pedestrians in which some vehicle traffic may be authorized." />
+        <combo key="highway" text="Highway" values="pedestrian" display_values="Pedestrian"
+          default="pedestrian" editable="false" />
+      </item>
+      <item name="Sidewalk" icon="" type="way,closedway">
+        <label
+          text="* The centerline of a sidewalk, a designated pedestrian pathway to the side of a street." />
+        <combo key="highway" text="Highway" values="footway" display_values="Footway"
+          default="footway" editable="false" />
+        <combo key="footway" text="Footway" values="sidewalk" display_values="Sidewalk"
+          default="sidewalk" editable="false" />
+      </item>
+      <item name="Steps" icon="" type="way,closedway">
+        <label text="* For flights of steps on footways and paths." />
+        <combo key="highway" text="Highway" values="steps" display_values="Steps" default="steps"
+          editable="false" />
+      </item>
+      <item name="Traffic Island" icon="" type="way,closedway">
+        <label
+          text="* The centerline of a footpath traversing a traffic island. Some complex, long, or busy pedestrian crossings have a built-up &quot;island&quot; to protect pedestrians, splitting up the crossing of the street into two or more crossings. As a pedestrian uses this crossing, they will transition across these path elements: sidewalk → footway → crossing → traffic island → crossing → footway → sidewalk." />
+        <combo key="highway" text="Highway" values="footway" display_values="Footway"
+          default="footway" editable="false" />
+        <combo key="footway" text="Footway" values="traffic_island" display_values="Traffic_island"
+          default="traffic_island" editable="false" />
+      </item>
+    </group>
+    <group name="Lines">
+      <item name="Fence" icon="" type="way,closedway">
+        <label
+          text="* A fence is a freestanding structure designed to restrict or prevent movement across a boundary. It is generally distinguished from a wall by the lightness of its construction." />
+        <combo key="barrier" text="Barrier" values="fence" display_values="Fence" default="fence"
+          editable="false" />
+      </item>
+    </group>
+    <group name="Nodes">
+      <item name="Bare Node" icon="" type="node">
+        <label
+          text="* A node that is merely part of the graph structure but has no metadata or meaning of its own. For example, a sidewalk may be split into two edges because they have differing widths, so they must be joined by a node - but there is no data to place on the node itself beyond basic spatial and graph primitives." />
+      </item>
+      <item name="Curb Ramp" icon="" type="node">
+        <label
+          text="* A curb ramp (curb cut) mapped as a curb interface. Mapped at the location where the two edges that it connects meet one another." />
+        <combo key="barrier" text="Barrier" values="kerb" display_values="Kerb" default="kerb"
+          editable="false" />
+        <combo key="kerb" text="Kerb" values="lowered" display_values="Lowered" default="lowered"
+          editable="false" />
+      </item>
+      <item name="Flush Curb" icon="" type="node">
+        <label
+          text="* An indicator that there is no raised curb interface where two paths meet - i.e. where someone might expect a curb interface, such as where a crossing and footpath meet." />
+        <combo key="barrier" text="Barrier" values="kerb" display_values="Kerb" default="kerb"
+          editable="false" />
+        <combo key="kerb" text="Kerb" values="flush" display_values="Flush" default="flush"
+          editable="false" />
+      </item>
+      <item name="Generic Curb" icon="" type="node">
+        <label
+          text="* A curb for which a type has not been determined yet or a type could not be determined despite some effort." />
+        <combo key="barrier" text="Barrier" values="kerb" display_values="Kerb" default="kerb"
+          editable="false" />
+      </item>
+      <item name="Raised Curb" icon="" type="node">
+        <label
+          text="* A single, designed vertical displacement that separates two edges. A common example is the curb that separates a street crossing from a sidewalk. This is mapped at the point where the two edges meet - on top of the curb is physically located." />
+        <combo key="barrier" text="Barrier" values="kerb" display_values="Kerb" default="kerb"
+          editable="false" />
+        <combo key="kerb" text="Kerb" values="raised" display_values="Raised" default="raised"
+          editable="false" />
+      </item>
+      <item name="Rolled Curb" icon="" type="node">
+        <label
+          text="* A curb interface with a quarter-circle profile: traversing this curb is like going over half of a bump. Located where two edges meet, physically at the location of the curb itself." />
+        <combo key="barrier" text="Barrier" values="kerb" display_values="Kerb" default="kerb"
+          editable="false" />
+        <combo key="kerb" text="Kerb" values="rolled" display_values="Rolled" default="rolled"
+          editable="false" />
+      </item>
+    </group>
+    <group name="Points">
+      <item name="Bench" icon="" type="node">
+        <label text="* A bench - a place for people to sit; allows room for several people." />
+        <combo key="amenity" text="Amenity" values="bench" display_values="Bench" default="bench"
+          editable="false" />
+      </item>
+      <item name="Bollard" icon="" type="node">
+        <label
+          text="* A Bollard - a solid pillar or pillars made of concrete, metal, plastic, etc., and used to control traffic." />
+        <combo key="barrier" text="Barrier" values="bollard" display_values="Bollard"
+          default="bollard" editable="false" />
+      </item>
+      <item name="Fire Hydrant" icon="" type="node">
+        <label text="* A fire hydrant - where fire response teams connect high-pressure hoses." />
+        <combo key="emergency" text="Emergency" values="fire_hydrant" display_values="Fire_hydrant"
+          default="fire_hydrant" editable="false" />
+      </item>
+      <item name="Manhole" icon="" type="node">
+        <label
+          text="* A manhole - a hole with a cover that allows access to an underground service location, just large enough for a human to climb through." />
+        <combo key="man_made" text="Man_made" values="manhole" display_values="Manhole"
+          default="manhole" editable="false" />
+      </item>
+      <item name="Power Pole" icon="" type="node">
+        <label text="* A power pole. Often made of wood or metal, they hold power lines." />
+        <combo key="power" text="Power" values="pole" display_values="Pole" default="pole"
+          editable="false" />
+      </item>
+      <item name="Street Lamp" icon="" type="node">
+        <label
+          text="* A street lamp - a street light, lamppost, street lamp, light standard, or lamp standard: a raised source of light above a road, which is turned on or lit at night." />
+        <combo key="highway" text="Highway" values="street_lamp" display_values="Street_lamp"
+          default="street_lamp" editable="false" />
+      </item>
+      <item name="Waste Basket" icon="" type="node">
+        <label
+          text="* A waste basket - a single small container for depositing garbage that is easily accessible for pedestrians." />
+        <combo key="amenity" text="Amenity" values="waste_basket" display_values="Waste_basket"
+          default="waste_basket" editable="false" />
+      </item>
+    </group>
+    <group name="Polygons">
+      <item name="Building" icon="" type="closedway,multipolygon">
+        <label
+          text="* A building is a man-made structure with a roof, standing more or less permanently in one place." />
+        <combo key="building" text="Building" values="BuildingField" display_values="Buildingfield"
+          default="BuildingField" editable="false" />
+      </item>
+    </group>
+    <group name="Zones">
+      <item name="Pedestrian" icon="" type="closedway,multipolygon">
+        <label text="* An area where pedestrians can travel freely in all directions." />
+        <combo key="highway" text="Highway" values="pedestrian" display_values="Pedestrian"
+          default="pedestrian" editable="false" />
+      </item>
+    </group>
+  </group>
 </presets>
