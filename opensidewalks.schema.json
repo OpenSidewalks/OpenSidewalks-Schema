@@ -1046,6 +1046,315 @@
             ],
             "type": "object"
         },
+        "CustomLine": {
+            "additionalProperties": false,
+            "description": "A custom line is a user-defined LineString feature. It can represent any custom path or linear infrastructure (e.g., temporary detour route).",
+            "properties": {
+                "bbox": {
+                    "anyOf": [
+                        {
+                            "items": [
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                }
+                            ],
+                            "maxItems": 4,
+                            "minItems": 4,
+                            "type": "array"
+                        },
+                        {
+                            "items": [
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                }
+                            ],
+                            "maxItems": 6,
+                            "minItems": 6,
+                            "type": "array"
+                        }
+                    ],
+                    "description": "Bounding box of the coordinate range of the object's Geometries, Features, or Feature Collections.\nThe value of the bbox member is an array of length 2*n where n is the number of dimensions\nrepresented in the contained geometries, with all axes of the most southwesterly point\nfollowed by all axes of the more northeasterly point.\nThe axes order of a bbox follows the axes order of geometries.\nhttps://tools.ietf.org/html/rfc7946#section-5"
+                },
+                "geometry": {
+                    "$ref": "https://sidewalks.washington.edu/opensidewalks/0.2/schema.json#/definitions/GeoJSON.LineString",
+                    "description": "The feature's geometry"
+                },
+                "id": {
+                    "description": "A value that uniquely identifies this feature in a\nhttps://tools.ietf.org/html/rfc7946#section-3.2.",
+                    "type": [
+                        "string",
+                        "number"
+                    ]
+                },
+                "properties": {
+                    "$ref": "https://sidewalks.washington.edu/opensidewalks/0.2/schema.json#/definitions/CustomLineFields",
+                    "description": "Properties associated with this feature."
+                },
+                "type": {
+                    "description": "Specifies the type of GeoJSON object.",
+                    "enum": [
+                        "Feature"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "geometry",
+                "properties",
+                "type"
+            ],
+            "type": "object"
+        },
+        "CustomLineFields": {
+            "additionalProperties": false,
+            "description": "Fields that apply to a custom line.",
+            "patternProperties": {
+                "^ext:.*$": {
+                }
+            },
+            "properties": {
+                "_id": {
+                    "minLength": 1,
+                    "type": "string"
+                },
+                "length": {
+                    "description": "A field for the length of an entity in meters. This field is always inferred from the geometry.",
+                    "maximum": 5000,
+                    "minimum": 0,
+                    "type": "number"
+                }
+            },
+            "required": [
+                "_id"
+            ],
+            "type": "object"
+        },
+        "CustomPoint": {
+            "additionalProperties": false,
+            "description": "A custom point is a user-defined Point feature. It can represent any custom-location marker (e.g., a survey marker).",
+            "properties": {
+                "bbox": {
+                    "anyOf": [
+                        {
+                            "items": [
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                }
+                            ],
+                            "maxItems": 4,
+                            "minItems": 4,
+                            "type": "array"
+                        },
+                        {
+                            "items": [
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                }
+                            ],
+                            "maxItems": 6,
+                            "minItems": 6,
+                            "type": "array"
+                        }
+                    ],
+                    "description": "Bounding box of the coordinate range of the object's Geometries, Features, or Feature Collections.\nThe value of the bbox member is an array of length 2*n where n is the number of dimensions\nrepresented in the contained geometries, with all axes of the most southwesterly point\nfollowed by all axes of the more northeasterly point.\nThe axes order of a bbox follows the axes order of geometries.\nhttps://tools.ietf.org/html/rfc7946#section-5"
+                },
+                "geometry": {
+                    "$ref": "https://sidewalks.washington.edu/opensidewalks/0.2/schema.json#/definitions/GeoJSON.Point",
+                    "description": "The feature's geometry"
+                },
+                "id": {
+                    "description": "A value that uniquely identifies this feature in a\nhttps://tools.ietf.org/html/rfc7946#section-3.2.",
+                    "type": [
+                        "string",
+                        "number"
+                    ]
+                },
+                "properties": {
+                    "$ref": "https://sidewalks.washington.edu/opensidewalks/0.2/schema.json#/definitions/CustomPointFields",
+                    "description": "Properties associated with this feature."
+                },
+                "type": {
+                    "description": "Specifies the type of GeoJSON object.",
+                    "enum": [
+                        "Feature"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "geometry",
+                "properties",
+                "type"
+            ],
+            "type": "object"
+        },
+        "CustomPointFields": {
+            "additionalProperties": false,
+            "description": "Fields that apply to a custom point.",
+            "patternProperties": {
+                "^ext:.*$": {
+                }
+            },
+            "properties": {
+                "_id": {
+                    "minLength": 1,
+                    "type": "string"
+                }
+            },
+            "required": [
+                "_id"
+            ],
+            "type": "object"
+        },
+        "CustomPolygon": {
+            "additionalProperties": false,
+            "description": "A custom polygon is a user-defined Polygon feature. It can represent any custom area or zone (e.g., event footprint).",
+            "properties": {
+                "bbox": {
+                    "anyOf": [
+                        {
+                            "items": [
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                }
+                            ],
+                            "maxItems": 4,
+                            "minItems": 4,
+                            "type": "array"
+                        },
+                        {
+                            "items": [
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                }
+                            ],
+                            "maxItems": 6,
+                            "minItems": 6,
+                            "type": "array"
+                        }
+                    ],
+                    "description": "Bounding box of the coordinate range of the object's Geometries, Features, or Feature Collections.\nThe value of the bbox member is an array of length 2*n where n is the number of dimensions\nrepresented in the contained geometries, with all axes of the most southwesterly point\nfollowed by all axes of the more northeasterly point.\nThe axes order of a bbox follows the axes order of geometries.\nhttps://tools.ietf.org/html/rfc7946#section-5"
+                },
+                "geometry": {
+                    "$ref": "https://sidewalks.washington.edu/opensidewalks/0.2/schema.json#/definitions/GeoJSON.Polygon",
+                    "description": "The feature's geometry"
+                },
+                "id": {
+                    "description": "A value that uniquely identifies this feature in a\nhttps://tools.ietf.org/html/rfc7946#section-3.2.",
+                    "type": [
+                        "string",
+                        "number"
+                    ]
+                },
+                "properties": {
+                    "$ref": "https://sidewalks.washington.edu/opensidewalks/0.2/schema.json#/definitions/CustomPolygonFields",
+                    "description": "Properties associated with this feature."
+                },
+                "type": {
+                    "description": "Specifies the type of GeoJSON object.",
+                    "enum": [
+                        "Feature"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "geometry",
+                "properties",
+                "type"
+            ],
+            "type": "object"
+        },
+        "CustomPolygonFields": {
+            "additionalProperties": false,
+            "description": "Fields that apply to a custom polygon.",
+            "patternProperties": {
+                "^ext:.*$": {
+                }
+            },
+            "properties": {
+                "_id": {
+                    "minLength": 1,
+                    "type": "string"
+                }
+            },
+            "required": [
+                "_id"
+            ],
+            "type": "object"
+        },
         "Driveway": {
             "additionalProperties": false,
             "description": "The centerline of a driveway. Typically connects a residence or business to another road.",
@@ -2809,7 +3118,7 @@
         },
         "PedestrianZone": {
             "additionalProperties": false,
-            "description": "An areas where pedestrians can travel freely in all directions.",
+            "description": "An area where pedestrians can travel freely in all directions.",
             "properties": {
                 "bbox": {
                     "anyOf": [
@@ -4828,6 +5137,270 @@
             ],
             "type": "object"
         },
+        "Tree": {
+            "additionalProperties": false,
+            "description": "A tree - a tall, woody plant with branches emanating from a central trunk.",
+            "properties": {
+                "bbox": {
+                    "anyOf": [
+                        {
+                            "items": [
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                }
+                            ],
+                            "maxItems": 4,
+                            "minItems": 4,
+                            "type": "array"
+                        },
+                        {
+                            "items": [
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                }
+                            ],
+                            "maxItems": 6,
+                            "minItems": 6,
+                            "type": "array"
+                        }
+                    ],
+                    "description": "Bounding box of the coordinate range of the object's Geometries, Features, or Feature Collections.\nThe value of the bbox member is an array of length 2*n where n is the number of dimensions\nrepresented in the contained geometries, with all axes of the most southwesterly point\nfollowed by all axes of the more northeasterly point.\nThe axes order of a bbox follows the axes order of geometries.\nhttps://tools.ietf.org/html/rfc7946#section-5"
+                },
+                "geometry": {
+                    "$ref": "https://sidewalks.washington.edu/opensidewalks/0.2/schema.json#/definitions/GeoJSON.Point",
+                    "description": "The feature's geometry"
+                },
+                "id": {
+                    "description": "A value that uniquely identifies this feature in a\nhttps://tools.ietf.org/html/rfc7946#section-3.2.",
+                    "type": [
+                        "string",
+                        "number"
+                    ]
+                },
+                "properties": {
+                    "$ref": "https://sidewalks.washington.edu/opensidewalks/0.2/schema.json#/definitions/TreeFields",
+                    "description": "Properties associated with this feature."
+                },
+                "type": {
+                    "description": "Specifies the type of GeoJSON object.",
+                    "enum": [
+                        "Feature"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "geometry",
+                "properties",
+                "type"
+            ],
+            "type": "object"
+        },
+        "TreeFields": {
+            "additionalProperties": false,
+            "description": "Fields that apply to a tree.",
+            "patternProperties": {
+                "^ext:.*$": {
+                }
+            },
+            "properties": {
+                "_id": {
+                    "minLength": 1,
+                    "type": "string"
+                },
+                "leaf_cycle": {
+                    "description": "A field that describes the phenology of leaves, for instance evergreen or deciduous.",
+                    "enum": [
+                        "deciduous",
+                        "evergreen",
+                        "mixed",
+                        "semi_deciduous",
+                        "semi_evergreen"
+                    ],
+                    "type": "string"
+                },
+                "leaf_type": {
+                    "description": "A field that describes the type of leaves, for instance broadleaved, or needleleaved.",
+                    "enum": [
+                        "broadleaved",
+                        "leafless",
+                        "mixed",
+                        "needleleaved"
+                    ],
+                    "type": "string"
+                },
+                "natural": {
+                    "enum": [
+                        "tree"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "_id",
+                "natural"
+            ],
+            "type": "object"
+        },
+        "TreeRow": {
+            "additionalProperties": false,
+            "description": "A tree row is a line of trees often found along roadways, property lines, or at the edges of farms.",
+            "properties": {
+                "bbox": {
+                    "anyOf": [
+                        {
+                            "items": [
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                }
+                            ],
+                            "maxItems": 4,
+                            "minItems": 4,
+                            "type": "array"
+                        },
+                        {
+                            "items": [
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                }
+                            ],
+                            "maxItems": 6,
+                            "minItems": 6,
+                            "type": "array"
+                        }
+                    ],
+                    "description": "Bounding box of the coordinate range of the object's Geometries, Features, or Feature Collections.\nThe value of the bbox member is an array of length 2*n where n is the number of dimensions\nrepresented in the contained geometries, with all axes of the most southwesterly point\nfollowed by all axes of the more northeasterly point.\nThe axes order of a bbox follows the axes order of geometries.\nhttps://tools.ietf.org/html/rfc7946#section-5"
+                },
+                "geometry": {
+                    "$ref": "https://sidewalks.washington.edu/opensidewalks/0.2/schema.json#/definitions/GeoJSON.LineString",
+                    "description": "The feature's geometry"
+                },
+                "id": {
+                    "description": "A value that uniquely identifies this feature in a\nhttps://tools.ietf.org/html/rfc7946#section-3.2.",
+                    "type": [
+                        "string",
+                        "number"
+                    ]
+                },
+                "properties": {
+                    "$ref": "https://sidewalks.washington.edu/opensidewalks/0.2/schema.json#/definitions/TreeRowFields",
+                    "description": "Properties associated with this feature."
+                },
+                "type": {
+                    "description": "Specifies the type of GeoJSON object.",
+                    "enum": [
+                        "Feature"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "geometry",
+                "properties",
+                "type"
+            ],
+            "type": "object"
+        },
+        "TreeRowFields": {
+            "additionalProperties": false,
+            "description": "Fields that apply to a tree row.",
+            "patternProperties": {
+                "^ext:.*$": {
+                }
+            },
+            "properties": {
+                "_id": {
+                    "minLength": 1,
+                    "type": "string"
+                },
+                "leaf_cycle": {
+                    "description": "A field that describes the phenology of leaves, for instance evergreen or deciduous.",
+                    "enum": [
+                        "deciduous",
+                        "evergreen",
+                        "mixed",
+                        "semi_deciduous",
+                        "semi_evergreen"
+                    ],
+                    "type": "string"
+                },
+                "leaf_type": {
+                    "description": "A field that describes the type of leaves, for instance broadleaved, or needleleaved.",
+                    "enum": [
+                        "broadleaved",
+                        "leafless",
+                        "mixed",
+                        "needleleaved"
+                    ],
+                    "type": "string"
+                },
+                "length": {
+                    "description": "A field for the length of an entity in meters. This field is always inferred from the geometry.",
+                    "maximum": 5000,
+                    "minimum": 0,
+                    "type": "number"
+                },
+                "natural": {
+                    "enum": [
+                        "tree_row"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "_id",
+                "natural"
+            ],
+            "type": "object"
+        },
         "TrunkRoad": {
             "additionalProperties": false,
             "description": "A high-performance or high-importance roads that don't meet the requirements for motorway, but are not classified as highway=primary either.",
@@ -5279,6 +5852,139 @@
                 "amenity"
             ],
             "type": "object"
+        },
+        "Wood": {
+            "additionalProperties": false,
+            "description": "Wood - tree-covered area.",
+            "properties": {
+                "bbox": {
+                    "anyOf": [
+                        {
+                            "items": [
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                }
+                            ],
+                            "maxItems": 4,
+                            "minItems": 4,
+                            "type": "array"
+                        },
+                        {
+                            "items": [
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                }
+                            ],
+                            "maxItems": 6,
+                            "minItems": 6,
+                            "type": "array"
+                        }
+                    ],
+                    "description": "Bounding box of the coordinate range of the object's Geometries, Features, or Feature Collections.\nThe value of the bbox member is an array of length 2*n where n is the number of dimensions\nrepresented in the contained geometries, with all axes of the most southwesterly point\nfollowed by all axes of the more northeasterly point.\nThe axes order of a bbox follows the axes order of geometries.\nhttps://tools.ietf.org/html/rfc7946#section-5"
+                },
+                "geometry": {
+                    "$ref": "https://sidewalks.washington.edu/opensidewalks/0.2/schema.json#/definitions/GeoJSON.Polygon",
+                    "description": "The feature's geometry"
+                },
+                "id": {
+                    "description": "A value that uniquely identifies this feature in a\nhttps://tools.ietf.org/html/rfc7946#section-3.2.",
+                    "type": [
+                        "string",
+                        "number"
+                    ]
+                },
+                "properties": {
+                    "$ref": "https://sidewalks.washington.edu/opensidewalks/0.2/schema.json#/definitions/WoodFields",
+                    "description": "Properties associated with this feature."
+                },
+                "type": {
+                    "description": "Specifies the type of GeoJSON object.",
+                    "enum": [
+                        "Feature"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "geometry",
+                "properties",
+                "type"
+            ],
+            "type": "object"
+        },
+        "WoodFields": {
+            "additionalProperties": false,
+            "description": "Fields that apply to woods.",
+            "patternProperties": {
+                "^ext:.*$": {
+                }
+            },
+            "properties": {
+                "_id": {
+                    "minLength": 1,
+                    "type": "string"
+                },
+                "leaf_cycle": {
+                    "description": "A field that describes the phenology of leaves, for instance evergreen or deciduous.",
+                    "enum": [
+                        "deciduous",
+                        "evergreen",
+                        "mixed",
+                        "semi_deciduous",
+                        "semi_evergreen"
+                    ],
+                    "type": "string"
+                },
+                "leaf_type": {
+                    "description": "A field that describes the type of leaves, for instance broadleaved, or needleleaved.",
+                    "enum": [
+                        "broadleaved",
+                        "leafless",
+                        "mixed",
+                        "needleleaved"
+                    ],
+                    "type": "string"
+                },
+                "name": {
+                    "description": "A field for a designated name for an entity. Example: an official name for a trail.",
+                    "type": "string"
+                },
+                "natural": {
+                    "enum": [
+                        "wood"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "_id",
+                "natural"
+            ],
+            "type": "object"
         }
     },
     "properties": {
@@ -5423,16 +6129,40 @@
                         "description": "A street lamp - a street light, lamppost, street lamp, light standard, or lamp standard: a raised source of light above a road, which is turned on or lit at night."
                     },
                     {
+                        "$ref": "https://sidewalks.washington.edu/opensidewalks/0.2/schema.json#/definitions/Tree",
+                        "description": "A tree - a tall, woody plant with branches emanating from a central trunk."
+                    },
+                    {
                         "$ref": "https://sidewalks.washington.edu/opensidewalks/0.2/schema.json#/definitions/PedestrianZone",
-                        "description": "An areas where pedestrians can travel freely in all directions."
+                        "description": "An area where pedestrians can travel freely in all directions."
                     },
                     {
                         "$ref": "https://sidewalks.washington.edu/opensidewalks/0.2/schema.json#/definitions/Fence",
                         "description": "A fence is a freestanding structure designed to restrict or prevent movement across a boundary. It is generally distinguished from a wall by the lightness of its construction."
                     },
                     {
+                        "$ref": "https://sidewalks.washington.edu/opensidewalks/0.2/schema.json#/definitions/TreeRow",
+                        "description": "A tree row is a line of trees often found along roadways, property lines, or at the edges of farms."
+                    },
+                    {
                         "$ref": "https://sidewalks.washington.edu/opensidewalks/0.2/schema.json#/definitions/Building",
                         "description": "A building is a man-made structure with a roof, standing more or less permanently in one place."
+                    },
+                    {
+                        "$ref": "https://sidewalks.washington.edu/opensidewalks/0.2/schema.json#/definitions/Wood",
+                        "description": "Wood - tree-covered area."
+                    },
+                    {
+                        "$ref": "https://sidewalks.washington.edu/opensidewalks/0.2/schema.json#/definitions/CustomLine",
+                        "description": "A custom line is a user-defined LineString feature. It can represent any custom path or linear infrastructure (e.g., temporary detour route)."
+                    },
+                    {
+                        "$ref": "https://sidewalks.washington.edu/opensidewalks/0.2/schema.json#/definitions/CustomPoint",
+                        "description": "A custom point is a user-defined Point feature. It can represent any custom-location marker (e.g., a survey marker)."
+                    },
+                    {
+                        "$ref": "https://sidewalks.washington.edu/opensidewalks/0.2/schema.json#/definitions/CustomPolygon",
+                        "description": "A custom polygon is a user-defined Polygon feature. It can represent any custom area or zone (e.g., event footprint)."
                     }
                 ]
             },

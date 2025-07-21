@@ -200,6 +200,23 @@ export type BuildingField =
  */
 export type OpeningHours = string;
 /**
+ * A field that describes the type of leaves, for instance broadleaved, or needleleaved.
+ */
+export type LeafType =
+| "broadleaved"
+| "needleleaved"
+| "mixed"
+| "leafless";
+/**
+ * A field that describes the phenology of leaves, for instance evergreen or deciduous.
+ */
+export type LeafCycle =
+| "evergreen"
+| "deciduous"
+| "semi_evergreen"
+| "semi_deciduous"
+| "mixed";
+/**
  * A field for the schema version.
  */
 export type SchemaVersion = "0.2";
