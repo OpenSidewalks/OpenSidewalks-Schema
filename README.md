@@ -958,7 +958,7 @@ OpenSidewalks Schema fields are typed key-value pairs. Keys are always strings a
 
 <a id="resources"></a>
 
-Mapping guides, as well as resources for use in JOSM including a map style and presets, are made available in the [resources](./resources/) directory.
+Mapping guides, as well as resources for use in JOSM such as a tagging preset, are made available in the [resources](./resources/) directory.
 
 # Schema Versions
 
