@@ -778,6 +778,20 @@ Lines are features that are geometrically defined by a series of coordinates for
 
 </details>
 
+<a id="tree-row"></a>
+
+<details><summary><b>Tree Row</b></summary>
+
+|  |  |
+| --- | --- |
+| **Description** | A tree row is a line of trees often found along roadways, property lines, or at the edges of farms. |
+| **Subtype of** | _None_ |
+| **Geometry** | LineString |
+| **Identifying Fields** | `natural=tree_row` |
+| **Optional Fields** | [leaf_cycle](#leaf-cycle)<br>[leaf_type](#leaf-type)<br>[length](#length) |
+
+</details>
+
 ### Polygons
 
 <a id="adjacent-polygons"></a>
