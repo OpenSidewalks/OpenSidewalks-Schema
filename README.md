@@ -980,6 +980,18 @@ OpenSidewalks Schema fields are typed key-value pairs. Keys are always strings a
 
 </details>
 
+<a id="leaf-type"></a>
+
+<details><summary><b>leaf_type</b></summary>
+
+|  |  |
+| --- | --- |
+| **Description** | A field that describes the type of leaves. |
+| **Value type** | enum |
+| **Enumerated Values** | - _broadleaved_: Broad, flat leaves.<br>- _leafless_: No leaves.<br>- _mixed_: Multiple trees with different leaf types.<br>- _needleleaved_: Needle-shaped leaves. |
+
+</details>
+
 # Resources
 
 <a id="resources"></a>
