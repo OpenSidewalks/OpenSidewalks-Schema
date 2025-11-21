@@ -812,6 +812,21 @@ Polygons describe 2-dimensional areas which are adjacent to pedestrian paths. Th
 
 </details>
 
+<a id="wood"></a>
+
+<details><summary><b>Wood</b></summary>
+
+|  |  |
+| --- | --- |
+| **Description** | Wood - a tree-covered area |
+| **Subtype of** | _None_ |
+| **Geometry** | Polygon |
+| **Identifying Fields** | `natural=wood` |
+| **Optional Fields** | [leaf_cycle](#leaf-cycle)<br>[leaf_type](#leaf-type)<br>[name](#name)<br>[opening_hours](#opening-hours) |
+
+</details>
+
+
 ## Fields
 
 <a id="fields"></a>
