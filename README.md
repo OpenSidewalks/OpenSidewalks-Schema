@@ -744,6 +744,20 @@ Points are features that are geometrically defined by a single latitude-longitud
 
 </details>
 
+<a id="tree"></a>
+
+<details><summary><b>Tree</b></summary>
+
+|  |  |
+| --- | --- |
+| **Description** | A tree - a tall, woody plant with branches emanating from a central trunk. |
+| **Subtype of** | _None_ |
+| **Geometry** | Point |
+| **Identifying Fields** | `natural=tree` |
+| **Optional Fields** | [leaf_cycle](#leaf-cycle)<br>[leaf_type](#leaf-type) |
+
+</details>
+
 ### Lines
 
 <a id="adjacent-lines"></a>
