@@ -968,6 +968,18 @@ OpenSidewalks Schema fields are typed key-value pairs. Keys are always strings a
 
 </details>
 
+<a id="leaf-cycle"></a>
+
+<details><summary><b>leaf_cycle</b></summary>
+
+|  |  |
+| --- | --- |
+| **Description** | A field that describes the phenology of leaves. |
+| **Value type** | enum |
+| **Enumerated Values** | - _deciduous_: Leaves are shed seasonally, typically in autumn.<br>- _evergreen_: Retains foliage year-round.<br>- _mixed_: Both deciduous and evergreen trees are present. |
+
+</details>
+
 # Resources
 
 <a id="resources"></a>
