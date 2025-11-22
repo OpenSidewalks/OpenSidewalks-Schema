@@ -37,6 +37,7 @@
   - [Fields](#fields)
     - [Fields Overview](#fields-overview)
     - [List of fields](#list-of-fields)
+- [Validation](#validation)
 - [Resources](#resources)
 - [Schema Versions](#schema-versions)
 
@@ -1021,11 +1022,29 @@ OpenSidewalks Schema fields are typed key-value pairs. Keys are always strings a
 
 </details>
 
+# Validation
+
+<a id="validation"></a>
+
+An OpenSideWalks Schema validator is available as a Python library and as a Job Type in the TDEI Portal:
+
+- Library:
+
+  - [PyPI: python-osw-validation](https://pypi.org/project/python-osw-validation/)
+
+  - [GitHub: TaskarCenterAtUW/TDEI-python-lib-osw-validation](https://github.com/TaskarCenterAtUW/TDEI-python-lib-osw-validation)
+
+- Service:
+
+  - [TDEI Portal: Create Job](https://portal.tdei.us/CreateJob): "OSW - Validate" (Dataset-Validate)
+
+  - [GitHub: TaskarCenterAtUW/TDEI-python-osw-validation](https://github.com/TaskarCenterAtUW/TDEI-python-osw-validation)
+
 # Resources
 
 <a id="resources"></a>
 
-Mapping guides, as well as resources for use in JOSM including a map style and presets, are made available in the [resources](./resources/) directory.
+Mapping guides, as well as resources for use in JOSM such as a tagging preset, are made available in the [resources](./resources/) directory.
 
 # Schema Versions
 
