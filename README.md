@@ -37,6 +37,7 @@
   - [Fields](#fields)
     - [Fields Overview](#fields-overview)
     - [List of fields](#list-of-fields)
+- [Validation](#validation)
 - [Resources](#resources)
 - [Schema Versions](#schema-versions)
 
@@ -953,6 +954,24 @@ OpenSidewalks Schema fields are typed key-value pairs. Keys are always strings a
 | **Enumerated Values** | - _yes_: Roads and other objects where the public has a legally-enshrined right for access on foot<br>- _no_: Access on foot or by pedestrians is prohibited.<br>- _designated_: A preferred or designated route for pedestrians.<br>- _permissive_: Access by pedestrians is permitted but permission may be withdrawn at any time.<br>- _use_sidepath_: Use compulsory parallel footpath instead.<br>- _private_: indicates that walking is not allowed for general public, but the owner may make exceptions at will.<br>- _destination_: Transit traffic forbidden for pedestrians, non-transit to a local destination allowed. |
 
 </details>
+
+# Validation
+
+<a id="validation"></a>
+
+An OpenSideWalks Schema validator is available as a Python library and as a Job Type in the TDEI Portal:
+
+- Library:
+
+  - [PyPI: python-osw-validation](https://pypi.org/project/python-osw-validation/)
+
+  - [GitHub: TaskarCenterAtUW/TDEI-python-lib-osw-validation](https://github.com/TaskarCenterAtUW/TDEI-python-lib-osw-validation)
+
+- Service:
+
+  - [TDEI Portal: Create Job](https://portal.tdei.us/CreateJob): "OSW - Validate" (Dataset-Validate)
+
+  - [GitHub: TaskarCenterAtUW/TDEI-python-osw-validation](https://github.com/TaskarCenterAtUW/TDEI-python-osw-validation)
 
 # Resources
 
