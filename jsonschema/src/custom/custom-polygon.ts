@@ -17,6 +17,6 @@ interface CustomPolygonFields extends CustomPolygonIdentifyingFields {
 }
 
 /**
- * A custom polygon is a user-defined Polygon feature. It can represent any custom area or zone (e.g., event footprint).
+ * A custom polygon is a user-defined Polygon feature. It can represent any custom area (e.g., event footprint).
  */
 export type CustomPolygon = Feature<Polygon, CustomPolygonFields>;

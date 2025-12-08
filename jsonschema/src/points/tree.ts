@@ -2,8 +2,8 @@ import { Feature, Point } from "geojson";
 
 import { BasePointFields } from "./base-point-fields";
 import {
-  LeafCycle,
-  LeafType,
+  TreeLeafCycle,
+  TreeLeafType,
 } from "fields";
 
 /**
@@ -17,8 +17,8 @@ interface TreeIdentifyingFields extends BasePointFields {
  * Fields that apply to a tree.
  */
 interface TreeFields extends TreeIdentifyingFields {
-  leaf_type?: LeafType;
-  leaf_cycle?: LeafCycle;
+  leaf_type?: TreeLeafType;
+  leaf_cycle?: TreeLeafCycle;
 }
 
 /**

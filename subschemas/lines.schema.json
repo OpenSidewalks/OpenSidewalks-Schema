@@ -1,0 +1,584 @@
+{
+    "$id": "https://sidewalks.washington.edu/opensidewalks/0.3/schema.json",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "additionalProperties": false,
+    "definitions": {
+        "CompatibleSchemaURI": {
+            "description": "A field for the schema id.",
+            "enum": [
+                "https://sidewalks.washington.edu/opensidewalks/0.2/schema.json",
+                "https://sidewalks.washington.edu/opensidewalks/0.3/schema.json"
+            ],
+            "type": "string"
+        },
+        "CustomLine": {
+            "additionalProperties": false,
+            "description": "A custom line is a user-defined LineString feature. It can represent any linear infrastructure (e.g., a wall).",
+            "properties": {
+                "bbox": {
+                    "anyOf": [
+                        {
+                            "items": [
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                }
+                            ],
+                            "maxItems": 4,
+                            "minItems": 4,
+                            "type": "array"
+                        },
+                        {
+                            "items": [
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                }
+                            ],
+                            "maxItems": 6,
+                            "minItems": 6,
+                            "type": "array"
+                        }
+                    ],
+                    "description": "Bounding box of the coordinate range of the object's Geometries, Features, or Feature Collections.\nThe value of the bbox member is an array of length 2*n where n is the number of dimensions\nrepresented in the contained geometries, with all axes of the most southwesterly point\nfollowed by all axes of the more northeasterly point.\nThe axes order of a bbox follows the axes order of geometries.\nhttps://tools.ietf.org/html/rfc7946#section-5"
+                },
+                "geometry": {
+                    "$ref": "#/definitions/GeoJSON.LineString",
+                    "description": "The feature's geometry"
+                },
+                "id": {
+                    "description": "A value that uniquely identifies this feature in a\nhttps://tools.ietf.org/html/rfc7946#section-3.2.",
+                    "type": [
+                        "string",
+                        "number"
+                    ]
+                },
+                "properties": {
+                    "$ref": "#/definitions/CustomLineFields",
+                    "description": "Properties associated with this feature."
+                },
+                "type": {
+                    "description": "Specifies the type of GeoJSON object.",
+                    "enum": [
+                        "Feature"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "geometry",
+                "properties",
+                "type"
+            ],
+            "type": "object"
+        },
+        "CustomLineFields": {
+            "additionalProperties": false,
+            "description": "Fields that apply to a custom line.",
+            "patternProperties": {
+                "^ext:.*$": {
+                }
+            },
+            "properties": {
+                "_id": {
+                    "minLength": 1,
+                    "type": "string"
+                },
+                "length": {
+                    "description": "A field for the length of an entity in meters. This field is always inferred from the geometry.",
+                    "minimum": 0,
+                    "type": "number"
+                }
+            },
+            "required": [
+                "_id"
+            ],
+            "type": "object"
+        },
+        "Fence": {
+            "additionalProperties": false,
+            "description": "A fence is a freestanding structure designed to restrict or prevent movement across a boundary. It is generally distinguished from a wall by the lightness of its construction.",
+            "properties": {
+                "bbox": {
+                    "anyOf": [
+                        {
+                            "items": [
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                }
+                            ],
+                            "maxItems": 4,
+                            "minItems": 4,
+                            "type": "array"
+                        },
+                        {
+                            "items": [
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                }
+                            ],
+                            "maxItems": 6,
+                            "minItems": 6,
+                            "type": "array"
+                        }
+                    ],
+                    "description": "Bounding box of the coordinate range of the object's Geometries, Features, or Feature Collections.\nThe value of the bbox member is an array of length 2*n where n is the number of dimensions\nrepresented in the contained geometries, with all axes of the most southwesterly point\nfollowed by all axes of the more northeasterly point.\nThe axes order of a bbox follows the axes order of geometries.\nhttps://tools.ietf.org/html/rfc7946#section-5"
+                },
+                "geometry": {
+                    "$ref": "#/definitions/GeoJSON.LineString",
+                    "description": "The feature's geometry"
+                },
+                "id": {
+                    "description": "A value that uniquely identifies this feature in a\nhttps://tools.ietf.org/html/rfc7946#section-3.2.",
+                    "type": [
+                        "string",
+                        "number"
+                    ]
+                },
+                "properties": {
+                    "$ref": "#/definitions/FenceFields",
+                    "description": "Properties associated with this feature."
+                },
+                "type": {
+                    "description": "Specifies the type of GeoJSON object.",
+                    "enum": [
+                        "Feature"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "geometry",
+                "properties",
+                "type"
+            ],
+            "type": "object"
+        },
+        "FenceFields": {
+            "additionalProperties": false,
+            "description": "Fields that apply to a fence.",
+            "patternProperties": {
+                "^ext:.*$": {
+                }
+            },
+            "properties": {
+                "_id": {
+                    "minLength": 1,
+                    "type": "string"
+                },
+                "barrier": {
+                    "enum": [
+                        "fence"
+                    ],
+                    "type": "string"
+                },
+                "length": {
+                    "description": "A field for the length of an entity in meters. This field is always inferred from the geometry.",
+                    "minimum": 0,
+                    "type": "number"
+                }
+            },
+            "required": [
+                "_id",
+                "barrier"
+            ],
+            "type": "object"
+        },
+        "GeoJSON.LineString": {
+            "additionalProperties": false,
+            "description": "LineString geometry object.\nhttps://tools.ietf.org/html/rfc7946#section-3.1.4",
+            "properties": {
+                "bbox": {
+                    "anyOf": [
+                        {
+                            "items": [
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                }
+                            ],
+                            "maxItems": 4,
+                            "minItems": 4,
+                            "type": "array"
+                        },
+                        {
+                            "items": [
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                }
+                            ],
+                            "maxItems": 6,
+                            "minItems": 6,
+                            "type": "array"
+                        }
+                    ],
+                    "description": "Bounding box of the coordinate range of the object's Geometries, Features, or Feature Collections.\nThe value of the bbox member is an array of length 2*n where n is the number of dimensions\nrepresented in the contained geometries, with all axes of the most southwesterly point\nfollowed by all axes of the more northeasterly point.\nThe axes order of a bbox follows the axes order of geometries.\nhttps://tools.ietf.org/html/rfc7946#section-5"
+                },
+                "coordinates": {
+                    "items": {
+                        "description": "A Position is an array of coordinates.\nhttps://tools.ietf.org/html/rfc7946#section-3.1.1\nArray should contain between two and three elements.\nThe previous GeoJSON specification allowed more elements (e.g., which could be used to represent M values),\nbut the current specification only allows X, Y, and (optionally) Z to be defined.",
+                        "items": {
+                            "type": "number"
+                        },
+                        "type": "array"
+                    },
+                    "type": "array"
+                },
+                "type": {
+                    "description": "Specifies the type of GeoJSON object.",
+                    "enum": [
+                        "LineString"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "coordinates",
+                "type"
+            ],
+            "type": "object"
+        },
+        "GeoJSON.MultiPolygon": {
+            "additionalProperties": false,
+            "description": "MultiPolygon geometry object.\nhttps://tools.ietf.org/html/rfc7946#section-3.1.7",
+            "properties": {
+                "bbox": {
+                    "anyOf": [
+                        {
+                            "items": [
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                }
+                            ],
+                            "maxItems": 4,
+                            "minItems": 4,
+                            "type": "array"
+                        },
+                        {
+                            "items": [
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                }
+                            ],
+                            "maxItems": 6,
+                            "minItems": 6,
+                            "type": "array"
+                        }
+                    ],
+                    "description": "Bounding box of the coordinate range of the object's Geometries, Features, or Feature Collections.\nThe value of the bbox member is an array of length 2*n where n is the number of dimensions\nrepresented in the contained geometries, with all axes of the most southwesterly point\nfollowed by all axes of the more northeasterly point.\nThe axes order of a bbox follows the axes order of geometries.\nhttps://tools.ietf.org/html/rfc7946#section-5"
+                },
+                "coordinates": {
+                    "items": {
+                        "items": {
+                            "items": {
+                                "description": "A Position is an array of coordinates.\nhttps://tools.ietf.org/html/rfc7946#section-3.1.1\nArray should contain between two and three elements.\nThe previous GeoJSON specification allowed more elements (e.g., which could be used to represent M values),\nbut the current specification only allows X, Y, and (optionally) Z to be defined.",
+                                "items": {
+                                    "type": "number"
+                                },
+                                "type": "array"
+                            },
+                            "type": "array"
+                        },
+                        "type": "array"
+                    },
+                    "type": "array"
+                },
+                "type": {
+                    "description": "Specifies the type of GeoJSON object.",
+                    "enum": [
+                        "MultiPolygon"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "coordinates",
+                "type"
+            ],
+            "type": "object"
+        },
+        "TreeRow": {
+            "additionalProperties": false,
+            "description": "A tree row is a line of trees often found along roadways, property lines, or at the edges of farms.",
+            "properties": {
+                "bbox": {
+                    "anyOf": [
+                        {
+                            "items": [
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                }
+                            ],
+                            "maxItems": 4,
+                            "minItems": 4,
+                            "type": "array"
+                        },
+                        {
+                            "items": [
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                }
+                            ],
+                            "maxItems": 6,
+                            "minItems": 6,
+                            "type": "array"
+                        }
+                    ],
+                    "description": "Bounding box of the coordinate range of the object's Geometries, Features, or Feature Collections.\nThe value of the bbox member is an array of length 2*n where n is the number of dimensions\nrepresented in the contained geometries, with all axes of the most southwesterly point\nfollowed by all axes of the more northeasterly point.\nThe axes order of a bbox follows the axes order of geometries.\nhttps://tools.ietf.org/html/rfc7946#section-5"
+                },
+                "geometry": {
+                    "$ref": "#/definitions/GeoJSON.LineString",
+                    "description": "The feature's geometry"
+                },
+                "id": {
+                    "description": "A value that uniquely identifies this feature in a\nhttps://tools.ietf.org/html/rfc7946#section-3.2.",
+                    "type": [
+                        "string",
+                        "number"
+                    ]
+                },
+                "properties": {
+                    "$ref": "#/definitions/TreeRowFields",
+                    "description": "Properties associated with this feature."
+                },
+                "type": {
+                    "description": "Specifies the type of GeoJSON object.",
+                    "enum": [
+                        "Feature"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "geometry",
+                "properties",
+                "type"
+            ],
+            "type": "object"
+        },
+        "TreeRowFields": {
+            "additionalProperties": false,
+            "description": "Fields that apply to a tree row.",
+            "patternProperties": {
+                "^ext:.*$": {
+                }
+            },
+            "properties": {
+                "_id": {
+                    "minLength": 1,
+                    "type": "string"
+                },
+                "leaf_cycle": {
+                    "description": "A field that describes the phenology of leaves, for instance evergreen or deciduous for a group of trees.",
+                    "enum": [
+                        "deciduous",
+                        "evergreen",
+                        "mixed",
+                        "semi_deciduous",
+                        "semi_evergreen"
+                    ],
+                    "type": "string"
+                },
+                "leaf_type": {
+                    "description": "A field that describes the type of leaves, for instance broadleaved, or needleleaved for a group of trees.",
+                    "enum": [
+                        "broadleaved",
+                        "leafless",
+                        "mixed",
+                        "needleleaved"
+                    ],
+                    "type": "string"
+                },
+                "length": {
+                    "description": "A field for the length of an entity in meters. This field is always inferred from the geometry.",
+                    "minimum": 0,
+                    "type": "number"
+                },
+                "natural": {
+                    "enum": [
+                        "tree_row"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "_id",
+                "natural"
+            ],
+            "type": "object"
+        }
+    },
+    "properties": {
+        "$schema": {
+            "$ref": "#/definitions/CompatibleSchemaURI"
+        },
+        "dataSource": {
+            "additionalProperties": true,
+            "properties": {
+            },
+            "type": "object"
+        },
+        "dataTimestamp": {
+            "format": "date-time",
+            "type": "string"
+        },
+        "features": {
+            "items": {
+                "anyOf": [
+                    {
+                        "$ref": "#/definitions/Fence",
+                        "description": "A fence is a freestanding structure designed to restrict or prevent movement across a boundary. It is generally distinguished from a wall by the lightness of its construction."
+                    },
+                    {
+                        "$ref": "#/definitions/TreeRow",
+                        "description": "A tree row is a line of trees often found along roadways, property lines, or at the edges of farms."
+                    },
+                    {
+                        "$ref": "#/definitions/CustomLine",
+                        "description": "A custom line is a user-defined LineString feature. It can represent any linear infrastructure (e.g., a wall)."
+                    }
+                ]
+            },
+            "type": "array"
+        },
+        "pipelineVersion": {
+            "additionalProperties": true,
+            "properties": {
+            },
+            "type": "object"
+        },
+        "region": {
+            "$ref": "#/definitions/GeoJSON.MultiPolygon",
+            "description": "MultiPolygon geometry object.\nhttps://tools.ietf.org/html/rfc7946#section-3.1.7"
+        },
+        "type": {
+            "enum": [
+                "FeatureCollection"
+            ],
+            "type": "string"
+        }
+    },
+    "required": [
+        "$schema",
+        "features",
+        "type"
+    ],
+    "type": "object"
+}
