@@ -5573,9 +5573,7 @@
                     "description": "A field that describes the phenology of leaves, for instance evergreen or deciduous for a single tree.",
                     "enum": [
                         "deciduous",
-                        "evergreen",
-                        "semi_deciduous",
-                        "semi_evergreen"
+                        "evergreen"
                     ],
                     "type": "string"
                 },
@@ -5701,9 +5699,7 @@
                     "enum": [
                         "deciduous",
                         "evergreen",
-                        "mixed",
-                        "semi_deciduous",
-                        "semi_evergreen"
+                        "mixed"
                     ],
                     "type": "string"
                 },
@@ -6285,9 +6281,7 @@
                     "enum": [
                         "deciduous",
                         "evergreen",
-                        "mixed",
-                        "semi_deciduous",
-                        "semi_evergreen"
+                        "mixed"
                     ],
                     "type": "string"
                 },

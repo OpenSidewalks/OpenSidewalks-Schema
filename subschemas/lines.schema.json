@@ -490,9 +490,7 @@
                     "enum": [
                         "deciduous",
                         "evergreen",
-                        "mixed",
-                        "semi_deciduous",
-                        "semi_evergreen"
+                        "mixed"
                     ],
                     "type": "string"
                 },

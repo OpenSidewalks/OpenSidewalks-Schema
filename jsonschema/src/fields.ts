@@ -216,9 +216,7 @@ TreeLeafType
  */
 export type TreeLeafCycle =
 | "evergreen"
-| "deciduous"
-| "semi_evergreen"
-| "semi_deciduous";
+| "deciduous";
 /**
  * A field that describes the phenology of leaves, for instance evergreen or deciduous for a group of trees.
  */
