@@ -15,6 +15,10 @@
       - [Points](#points)
       - [Lines](#lines)
       - [Polygons](#polygons)
+    - [3. Custom Entities](#3-custom-entities)
+      - [Points](#points-c)
+      - [Lines](#lines-c)
+      - [Polygons](#polygons-c)
   - [Entity Attributes](#entity-attributes)
   - [Entity Type Inference](#entity-type-inference)
   - [Metadata Fields](#metadata-fields)
@@ -34,6 +38,10 @@
     - [Points](#points-1)
     - [Lines](#lines-1)
     - [Polygons](#polygons-1)
+  - [List of Custom Entities](#list-of-custom-entities)
+    - [Points](#points-c)
+    - [Lines](#lines-c)
+    - [Polygons](#polygons-c)
   - [Fields](#fields)
     - [Fields Overview](#fields-overview)
     - [List of fields](#list-of-fields)
@@ -144,6 +152,16 @@ Lines are features that are geometrically defined by a series of coordinates for
 <a id="polygons"></a>
 
 Polygons describe 2-dimensional areas which are adjacent to pedestrian paths. They are explicitly **not** elements of the pedestrian network definition (i.e. the graph structure described by Nodes, Edges and Zones), but they are still highly relevant to the physical pedestrian network. All Polygons must have a unique `_id` field.
+
+### 3. Custom Entities
+
+<a id="custom-entities"></a>
+
+Custom Entities are user-defined features that extend the OpenSidewalks Schema beyond the predefined Core and Adjacent categories. They enable incorporation of bespoke data layers while maintaining schema consistency. Custom Entities can take one of three geometry types:
+
+- [Points](#points-c)
+- [Lines](#lines-c)
+- [Polygons](#polygons-c)
 
 ## Entity Attributes
 
@@ -827,6 +845,57 @@ Polygons describe 2-dimensional areas which are adjacent to pedestrian paths. Th
 
 </details>
 
+## List of Custom Entities
+
+<a id="list-of-custom-entities"></a>
+
+### Custom Point
+
+<a id="points-c"></a>
+
+<details><summary><b>Custom Point</b></summary>
+
+|  |  |
+| --- | --- |
+| **Description** | A custom point is a user-defined Point feature. It can represent any custom-location marker (e.g., a survey marker). |
+| **Subtype of** | _None_ |
+| **Geometry** | Point |
+| **Identifying Fields** | _None_ |
+| **Optional Fields** | Additional fields (ext: prefixed) |
+
+</details>
+
+### Custom Line
+
+<a id="lines-c"></a>
+
+<details><summary><b>Custom Line</b></summary>
+
+|  |  |
+| --- | --- |
+| **Description** | A custom line is a user-defined LineString feature. It can represent any custom path or linear infrastructure (e.g., temporary detour route). |
+| **Subtype of** | _None_ |
+| **Geometry** | LineString |
+| **Identifying Fields** | _None_ |
+| **Optional Fields** | Additional fields (ext: prefixed) |
+
+</details>
+
+### Custom Polygon
+
+<a id="polygons-c"></a>
+
+<details><summary><b>Custom Polygon</b></summary>
+
+|  |  |
+| --- | --- |
+| **Description** | A custom polygon is a user-defined Polygon feature. It can represent any custom area or zone (e.g., event footprint). |
+| **Subtype of** | _None_ |
+| **Geometry** | Polygon |
+| **Identifying Fields** | _None_ |
+| **Optional Fields** | Additional fields (ext: prefixed) |
+
+</details>
 
 ## Fields
 

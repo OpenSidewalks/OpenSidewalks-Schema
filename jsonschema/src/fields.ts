@@ -34,7 +34,6 @@ export type Incline = number;
 /**
  * A field for the length of an entity in meters. This field is always inferred from the geometry.
  * @minimum 0
- * @maximum 5000
  */
 export type Length = number;
 /**
@@ -200,10 +199,37 @@ export type BuildingField =
  */
 export type OpeningHours = string;
 /**
+ * A field that describes the type of leaves, for instance broadleaved, or needleleaved for a single tree.
+ */
+export type TreeLeafType =
+| "broadleaved"
+| "needleleaved"
+| "leafless";
+/**
+ * A field that describes the type of leaves, for instance broadleaved, or needleleaved for a group of trees.
+ */
+export type LeafType =
+TreeLeafType
+| "mixed";
+/**
+ * A field that describes the phenology of leaves, for instance evergreen or deciduous for a single tree.
+ */
+export type TreeLeafCycle =
+| "evergreen"
+| "deciduous";
+/**
+ * A field that describes the phenology of leaves, for instance evergreen or deciduous for a group of trees.
+ */
+export type LeafCycle =
+TreeLeafCycle
+| "mixed";
+/**
  * A field for the schema version.
  */
-export type SchemaVersion = "0.2";
+export type CompatibleSchemaVersion =
+| "0.2"
+| "0.3";
 /**
  * A field for the schema id.
  */
-export type SchemaID = `https://sidewalks.washington.edu/opensidewalks/${SchemaVersion}/schema.json`;
+export type CompatibleSchemaURI = `https://sidewalks.washington.edu/opensidewalks/${CompatibleSchemaVersion}/schema.json`;
