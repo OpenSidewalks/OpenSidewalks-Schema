@@ -1,7 +1,6 @@
 import { Feature, LineString } from "geojson";
 
 import { BaseLineFields } from "./base-line-fields";
-import { Length } from "../fields";
 
 /**
  * Fields that identify a fence.
@@ -14,7 +13,7 @@ interface FenceIdentifyingFields extends BaseLineFields {
  * Fields that apply to a fence.
  */
 interface FenceFields extends FenceIdentifyingFields {
-  length?: Length;
+
 }
 
 /**

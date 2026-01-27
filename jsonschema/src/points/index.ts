@@ -10,6 +10,7 @@ import { WasteBasket } from "./waste-basket";
 import { Manhole } from "./manhole";
 import { Bollard } from "./bollard";
 import { StreetLamp } from "./street-lamp";
+import { Tree } from "./tree";
 
 export type Point =
   | FireHydrant
@@ -18,4 +19,5 @@ export type Point =
   | WasteBasket
   | Manhole
   | Bollard
-  | StreetLamp;
+  | StreetLamp
+  | Tree;

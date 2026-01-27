@@ -20,6 +20,5 @@ interface CurbRampFields extends CurbRampIdentifyingFields {
 
 /**
  * A curb ramp (curb cut) mapped as a curb interface. Mapped at the location where the two edges that it connects meet one another.
- *
  */
 export type CurbRamp = Feature<Point, CurbRampFields>;
