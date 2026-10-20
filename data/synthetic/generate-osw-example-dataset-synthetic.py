@@ -140,11 +140,15 @@ NETWORK_NODE_IDS = {
     "right_curb": "network_right_curb",
     "right_connector_end": "network_right_connector_end",
     "right_sidewalk_start": "network_right_sidewalk_start",
+    "right_steps_end": "network_right_steps_end",
+    "right_sidewalk_after_steps_end": "network_right_sidewalk_after_steps_end",
     "zone_left": "network_zone_left",
     "zone_lower_left": "network_zone_lower_left",
     "zone_lower_right": "network_zone_lower_right",
+    "zone_lower_right_sidewalk_end": "network_zone_lower_right_sidewalk_end",
     "zone_right": "network_zone_right",
     "zone_upper_right": "network_zone_upper_right",
+    "zone_upper_right_sidewalk_end": "network_zone_upper_right_sidewalk_end",
     "zone_upper_left": "network_zone_upper_left",
     "right_sidewalk_end": "network_right_sidewalk_end",
 }
@@ -500,14 +504,22 @@ def generate_network(outputs: dict[str, list[dict[str, Any]]], args: argparse.Na
         "zone_right": (x + 7 * horizontal_step, lat),
         "right_sidewalk_start": (x + 7.5 * horizontal_step, lat),
         "right_sidewalk_end": (x + 8 * horizontal_step, lat),
+        "right_steps_end": (x + 8.5 * horizontal_step, lat),
+        "right_sidewalk_after_steps_end": (x + 9 * horizontal_step, lat),
         "zone_lower_left": (x + 6 * horizontal_step, lat - vertical_step),
         "zone_lower_right": (x + 7 * horizontal_step, lat - vertical_step),
+        "zone_lower_right_sidewalk_end": (
+            x + 7.5 * horizontal_step, lat - vertical_step),
         "zone_upper_right": (x + 7 * horizontal_step, lat + vertical_step),
+        "zone_upper_right_sidewalk_end": (
+            x + 7.5 * horizontal_step, lat + vertical_step),
         "zone_upper_left": (x + 6 * horizontal_step, lat + vertical_step),
     }
     for node_id, (lon, node_lat) in positions.items():
         node_type = "BareNode"
-        if node_id in {"left_curb", "right_curb"}:
+        if node_id == "left_curb":
+            node_type = "RaisedCurb"
+        elif node_id == "right_curb":
             node_type = "CurbRamp"
         outputs["nodes"].append(
             feature(
@@ -528,10 +540,18 @@ def generate_network(outputs: dict[str, list[dict[str, Any]]], args: argparse.Na
         ("Crossing", "network_right_crossing", "road_center", "right_curb"),
         ("Footway", "network_right_connector",
          "right_curb", "right_connector_end"),
-        ("Footway", "network_zone_approach", "right_connector_end", "zone_left"),
+        ("Sidewalk", "network_zone_approach", "right_connector_end", "zone_left"),
         ("Footway", "network_zone_exit", "zone_right", "right_sidewalk_start"),
+        ("Sidewalk", "network_zone_diagonal_sidewalk", "zone_left", "zone_upper_right"),
+        ("Sidewalk", "network_zone_lower_right_sidewalk",
+         "zone_lower_right", "zone_lower_right_sidewalk_end"),
+        ("Sidewalk", "network_zone_upper_right_sidewalk",
+         "zone_upper_right", "zone_upper_right_sidewalk_end"),
         ("Sidewalk", "network_right_sidewalk",
          "right_sidewalk_start", "right_sidewalk_end"),
+        ("Steps", "network_right_steps", "right_sidewalk_end", "right_steps_end"),
+        ("Sidewalk", "network_right_sidewalk_after_steps",
+         "right_steps_end", "right_sidewalk_after_steps_end"),
     ]
     for feature_type, edge_id, start, end in edges:
         start_lon, start_lat = positions[start]
