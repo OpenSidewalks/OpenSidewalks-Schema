@@ -7,11 +7,12 @@ import {
     Surface,
     Width,
   } from "../../fields";
+import { RoadsideFields } from "./roadside-fields";
 
 /**
  * Fields that apply to roads.
  */
-export interface RoadFields {
+export interface RoadFields extends RoadsideFields {
     description?: Description;
     foot?: Foot;
     incline?: Incline;

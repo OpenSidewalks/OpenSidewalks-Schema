@@ -228,8 +228,71 @@ TreeLeafCycle
  */
 export type CompatibleSchemaVersion =
 | "0.2"
-| "0.3";
+| "0.3"
+| "0.4";
+
 /**
  * A field for the schema id.
  */
 export type CompatibleSchemaURI = `https://sidewalks.washington.edu/opensidewalks/${CompatibleSchemaVersion}/schema.json`;
+
+/**
+ * Whether a roadside feature is present, absent, or unknown.
+ */
+export type RoadsidePresence =
+  | "yes"
+  | "no"
+  | "unknown";
+
+/**
+ * Whether a sidewalk is absent or its presence is unknown.
+ */
+export type SidewalkPresence =
+  | "no"
+  | "unknown";
+
+/**
+ * Surface types used for traversable roadside features.
+ */
+export type RoadsideSurface =
+  | "asphalt"
+  | "concrete"
+  | "paving_stones"
+  | "gravel"
+  | "dirt"
+  | "grass"
+  | "unknown";
+
+/**
+ * Primary separation type on the inner edge of a roadside feature.
+ */
+export type RoadsideSeparation =
+  | "barrier"
+  | "bollard"
+  | "fence"
+  | "flex_post"
+  | "guard_rail"
+  | "jersey_barrier"
+  | "kerb"
+  | "upright_reflector"
+  | "painted_line"
+  | "parking_lane"
+  | "none"
+  | "unknown";
+
+/**
+ * Roadside feature width in meters, or "unknown".
+ * @minimum 0
+ */
+export type RoadsideWidth =
+  | number
+  | "unknown";
+
+/**
+ * Roadside feature running or cross slope, or "unknown".
+ * @minimum -1.0
+ * @maximum 1.0
+ */
+export type RoadsideSlope =
+  | number
+  | "unknown";

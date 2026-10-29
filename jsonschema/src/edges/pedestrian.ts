@@ -1,14 +1,7 @@
 import { Feature, LineString } from "geojson";
 
 import { BaseEdgeFields } from "./base-edge-fields";
-import {
-  Description,
-  Incline,
-  Length,
-  Name,
-  Surface,
-  Width,
-} from "../fields";
+import { RoadFields } from "./roads/road";
 
 /**
  * Fields that identify a pedestrian road.
@@ -20,14 +13,9 @@ interface PedestrianIdentifyingFields extends BaseEdgeFields {
 /**
  * Fields that apply to a pedestrian road.
  */
-export interface PedestrianFields extends PedestrianIdentifyingFields {
-  description?: Description;
-  incline?: Incline;
-  length?: Length;
-  name?: Name;
-  surface?: Surface;
-  width?: Width;
-}
+export interface PedestrianFields
+  extends PedestrianIdentifyingFields,
+  RoadFields {}
 
 /**
  * For a road or an area mainly or exclusively for pedestrians in which some vehicle traffic may be authorized.
