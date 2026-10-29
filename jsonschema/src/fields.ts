@@ -276,6 +276,7 @@ export type RoadsideSeparation =
   | "kerb"
   | "upright_reflector"
   | "painted_line"
+  | "parking_lane"
   | "none"
   | "unknown";
 

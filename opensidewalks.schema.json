@@ -192,6 +192,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -272,6 +273,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -315,6 +317,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -470,6 +473,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -550,6 +554,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -593,6 +598,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -760,6 +766,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -840,6 +847,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -883,6 +891,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -1031,6 +1040,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -1111,6 +1121,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -1154,6 +1165,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -3193,6 +3205,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -3273,6 +3286,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -3316,6 +3330,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -3471,6 +3486,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -3551,6 +3567,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -3594,6 +3611,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -3761,6 +3779,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -3841,6 +3860,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -3884,6 +3904,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -4032,6 +4053,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -4112,6 +4134,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -4155,6 +4178,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -5340,6 +5364,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -5420,6 +5445,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -5463,6 +5489,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -5618,6 +5645,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -5698,6 +5726,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -5741,6 +5770,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -5902,6 +5932,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -5982,6 +6013,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -6025,6 +6057,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -6173,6 +6206,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -6253,6 +6287,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -6296,6 +6331,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -6639,6 +6675,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -6719,6 +6756,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -6762,6 +6800,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -6917,6 +6956,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -6997,6 +7037,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -7040,6 +7081,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -7207,6 +7249,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -7287,6 +7330,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -7330,6 +7374,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -7478,6 +7523,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -7558,6 +7604,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -7601,6 +7648,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -7837,6 +7885,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -7917,6 +7966,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -7960,6 +8010,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -8115,6 +8166,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -8195,6 +8247,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -8238,6 +8291,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -8399,6 +8453,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -8479,6 +8534,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -8522,6 +8578,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -8670,6 +8727,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -8750,6 +8808,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -8793,6 +8852,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -9287,6 +9347,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -9367,6 +9428,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -9410,6 +9472,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -9565,6 +9628,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -9645,6 +9709,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -9688,6 +9753,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -9849,6 +9915,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -9929,6 +9996,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -9972,6 +10040,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -10120,6 +10189,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -10200,6 +10270,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -10243,6 +10314,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -10831,6 +10903,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -10911,6 +10984,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -10954,6 +11028,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -11109,6 +11184,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -11189,6 +11265,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -11232,6 +11309,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -11393,6 +11471,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -11473,6 +11552,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -11516,6 +11596,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -11664,6 +11745,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -11744,6 +11826,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -11787,6 +11870,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -12147,6 +12231,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -12227,6 +12312,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -12270,6 +12356,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -12425,6 +12512,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -12505,6 +12593,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -12548,6 +12637,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -12709,6 +12799,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -12789,6 +12880,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -12832,6 +12924,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -12980,6 +13073,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -13060,6 +13154,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -13103,6 +13198,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -13338,6 +13434,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -13418,6 +13515,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -13461,6 +13559,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -13616,6 +13715,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -13696,6 +13796,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -13739,6 +13840,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -13900,6 +14002,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -13980,6 +14083,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -14023,6 +14127,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -14171,6 +14276,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -14251,6 +14357,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -14294,6 +14401,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -15107,6 +15215,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -15187,6 +15296,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -15230,6 +15340,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -15385,6 +15496,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -15465,6 +15577,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -15508,6 +15621,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -15669,6 +15783,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -15749,6 +15864,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -15792,6 +15908,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -15940,6 +16057,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -16020,6 +16138,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -16063,6 +16182,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -16297,6 +16417,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -16377,6 +16498,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -16420,6 +16542,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -16575,6 +16698,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -16655,6 +16779,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -16698,6 +16823,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -16859,6 +16985,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -16939,6 +17066,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -16982,6 +17110,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -17130,6 +17259,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -17210,6 +17340,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -17253,6 +17384,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -17923,6 +18055,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -18003,6 +18136,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -18046,6 +18180,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -18201,6 +18336,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -18281,6 +18417,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -18324,6 +18461,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -18485,6 +18623,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -18565,6 +18704,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -18608,6 +18748,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -18756,6 +18897,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -18836,6 +18978,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -18879,6 +19022,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -19114,6 +19258,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -19194,6 +19339,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -19237,6 +19383,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -19392,6 +19539,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -19472,6 +19620,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -19515,6 +19664,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -19676,6 +19826,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -19756,6 +19907,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -19799,6 +19951,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -19947,6 +20100,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -20027,6 +20181,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
@@ -20070,6 +20225,7 @@
                         "kerb",
                         "none",
                         "painted_line",
+                        "parking_lane",
                         "unknown",
                         "upright_reflector"
                     ],
