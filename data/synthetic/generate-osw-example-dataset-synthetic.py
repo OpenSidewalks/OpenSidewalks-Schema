@@ -30,11 +30,13 @@ import math
 import sys
 import tempfile
 import zipfile
+from decimal import Decimal, ROUND_DOWN
 from pathlib import Path
 from typing import Any, cast
 
 BASE_NAME = "osw-example-dataset-synthetic"
 CATEGORY_ORDER = ("nodes", "edges", "zones", "points", "lines", "polygons")
+COORDINATE_QUANTUM = Decimal("0.0000001")
 DEFAULT_HORIZONTAL_SPACING = 0.001
 FEATURE_LENGTH_FEET = 250
 FEATURE_LENGTH_METERS = FEATURE_LENGTH_FEET * 0.3048
@@ -916,6 +918,27 @@ def generate_network(
     )
 
 
+def truncate_coordinate_values(coordinates: Any) -> Any:
+    if isinstance(coordinates, list):
+        return [truncate_coordinate_values(value) for value in coordinates]
+    return float(
+        Decimal(str(coordinates)).quantize(
+            COORDINATE_QUANTUM, rounding=ROUND_DOWN
+        )
+    )
+
+
+def truncate_generated_coordinates(
+    outputs: dict[str, list[dict[str, Any]]],
+) -> None:
+    for features in outputs.values():
+        for generated_feature in features:
+            geometry = generated_feature["geometry"]
+            geometry["coordinates"] = truncate_coordinate_values(
+                geometry["coordinates"]
+            )
+
+
 def validate_with_jsonschema(
     outputs: dict[str, list[dict[str, Any]]],
     schema: dict[str, Any],
@@ -1018,6 +1041,7 @@ def main() -> int:
         geometry_by_category,
         identifying_values,
     )
+    truncate_generated_coordinates(outputs)
     validate_with_jsonschema(outputs, schema, schema_uri)
     write_archive(outputs, output_path, category_types, schema_uri)
     print(f"Created {output_path}")
