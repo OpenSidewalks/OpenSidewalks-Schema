@@ -920,7 +920,10 @@ def generate_network(
 
 def truncate_coordinate_values(coordinates: Any) -> Any:
     if isinstance(coordinates, list):
-        return [truncate_coordinate_values(value) for value in coordinates]
+        return [
+            truncate_coordinate_values(value)
+            for value in cast(list[Any], coordinates)
+        ]
     return float(
         Decimal(str(coordinates)).quantize(
             COORDINATE_QUANTUM, rounding=ROUND_DOWN
