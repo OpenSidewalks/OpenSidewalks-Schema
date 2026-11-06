@@ -43,6 +43,7 @@ FEATURE_LENGTH_METERS = FEATURE_LENGTH_FEET * 0.3048
 # One degree of latitude is approximately 364,000 feet. Longitude degrees
 # vary by latitude, so their delta is calculated rather than reused directly.
 FEATURE_LATITUDE_DEGREES = FEATURE_LENGTH_FEET / 364_000
+NETWORK_EASTERNMOST_STEP_COUNT = 9
 
 NETWORK_NODE_IDS = {
     "left_sidewalk_end": "network_left_sidewalk_end",
@@ -557,7 +558,9 @@ def maximum_generated_longitude(
     network_lat = network_north_lat - FEATURE_LATITUDE_DEGREES
     maximum = max(
         maximum,
-        args.origin_lon + 8 * longitude_delta_degrees(network_lat),
+        args.origin_lon
+        + NETWORK_EASTERNMOST_STEP_COUNT
+        * longitude_delta_degrees(network_lat),
     )
     return maximum
 
@@ -820,7 +823,10 @@ def generate_network(
         "right_sidewalk_start": (x + 7.5 * horizontal_step, lat),
         "right_sidewalk_end": (x + 8 * horizontal_step, lat),
         "right_steps_end": (x + 8.5 * horizontal_step, lat),
-        "right_sidewalk_after_steps_end": (x + 9 * horizontal_step, lat),
+        "right_sidewalk_after_steps_end": (
+            x + NETWORK_EASTERNMOST_STEP_COUNT * horizontal_step,
+            lat,
+        ),
         "zone_lower_left": (x + 6 * horizontal_step, lat - vertical_step),
         "zone_lower_right": (x + 7 * horizontal_step, lat - vertical_step),
         "zone_lower_right_sidewalk_end": (
