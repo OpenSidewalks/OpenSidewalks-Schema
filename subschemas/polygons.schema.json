@@ -1,5 +1,5 @@
 {
-    "$id": "https://sidewalks.washington.edu/opensidewalks/0.3/schema.json",
+    "$id": "https://sidewalks.washington.edu/opensidewalks/0.4/schema.json",
     "$schema": "http://json-schema.org/draft-07/schema#",
     "additionalProperties": false,
     "definitions": {
@@ -225,7 +225,8 @@
             "description": "A field for the schema id.",
             "enum": [
                 "https://sidewalks.washington.edu/opensidewalks/0.2/schema.json",
-                "https://sidewalks.washington.edu/opensidewalks/0.3/schema.json"
+                "https://sidewalks.washington.edu/opensidewalks/0.3/schema.json",
+                "https://sidewalks.washington.edu/opensidewalks/0.4/schema.json"
             ],
             "type": "string"
         },
@@ -493,6 +494,120 @@
             ],
             "type": "object"
         },
+        "PublicTransportShelterPolygon": {
+            "additionalProperties": false,
+            "description": "A shelter for waiting public transit passengers, mapped as a polygon.",
+            "properties": {
+                "bbox": {
+                    "anyOf": [
+                        {
+                            "items": [
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                }
+                            ],
+                            "maxItems": 4,
+                            "minItems": 4,
+                            "type": "array"
+                        },
+                        {
+                            "items": [
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                },
+                                {
+                                    "type": "number"
+                                }
+                            ],
+                            "maxItems": 6,
+                            "minItems": 6,
+                            "type": "array"
+                        }
+                    ],
+                    "description": "Bounding box of the coordinate range of the object's Geometries, Features, or Feature Collections.\nThe value of the bbox member is an array of length 2*n where n is the number of dimensions\nrepresented in the contained geometries, with all axes of the most southwesterly point\nfollowed by all axes of the more northeasterly point.\nThe axes order of a bbox follows the axes order of geometries.\nhttps://tools.ietf.org/html/rfc7946#section-5"
+                },
+                "geometry": {
+                    "$ref": "#/definitions/GeoJSON.Polygon",
+                    "description": "The feature's geometry"
+                },
+                "id": {
+                    "description": "A value that uniquely identifies this feature in a\nhttps://tools.ietf.org/html/rfc7946#section-3.2.",
+                    "type": [
+                        "string",
+                        "number"
+                    ]
+                },
+                "properties": {
+                    "$ref": "#/definitions/PublicTransportShelterPolygonFields",
+                    "description": "Properties associated with this feature."
+                },
+                "type": {
+                    "description": "Specifies the type of GeoJSON object.",
+                    "enum": [
+                        "Feature"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "geometry",
+                "properties",
+                "type"
+            ],
+            "type": "object"
+        },
+        "PublicTransportShelterPolygonFields": {
+            "additionalProperties": false,
+            "patternProperties": {
+                "^ext:.*$": {
+                }
+            },
+            "properties": {
+                "_id": {
+                    "minLength": 1,
+                    "type": "string"
+                },
+                "amenity": {
+                    "enum": [
+                        "shelter"
+                    ],
+                    "type": "string"
+                },
+                "shelter_type": {
+                    "enum": [
+                        "public_transport"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "_id",
+                "amenity",
+                "shelter_type"
+            ],
+            "type": "object"
+        },
         "Wood": {
             "additionalProperties": false,
             "description": "Wood - tree-covered area.",
@@ -649,6 +764,10 @@
                     {
                         "$ref": "#/definitions/Wood",
                         "description": "Wood - tree-covered area."
+                    },
+                    {
+                        "$ref": "#/definitions/PublicTransportShelterPolygon",
+                        "description": "A shelter for waiting public transit passengers, mapped as a polygon."
                     },
                     {
                         "$ref": "#/definitions/CustomPolygon",

@@ -11,8 +11,12 @@ import { Manhole } from "./manhole";
 import { Bollard } from "./bollard";
 import { StreetLamp } from "./street-lamp";
 import { Tree } from "./tree";
+import { BicycleParking } from "./bicycle-parking";
+import { StreetCabinet } from "./street-cabinet";
+import { PublicTransportShelterPoint } from "./public-transport-shelter";
 
 export type Point =
+  | BicycleParking
   | FireHydrant
   | PowerPole
   | Bench
@@ -20,4 +24,6 @@ export type Point =
   | Manhole
   | Bollard
   | StreetLamp
+  | StreetCabinet
+  | PublicTransportShelterPoint
   | Tree;

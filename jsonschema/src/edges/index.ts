@@ -4,6 +4,7 @@ import { Sidewalk } from "./sidewalk";
 import { TrafficIsland } from "./traffic-island";
 import { Steps } from "./steps";
 import { Pedestrian } from "./pedestrian";
+import { CyclePath } from "./cycle-path";
 
 import { PrimaryStreet } from "./roads/primary-street";
 import { SecondaryStreet } from "./roads/secondary-street";
@@ -15,6 +16,7 @@ import { Driveway } from "./roads/driveway";
 import { ParkingAisle } from "./roads/parking-aisle";
 import { TrunkRoad } from "./roads/trunk-road";
 import { UnclassifiedRoad } from "./roads/unclassified-road";
+import { Track } from "./roads/track";
 import { LivingStreet } from "./living-street";
 
 export type Edge =
@@ -24,6 +26,7 @@ export type Edge =
   | TrafficIsland
   | Steps
   | Pedestrian
+  | CyclePath
   | PrimaryStreet
   | SecondaryStreet
   | TertiaryStreet
@@ -34,4 +37,5 @@ export type Edge =
   | ParkingAisle
   | TrunkRoad
   | UnclassifiedRoad
+  | Track
   | LivingStreet;

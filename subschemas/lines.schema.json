@@ -1,5 +1,5 @@
 {
-    "$id": "https://sidewalks.washington.edu/opensidewalks/0.3/schema.json",
+    "$id": "https://sidewalks.washington.edu/opensidewalks/0.4/schema.json",
     "$schema": "http://json-schema.org/draft-07/schema#",
     "additionalProperties": false,
     "definitions": {
@@ -7,7 +7,8 @@
             "description": "A field for the schema id.",
             "enum": [
                 "https://sidewalks.washington.edu/opensidewalks/0.2/schema.json",
-                "https://sidewalks.washington.edu/opensidewalks/0.3/schema.json"
+                "https://sidewalks.washington.edu/opensidewalks/0.3/schema.json",
+                "https://sidewalks.washington.edu/opensidewalks/0.4/schema.json"
             ],
             "type": "string"
         },
