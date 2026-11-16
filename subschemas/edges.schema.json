@@ -202,11 +202,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -283,11 +285,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -327,11 +331,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -483,11 +489,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -564,11 +572,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -608,11 +618,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -776,11 +788,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -857,11 +871,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -901,11 +917,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -943,6 +961,7 @@
                     "description": "A field for the surface material of the path.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
@@ -950,6 +969,7 @@
                         "gravel",
                         "paved",
                         "paving_stones",
+                        "sand",
                         "unpaved"
                     ],
                     "type": "string"
@@ -1050,11 +1070,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -1131,11 +1153,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -1175,11 +1199,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -1398,6 +1424,7 @@
                     "description": "A field for the surface material of the path.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
@@ -1405,6 +1432,7 @@
                         "gravel",
                         "paved",
                         "paving_stones",
+                        "sand",
                         "unpaved"
                     ],
                     "type": "string"
@@ -1693,6 +1721,7 @@
                     "description": "A field for the surface material of the path.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
@@ -1700,6 +1729,7 @@
                         "gravel",
                         "paved",
                         "paving_stones",
+                        "sand",
                         "unpaved"
                     ],
                     "type": "string"
@@ -1918,11 +1948,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -1999,11 +2031,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -2043,11 +2077,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -2199,11 +2235,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -2280,11 +2318,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -2324,11 +2364,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -2492,11 +2534,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -2573,11 +2617,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -2617,11 +2663,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -2659,6 +2707,7 @@
                     "description": "A field for the surface material of the path.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
@@ -2666,6 +2715,7 @@
                         "gravel",
                         "paved",
                         "paving_stones",
+                        "sand",
                         "unpaved"
                     ],
                     "type": "string"
@@ -2766,11 +2816,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -2847,11 +2899,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -2891,11 +2945,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -3074,6 +3130,7 @@
                     "description": "A field for the surface material of the path.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
@@ -3081,6 +3138,7 @@
                         "gravel",
                         "paved",
                         "paving_stones",
+                        "sand",
                         "unpaved"
                     ],
                     "type": "string"
@@ -3459,11 +3517,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -3540,11 +3600,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -3584,11 +3646,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -3740,11 +3804,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -3821,11 +3887,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -3865,11 +3933,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -4027,11 +4097,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -4108,11 +4180,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -4152,11 +4226,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -4194,6 +4270,7 @@
                     "description": "A field for the surface material of the path.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
@@ -4201,6 +4278,7 @@
                         "gravel",
                         "paved",
                         "paving_stones",
+                        "sand",
                         "unpaved"
                     ],
                     "type": "string"
@@ -4301,11 +4379,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -4382,11 +4462,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -4426,11 +4508,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -4662,11 +4746,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -4743,11 +4829,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -4787,11 +4875,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -4943,11 +5033,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -5024,11 +5116,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -5068,11 +5162,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -5236,11 +5332,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -5317,11 +5415,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -5361,11 +5461,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -5403,6 +5505,7 @@
                     "description": "A field for the surface material of the path.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
@@ -5410,6 +5513,7 @@
                         "gravel",
                         "paved",
                         "paving_stones",
+                        "sand",
                         "unpaved"
                     ],
                     "type": "string"
@@ -5510,11 +5614,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -5591,11 +5697,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -5635,11 +5743,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -5872,11 +5982,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -5953,11 +6065,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -5997,11 +6111,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -6153,11 +6269,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -6234,11 +6352,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -6278,11 +6398,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -6440,11 +6562,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -6521,11 +6645,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -6565,11 +6691,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -6607,6 +6735,7 @@
                     "description": "A field for the surface material of the path.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
@@ -6614,6 +6743,7 @@
                         "gravel",
                         "paved",
                         "paving_stones",
+                        "sand",
                         "unpaved"
                     ],
                     "type": "string"
@@ -6714,11 +6844,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -6795,11 +6927,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -6839,11 +6973,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -7075,11 +7211,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -7156,11 +7294,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -7200,11 +7340,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -7356,11 +7498,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -7437,11 +7581,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -7481,11 +7627,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -7643,11 +7791,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -7724,11 +7874,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -7768,11 +7920,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -7810,6 +7964,7 @@
                     "description": "A field for the surface material of the path.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
@@ -7817,6 +7972,7 @@
                         "gravel",
                         "paved",
                         "paving_stones",
+                        "sand",
                         "unpaved"
                     ],
                     "type": "string"
@@ -7917,11 +8073,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -7998,11 +8156,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -8042,11 +8202,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -8278,11 +8440,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -8359,11 +8523,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -8403,11 +8569,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -8559,11 +8727,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -8640,11 +8810,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -8684,11 +8856,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -8846,11 +9020,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -8927,11 +9103,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -8971,11 +9149,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -9013,6 +9193,7 @@
                     "description": "A field for the surface material of the path.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
@@ -9020,6 +9201,7 @@
                         "gravel",
                         "paved",
                         "paving_stones",
+                        "sand",
                         "unpaved"
                     ],
                     "type": "string"
@@ -9120,11 +9302,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -9201,11 +9385,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -9245,11 +9431,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -9481,11 +9669,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -9562,11 +9752,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -9606,11 +9798,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -9762,11 +9956,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -9843,11 +10039,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -9887,11 +10085,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -10049,11 +10249,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -10130,11 +10332,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -10174,11 +10378,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -10216,6 +10422,7 @@
                     "description": "A field for the surface material of the path.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
@@ -10223,6 +10430,7 @@
                         "gravel",
                         "paved",
                         "paving_stones",
+                        "sand",
                         "unpaved"
                     ],
                     "type": "string"
@@ -10323,11 +10531,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -10404,11 +10614,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -10448,11 +10660,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -10684,11 +10898,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -10765,11 +10981,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -10809,11 +11027,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -10965,11 +11185,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -11046,11 +11268,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -11090,11 +11314,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -11252,11 +11478,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -11333,11 +11561,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -11377,11 +11607,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -11419,6 +11651,7 @@
                     "description": "A field for the surface material of the path.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
@@ -11426,6 +11659,7 @@
                         "gravel",
                         "paved",
                         "paving_stones",
+                        "sand",
                         "unpaved"
                     ],
                     "type": "string"
@@ -11526,11 +11760,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -11607,11 +11843,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -11651,11 +11889,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -11839,6 +12079,7 @@
                     "description": "A field for the surface material of the path.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
@@ -11846,6 +12087,7 @@
                         "gravel",
                         "paved",
                         "paving_stones",
+                        "sand",
                         "unpaved"
                     ],
                     "type": "string"
@@ -12025,6 +12267,7 @@
                     "description": "A field for the surface material of the path.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
@@ -12032,6 +12275,7 @@
                         "gravel",
                         "paved",
                         "paving_stones",
+                        "sand",
                         "unpaved"
                     ],
                     "type": "string"
@@ -12250,11 +12494,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -12331,11 +12577,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -12375,11 +12623,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -12531,11 +12781,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -12612,11 +12864,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -12656,11 +12910,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -12818,11 +13074,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -12899,11 +13157,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -12943,11 +13203,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -12985,6 +13247,7 @@
                     "description": "A field for the surface material of the path.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
@@ -12992,6 +13255,7 @@
                         "gravel",
                         "paved",
                         "paving_stones",
+                        "sand",
                         "unpaved"
                     ],
                     "type": "string"
@@ -13092,11 +13356,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -13173,11 +13439,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -13217,11 +13485,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -13452,11 +13722,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -13533,11 +13805,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -13577,11 +13851,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -13733,11 +14009,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -13814,11 +14092,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -13858,11 +14138,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -14020,11 +14302,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -14101,11 +14385,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -14145,11 +14431,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -14187,6 +14475,7 @@
                     "description": "A field for the surface material of the path.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
@@ -14194,6 +14483,7 @@
                         "gravel",
                         "paved",
                         "paving_stones",
+                        "sand",
                         "unpaved"
                     ],
                     "type": "string"
@@ -14294,11 +14584,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -14375,11 +14667,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -14419,11 +14713,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -14607,6 +14903,7 @@
                     "description": "A field for the surface material of the path.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
@@ -14614,6 +14911,7 @@
                         "gravel",
                         "paved",
                         "paving_stones",
+                        "sand",
                         "unpaved"
                     ],
                     "type": "string"
@@ -14833,11 +15131,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -14914,11 +15214,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -14958,11 +15260,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -15114,11 +15418,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -15195,11 +15501,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -15239,11 +15547,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -15401,11 +15711,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -15482,11 +15794,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -15526,11 +15840,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -15568,6 +15884,7 @@
                     "description": "A field for the surface material of the path.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
@@ -15575,6 +15892,7 @@
                         "gravel",
                         "paved",
                         "paving_stones",
+                        "sand",
                         "unpaved"
                     ],
                     "type": "string"
@@ -15675,11 +15993,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -15756,11 +16076,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -15800,11 +16122,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -16036,11 +16360,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -16117,11 +16443,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -16161,11 +16489,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -16317,11 +16647,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -16398,11 +16730,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -16442,11 +16776,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -16604,11 +16940,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -16685,11 +17023,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -16729,11 +17069,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -16771,6 +17113,7 @@
                     "description": "A field for the surface material of the path.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
@@ -16778,6 +17121,7 @@
                         "gravel",
                         "paved",
                         "paving_stones",
+                        "sand",
                         "unpaved"
                     ],
                     "type": "string"
@@ -16878,11 +17222,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -16959,11 +17305,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"
@@ -17003,11 +17351,13 @@
                     "description": "Surface types used for traversable roadside features.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
                         "gravel",
                         "paving_stones",
+                        "sand",
                         "unknown"
                     ],
                     "type": "string"

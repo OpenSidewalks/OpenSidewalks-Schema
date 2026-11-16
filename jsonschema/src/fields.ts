@@ -45,6 +45,7 @@ export type Name = string;
  */
 export type Surface =
   | "asphalt"
+  | "chipseal"
   | "concrete"
   | "gravel"
   | "grass"
@@ -52,7 +53,8 @@ export type Surface =
   | "paving_stones"
   | "unpaved"
   | "dirt"
-  | "grass_paver";
+  | "grass_paver"
+  | "sand";
 /**
  * A field for whether a curb has a tactile (textured) surface. Tactile paving is a system of textured ground surface indicators found on footpaths, stairs and public transportation platforms to assist pedestrians who are blind or visually impaired. A tactile paving area has a surface that is easy to detect using a long cane, typically because it is rougher than the surrounding surface area or has an embossed pattern.
  */
@@ -256,11 +258,13 @@ export type SidewalkPresence =
  */
 export type RoadsideSurface =
   | "asphalt"
+  | "chipseal"
   | "concrete"
   | "paving_stones"
   | "gravel"
   | "dirt"
   | "grass"
+  | "sand"
   | "unknown";
 
 /**

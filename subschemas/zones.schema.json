@@ -428,6 +428,7 @@
                     "description": "A field for the surface material of the path.",
                     "enum": [
                         "asphalt",
+                        "chipseal",
                         "concrete",
                         "dirt",
                         "grass",
@@ -435,6 +436,7 @@
                         "gravel",
                         "paved",
                         "paving_stones",
+                        "sand",
                         "unpaved"
                     ],
                     "type": "string"
