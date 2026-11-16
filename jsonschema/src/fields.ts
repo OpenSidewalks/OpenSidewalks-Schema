@@ -287,6 +287,7 @@ export type RoadsideSeparation =
 /**
  * Roadside feature width in meters, or "unknown".
  * @minimum 0
+ * @maximum 500
  */
 export type RoadsideWidth =
   | number

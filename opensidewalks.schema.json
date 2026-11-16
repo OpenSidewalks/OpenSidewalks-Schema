@@ -224,6 +224,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "bike_lane:right": {
@@ -307,6 +308,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "bike_lane:separation": {
@@ -353,6 +355,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "description": {
@@ -511,6 +514,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "paved_shoulder:right": {
@@ -594,6 +598,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "paved_shoulder:separation": {
@@ -640,6 +645,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "roadside:left": {
@@ -662,6 +668,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "roadside:right": {
@@ -684,6 +691,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "service": {
@@ -810,6 +818,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "sideslope:right": {
@@ -893,6 +902,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "sideslope:separation": {
@@ -939,6 +949,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "sidewalk:left": {
@@ -1092,6 +1103,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "unpaved_shoulder:right": {
@@ -1175,6 +1187,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "unpaved_shoulder:separation": {
@@ -1221,6 +1234,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "width": {
@@ -3267,6 +3281,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "bike_lane:right": {
@@ -3350,6 +3365,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "bike_lane:separation": {
@@ -3396,6 +3412,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "description": {
@@ -3554,6 +3571,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "paved_shoulder:right": {
@@ -3637,6 +3655,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "paved_shoulder:separation": {
@@ -3683,6 +3702,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "roadside:left": {
@@ -3705,6 +3725,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "roadside:right": {
@@ -3727,6 +3748,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "service": {
@@ -3853,6 +3875,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "sideslope:right": {
@@ -3936,6 +3959,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "sideslope:separation": {
@@ -3982,6 +4006,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "sidewalk:left": {
@@ -4135,6 +4160,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "unpaved_shoulder:right": {
@@ -4218,6 +4244,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "unpaved_shoulder:separation": {
@@ -4264,6 +4291,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "width": {
@@ -5454,6 +5482,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "bike_lane:right": {
@@ -5537,6 +5566,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "bike_lane:separation": {
@@ -5583,6 +5613,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "description": {
@@ -5741,6 +5772,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "paved_shoulder:right": {
@@ -5824,6 +5856,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "paved_shoulder:separation": {
@@ -5870,6 +5903,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "roadside:left": {
@@ -5892,6 +5926,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "roadside:right": {
@@ -5914,6 +5949,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "sideslope": {
@@ -6034,6 +6070,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "sideslope:right": {
@@ -6117,6 +6154,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "sideslope:separation": {
@@ -6163,6 +6201,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "sidewalk:left": {
@@ -6316,6 +6355,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "unpaved_shoulder:right": {
@@ -6399,6 +6439,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "unpaved_shoulder:separation": {
@@ -6445,6 +6486,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "width": {
@@ -6791,6 +6833,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "bike_lane:right": {
@@ -6874,6 +6917,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "bike_lane:separation": {
@@ -6920,6 +6964,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "description": {
@@ -7078,6 +7123,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "paved_shoulder:right": {
@@ -7161,6 +7207,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "paved_shoulder:separation": {
@@ -7207,6 +7254,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "roadside:left": {
@@ -7229,6 +7277,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "roadside:right": {
@@ -7251,6 +7300,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "service": {
@@ -7377,6 +7427,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "sideslope:right": {
@@ -7460,6 +7511,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "sideslope:separation": {
@@ -7506,6 +7558,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "sidewalk:left": {
@@ -7659,6 +7712,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "unpaved_shoulder:right": {
@@ -7742,6 +7796,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "unpaved_shoulder:separation": {
@@ -7788,6 +7843,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "width": {
@@ -8027,6 +8083,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "bike_lane:right": {
@@ -8110,6 +8167,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "bike_lane:separation": {
@@ -8156,6 +8214,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "description": {
@@ -8314,6 +8373,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "paved_shoulder:right": {
@@ -8397,6 +8457,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "paved_shoulder:separation": {
@@ -8443,6 +8504,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "roadside:left": {
@@ -8465,6 +8527,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "roadside:right": {
@@ -8487,6 +8550,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "sideslope": {
@@ -8607,6 +8671,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "sideslope:right": {
@@ -8690,6 +8755,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "sideslope:separation": {
@@ -8736,6 +8802,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "sidewalk:left": {
@@ -8889,6 +8956,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "unpaved_shoulder:right": {
@@ -8972,6 +9040,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "unpaved_shoulder:separation": {
@@ -9018,6 +9087,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "width": {
@@ -9517,6 +9587,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "bike_lane:right": {
@@ -9600,6 +9671,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "bike_lane:separation": {
@@ -9646,6 +9718,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "description": {
@@ -9804,6 +9877,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "paved_shoulder:right": {
@@ -9887,6 +9961,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "paved_shoulder:separation": {
@@ -9933,6 +10008,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "roadside:left": {
@@ -9955,6 +10031,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "roadside:right": {
@@ -9977,6 +10054,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "sideslope": {
@@ -10097,6 +10175,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "sideslope:right": {
@@ -10180,6 +10259,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "sideslope:separation": {
@@ -10226,6 +10306,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "sidewalk:left": {
@@ -10379,6 +10460,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "unpaved_shoulder:right": {
@@ -10462,6 +10544,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "unpaved_shoulder:separation": {
@@ -10508,6 +10591,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "width": {
@@ -11099,6 +11183,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "bike_lane:right": {
@@ -11182,6 +11267,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "bike_lane:separation": {
@@ -11228,6 +11314,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "description": {
@@ -11386,6 +11473,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "paved_shoulder:right": {
@@ -11469,6 +11557,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "paved_shoulder:separation": {
@@ -11515,6 +11604,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "roadside:left": {
@@ -11537,6 +11627,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "roadside:right": {
@@ -11559,6 +11650,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "sideslope": {
@@ -11679,6 +11771,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "sideslope:right": {
@@ -11762,6 +11855,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "sideslope:separation": {
@@ -11808,6 +11902,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "sidewalk:left": {
@@ -11961,6 +12056,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "unpaved_shoulder:right": {
@@ -12044,6 +12140,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "unpaved_shoulder:separation": {
@@ -12090,6 +12187,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "width": {
@@ -12453,6 +12551,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "bike_lane:right": {
@@ -12536,6 +12635,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "bike_lane:separation": {
@@ -12582,6 +12682,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "description": {
@@ -12740,6 +12841,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "paved_shoulder:right": {
@@ -12823,6 +12925,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "paved_shoulder:separation": {
@@ -12869,6 +12972,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "roadside:left": {
@@ -12891,6 +12995,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "roadside:right": {
@@ -12913,6 +13018,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "sideslope": {
@@ -13033,6 +13139,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "sideslope:right": {
@@ -13116,6 +13223,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "sideslope:separation": {
@@ -13162,6 +13270,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "sidewalk:left": {
@@ -13315,6 +13424,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "unpaved_shoulder:right": {
@@ -13398,6 +13508,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "unpaved_shoulder:separation": {
@@ -13444,6 +13555,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "width": {
@@ -13682,6 +13794,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "bike_lane:right": {
@@ -13765,6 +13878,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "bike_lane:separation": {
@@ -13811,6 +13925,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "description": {
@@ -13969,6 +14084,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "paved_shoulder:right": {
@@ -14052,6 +14168,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "paved_shoulder:separation": {
@@ -14098,6 +14215,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "roadside:left": {
@@ -14120,6 +14238,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "roadside:right": {
@@ -14142,6 +14261,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "sideslope": {
@@ -14262,6 +14382,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "sideslope:right": {
@@ -14345,6 +14466,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "sideslope:separation": {
@@ -14391,6 +14513,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "sidewalk:left": {
@@ -14544,6 +14667,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "unpaved_shoulder:right": {
@@ -14627,6 +14751,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "unpaved_shoulder:separation": {
@@ -14673,6 +14798,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "width": {
@@ -15493,6 +15619,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "bike_lane:right": {
@@ -15576,6 +15703,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "bike_lane:separation": {
@@ -15622,6 +15750,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "description": {
@@ -15780,6 +15909,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "paved_shoulder:right": {
@@ -15863,6 +15993,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "paved_shoulder:separation": {
@@ -15909,6 +16040,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "roadside:left": {
@@ -15931,6 +16063,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "roadside:right": {
@@ -15953,6 +16086,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "sideslope": {
@@ -16073,6 +16207,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "sideslope:right": {
@@ -16156,6 +16291,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "sideslope:separation": {
@@ -16202,6 +16338,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "sidewalk:left": {
@@ -16355,6 +16492,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "unpaved_shoulder:right": {
@@ -16438,6 +16576,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "unpaved_shoulder:separation": {
@@ -16484,6 +16623,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "width": {
@@ -16721,6 +16861,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "bike_lane:right": {
@@ -16804,6 +16945,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "bike_lane:separation": {
@@ -16850,6 +16992,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "description": {
@@ -17008,6 +17151,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "paved_shoulder:right": {
@@ -17091,6 +17235,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "paved_shoulder:separation": {
@@ -17137,6 +17282,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "roadside:left": {
@@ -17159,6 +17305,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "roadside:right": {
@@ -17181,6 +17328,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "sideslope": {
@@ -17301,6 +17449,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "sideslope:right": {
@@ -17384,6 +17533,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "sideslope:separation": {
@@ -17430,6 +17580,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "sidewalk:left": {
@@ -17583,6 +17734,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "unpaved_shoulder:right": {
@@ -17666,6 +17818,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "unpaved_shoulder:separation": {
@@ -17712,6 +17865,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "width": {
@@ -18387,6 +18541,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "bike_lane:right": {
@@ -18470,6 +18625,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "bike_lane:separation": {
@@ -18516,6 +18672,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "description": {
@@ -18674,6 +18831,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "paved_shoulder:right": {
@@ -18757,6 +18915,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "paved_shoulder:separation": {
@@ -18803,6 +18962,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "roadside:left": {
@@ -18825,6 +18985,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "roadside:right": {
@@ -18847,6 +19008,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "sideslope": {
@@ -18967,6 +19129,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "sideslope:right": {
@@ -19050,6 +19213,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "sideslope:separation": {
@@ -19096,6 +19260,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "sidewalk:left": {
@@ -19249,6 +19414,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "unpaved_shoulder:right": {
@@ -19332,6 +19498,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "unpaved_shoulder:separation": {
@@ -19378,6 +19545,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "width": {
@@ -19616,6 +19784,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "bike_lane:right": {
@@ -19699,6 +19868,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "bike_lane:separation": {
@@ -19745,6 +19915,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "description": {
@@ -19903,6 +20074,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "paved_shoulder:right": {
@@ -19986,6 +20158,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "paved_shoulder:separation": {
@@ -20032,6 +20205,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "roadside:left": {
@@ -20054,6 +20228,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "roadside:right": {
@@ -20076,6 +20251,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "sideslope": {
@@ -20196,6 +20372,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "sideslope:right": {
@@ -20279,6 +20456,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "sideslope:separation": {
@@ -20325,6 +20503,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "sidewalk:left": {
@@ -20478,6 +20657,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "unpaved_shoulder:right": {
@@ -20561,6 +20741,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "unpaved_shoulder:separation": {
@@ -20607,6 +20788,7 @@
                         }
                     ],
                     "description": "Roadside feature width in meters, or \"unknown\".",
+                    "maximum": 500,
                     "minimum": 0
                 },
                 "width": {
